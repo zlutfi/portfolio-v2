@@ -1,6 +1,3 @@
-import React from "react"
-import { Link, RichText, Date } from "prismic-reactjs"
-
 // In src/prismic-configuration.js
 export const linkResolver = doc => {
   // URL for a post type
