@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { RichText } from "prismic-reactjs"
+import Layout from "../components/layout"
 
 export const query = graphql`
   query PageQuery($uid: String) {
@@ -21,10 +23,12 @@ const Page = props => {
   if (!doc) return null
 
   return (
-    <div>
-      <h1>{RichText.render(doc.node.title)}</h1>
-      <h3>{RichText.render(doc.node.description)}</h3>
-    </div>
+    <Layout>
+      <div>
+        <h1>{RichText.render(doc.node.title)}</h1>
+        <h3>{RichText.render(doc.node.description)}</h3>
+      </div>
+    </Layout>
   )
 }
 
