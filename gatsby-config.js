@@ -43,20 +43,20 @@ module.exports = {
           {
             // (optional, builds pages dynamically)
             type: "Page", // TypeName from prismic
-            match: "/page/:uid", // Pages will be generated under this pattern
-            path: "/pages", // Placeholder page for unpublished documents
+            match: "/:uid", // Pages will be generated under this pattern
+            path: "/page-preview", // Placeholder page for unpublished documents
             component: require.resolve("./src/templates/page.js"),
           },
           {
             type: "Post", // TypeName from prismic
             match: "/post/:uid", // Posts will be generated under this pattern
-            path: "/posts", // Placeholder page for unpublished documents
+            path: "/post-preview", // Placeholder page for unpublished documents
             component: require.resolve("./src/templates/post.js"),
           },
           {
             type: "Project", // TypeName from prismic
             match: "/project/:uid", // Projects will be generated under this pattern
-            path: "/projects", // Placeholder page for unpublished documents
+            path: "/project-preview", // Placeholder page for unpublished documents
             component: require.resolve("./src/templates/project.js"),
           },
         ],
