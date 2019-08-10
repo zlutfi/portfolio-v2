@@ -25,7 +25,7 @@ const Page = props => {
   return (
     <Layout>
       <div>
-        <h1>{RichText.render(doc.node.title)}</h1>
+        {RichText.render(doc.node.title)}
         <h3>{RichText.render(doc.node.description)}</h3>
       </div>
     </Layout>
