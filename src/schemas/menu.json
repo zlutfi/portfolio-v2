@@ -1,0 +1,43 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "Menu name"
+      }
+    },
+    "menu_links": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "label": {
+            "type": "StructuredText",
+            "config": {
+              "single": "paragraph",
+              "label": "Link Label",
+              "placeholder": "Link Label..."
+            }
+          },
+          "link": {
+            "type": "Link",
+            "config": {
+              "label": "Link",
+              "placeholder": "Select a Link..."
+            }
+          },
+          "partially_active": {
+            "type": "Select",
+            "config": {
+              "options": ["false", "true"],
+              "default_value": "false",
+              "label": "Partially Active",
+              "placeholder": "Select whether link accepts partial matches for active page indicator."
+            }
+          }
+        },
+        "label": "Menu Links"
+      }
+    }
+  }
+}
