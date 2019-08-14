@@ -1,35 +1,42 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { RichText } from "prismic-reactjs"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
+import PageHero from "../components/pageHero"
+import { MDBContainer } from "mdbreact"
 
-export const query = graphql`
-  query PageQuery($uid: String) {
-    prismic {
-      allPages(uid: $uid) {
-        edges {
-          node {
-            title
-            description
-          }
-        }
-      }
-    }
-  }
-`
-
-const Page = props => {
-  const doc = props.data.prismic.allPages.edges.slice(0, 1).pop()
-  if (!doc) return null
-
+const Page = ({ data: { prismicPage } }) => {
+  const { data } = prismicPage
   return (
     <Layout>
-      <div>
-        {RichText.render(doc.node.title)}
-        <h3>{RichText.render(doc.node.description)}</h3>
-      </div>
+      <SEO title={data.title.text} />
+      <PageHero title={data.title.text} subtitle={data.description.text} />
+
+      <MDBContainer>
+        <div dangerouslySetInnerHTML={{ __html: data.body.html }} />
+      </MDBContainer>
     </Layout>
   )
 }
 
 export default Page
+
+export const pageQuery = graphql`
+  query PageBySlug($uid: String!) {
+    prismicPage(uid: { eq: $uid }) {
+      uid
+      type
+      data {
+        title {
+          text
+        }
+        body {
+          html
+        }
+        description {
+          text
+        }
+      }
+    }
+  }
+`
