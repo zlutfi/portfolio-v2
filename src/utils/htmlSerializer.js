@@ -1,77 +1,157 @@
-// -- The HTML Serializer
-// This function will be used to modify the way that a Rich Text or Title field is rendered.
-
 import React from "react"
-import { Link as PrismicLink, RichText } from "prismic-reactjs"
+import { Elements } from "prismic-reactjs"
 import { linkResolver } from "./linkResolver"
-import { Link } from "gatsby"
 
-const Elements = RichText.Elements
+// -- Function to add unique key to props
+const propsWithUniqueKey = function(props, key) {
+  return Object.assign(props || {}, { key })
+}
 
-export default function(type, element, content, children, index) {
-  // Generate links to Prismic Documents as <Link> components
-  if (type === Elements.hyperlink) {
-    let result = ""
-    const url = PrismicLink.url(element.data, linkResolver)
+// -- HTML Serializer
+export const htmlSerializer = function(type, element, content, children, key) {
+  var props = {}
 
-    if (element.data.link_type === "Document") {
-      result = (
-        <Link to={url} key={index}>
-          {content}
-        </Link>
+  switch (type) {
+    case Elements.heading1: // Heading 1
+      return React.createElement("h1", propsWithUniqueKey(props, key), children)
+
+    case Elements.heading2: // Heading 2
+      return React.createElement("h2", propsWithUniqueKey(props, key), children)
+
+    case Elements.heading3: // Heading 3
+      return React.createElement("h3", propsWithUniqueKey(props, key), children)
+
+    case Elements.heading4: // Heading 4
+      return React.createElement("h4", propsWithUniqueKey(props, key), children)
+
+    case Elements.heading5: // Heading 5
+      return React.createElement("h5", propsWithUniqueKey(props, key), children)
+
+    case Elements.heading6: // Heading 6
+      return React.createElement("h6", propsWithUniqueKey(props, key), children)
+
+    case Elements.paragraph: // Paragraph
+      return React.createElement("p", propsWithUniqueKey(props, key), children)
+
+    case Elements.preformatted: // Preformatted
+      return React.createElement(
+        "pre",
+        propsWithUniqueKey(props, key),
+        children
       )
-    } else {
-      const target = element.data.target
-        ? { target: element.data.target, rel: "noopener" }
-        : {}
-      result = (
-        <a href={url} {...target} key={index}>
-          {content}
-        </a>
+
+    case Elements.strong: // Strong
+      return React.createElement(
+        "strong",
+        propsWithUniqueKey(props, key),
+        children
       )
-    }
-    return result
-  }
 
-  // If the image is also a link to a Prismic Document, it will return a <Link> component
-  if (type === Elements.image) {
-    let result = (
-      <img
-        src={element.url}
-        alt={element.alt || ""}
-        copyright={element.copyright || ""}
-      />
-    )
+    case Elements.em: // Emphasis
+      return React.createElement("em", propsWithUniqueKey(props, key), children)
 
-    if (element.linkTo) {
-      const url = PrismicLink.url(element.linkTo, linkResolver)
+    case Elements.listItem: // Unordered List Item
+      return React.createElement("li", propsWithUniqueKey(props, key), children)
 
-      if (element.linkTo.link_type === "Document") {
-        result = (
-          <Link to={url} key={index}>
-            {result}
-          </Link>
-        )
-      } else {
-        const target = element.linkTo.target
-          ? { target: element.linkTo.target, rel: "noopener" }
+    case Elements.oListItem: // Ordered List Item
+      return React.createElement("li", propsWithUniqueKey(props, key), children)
+
+    case Elements.list: // Unordered List
+      return React.createElement("ul", propsWithUniqueKey(props, key), children)
+
+    case Elements.oList: // Ordered List
+      return React.createElement("ol", propsWithUniqueKey(props, key), children)
+
+    case Elements.image: // Image
+      const linkUrl = element.linkTo
+        ? element.linkTo.url || linkResolver(element.linkTo)
+        : null
+      const linkTarget =
+        element.linkTo && element.linkTo.target
+          ? { target: element.linkTo.target }
           : {}
-        result = (
-          <a href={url} {...target}>
-            {result}
-          </a>
-        )
-      }
-    }
-    const wrapperClassList = [element.label || "", "block-img"]
-    result = (
-      <p className={wrapperClassList.join(" ")} key={index}>
-        {result}
-      </p>
-    )
-    return result
-  }
+      const linkRel = linkTarget.target ? { rel: "noopener" } : {}
+      const img = React.createElement("img", {
+        src: element.url,
+        alt: element.alt || "",
+      })
+      return React.createElement(
+        "p",
+        propsWithUniqueKey(
+          { className: [element.label || "", "block-img"].join(" ") },
+          key
+        ),
+        linkUrl
+          ? React.createElement(
+              "a",
+              Object.assign({ href: linkUrl }, linkTarget, linkRel),
+              img
+            )
+          : img
+      )
 
-  // Return null to stick with the default behavior for everything else
-  return null
+    case Elements.embed: // Embed
+      props = Object.assign(
+        {
+          "data-oembed": element.oembed.embed_url,
+          "data-oembed-type": element.oembed.type,
+          "data-oembed-provider": element.oembed.provider_name,
+        },
+        element.label ? { className: element.label } : {}
+      )
+      const embedHtml = React.createElement("div", {
+        dangerouslySetInnerHTML: { __html: element.oembed.html },
+      })
+      return React.createElement(
+        "div",
+        propsWithUniqueKey(props, key),
+        embedHtml
+      )
+
+    case Elements.hyperlink: // Image
+      const targetAttr = element.data.target
+        ? { target: element.data.target }
+        : {}
+      const relAttr = element.data.target ? { rel: "noopener" } : {}
+      props = Object.assign(
+        {
+          href: element.data.url || linkResolver(element.data),
+        },
+        targetAttr,
+        relAttr
+      )
+      return React.createElement("a", propsWithUniqueKey(props, key), children)
+
+    case Elements.label: // Label
+      props = element.data
+        ? Object.assign({}, { className: element.data.label })
+        : {}
+      return React.createElement(
+        "span",
+        propsWithUniqueKey(props, key),
+        children
+      )
+
+    case Elements.span: // Span
+      if (content) {
+        return content.split("\n").reduce((acc, p) => {
+          if (acc.length === 0) {
+            return [p]
+          } else {
+            const brIndex = (acc.length + 1) / 2 - 1
+            const br = React.createElement(
+              "br",
+              propsWithUniqueKey({}, brIndex)
+            )
+            return acc.concat([br, p])
+          }
+        }, [])
+      } else {
+        return null
+      }
+
+    default:
+      // Always include a default that returns null
+      return null
+  }
 }
