@@ -1,6 +1,15 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { BodyText, CodeBlock, Image, Quote } from "../components/slices"
+import {
+  BodyText,
+  CodeBlock,
+  Image,
+  Quote,
+  ProjectInfo,
+  ImageGallery,
+  RecentPosts,
+  RecentProjects,
+} from "../components/slices"
 
 export default class SliceZone extends Component {
   render() {
@@ -16,6 +25,14 @@ export default class SliceZone extends Component {
           return <Image key={s.id} input={s} />
         case "quote":
           return <Quote key={s.id} input={s} />
+        case "project_info":
+          return <ProjectInfo key={s.id} input={s} />
+        case "image_gallery":
+          return <ImageGallery key={s.id} input={s} />
+        case "recent_posts":
+          return <RecentPosts key={s.id} input={s} />
+        case "recent_projects":
+          return <RecentProjects key={s.id} input={s} />
         default:
           return null
       }
