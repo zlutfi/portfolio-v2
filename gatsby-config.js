@@ -156,18 +156,11 @@ module.exports = {
           if (doc.type === "page") {
             return `/${doc.uid}`
           }
-          // URL for a contact page type
-          if (doc.type === "contact") {
+          // URL for a static page type
+          if (doc.type === "static_page") {
             return `/${doc.uid}`
           }
-          // URL for a blog page type
-          if (doc.type === "blog") {
-            return `/${doc.uid}`
-          }
-          // URL for a projects page type
-          if (doc.type === "projects") {
-            return `/${doc.uid}`
-          }
+
           // Backup for all other types
           return "/"
         },

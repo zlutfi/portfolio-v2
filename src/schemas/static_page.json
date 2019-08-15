@@ -7,11 +7,11 @@
         "placeholder": "Page title"
       }
     },
-    "description": {
+    "subtitle": {
       "type": "Text",
       "config": {
-        "label": "Description",
-        "placeholder": "Description"
+        "label": "Subtitle",
+        "placeholder": "Subtitle"
       }
     },
     "uid": {

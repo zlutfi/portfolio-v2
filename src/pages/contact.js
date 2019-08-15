@@ -8,10 +8,10 @@ import ContactForm from "../components/ContactForm"
 
 const Contact = ({ data }) => (
   <Layout>
-    <SEO title={data.prismicContact.data.title} />
+    <SEO title={data.prismicStaticPage.data.title} />
     <PageHero
-      title={data.prismicContact.data.title}
-      subtitle={data.prismicContact.data.description}
+      title={data.prismicStaticPage.data.title}
+      subtitle={data.prismicStaticPage.data.subtitle}
     />
     <MDBContainer>
       <ContactForm />
@@ -23,11 +23,13 @@ export default Contact
 
 export const contactPageQuery = graphql`
   query {
-    prismicContact {
+    prismicStaticPage(uid: { eq: "contact" }) {
       uid
+      id
+      type
       data {
         title
-        description
+        subtitle
       }
     }
   }
