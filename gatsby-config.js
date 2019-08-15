@@ -156,6 +156,18 @@ module.exports = {
           if (doc.type === "page") {
             return `/${doc.uid}`
           }
+          // URL for a contact page type
+          if (doc.type === "contact") {
+            return `/${doc.uid}`
+          }
+          // URL for a blog page type
+          if (doc.type === "blog") {
+            return `/${doc.uid}`
+          }
+          // URL for a projects page type
+          if (doc.type === "projects") {
+            return `/${doc.uid}`
+          }
           // Backup for all other types
           return "/"
         },
@@ -165,6 +177,14 @@ module.exports = {
         // See: https://prismic.io/docs/javascript/query-the-api/fetch-linked-document-fields
         fetchLinks: [
           // Your list of links
+          "project.url",
+          "project.hero",
+          "project.title",
+          "project.description",
+          "post.url",
+          "post.hero",
+          "post.title",
+          "post.description",
         ],
 
         // Set an HTML serializer function used to process formatted content.
