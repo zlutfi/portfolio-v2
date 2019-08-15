@@ -1,10 +1,17 @@
 {
   "Main": {
-    "uid": {
-      "type": "UID",
+    "title": {
+      "type": "Text",
       "config": {
-        "label": "slug",
-        "placeholder": "URL of the post"
+        "label": "title",
+        "placeholder": "Post title"
+      }
+    },
+    "description": {
+      "type": "Text",
+      "config": {
+        "label": "description",
+        "placeholder": "Description for SEO tags"
       }
     },
     "date": {
@@ -14,19 +21,11 @@
         "placeholder": "Date"
       }
     },
-    "title": {
-      "type": "StructuredText",
+    "uid": {
+      "type": "UID",
       "config": {
-        "single": "heading1",
-        "label": "title",
-        "placeholder": "Title"
-      }
-    },
-    "description": {
-      "type": "Text",
-      "config": {
-        "label": "description",
-        "placeholder": "Description for SEO tags"
+        "label": "slug",
+        "placeholder": "URL of the post"
       }
     },
     "body": {

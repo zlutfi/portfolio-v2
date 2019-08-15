@@ -19,6 +19,130 @@
       "config": {
         "label": "UID"
       }
+    },
+    "hero": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich Text Section",
+            "description": "Rich Text Section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Content",
+                  "placeholder": "Your content here"
+                }
+              }
+            },
+            "repeat": {},
+            "display": "list"
+          },
+          "project_info": {
+            "type": "Slice",
+            "fieldset": "Project Info",
+            "description": "Contains project type information",
+            "icon": "work",
+            "display": "list",
+            "non-repeat": {
+              "project_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Project Title",
+                  "placeholder": "Project title"
+                }
+              },
+              "project_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Project Link",
+                  "placeholder": "Project live link"
+                }
+              },
+              "project_code_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Project code",
+                  "placeholder": "Project source code link"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "related_projects": {
+            "type": "Slice",
+            "fieldset": "Related Projects",
+            "description": "Related projects section",
+            "icon": "featured_play_list",
+            "display": "grid",
+            "non-repeat": {},
+            "repeat": {}
+          },
+          "image_gallery": {
+            "type": "Slice",
+            "fieldset": "Image Gallery",
+            "description": "Image Gallery with a title and a caption for each image",
+            "icon": "photo_library",
+            "non-repeat": {
+              "name_of_the_gallery": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Name of the gallery",
+                  "placeholder": "My beautiful paintings"
+                }
+              }
+            },
+            "repeat": {
+              "image_captions": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Image captions",
+                  "placeholder": "Images captions"
+                }
+              },
+              "gallery_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null,
+                    "height": null
+                  },
+                  "thumbnails": [],
+                  "label": "Gallery Image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Meta": {
+    "category": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["category"],
+        "label": "Category",
+        "placeholder": "Project category"
+      }
     }
   }
 }

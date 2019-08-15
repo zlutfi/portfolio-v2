@@ -1,5 +1,12 @@
 {
   "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title",
+        "placeholder": "Title"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
