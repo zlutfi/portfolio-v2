@@ -1,5 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
+import { graphql } from "gatsby"
+import PropTypes from "prop-types"
 import {
   MDBContainer,
   MDBRow,
@@ -10,26 +12,22 @@ import {
 } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import PageHero from "../components/pageHero"
 
-function SuccessPage() {
+function SuccessPage({ data = this.props }) {
   return (
     <Layout>
-      <SEO title="Success" />
-      {/* <PageHero
-        title="Success"
-        subtitle="Your message has been sent successfully"
-      /> */}
+      <SEO title={data.prismicStaticPage.data.title} />
+
       <MDBContainer>
         <MDBRow className="pt-5 mt-5">
           <MDBCol size="12" className="text-center py-5 my-5">
             <MDBAnimation type="fadeInUp" delay="0.1s">
               <h1 className="font-weight-bold text-primary display-2">
-                Success
+                {data.prismicStaticPage.data.title}
               </h1>
             </MDBAnimation>
             <MDBAnimation type="fadeInUp" delay="0.3s">
-              <p className="lead">Your message has been sent successfully</p>
+              <p className="lead">{data.prismicStaticPage.data.subtitle}</p>
             </MDBAnimation>
           </MDBCol>
           <MDBCol className="text-center pb-5">
@@ -48,3 +46,22 @@ function SuccessPage() {
   )
 }
 export default SuccessPage
+
+SuccessPage.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+}
+
+export const successPageQuery = graphql`
+  query {
+    prismicStaticPage(uid: { eq: "success" }) {
+      uid
+      id
+      type
+      data {
+        title
+        subtitle
+      }
+    }
+  }
+`
