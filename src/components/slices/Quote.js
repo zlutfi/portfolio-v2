@@ -1,10 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { MDBRow, MDBCol } from "mdbreact"
 
 const Quote = ({ input }) => (
-  <blockquote className="blockquote">
-    <div dangerouslySetInnerHTML={{ __html: input.primary.quote.html }} />
-  </blockquote>
+  <MDBRow className="py-5">
+    <MDBCol>
+      <blockquote className="blockquote">
+        <div dangerouslySetInnerHTML={{ __html: input.primary.quote.html }} />
+      </blockquote>
+    </MDBCol>
+  </MDBRow>
 )
 
 export default Quote

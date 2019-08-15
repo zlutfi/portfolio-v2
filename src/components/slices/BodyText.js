@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { MDBContainer } from "mdbreact"
+import { MDBRow, MDBCol } from "mdbreact"
 
 const BodyText = ({ input }) => (
-  <MDBContainer>
-    <div dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
-  </MDBContainer>
+  <MDBRow className="py-5">
+    <MDBCol>
+      <div dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
+    </MDBCol>
+  </MDBRow>
 )
 
 export default BodyText

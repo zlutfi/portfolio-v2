@@ -1,14 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { MDBRow, MDBCol } from "mdbreact"
 
 const CodeBlock = ({ input }) => (
-  <pre>
-    <code>
-      <div
-        dangerouslySetInnerHTML={{ __html: input.primary.code_block.html }}
-      />
-    </code>
-  </pre>
+  <MDBRow className="py-5">
+    <MDBCol>
+      <pre>
+        <code>
+          <div
+            dangerouslySetInnerHTML={{ __html: input.primary.code_block.html }}
+          />
+        </code>
+      </pre>
+    </MDBCol>
+  </MDBRow>
 )
 
 export default CodeBlock

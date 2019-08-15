@@ -20,14 +20,7 @@ function Hero({ input }) {
           <MDBContainer>
             <MDBCol size="12" className="pt-5 mt-5 mx-auto">
               <MDBAnimation type="fadeIn" delay="0.2s" reveal>
-                <h1 className="white-text pb-3">
-                  {/* I'm <span className="font-weight-bold">Z</span>.{" "}
-                  <br className="d-block d-md-none" />
-                  <span className="font-weight-bold">Web Developer</span>{" "}
-                  <br className="d-block d-md-none" />&{" "}
-                  <span className="font-weight-bold">Designer.</span> */}
-                  {input.title.text}
-                </h1>
+                <h1 className="white-text pb-3">{input.title.text}</h1>
               </MDBAnimation>
 
               <MDBRow className="py-2 py-md-4">
