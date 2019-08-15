@@ -11,8 +11,12 @@ const Project = ({ data: { prismicProject } }) => {
   const { data } = prismicProject
   return (
     <Layout>
-      <SEO title={data.title.text} />
-      <PageHero title={data.title.text} subtitle={data.description.text} />
+      <SEO title={data.title} />
+      <PageHero
+        title={data.title}
+        subtitle={data.subtitle}
+        background={data.hero.localFile.childImageSharp.fluid}
+      />
       <MDBContainer>
         <MDBRow>
           <MDBCol size="12">
@@ -22,12 +26,12 @@ const Project = ({ data: { prismicProject } }) => {
             />
           </MDBCol>
           <MDBCol className="py-5">
-            <h1>{data.title.text}</h1>
-            <h4>{data.description.text}</h4>
+            <h1>{data.title}</h1>
+            <h4>{data.subtitle}</h4>
           </MDBCol>
         </MDBRow>
+        <SliceZone allSlices={data.body} />
       </MDBContainer>
-      <SliceZone allSlices={data.body} />
     </Layout>
   )
 }
@@ -40,12 +44,8 @@ export const pageQuery = graphql`
       type
       uid
       data {
-        title {
-          text
-        }
-        description {
-          text
-        }
+        title
+        subtitle
         hero {
           alt
           localFile {
@@ -84,7 +84,7 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
-              name_of_the_gallery {
+              gallery_title {
                 text
               }
             }
@@ -100,7 +100,7 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              image_captions {
+              image_caption {
                 text
               }
             }

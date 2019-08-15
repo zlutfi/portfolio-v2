@@ -28,6 +28,14 @@
         "placeholder": "URL of the post"
       }
     },
+    "hero": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",

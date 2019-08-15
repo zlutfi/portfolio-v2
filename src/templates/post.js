@@ -11,10 +11,14 @@ const Post = ({ data: { prismicPost } }) => {
   return (
     <Layout>
       <SEO title={data.title} />
-      <PageHero title={data.title} subtitle={data.description} />
+      <PageHero
+        title={data.title}
+        subtitle={data.description}
+        background={data.hero.localFile.childImageSharp.fluid}
+      />
 
       <MDBContainer>
-        <h1>{data.date}</h1>
+        <h5>{data.date}</h5>
         <SliceZone allSlices={data.body} />
       </MDBContainer>
       {/* <div dangerouslySetInnerHTML={{ __html: data.body.primary.text.html }} /> */}
@@ -33,6 +37,16 @@ export const pageQuery = graphql`
         description
         title
         date
+        hero {
+          alt
+          localFile {
+            childImageSharp {
+              fluid(cropFocus: CENTER, maxHeight: 600, maxWidth: 1200) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
         body {
           ... on PrismicPostBodyText {
             slice_type

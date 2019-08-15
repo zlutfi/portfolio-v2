@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDBContainer } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHero from "../components/pageHero"
@@ -9,10 +10,12 @@ const Page = ({ data: { prismicPage } }) => {
   const { data } = prismicPage
   return (
     <Layout>
-      <SEO title={data.title.text} />
-      <PageHero title={data.title.text} subtitle={data.description.text} />
+      <SEO title={data.title} />
+      <PageHero title={data.title} subtitle={data.subtitle} />
 
-      <SliceZone allSlices={data.body} />
+      <MDBContainer>
+        <SliceZone allSlices={data.body} />
+      </MDBContainer>
     </Layout>
   )
 }
@@ -25,14 +28,8 @@ export const pageQuery = graphql`
       uid
       type
       data {
-        title {
-          html
-          text
-        }
-        description {
-          text
-          html
-        }
+        title
+        subtitle
         body {
           ... on PrismicPageBodyText {
             id

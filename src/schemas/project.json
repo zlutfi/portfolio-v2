@@ -1,23 +1,24 @@
 {
   "Main": {
     "title": {
-      "type": "StructuredText",
+      "type": "Text",
       "config": {
-        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-        "label": "Title"
+        "label": "Title",
+        "placeholder": "Title"
       }
     },
-    "description": {
-      "type": "StructuredText",
+    "subtitle": {
+      "type": "Text",
       "config": {
-        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "label": "Description"
+        "label": "Subtitle",
+        "placeholder": "Subtitle"
       }
     },
     "uid": {
       "type": "UID",
       "config": {
-        "label": "UID"
+        "label": "UID",
+        "placeholder": "Slug"
       }
     },
     "hero": {
@@ -81,22 +82,22 @@
             "description": "Image Gallery with a title and a caption for each image",
             "icon": "photo_library",
             "non-repeat": {
-              "name_of_the_gallery": {
+              "gallery_title": {
                 "type": "StructuredText",
                 "config": {
-                  "single": "heading2",
-                  "label": "Name of the gallery",
-                  "placeholder": "My beautiful paintings"
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Gallery Title",
+                  "placeholder": "Title"
                 }
               }
             },
             "repeat": {
-              "image_captions": {
+              "image_caption": {
                 "type": "StructuredText",
                 "config": {
-                  "multi": "paragraph",
-                  "label": "Image captions",
-                  "placeholder": "Images captions"
+                  "single": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Image caption",
+                  "placeholder": "Image caption"
                 }
               },
               "gallery_image": {
@@ -128,6 +129,107 @@
               }
             },
             "repeat": {}
+          },
+          "left_image_right_text": {
+            "type": "Slice",
+            "fieldset": "Left Image",
+            "description": "An image to the left of a paragraph section.",
+            "icon": "format_align_right",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "section_paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Section Paragraph",
+                  "placeholder": "Paragraph"
+                }
+              },
+              "section_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Section Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "right_image_paragraph": {
+            "type": "Slice",
+            "fieldset": "Image Right",
+            "description": "An image to the right of a paragraph section.",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section_Title",
+                  "placeholder": "Title"
+                }
+              },
+              "section_paragraph": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Section Paragraph",
+                  "placeholder": "Paragraph"
+                }
+              },
+              "section_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Section Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "carousel": {
+            "type": "Slice",
+            "fieldset": "Carousel",
+            "description": "An image carousel with overlay captions.",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "carousel": {
+                "type": "Text",
+                "config": {
+                  "label": "Carousel"
+                }
+              }
+            },
+            "repeat": {
+              "slide_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Slide Image"
+                }
+              },
+              "slide_caption": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed",
+                  "label": "Slide Caption",
+                  "placeholder": "Caption"
+                }
+              }
+            }
           }
         }
       }
