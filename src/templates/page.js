@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHero from "../components/pageHero"
-import { MDBContainer } from "mdbreact"
+import SliceZone from "../components/SliceZone"
 
 const Page = ({ data: { prismicPage } }) => {
   const { data } = prismicPage
@@ -12,9 +12,7 @@ const Page = ({ data: { prismicPage } }) => {
       <SEO title={data.title.text} />
       <PageHero title={data.title.text} subtitle={data.description.text} />
 
-      <MDBContainer>
-        <div dangerouslySetInnerHTML={{ __html: data.body.html }} />
-      </MDBContainer>
+      <SliceZone allSlices={data.body} />
     </Layout>
   )
 }
@@ -28,13 +26,45 @@ export const pageQuery = graphql`
       type
       data {
         title {
-          text
-        }
-        body {
           html
+          text
         }
         description {
           text
+          html
+        }
+        body {
+          ... on PrismicPageBodyText {
+            id
+            slice_type
+            primary {
+              text {
+                text
+                html
+              }
+            }
+          }
+          ... on PrismicPageBodyQuote {
+            id
+            slice_type
+            primary {
+              name_of_the_author {
+                text
+              }
+              quote {
+                text
+              }
+              portrait_author {
+                localFile {
+                  childImageSharp {
+                    fixed(width: 100, height: 100) {
+                      ...GatsbyImageSharpFixed_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
