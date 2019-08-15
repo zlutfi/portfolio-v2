@@ -10,8 +10,8 @@ const Post = ({ data: { prismicPost } }) => {
   const { data } = prismicPost
   return (
     <Layout>
-      <SEO title={data.title.text} />
-      <PageHero title={data.title.text} subtitle={data.description.text} />
+      <SEO title={data.title} />
+      <PageHero title={data.title} subtitle={data.description} />
 
       <MDBContainer>
         <h1>{data.date}</h1>
@@ -31,9 +31,7 @@ export const pageQuery = graphql`
       type
       data {
         description
-        title {
-          text
-        }
+        title
         date
         body {
           ... on PrismicPostBodyText {
