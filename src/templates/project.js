@@ -1,10 +1,11 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import { graphql, Link } from "gatsby"
+// import { PropTypes } from "prop-types"
+import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact"
 import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHero from "../components/pageHero"
+import ProjectHeader from "../components/ProjectHeader"
 import SliceZone from "../components/SliceZone"
 
 const Project = ({ data: { prismicProject } }) => {
@@ -12,25 +13,30 @@ const Project = ({ data: { prismicProject } }) => {
   return (
     <Layout>
       <SEO title={data.title} />
-      <PageHero
+      <ProjectHeader
         title={data.title}
         subtitle={data.subtitle}
         background={data.hero.localFile.childImageSharp.fluid}
       />
       <MDBContainer>
         <MDBRow>
-          <MDBCol size="12">
-            <Img
-              fluid={data.hero.localFile.childImageSharp.fluid}
-              alt={data.hero.alt}
-            />
-          </MDBCol>
           <MDBCol className="py-5">
             <h1>{data.title}</h1>
             <h4>{data.subtitle}</h4>
           </MDBCol>
         </MDBRow>
         <SliceZone allSlices={data.body} />
+
+        <MDBRow>
+          <MDBCol className="py-5">
+            <Link to="/projects">
+              <MDBBtn tag="span" color="primary">
+                <MDBIcon icon="caret-left" className="mr-2" />
+                Return to Projects
+              </MDBBtn>
+            </Link>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
     </Layout>
   )

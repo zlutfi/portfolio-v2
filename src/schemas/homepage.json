@@ -18,11 +18,11 @@
             "description": "Rich Text Section",
             "icon": "text_fields",
             "non-repeat": {
-              "content": {
+              "text": {
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "Content",
+                  "label": "Text",
                   "placeholder": "Your content here"
                 }
               }
@@ -65,6 +65,145 @@
                 "config": {
                   "label": "Button Title",
                   "placeholder": "Hero button title"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "capabilities": {
+            "type": "Slice",
+            "fieldset": "Capabilities",
+            "description": "Card section with skills list.",
+            "icon": "view_list",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Subtitle",
+                  "placeholder": "Section Subtitle"
+                }
+              }
+            },
+            "repeat": {
+              "card_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Card Title",
+                  "placeholder": "Card title"
+                }
+              },
+              "card_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Card Icon",
+                  "placeholder": "Card Icon"
+                }
+              },
+              "card_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Card Content",
+                  "placeholder": "Card Content"
+                }
+              }
+            }
+          },
+          "posts": {
+            "type": "Slice",
+            "fieldset": "Featured Posts",
+            "description": "A section for featured posts",
+            "icon": "rss_feed",
+            "display": "list",
+            "non-repeat": {
+              "featured_posts_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Featured Posts Title",
+                  "placeholder": "Title"
+                }
+              }
+            },
+            "repeat": {
+              "featured_post": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["post"],
+                  "label": "Featured Posts",
+                  "placeholder": "Select posts to feature."
+                }
+              }
+            }
+          },
+          "projects": {
+            "type": "Slice",
+            "fieldset": "Featured Projects",
+            "description": "A featured projects section",
+            "icon": "library_add",
+            "display": "list",
+            "non-repeat": {
+              "featured_projects_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Featured Projects Title",
+                  "placeholder": "Title"
+                }
+              }
+            },
+            "repeat": {
+              "featured_project": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["project"],
+                  "label": "Featured Project",
+                  "placeholder": "Select project to feature"
+                }
+              }
+            }
+          },
+          "contact_cta": {
+            "type": "Slice",
+            "fieldset": "Contact CTA",
+            "description": "Contact Call to action section",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "contact_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Contact_title",
+                  "placeholder": "Title"
+                }
+              },
+              "contact_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Contact Subtitle",
+                  "placeholder": "Subtitle"
+                }
+              },
+              "contact_background": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Contact Background"
                 }
               }
             },

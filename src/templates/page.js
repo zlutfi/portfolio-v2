@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { MDBContainer } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHero from "../components/pageHero"
+import PageHeader from "../components/PageHeader"
 import SliceZone from "../components/SliceZone"
 
 const Page = ({ data: { prismicPage } }) => {
@@ -11,7 +11,7 @@ const Page = ({ data: { prismicPage } }) => {
   return (
     <Layout>
       <SEO title={data.title} />
-      <PageHero title={data.title} subtitle={data.subtitle} />
+      <PageHeader title={data.title} subtitle={data.subtitle} />
 
       <MDBContainer>
         <SliceZone allSlices={data.body} />

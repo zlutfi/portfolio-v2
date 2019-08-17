@@ -1,9 +1,9 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHero from "../components/pageHero"
-import { MDBContainer } from "mdbreact"
+import PostHeader from "../components/PostHeader"
+import { MDBContainer, MDBBtn, MDBIcon, MDBRow, MDBCol } from "mdbreact"
 import SliceZone from "../components/SliceZone"
 
 const Post = ({ data: { prismicPost } }) => {
@@ -11,7 +11,7 @@ const Post = ({ data: { prismicPost } }) => {
   return (
     <Layout>
       <SEO title={data.title} />
-      <PageHero
+      <PostHeader
         title={data.title}
         subtitle={data.description}
         background={data.hero.localFile.childImageSharp.fluid}
@@ -20,8 +20,17 @@ const Post = ({ data: { prismicPost } }) => {
       <MDBContainer>
         <h5>{data.date}</h5>
         <SliceZone allSlices={data.body} />
+        <MDBRow>
+          <MDBCol className="py-5">
+            <Link to="/blog">
+              <MDBBtn tag="span" color="primary">
+                <MDBIcon icon="caret-left" className="mr-2" />
+                Return to Blog
+              </MDBBtn>
+            </Link>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
-      {/* <div dangerouslySetInnerHTML={{ __html: data.body.primary.text.html }} /> */}
     </Layout>
   )
 }

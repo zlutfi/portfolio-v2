@@ -36,6 +36,14 @@
         "label": "Hero"
       }
     },
+    "thumbnail": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Thumbnail"
+      }
+    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",

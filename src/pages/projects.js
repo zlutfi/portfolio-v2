@@ -2,28 +2,59 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardText,
+  MDBCardTitle,
+  MDBCardFooter,
+  MDBIcon,
+  MDBBadge,
+} from "mdbreact"
 import Img from "gatsby-image"
-import PageHero from "../components/pageHero"
+import PageHeader from "../components/PageHeader"
 
 const Projects = ({ data }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
-    <PageHero
+    <PageHeader
       title={data.prismicStaticPage.data.title}
       subtitle={data.prismicStaticPage.data.subtitle}
     />
     <MDBContainer>
       <MDBRow>
         {data.allPrismicProject.nodes.map(project => (
-          <MDBCol size="12" md="4" key={project.id}>
+          <MDBCol md="12" className="mb-5">
             <Link to={project.url}>
-              <Img
-                fluid={project.data.hero.localFile.childImageSharp.fluid}
-                alt="alt text bruh"
-              />
+              <MDBCard>
+                <MDBRow>
+                  <MDBCol size="12" md="7" className="order-md-last">
+                    <Img
+                      fluid={
+                        project.data.thumbnail.localFile.childImageSharp.fluid
+                      }
+                      alt="alt text bruh"
+                    />
+                  </MDBCol>
+                  <MDBCol size="12" md="5" middle>
+                    <MDBCardBody>
+                      <MDBCardText tag="h4">Category</MDBCardText>
+
+                      <MDBCardTitle tag="h4">{project.data.title}</MDBCardTitle>
+                      <MDBCardText>{project.data.title}</MDBCardText>
+                      <MDBCardText className="font-weight-bold">
+                        Read More{" "}
+                        <MDBIcon icon="caret-right" className="ml-2" />
+                      </MDBCardText>
+                    </MDBCardBody>
+                  </MDBCol>
+                </MDBRow>
+                <MDBCardFooter>Category</MDBCardFooter>
+              </MDBCard>
             </Link>
-            <h5>{project.data.title.text}</h5>
           </MDBCol>
         ))}
       </MDBRow>
@@ -55,7 +86,16 @@ export const projectsPageQuery = graphql`
           hero {
             localFile {
               childImageSharp {
-                fluid(cropFocus: CENTER, maxHeight: 200, maxWidth: 400) {
+                fluid(cropFocus: CENTER, maxHeight: 300, maxWidth: 600) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+          thumbnail {
+            localFile {
+              childImageSharp {
+                fluid(cropFocus: CENTER, maxHeight: 300, maxWidth: 600) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
