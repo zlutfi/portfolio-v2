@@ -3,13 +3,13 @@ import { graphql } from "gatsby"
 import { MDBContainer } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHero from "../components/pageHero"
+import PageHeader from "../components/PageHeader"
 import ContactForm from "../components/ContactForm"
 
 const Contact = ({ data }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
-    <PageHero
+    <PageHeader
       title={data.prismicStaticPage.data.title}
       subtitle={data.prismicStaticPage.data.subtitle}
     />

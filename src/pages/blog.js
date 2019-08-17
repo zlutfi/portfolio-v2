@@ -1,26 +1,74 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import Img from "gatsby-image"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardTitle,
+  MDBCardBody,
+  MDBCardText,
+  MDBCardImage,
+  MDBCardHeader,
+  MDBCardFooter,
+  MDBIcon,
+  MDBBadge,
+  MDBListGroup,
+  MDBListGroupItem,
+} from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHero from "../components/pageHero"
+import PageHeader from "../components/PageHeader"
 
 const Blog = ({ data }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
-    <PageHero
+    <PageHeader
       title={data.prismicStaticPage.data.title}
       subtitle={data.prismicStaticPage.data.subtitle}
     />
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          {data.allPrismicPost.edges.map(post => (
-            <li key={post.node.id}>
-              <Link to={post.node.url}>{post.node.data.title}</Link> -{" "}
-              {post.node.data.date}
-            </li>
-          ))}
+          <MDBRow>
+            {data.allPrismicPost.edges.map(post => (
+              <>
+                <MDBCol size="12" md="6" lg="4" className="mb-5">
+                  <MDBCard>
+                    <MDBCardHeader>Blah</MDBCardHeader>
+                    <Link to={post.node.url}>
+                      <Img
+                        fluid={
+                          post.node.data.hero.localFile.childImageSharp.fluid
+                        }
+                        alt={post.node.data.hero.alt}
+                      />
+                    </Link>
+                    <MDBCardBody>
+                      <MDBCardTitle />
+                      <MDBCardTitle tag="h5">
+                        {post.node.data.title}
+                      </MDBCardTitle>
+                      <MDBCardText>{post.node.data.description}</MDBCardText>
+                      <MDBCardText>
+                        <Link to={post.node.url}>
+                          Read More{" "}
+                          <MDBIcon icon="caret-right" className="ml-2" />
+                        </Link>
+                      </MDBCardText>
+                    </MDBCardBody>
+                    <MDBCardFooter>
+                      {post.node.data.date}{" "}
+                      <MDBBadge tag="span" color="primary" className="ml-2">
+                        Category
+                      </MDBBadge>
+                    </MDBCardFooter>
+                  </MDBCard>
+                </MDBCol>
+              </>
+            ))}
+          </MDBRow>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
@@ -49,7 +97,17 @@ export const blogPageQuery = graphql`
           data {
             title
             description
-            date(formatString: "DD.MM.YYYY")
+            hero {
+              alt
+              localFile {
+                childImageSharp {
+                  fluid(cropFocus: CENTER, maxHeight: 200, maxWidth: 400) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+            date(formatString: "MM.DD.YYYY")
             categories {
               category {
                 slug
