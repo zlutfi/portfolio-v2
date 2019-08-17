@@ -15,8 +15,14 @@ const PageHero = ({
   subtitle = this.props.subtitle,
   background = this.props.background,
 }) => (
-  <BackgroundImage fluid={background}>
-    <MDBJumbotron fluid>
+  <BackgroundImage fluid={background} backgroundColor={`#eee`}>
+    <MDBJumbotron
+      fluid
+      id="hero"
+      style={{
+        height: "30rem",
+      }}
+    >
       <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
         <MDBRow>
           <MDBCol size="12" md="8" className="text-center text-md-left">
