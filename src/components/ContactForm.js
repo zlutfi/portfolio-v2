@@ -49,7 +49,7 @@ const ContactForm = () => {
         handleReset,
       }) => (
         <form
-          className="form"
+          className="form mb-5 pb-5"
           name="contact"
           onSubmit={handleSubmit}
           onReset={handleReset}

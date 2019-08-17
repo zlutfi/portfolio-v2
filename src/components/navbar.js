@@ -26,7 +26,7 @@ class Navbar extends Component {
     return (
       <>
         <MDBNavbar
-          light
+          dark
           expand="lg"
           fixed="top"
           scrolling
@@ -117,7 +117,7 @@ const Logo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 163.13 72.6"
-    fill="#333"
+    fill="#fff"
     className="navbar-logo"
   >
     <defs>
