@@ -31,8 +31,6 @@ export default class SliceZone extends Component {
           return <ImageGallery key={s.id} input={s} />
         case "recent_posts":
           return <RecentPosts key={s.id} input={s} />
-        case "recent_projects":
-          return <RecentProjects key={s.id} input={s} />
         default:
           return null
       }

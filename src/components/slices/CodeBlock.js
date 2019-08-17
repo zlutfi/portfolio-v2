@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { MDBRow, MDBCol } from "mdbreact"
+import styled from "@emotion/styled"
 
 const CodeBlock = ({ input }) => (
   <MDBRow className="py-5">
