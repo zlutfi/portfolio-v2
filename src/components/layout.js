@@ -9,16 +9,14 @@ import React from "react"
 import Footer from "./footer"
 import Navbar from "./navbar"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, navbarColor }) => {
   return (
-    <>
-      <div className="site">
-        <Navbar />
+    <div className="site">
+      <Navbar />
 
-        <div className="site-content">{children}</div>
-        <Footer />
-      </div>
-    </>
+      <div className="site-content">{children}</div>
+      <Footer />
+    </div>
   )
 }
 
