@@ -3,6 +3,8 @@ import CodeBlock from "./CodeBlock"
 import Image from "./Image"
 import Quote from "./Quote"
 import Hero from "./Hero"
+import ImageRight from "./ImageRight"
+import ImageLeft from "./ImageLeft"
 import ProjectInfo from "./ProjectInfo"
 import ImageGallery from "./ImageGallery"
 import RecentPosts from "./RecentPosts"
@@ -28,4 +30,6 @@ export {
   PostsSection,
   ProjectsSection,
   ContactSection,
+  ImageRight,
+  ImageLeft,
 }
