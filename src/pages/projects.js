@@ -12,7 +12,6 @@ import {
   MDBCardTitle,
   MDBCardFooter,
   MDBIcon,
-  MDBBadge,
 } from "mdbreact"
 import Img from "gatsby-image"
 import PageHeader from "../components/PageHeader"
@@ -26,8 +25,8 @@ const Projects = ({ data }) => (
     />
     <MDBContainer>
       <MDBRow>
-        {data.allPrismicProject.nodes.map(project => (
-          <MDBCol md="12" className="mb-5">
+        {data.allPrismicProject.nodes.map((project, index) => (
+          <MDBCol md="12" className="mb-5" key={index}>
             <Link to={project.url}>
               <MDBCard>
                 <MDBRow>

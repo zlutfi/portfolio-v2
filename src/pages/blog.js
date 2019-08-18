@@ -9,13 +9,9 @@ import {
   MDBCardTitle,
   MDBCardBody,
   MDBCardText,
-  MDBCardImage,
-  MDBCardHeader,
   MDBCardFooter,
   MDBIcon,
   MDBBadge,
-  MDBListGroup,
-  MDBListGroupItem,
 } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -32,41 +28,36 @@ const Blog = ({ data }) => (
       <MDBRow>
         <MDBCol>
           <MDBRow>
-            {data.allPrismicPost.edges.map(post => (
-              <>
-                <MDBCol size="12" md="6" lg="4" className="mb-5">
-                  <MDBCard>
-                    <MDBCardHeader>Blah</MDBCardHeader>
-                    <Link to={post.node.url}>
-                      <Img
-                        fluid={
-                          post.node.data.hero.localFile.childImageSharp.fluid
-                        }
-                        alt={post.node.data.hero.alt}
-                      />
-                    </Link>
-                    <MDBCardBody>
-                      <MDBCardTitle />
-                      <MDBCardTitle tag="h5">
-                        {post.node.data.title}
-                      </MDBCardTitle>
-                      <MDBCardText>{post.node.data.description}</MDBCardText>
-                      <MDBCardText>
-                        <Link to={post.node.url}>
-                          Read More{" "}
-                          <MDBIcon icon="caret-right" className="ml-2" />
-                        </Link>
-                      </MDBCardText>
-                    </MDBCardBody>
-                    <MDBCardFooter>
-                      {post.node.data.date}{" "}
-                      <MDBBadge tag="span" color="primary" className="ml-2">
-                        Category
-                      </MDBBadge>
-                    </MDBCardFooter>
-                  </MDBCard>
-                </MDBCol>
-              </>
+            {data.allPrismicPost.edges.map((post, index) => (
+              <MDBCol size="12" md="6" lg="4" className="mb-5" key={index}>
+                <MDBCard>
+                  <Link to={post.node.url}>
+                    <Img
+                      fluid={
+                        post.node.data.hero.localFile.childImageSharp.fluid
+                      }
+                      alt={post.node.data.hero.alt}
+                    />
+                  </Link>
+                  <MDBCardBody>
+                    <MDBCardTitle />
+                    <MDBCardTitle tag="h5">{post.node.data.title}</MDBCardTitle>
+                    <MDBCardText>{post.node.data.description}</MDBCardText>
+                    <MDBCardText>
+                      <Link to={post.node.url}>
+                        Read More{" "}
+                        <MDBIcon icon="caret-right" className="ml-2" />
+                      </Link>
+                    </MDBCardText>
+                  </MDBCardBody>
+                  <MDBCardFooter>
+                    {post.node.data.date}{" "}
+                    <MDBBadge tag="span" color="primary" className="ml-2">
+                      Category
+                    </MDBBadge>
+                  </MDBCardFooter>
+                </MDBCard>
+              </MDBCol>
             ))}
           </MDBRow>
         </MDBCol>
