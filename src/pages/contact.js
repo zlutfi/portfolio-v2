@@ -5,8 +5,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/PageHeader"
 import ContactForm from "../components/ContactForm"
+import PropTypes from "prop-types"
 
-const Contact = ({ data }) => (
+const Contact = ({ data = this.props }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
     <PageHeader
@@ -21,12 +22,20 @@ const Contact = ({ data }) => (
 
 export default Contact
 
+Contact.propTypes = {
+  data: PropTypes.shape({
+    prismicStaticPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+      }),
+    }),
+  }).isRequired,
+}
+
 export const contactPageQuery = graphql`
   query {
     prismicStaticPage(uid: { eq: "contact" }) {
-      uid
-      id
-      type
       data {
         title
         subtitle

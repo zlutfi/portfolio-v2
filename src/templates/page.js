@@ -4,9 +4,10 @@ import { MDBContainer } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/PageHeader"
+import PropTypes from "prop-types"
 import SliceZone from "../components/SliceZone"
 
-const Page = ({ data: { prismicPage } }) => {
+const Page = ({ data: { prismicPage } } = this.props) => {
   const { data } = prismicPage
   return (
     <Layout>
@@ -22,11 +23,21 @@ const Page = ({ data: { prismicPage } }) => {
 
 export default Page
 
+Page.propTypes = {
+  data: PropTypes.shape({
+    prismicPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        body: PropTypes.array.isRequired,
+      }),
+    }),
+  }).isRequired,
+}
+
 export const pageQuery = graphql`
   query PageBySlug($uid: String!) {
     prismicPage(uid: { eq: $uid }) {
-      uid
-      type
       data {
         title
         subtitle
