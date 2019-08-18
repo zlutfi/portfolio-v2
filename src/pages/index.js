@@ -3,14 +3,13 @@ import PropTypes from "prop-types"
 // import styled from '@emotion/styled'
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-import Img from "gatsby-image"
 import SEO from "../components/seo"
 import HomeSliceZone from "../components/HomeSliceZone"
 
 class Index extends Component {
   render() {
     const {
-      data: { homepage, posts, projects },
+      data: { homepage },
     } = this.props
     return (
       <Layout>
@@ -37,6 +36,7 @@ export const pageQuery = graphql`
   query IndexQuery {
     homepage: prismicHomepage {
       data {
+        title
         body {
           ... on PrismicHomepageBodyContactCta {
             id
