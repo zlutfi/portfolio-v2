@@ -13,11 +13,13 @@ import {
   MDBIcon,
   MDBBadge,
 } from "mdbreact"
+import PropTypes from "prop-types"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/PageHeader"
 
-const Blog = ({ data }) => (
+const Blog = ({ data = this.props }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
     <PageHeader
@@ -67,6 +69,20 @@ const Blog = ({ data }) => (
 )
 
 export default Blog
+
+Blog.propTypes = {
+  data: PropTypes.shape({
+    prismicStaticPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+      }),
+    }),
+    allPrismicPost: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }),
+  }).isRequired,
+}
 
 export const blogPageQuery = graphql`
   query {

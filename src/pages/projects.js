@@ -14,9 +14,10 @@ import {
   MDBIcon,
 } from "mdbreact"
 import Img from "gatsby-image"
+import PropTypes from "prop-types"
 import PageHeader from "../components/PageHeader"
 
-const Projects = ({ data }) => (
+const Projects = ({ data = this.props }) => (
   <Layout>
     <SEO title={data.prismicStaticPage.data.title} />
     <PageHeader
@@ -62,6 +63,20 @@ const Projects = ({ data }) => (
 )
 
 export default Projects
+
+Projects.propTypes = {
+  data: PropTypes.shape({
+    prismicStaticPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+      }),
+    }),
+    allPrismicProject: PropTypes.shape({
+      nodes: PropTypes.array.isRequired,
+    }),
+  }).isRequired,
+}
 
 export const projectsPageQuery = graphql`
   query {

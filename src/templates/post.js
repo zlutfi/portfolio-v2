@@ -5,8 +5,9 @@ import SEO from "../components/seo"
 import PostHeader from "../components/PostHeader"
 import { MDBContainer, MDBBtn, MDBIcon, MDBRow, MDBCol } from "mdbreact"
 import SliceZone from "../components/SliceZone"
+import PropTypes from "prop-types"
 
-const Post = ({ data: { prismicPost } }) => {
+const Post = ({ data: { prismicPost } } = this.props) => {
   const { data } = prismicPost
   return (
     <Layout>
@@ -36,6 +37,19 @@ const Post = ({ data: { prismicPost } }) => {
 }
 
 export default Post
+
+Post.propTypes = {
+  data: PropTypes.shape({
+    prismicProject: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        hero: PropTypes.object.isRequired,
+        body: PropTypes.array.isRequired,
+      }),
+    }),
+  }).isRequired,
+}
 
 export const pageQuery = graphql`
   query PostBySlug($uid: String!) {
