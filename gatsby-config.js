@@ -3,6 +3,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+// const prismicHtmlSerializer = require("./src/utils/htmlSerializer")
+// const prismicLinkResolver = require("./src/utils/linkResolver")
+
 // Robots.txt for Netlify deploy previews
 const {
   NODE_ENV,
@@ -170,14 +173,6 @@ module.exports = {
         // See: https://prismic.io/docs/javascript/query-the-api/fetch-linked-document-fields
         fetchLinks: [
           // Your list of links
-          "project.url",
-          "project.hero",
-          "project.title",
-          "project.description",
-          "post.url",
-          "post.hero",
-          "post.title",
-          "post.description",
         ],
 
         // Set an HTML serializer function used to process formatted content.
@@ -195,6 +190,7 @@ module.exports = {
         ) => {
           // Your HTML serializer
         },
+        // htmlSerializer: ({ node, key, value }) => prismicHtmlSerializer,
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
