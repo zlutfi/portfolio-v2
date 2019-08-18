@@ -18,8 +18,8 @@ export default class ProjectsSection extends Component {
           </MDBCol>
         </MDBRow>
         <MDBRow className="pb-5">
-          {input.items.map(project => (
-            <MDBCol key={project.id} size="6" md="4">
+          {input.items.map((project, index) => (
+            <MDBCol key={index} size="6" md="4">
               <Link to={project.featured_project.document.url}>
                 <MDBView hover zoom>
                   <Img
@@ -45,5 +45,5 @@ export default class ProjectsSection extends Component {
 }
 
 ProjectsSection.propTypes = {
-  input: PropTypes.array.isRequired,
+  input: PropTypes.object.isRequired,
 }

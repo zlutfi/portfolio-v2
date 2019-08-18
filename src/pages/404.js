@@ -12,6 +12,7 @@ import {
 } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+// import SiteMap from "../components/SiteMap"
 
 function NotFoundPage({ data = this.props }) {
   return (
@@ -32,14 +33,17 @@ function NotFoundPage({ data = this.props }) {
           </MDBCol>
           <MDBCol className="text-center pb-5">
             <MDBAnimation type="fadeInUp" delay="0.5s">
-              <Link to="/contact">
+              <Link to="/">
                 <MDBBtn color="elegant">
                   <MDBIcon icon="caret-left" className="mr-2" />
-                  Return to Previous Page
+                  Return to Home
                 </MDBBtn>
               </Link>
             </MDBAnimation>
           </MDBCol>
+          {/* <MDBCol>
+            <SiteMap input={data.allSitePage.edges} pages={data.allSitePage.edges} posts={data.allSitePost.edges} projects={data.allSiteProjecte.edges} />
+          </MDBCol> */}
         </MDBRow>
       </MDBContainer>
     </Layout>
@@ -48,19 +52,29 @@ function NotFoundPage({ data = this.props }) {
 export default NotFoundPage
 
 NotFoundPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    prismicStaticPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+      }),
+    }),
+  }).isRequired,
 }
 
 export const NotFoundPageQuery = graphql`
   query {
     prismicStaticPage(uid: { eq: "404" }) {
-      uid
-      id
-      type
       data {
         title
         subtitle
+      }
+    }
+    allSitePage {
+      edges {
+        node {
+          id
+        }
       }
     }
   }

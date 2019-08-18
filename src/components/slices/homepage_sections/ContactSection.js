@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
-import Img from "gatsby-image"
-import { MDBContainer, MDBRow, MDBCol, MDBView, MDBMask } from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import BackgroundImage from "gatsby-background-image"
 import ContactForm from "../../ContactForm"
 export default class ContactSection extends Component {
@@ -38,5 +36,5 @@ export default class ContactSection extends Component {
 }
 
 ContactSection.propTypes = {
-  input: PropTypes.array.isRequired,
+  input: PropTypes.object.isRequired,
 }

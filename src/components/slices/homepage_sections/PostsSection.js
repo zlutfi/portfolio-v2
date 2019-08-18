@@ -18,8 +18,8 @@ export default class PostsSection extends Component {
           </MDBCol>
         </MDBRow>
         <MDBRow className="pb-5" key={input.id}>
-          {input.items.map(post => (
-            <MDBCol key={post.id} size="6" md="4">
+          {input.items.map((post, index) => (
+            <MDBCol key={index} size="6" md="4">
               <Link to={post.featured_post.document.url}>
                 <Img
                   fluid={
@@ -40,17 +40,5 @@ export default class PostsSection extends Component {
 }
 
 PostsSection.propTypes = {
-  input: PropTypes.array.isRequired,
-}
-
-{
-  /* <MDBContainer>
-<h2 style={{ marginTop: "4rem" }}>Recent posts</h2>
-
-{posts.edges.map(post => (
-  <li key={post.node.id}>
-    <Link to={post.node.url}>{post.node.data.title}</Link>
-  </li>
-))}
-</MDBContainer> */
+  input: PropTypes.object.isRequired,
 }

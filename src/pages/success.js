@@ -48,8 +48,14 @@ function SuccessPage({ data = this.props }) {
 export default SuccessPage
 
 SuccessPage.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    prismicStaticPage: PropTypes.shape({
+      data: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+      }),
+    }),
+  }).isRequired,
 }
 
 export const successPageQuery = graphql`
