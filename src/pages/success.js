@@ -61,9 +61,6 @@ SuccessPage.propTypes = {
 export const successPageQuery = graphql`
   query {
     prismicStaticPage(uid: { eq: "success" }) {
-      uid
-      id
-      type
       data {
         title
         subtitle

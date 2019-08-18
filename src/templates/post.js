@@ -40,7 +40,7 @@ export default Post
 
 Post.propTypes = {
   data: PropTypes.shape({
-    prismicProject: PropTypes.shape({
+    prismicPost: PropTypes.shape({
       data: PropTypes.shape({
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
@@ -54,8 +54,6 @@ Post.propTypes = {
 export const pageQuery = graphql`
   query PostBySlug($uid: String!) {
     prismicPost(uid: { eq: $uid }) {
-      uid
-      type
       data {
         description
         title

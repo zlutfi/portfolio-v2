@@ -87,9 +87,6 @@ Blog.propTypes = {
 export const blogPageQuery = graphql`
   query {
     prismicStaticPage(uid: { eq: "blog" }) {
-      uid
-      id
-      type
       data {
         title
         subtitle

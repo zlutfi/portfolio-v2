@@ -59,8 +59,6 @@ Project.propTypes = {
 export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
     prismicProject(uid: { eq: $uid }) {
-      type
-      uid
       data {
         title
         subtitle
