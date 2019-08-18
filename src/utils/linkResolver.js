@@ -6,16 +6,21 @@ export const linkResolver = doc => {
   }
   // URL for a post type
   if (doc.type === "post") {
-    return `/blog/post/${doc.uid}`
+    return `/blog/${doc.uid}`
   }
   // URL for a project type
   if (doc.type === "project") {
-    return `/${doc.uid}`
+    return `/projects/${doc.uid}`
   }
   // URL for a page type
   if (doc.type === "page") {
     return `/${doc.uid}`
   }
+  // URL for a static page type
+  if (doc.type === "static_page") {
+    return `/${doc.uid}`
+  }
+
   // Backup for all other types
   return "/"
 }
