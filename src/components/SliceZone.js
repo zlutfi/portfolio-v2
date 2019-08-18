@@ -9,6 +9,8 @@ import {
   ImageGallery,
   RecentPosts,
   RecentProjects,
+  ImageLeft,
+  ImageRight,
 } from "../components/slices"
 
 export default class SliceZone extends Component {
@@ -30,7 +32,13 @@ export default class SliceZone extends Component {
         case "image_gallery":
           return <ImageGallery key={s.id} input={s} />
         case "recent_posts":
+          return <RecentProjects key={s.id} input={s} />
+        case "recent_projects":
           return <RecentPosts key={s.id} input={s} />
+        case "left_image_right_text":
+          return <ImageLeft key={s.id} input={s} />
+        case "right_image_left_text":
+          return <ImageRight key={s.id} input={s} />
         default:
           return null
       }
