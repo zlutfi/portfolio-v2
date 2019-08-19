@@ -49,7 +49,7 @@ const ContactForm = () => {
         handleReset,
       }) => (
         <form
-          className="form mb-5 pb-5"
+          className="form m-3"
           name="contact"
           onSubmit={handleSubmit}
           onReset={handleReset}
@@ -159,7 +159,7 @@ const ContactForm = () => {
                 aria-label="Submit"
               >
                 <MDBIcon icon="paper-plane" className="mr-2" />
-                Send Message
+                Send Your Message
               </MDBBtn>
             </MDBCol>
           </MDBRow>

@@ -18,11 +18,15 @@ function HeroSection({ input }) {
       fluid={input.primary.background.localFile.childImageSharp.fluid}
     >
       <MDBJumbotron fluid id="hero">
-        <MDBRow className="pt-2 pt-md-5 my-2 my-md-5 text-center">
-          <MDBContainer>
-            <MDBCol size="12" className="pt-5 mt-5 mx-auto">
+        <MDBContainer>
+          <MDBRow className="py-5 my-5 text-center">
+            <MDBCol size="10" className="py-5 my-5 mx-auto">
               <MDBAnimation type="fadeIn" delay="0.2s" reveal>
-                <h1 className="white-text pb-3">{input.primary.title.text}</h1>
+                {/* <h1 className="white-text pb-3 font-weight-bold"> */}
+                <div
+                  dangerouslySetInnerHTML={{ __html: input.primary.title.html }}
+                />
+                {/* </h1> */}
               </MDBAnimation>
 
               <MDBRow className="py-2 py-md-4">
@@ -38,8 +42,8 @@ function HeroSection({ input }) {
                 </MDBCol>
               </MDBRow>
             </MDBCol>
-          </MDBContainer>
-        </MDBRow>
+          </MDBRow>
+        </MDBContainer>
       </MDBJumbotron>
     </BackgroundImage>
   )

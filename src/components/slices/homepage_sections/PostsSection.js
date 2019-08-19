@@ -9,12 +9,18 @@ export default class PostsSection extends Component {
     const { input } = this.props
     return (
       <MDBContainer>
-        <MDBRow size="12" className="py-5">
+        <MDBRow size="12" className="py-5 text-center">
           <MDBCol>
-            <h2 className="text-center font-weight-bold">
+            <h2 className="font-weight-bold">
               {input.primary.featured_posts_title.text}
             </h2>
             <hr className="heading-hr" />
+            <p
+              className="lead"
+              dangerouslySetInnerHTML={{
+                __html: input.primary.featured_posts_subtitle.html,
+              }}
+            />
           </MDBCol>
         </MDBRow>
         <MDBRow className="pb-5" key={input.id}>

@@ -21,17 +21,18 @@ export default class CapabilitiesSection extends Component {
         <MDBRow className="py-2  my-3 my-md-5 justify-content-center">
           <MDBContainer>
             <MDBRow className="py-4 py-md-5 mx-auto justify-content-center">
-              <MDBCol size="12">
+              <MDBCol size="6">
                 <MDBAnimation type="fadeInUp" reveal>
                   <h2 className="text-center font-weight-bold">
                     {input.primary.section_title}
                     <hr className="heading-hr" />
+                    <p
+                      className="lead"
+                      dangerouslySetInnerHTML={{
+                        __html: input.primary.section_subtitle.html,
+                      }}
+                    />
                   </h2>
-                </MDBAnimation>
-              </MDBCol>
-              <MDBCol lg="7" className="text-center mx-auto">
-                <MDBAnimation type="fadeInUp" delay="0.3s" reveal>
-                  <p className="lead">{input.primary.section_subtitle.text}</p>
                 </MDBAnimation>
               </MDBCol>
             </MDBRow>
@@ -62,9 +63,12 @@ export default class CapabilitiesSection extends Component {
 
                         <hr className="mx-3" />
 
-                        <MDBCardText className="py-2">
-                          {card.card_content.text}
-                        </MDBCardText>
+                        <MDBCardText
+                          className="py-2"
+                          dangerouslySetInnerHTML={{
+                            __html: card.card_content.html,
+                          }}
+                        ></MDBCardText>
                       </MDBCardBody>
                     </MDBCard>
                   </MDBAnimation>

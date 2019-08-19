@@ -20,7 +20,7 @@ const PageHero = ({
       fluid
       id="hero"
       style={{
-        height: "30rem",
+        height: "40rem",
       }}
     >
       <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
