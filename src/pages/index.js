@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-// import styled from '@emotion/styled'
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -121,7 +120,6 @@ export const pageQuery = graphql`
                         opacity: 90
                       }
                     ) {
-                      src
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -144,6 +142,10 @@ export const pageQuery = graphql`
             slice_type
             primary {
               featured_posts_title {
+                text
+                html
+              }
+              featured_posts_subtitle {
                 text
                 html
               }
@@ -197,6 +199,10 @@ export const pageQuery = graphql`
             slice_type
             primary {
               featured_projects_title {
+                text
+                html
+              }
+              featured_projects_subtitle {
                 text
                 html
               }

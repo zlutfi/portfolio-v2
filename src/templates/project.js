@@ -66,7 +66,17 @@ export const pageQuery = graphql`
           alt
           localFile {
             childImageSharp {
-              fluid(cropFocus: CENTER, maxHeight: 600, maxWidth: 1200) {
+              fluid(
+                cropFocus: CENTER
+                maxHeight: 600
+                maxWidth: 1200
+                quality: 90
+                duotone: {
+                  highlight: "#cccccc"
+                  shadow: "#222222"
+                  opacity: 90
+                }
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
