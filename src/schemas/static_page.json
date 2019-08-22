@@ -4,7 +4,8 @@
       "type": "Text",
       "config": {
         "label": "Title",
-        "placeholder": "Page title"
+        "placeholder": "Page title",
+        "useAsTitle": true
       }
     },
     "subtitle": {
@@ -19,6 +20,26 @@
       "config": {
         "label": "Slug",
         "placeholder": "Page slug goes here."
+      }
+    },
+    "hero": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero"
+      }
+    },
+    "duotone_highlight": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Highlight"
+      }
+    },
+    "duotone_shadow": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Shadow"
       }
     }
   }

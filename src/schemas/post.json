@@ -1,10 +1,12 @@
 {
   "Main": {
     "title": {
-      "type": "Text",
+      "type": "StructuredText",
       "config": {
-        "label": "title",
-        "placeholder": "Post title"
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "Title",
+        "placeholder": "Title",
+        "useAsTitle": true
       }
     },
     "description": {
@@ -34,6 +36,18 @@
         "constraint": {},
         "thumbnails": [],
         "label": "Hero"
+      }
+    },
+    "duotone_highlight": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Highlight"
+      }
+    },
+    "duotone_shadow": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Shadow"
       }
     },
     "thumbnail": {

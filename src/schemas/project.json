@@ -1,10 +1,12 @@
 {
   "Main": {
     "title": {
-      "type": "Text",
+      "type": "StructuredText",
       "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
         "label": "Title",
-        "placeholder": "Title"
+        "placeholder": "Title",
+        "useAsTitle": true
       }
     },
     "subtitle": {
@@ -27,6 +29,18 @@
         "constraint": {},
         "thumbnails": [],
         "label": "Hero"
+      }
+    },
+    "duotone_highlight": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Highlight"
+      }
+    },
+    "duotone_shadow": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Shadow"
       }
     },
     "thumbnail": {
@@ -213,10 +227,18 @@
             "icon": "image",
             "display": "list",
             "non-repeat": {
-              "carousel": {
-                "type": "Text",
+              "carousel_title": {
+                "type": "StructuredText",
                 "config": {
-                  "label": "Carousel"
+                  "multi": "heading1, heading2, heading3, heading4, heading5",
+                  "label": "Carousel Title"
+                }
+              },
+              "active_slide": {
+                "type": "Number",
+                "config": {
+                  "label": "Active Slide",
+                  "placeholder": "Choose which slide displays first."
                 }
               }
             },
@@ -226,14 +248,22 @@
                 "config": {
                   "constraint": {},
                   "thumbnails": [],
-                  "label": "Slide Image"
+                  "label": "Image"
+                }
+              },
+              "slide_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Title",
+                  "placeholder": "Title of slide"
                 }
               },
               "slide_caption": {
                 "type": "StructuredText",
                 "config": {
                   "single": "paragraph, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, embed",
-                  "label": "Slide Caption",
+                  "label": "Caption",
                   "placeholder": "Caption"
                 }
               }

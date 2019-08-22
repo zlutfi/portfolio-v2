@@ -4,7 +4,8 @@
       "type": "Text",
       "config": {
         "label": "Title",
-        "placeholder": "Title"
+        "placeholder": "Title",
+        "useAsTitle": true
       }
     },
     "subtitle": {
@@ -19,6 +20,26 @@
       "config": {
         "label": "UID",
         "placeholder": "Slug"
+      }
+    },
+    "hero": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Hero"
+      }
+    },
+    "duotone_highlight": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Highlight"
+      }
+    },
+    "duotone_shadow": {
+      "type": "Color",
+      "config": {
+        "label": "Duotone Shadow"
       }
     },
     "body": {
@@ -118,6 +139,33 @@
                     }
                   ],
                   "label": "Portrait Author"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_with_image": {
+            "type": "Slice",
+            "fieldset": "Text with Image",
+            "description": "A Rich Text section with a featured image.",
+            "icon": "format_textdirection_l_to_r",
+            "display": "list",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Content",
+                  "placeholder": "Content goes here."
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Image"
                 }
               }
             },

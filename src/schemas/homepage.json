@@ -4,7 +4,8 @@
       "type": "Text",
       "config": {
         "label": "Title",
-        "placeholder": "Title"
+        "placeholder": "Title",
+        "useAsTitle": true
       }
     },
     "body": {
@@ -133,6 +134,14 @@
                   "label": "Featured Posts Title",
                   "placeholder": "Title"
                 }
+              },
+              "featured_posts_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, strong, em, hyperlink",
+                  "label": "Subtitle",
+                  "placeholder": "Subtitle"
+                }
               }
             },
             "repeat": {
@@ -160,6 +169,14 @@
                   "single": "heading1, heading2, heading3, heading4, heading5, heading6",
                   "label": "Featured Projects Title",
                   "placeholder": "Title"
+                }
+              },
+              "featured_projects_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph, strong, em, hyperlink",
+                  "label": "Subtitle",
+                  "placeholder": "Subtitle"
                 }
               }
             },
