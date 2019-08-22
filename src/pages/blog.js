@@ -18,54 +18,79 @@ import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageHeader from "../components/PageHeader"
+import posed from "react-pose"
+
+// Animations for cards on hover
+const Box = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+    boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+  },
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 5px 10px rgba(0,0,0,0.05)",
+  },
+  press: {
+    scale: 1.05,
+    boxShadow: "0px 2px 5px rgba(0,0,0,0.1)",
+  },
+})
 
 const Blog = ({ data = this.props }) => (
-  <Layout>
-    <SEO title={data.prismicStaticPage.data.title} />
-    <PageHeader
-      title={data.prismicStaticPage.data.title}
-      subtitle={data.prismicStaticPage.data.subtitle}
-    />
-    <MDBContainer>
-      <MDBRow>
-        <MDBCol>
-          <MDBRow>
-            {data.allPrismicPost.edges.map((post, index) => (
-              <MDBCol size="12" md="6" lg="4" className="mb-5" key={index}>
-                <MDBCard>
-                  <Link to={post.node.url}>
-                    <Img
-                      fluid={
-                        post.node.data.hero.localFile.childImageSharp.fluid
-                      }
-                      alt={post.node.data.hero.alt}
-                    />
-                  </Link>
-                  <MDBCardBody>
-                    <MDBCardTitle />
-                    <MDBCardTitle tag="h5">{post.node.data.title}</MDBCardTitle>
-                    <MDBCardText>{post.node.data.description}</MDBCardText>
-                    <MDBCardText>
+  <>
+    <Layout>
+      <SEO title={data.prismicStaticPage.data.title} />
+      <PageHeader
+        title={data.prismicStaticPage.data.title}
+        subtitle={data.prismicStaticPage.data.subtitle}
+      />
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol>
+            <MDBRow>
+              {data.allPrismicPost.edges.map((post, index) => (
+                <MDBCol size="12" md="6" lg="4" className="mb-5" key={index}>
+                  <Box className="box">
+                    <MDBCard>
                       <Link to={post.node.url}>
-                        Read More{" "}
-                        <MDBIcon icon="caret-right" className="ml-2" />
+                        <Img
+                          fluid={
+                            post.node.data.hero.localFile.childImageSharp.fluid
+                          }
+                          alt={post.node.data.hero.alt}
+                        />
                       </Link>
-                    </MDBCardText>
-                  </MDBCardBody>
-                  <MDBCardFooter>
-                    {post.node.data.date}{" "}
-                    <MDBBadge tag="span" color="primary" className="ml-2">
-                      Category
-                    </MDBBadge>
-                  </MDBCardFooter>
-                </MDBCard>
-              </MDBCol>
-            ))}
-          </MDBRow>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-  </Layout>
+                      <MDBCardBody>
+                        <MDBCardTitle />
+                        <MDBCardTitle tag="h5">
+                          {post.node.data.title.text}
+                        </MDBCardTitle>
+                        <MDBCardText>{post.node.data.description}</MDBCardText>
+                        <MDBCardText>
+                          <Link to={post.node.url}>
+                            Read More{" "}
+                            <MDBIcon icon="caret-right" className="ml-2" />
+                          </Link>
+                        </MDBCardText>
+                      </MDBCardBody>
+                      <MDBCardFooter>
+                        {post.node.data.date}{" "}
+                        <MDBBadge tag="span" color="primary" className="ml-2">
+                          Category
+                        </MDBBadge>
+                      </MDBCardFooter>
+                    </MDBCard>
+                  </Box>
+                </MDBCol>
+              ))}
+            </MDBRow>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </Layout>
+  </>
 )
 
 export default Blog
@@ -99,7 +124,10 @@ export const blogPageQuery = graphql`
           url
           type
           data {
-            title
+            title {
+              text
+              html
+            }
             description
             hero {
               alt
@@ -111,7 +139,7 @@ export const blogPageQuery = graphql`
                 }
               }
             }
-            date(formatString: "MM.DD.YYYY")
+            date
             categories {
               category {
                 slug
