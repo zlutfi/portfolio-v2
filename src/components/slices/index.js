@@ -9,6 +9,9 @@ import ProjectInfo from "./ProjectInfo"
 import ImageGallery from "./ImageGallery"
 import RecentPosts from "./RecentPosts"
 import RecentProjects from "./RecentProjects"
+import TextImage from "./TextImage"
+import Carousel from "./Carousel"
+// Homepage Sections
 import CapabilitiesSection from "./homepage_sections/CapabilitiesSection"
 import HeroSection from "./homepage_sections/HeroSection"
 import PostsSection from "./homepage_sections/PostsSection"
@@ -25,11 +28,14 @@ export {
   ImageGallery,
   RecentPosts,
   RecentProjects,
+  ImageRight,
+  ImageLeft,
+  TextImage,
+  Carousel,
+  // Homepage Sections
   CapabilitiesSection,
   HeroSection,
   PostsSection,
   ProjectsSection,
   ContactSection,
-  ImageRight,
-  ImageLeft,
 }

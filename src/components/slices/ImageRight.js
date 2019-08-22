@@ -11,7 +11,9 @@ const ImageRight = ({ input }) => (
       />
     </MDBCol>
     <MDBCol size="12" md="7" middle>
-      <h2>{input.primary.right_image_title.text}</h2>
+      <h2 className="font-weight-bold">
+        {input.primary.right_image_title.text}
+      </h2>
       <p>{input.primary.right_image_paragraph.text}</p>
     </MDBCol>
   </MDBRow>
