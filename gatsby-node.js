@@ -58,12 +58,24 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allPrismicCategory {
+        edges {
+          node {
+            id
+            uid
+            data {
+              title
+            }
+          }
+        }
+      }
     }
   `)
 
   const pageTemplate = path.resolve("src/templates/page.js")
   const postTemplate = path.resolve("src/templates/post.js")
   const projectTemplate = path.resolve("src/templates/project.js")
+  const categoryTemplate = path.resolve("src/templates/category.js")
 
   // Create all dynamic pages
   pages.data.allPrismicPage.edges.forEach(edge => {
@@ -96,6 +108,16 @@ exports.createPages = async ({ graphql, actions }) => {
           uid: edge.node.uid,
           prev: edge.previous,
           next: edge.next,
+        },
+      })
+    }),
+    // Create all dynamic category
+    pages.data.allPrismicCategory.edges.forEach(edge => {
+      createPage({
+        path: `/projects/category/${edge.node.uid}`,
+        component: categoryTemplate,
+        context: {
+          uid: edge.node.uid,
         },
       })
     })
