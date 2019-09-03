@@ -68,7 +68,7 @@ module.exports = {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        exclude: ["/category/*", `/path/to/page`, "404", "/success"],
+        exclude: ["/category/*", `/path/to/page`, "404", "/success", "/blog/*"],
         query: `
           {
             site {
@@ -103,7 +103,14 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        useMozJpeg: false,
+        stripMetadata: true,
+        defaultQuality: 75,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -116,6 +123,12 @@ module.exports = {
         icon: `src/images/icon.svg`, // This path is relative to the root of the site.
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`./src/layouts/index.js`),
+    //   },
+    // },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from prismic.io.
@@ -155,6 +168,10 @@ module.exports = {
           if (doc.type === "project") {
             return `/projects/${doc.uid}`
           }
+          // URL for a category type
+          if (doc.type === "category") {
+            return `/projects/category/${doc.uid}`
+          }
           // URL for a page type
           if (doc.type === "page") {
             return `/${doc.uid}`
@@ -190,7 +207,8 @@ module.exports = {
         ) => {
           // Your HTML serializer
         },
-        // htmlSerializer: ({ node, key, value }) => prismicHtmlSerializer,
+        // htmlSerializer: ({ node, key, value, element }) =>
+        //   prismicHtmlSerializer,
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
