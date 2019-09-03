@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { MDBRow, MDBCol } from "mdbreact"
 // import ZoomImage from "../../components/ZoomImage"
+import Zoom from "react-reveal/Zoom"
 
 export default class ImageGallery extends Component {
   render() {
@@ -24,11 +25,14 @@ export default class ImageGallery extends Component {
                 imageHeight={600}
                 src={gallery.gallery_image.localFile.childImageSharp.fluid.src}
               /> */}
-              <Img
-                fluid={gallery.gallery_image.localFile.childImageSharp.fluid}
-                alt={gallery.gallery_image.alt}
-              />
-              <p className="text-center py-3">{gallery.image_caption.text}</p>
+              <Zoom bottom delay={300 * index}>
+                <Img
+                  fluid={gallery.gallery_image.localFile.childImageSharp.fluid}
+                  alt={gallery.gallery_image.alt}
+                  className="rounded z-depth-1"
+                />
+                <p className="text-center py-3">{gallery.image_caption.text}</p>
+              </Zoom>
             </MDBCol>
           ))}
         </MDBRow>

@@ -6,78 +6,113 @@ import {
   MDBCol,
   MDBIcon,
   MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
+  // MDBCardBody,
+  // MDBCardTitle,
   MDBCardHeader,
-  MDBCardText,
-  MDBAnimation,
+  // MDBCardText,
+  MDBCardFooter,
+  // MDBAnimation,
 } from "mdbreact"
+import posed from "react-pose"
+import styled from "styled-components"
+import Zoom from "react-reveal/Zoom"
+import Fade from "react-reveal/Fade"
+
+// Styled components for section
+
+const CapabilitiesWrapper = styled.div`
+  padding: 3rem 0;
+`
+const H1 = styled.h1`
+  font-weight: bold;
+`
+const P = styled.p``
+
+// Animations for cards on hover
+const Box = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+    boxShadow: "0px 0px 0px rgba(0,0,0,0)",
+  },
+  hover: {
+    scale: 1.05,
+    boxShadow: "0px 5px 10px rgba(0,0,0,0.05)",
+  },
+  press: {
+    scale: 1.1,
+    boxShadow: "0px 2px 5px rgba(0,0,0,0.15)",
+  },
+})
 
 export default class CapabilitiesSection extends Component {
   render() {
     const { input } = this.props
     return (
-      <MDBContainer fluid className="py-md-5 py-3">
-        <MDBRow className="py-2  my-3 my-md-5 justify-content-center">
-          <MDBContainer>
-            <MDBRow className="py-4 py-md-5 mx-auto justify-content-center">
-              <MDBCol size="6">
-                <MDBAnimation type="fadeInUp" reveal>
-                  <h2 className="text-center font-weight-bold">
-                    {input.primary.section_title}
-                    <hr className="heading-hr" />
-                    <p
-                      className="lead"
-                      dangerouslySetInnerHTML={{
-                        __html: input.primary.section_subtitle.html,
-                      }}
-                    />
-                  </h2>
-                </MDBAnimation>
-              </MDBCol>
-            </MDBRow>
-            <MDBRow
-              className="mb-0  text-center mx-auto justify-content-center"
-              key={input.id}
-            >
-              {input.items.map((card, index) => (
-                <MDBCol size="12" md="4" className="mb-3 mb-md-0" key={index}>
-                  <MDBAnimation
-                    type="fadeIn"
-                    delay="0.2s"
-                    reveal
-                    className="animated-cards"
-                  >
-                    <MDBCard>
-                      <MDBCardHeader>
-                        <MDBIcon
-                          icon={card.card_icon}
-                          className="mr-2 text-primary py-2"
-                          size="4x"
-                        />
-                      </MDBCardHeader>
-                      <MDBCardBody>
-                        <MDBCardTitle className="font-weight-bold py-2">
+      <CapabilitiesWrapper>
+        <MDBContainer className="py-4 py-md-5 mx-auto text-center">
+          <MDBRow>
+            <MDBCol size="12" md="8" className="mx-auto">
+              <Fade bottom>
+                <H1 className="h1-responsive text-center my-5">
+                  {input.primary.section_title}
+                </H1>
+                <P
+                  className="lead text-center w-responsive mx-auto mb-5"
+                  dangerouslySetInnerHTML={{
+                    __html: input.primary.section_subtitle.html,
+                  }}
+                />
+              </Fade>
+            </MDBCol>
+          </MDBRow>
+          <MDBRow className="mb-0 text-center mx-auto" key={input.id}>
+            {input.items.map((card, index) => (
+              <MDBCol size="12" md="6" lg="4" className="mb-4" key={index}>
+                <Zoom bottom delay={300 * index}>
+                  <div style={{ height: "100%" }}>
+                    <Box className="box" style={{ height: "100%" }}>
+                      <MDBCard>
+                        <MDBCardHeader
+                          className="py-2 font-weight-bold"
+                          tag="h3"
+                        >
+                          <MDBIcon
+                            icon={card.card_icon}
+                            className="mr-3 py-4"
+                          />
                           {card.card_title.text}
-                        </MDBCardTitle>
+                        </MDBCardHeader>
+                        {/* <MDBCardBody> */}
+                        {/* <MDBCardTitle className="font-weight-bold py-2">
+                            {card.card_title.text}
+                          </MDBCardTitle> */}
 
-                        <hr className="mx-3" />
+                        {/* <hr className="mx-3" /> */}
 
-                        <MDBCardText
-                          className="py-2"
+                        {/* <MDBCardText
+                            className="py-2"
+                            dangerouslySetInnerHTML={{
+                              __html: card.card_description.html,
+                            }}
+                          ></MDBCardText> */}
+                        {/* </MDBCardBody> */}
+                        <MDBCardFooter
+                          className="py-4"
                           dangerouslySetInnerHTML={{
                             __html: card.card_content.html,
                           }}
-                        ></MDBCardText>
-                      </MDBCardBody>
-                    </MDBCard>
-                  </MDBAnimation>
-                </MDBCol>
-              ))}
-            </MDBRow>
-          </MDBContainer>
-        </MDBRow>
-      </MDBContainer>
+                        />
+                      </MDBCard>
+                    </Box>
+                  </div>
+                </Zoom>
+              </MDBCol>
+            ))}
+          </MDBRow>
+        </MDBContainer>
+      </CapabilitiesWrapper>
     )
   }
 }

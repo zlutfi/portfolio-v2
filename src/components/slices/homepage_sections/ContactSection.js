@@ -4,12 +4,38 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBAnimation,
+  // MDBAnimation,
   MDBCard,
   MDBCardBody,
 } from "mdbreact"
-import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
+// import BackgroundImage from "gatsby-background-image"
 import ContactForm from "../../ContactForm"
+// import GoogleApiWrapper from "../../map"
+
+import styled from "styled-components"
+import Zoom from "react-reveal/Zoom"
+import Fade from "react-reveal/Fade"
+
+// Styled components for section
+
+const ContactWrapper = styled.div`
+  padding: 3rem 0;
+`
+
+// const ContactTitle = styled.h1`
+//   color: #ffffff;
+// `
+
+// const ContactHR = styled.hr`
+//   max-width: 200px;
+//   border-top: 1px solid rgba(255, 255, 255, 0.2);
+// `
+
+// const ContactSubtitle = styled.p`
+//   color: #fff;
+// `
+
 export default class ContactSection extends Component {
   render() {
     const { input } = this.props
@@ -17,36 +43,59 @@ export default class ContactSection extends Component {
       // <BackgroundImage
       //   fluid={input.primary.contact_background.localFile.childImageSharp.fluid}
       // >
-      <MDBContainer>
-        <MDBRow size="12" className="py-5 text-center">
-          <MDBCol size="12">
-            <h1 className="font-weight-bold">
-              {input.primary.contact_title.text}
-            </h1>
-            <hr className="heading-hr" />
-          </MDBCol>
-          <MDBCol size="6" className="mx-auto">
-            {/* <h5>{input.primary.contact_subtitle.text}</h5> */}
-            <p
-              className="lead"
-              dangerouslySetInnerHTML={{
-                __html: input.primary.contact_subtitle.html,
-              }}
-            />
-          </MDBCol>
-        </MDBRow>
-        <MDBRow className="pb-5 justify-content-center">
-          <MDBCol size="12" md="10" className="mx-auto">
-            <MDBAnimation type="fadeIn" delay="0.3s" reveal>
-              <MDBCard>
-                <MDBCardBody>
-                  <ContactForm />
-                </MDBCardBody>
-              </MDBCard>
-            </MDBAnimation>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
+      <ContactWrapper>
+        <MDBContainer className="py-4 py-md-5 mx-auto text-center">
+          <MDBRow>
+            <MDBCol size="12" md="8" className="mx-auto">
+              <Fade bottom>
+                <h1 className="h1-responsive font-weight-bold text-center my-5">
+                  {input.primary.contact_title.text}
+                </h1>
+                <p
+                  className="lead text-center w-responsive mx-auto mb-5"
+                  dangerouslySetInnerHTML={{
+                    __html: input.primary.contact_subtitle.html,
+                  }}
+                />
+              </Fade>
+            </MDBCol>
+          </MDBRow>
+          <MDBRow className="justify-content-center">
+            <MDBCol size="12" className="mx-auto">
+              <Zoom bottom>
+                <MDBCard>
+                  <MDBCardBody>
+                    <MDBRow>
+                      <MDBCol>
+                        <ContactForm />
+                      </MDBCol>
+                      <MDBCol
+                        md="6"
+                        className="d-none d-lg-block pr-md-4"
+                        middle
+                      >
+                        <Img
+                          fluid={
+                            input.primary.contact_image.localFile
+                              .childImageSharp.fluid
+                          }
+                          alt={input.primary.contact_image.alt}
+                          className="rounded py-3"
+                        />
+                        {/* <img
+                          src="https://placehold.it/600x900"
+                          alt="Map"
+                          className="img-fluid"
+                        />{" "} */}
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBCardBody>
+                </MDBCard>
+              </Zoom>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </ContactWrapper>
       // </BackgroundImage>
     )
   }

@@ -27,7 +27,7 @@ function Hero({ input }) {
                 <MDBCol>
                   <MDBAnimation type="fadeIn" delay="0.5s" reveal>
                     <Link to={input.button_link.url} alt="dat alt">
-                      <MDBBtn color="primary" tag="span">
+                      <MDBBtn outline color="primary" tag="span">
                         <MDBIcon icon="folder-open" className="mr-2" />
                         {input.button_title}
                       </MDBBtn>

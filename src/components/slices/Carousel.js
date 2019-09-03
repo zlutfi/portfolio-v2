@@ -23,14 +23,14 @@ export default class Carousel extends Component {
           length={input.items.length}
           showControls={true}
           showIndicators={true}
-          className="mt-5"
+          className="py-5"
         >
           <MDBCarouselInner>
             {input.items.map((slide, index) => (
               <MDBCarouselItem itemId={index + 1} key={index}>
                 <MDBView>
                   <Img
-                    className="d-block w-100"
+                    className="d-block w-100 z-depth-1"
                     fluid={slide.slide_image.localFile.childImageSharp.fluid}
                     alt={slide.slide_image.alt}
                   />

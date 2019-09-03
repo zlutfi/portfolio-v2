@@ -3,7 +3,10 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 
 const Image = ({ input }) => (
-  <Img fluid={input.primary.image.localFile.childImageSharp.fluid} />
+  <Img
+    fluid={input.primary.image.localFile.childImageSharp.fluid}
+    className="rounded my-5"
+  />
 )
 
 export default Image
