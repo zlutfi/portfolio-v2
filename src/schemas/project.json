@@ -31,18 +31,6 @@
         "label": "Hero"
       }
     },
-    "duotone_highlight": {
-      "type": "Color",
-      "config": {
-        "label": "Duotone Highlight"
-      }
-    },
-    "duotone_shadow": {
-      "type": "Color",
-      "config": {
-        "label": "Duotone Shadow"
-      }
-    },
     "thumbnail": {
       "type": "Image",
       "config": {
@@ -70,6 +58,14 @@
                   "placeholder": "Project title"
                 }
               },
+              "project_overview": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Project Overview",
+                  "placeholder": "Overview"
+                }
+              },
               "project_link": {
                 "type": "Link",
                 "config": {
@@ -85,9 +81,25 @@
                   "label": "Project code",
                   "placeholder": "Project source code link"
                 }
+              },
+              "project_role": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "strong, em",
+                  "label": "Project Role",
+                  "placeholder": "Project Role"
+                }
               }
             },
-            "repeat": {}
+            "repeat": {
+              "project_technology": {
+                "type": "Text",
+                "config": {
+                  "label": "Project Technology",
+                  "placeholder": "Technology Used"
+                }
+              }
+            }
           },
           "related_projects": {
             "type": "Slice",
@@ -268,6 +280,26 @@
                 }
               }
             }
+          },
+          "image": {
+            "type": "Slice",
+            "fieldset": "Full Width Image",
+            "description": "Gatsby-Image",
+            "icon": "camera_alt",
+            "display": "list",
+            "non-repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": null
+                  },
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

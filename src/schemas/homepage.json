@@ -54,18 +54,32 @@
                   "label": "Background"
                 }
               },
-              "button_link": {
+              "button_1_link": {
                 "type": "Link",
                 "config": {
-                  "label": "Button link",
-                  "placeholder": "Hero button link"
+                  "label": "Button 1 Link",
+                  "placeholder": "Button 1 link"
                 }
               },
-              "button_title": {
+              "button_1_title": {
                 "type": "Text",
                 "config": {
-                  "label": "Button Title",
-                  "placeholder": "Hero button title"
+                  "label": "Button 1 Title",
+                  "placeholder": "Button 1 title"
+                }
+              },
+              "button_2_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button 2 Link",
+                  "placeholder": "Button 2 Link"
+                }
+              },
+              "button_2_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Button 2 Title",
+                  "placeholder": "Button 2 Title"
                 }
               }
             },
@@ -101,6 +115,14 @@
                   "single": "heading1, heading2, heading3, heading4, heading5, heading6",
                   "label": "Card Title",
                   "placeholder": "Card title"
+                }
+              },
+              "card_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Card Description",
+                  "placeholder": "Description"
                 }
               },
               "card_icon": {
@@ -221,6 +243,14 @@
                   "constraint": {},
                   "thumbnails": [],
                   "label": "Contact Background"
+                }
+              },
+              "contact_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Contact Image"
                 }
               }
             },

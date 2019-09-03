@@ -1,10 +1,16 @@
 {
   "Main": {
-    "name": {
+    "title": {
       "type": "Text",
       "config": {
-        "label": "name",
-        "placeholder": "Name of the category"
+        "label": "Title",
+        "placeholder": "Title of the category"
+      }
+    },
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "UID"
       }
     }
   }
