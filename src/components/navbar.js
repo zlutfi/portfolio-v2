@@ -1,6 +1,5 @@
 import React, { Component } from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
-
+import { graphql, StaticQuery, Link } from "gatsby"
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -9,7 +8,26 @@ import {
   MDBNavbarToggler,
   MDBCollapse,
   MDBContainer,
+  MDBBtn,
 } from "mdbreact"
+
+import posed from "react-pose"
+
+// Animations for cards on hover
+const Box = posed.div({
+  hoverable: true,
+  pressable: true,
+  init: {
+    scale: 1,
+  },
+  hover: {
+    scale: 1.05,
+  },
+  press: {
+    scale: 1.1,
+    fill: "#888",
+  },
+})
 
 class Navbar extends Component {
   state = {
@@ -21,21 +39,25 @@ class Navbar extends Component {
       collapsed: !this.state.collapsed,
     })
   }
-
   render() {
     return (
       <>
         <MDBNavbar
-          dark
+          light
+          // color={this.props.bgColor}
+          color="white"
           expand="lg"
           fixed="top"
           scrolling
-          className="py-2 py-md-3"
+          // transparent
+          // transparent={this.props.transparent}
         >
           <MDBContainer>
             <MDBNavbarBrand>
               <Link to="/" aria-label="Home">
-                <Logo alt="Logo" />
+                <Box className="box">
+                  <Logo alt="Logo" />
+                </Box>
               </Link>
             </MDBNavbarBrand>
 
@@ -57,6 +79,18 @@ class Navbar extends Component {
                   </Link>
                 </MDBNavItem>
                 <NavItems />
+                <MDBNavItem className="px-4">
+                  <Link
+                    to="/contact"
+                    name="Contact Me"
+                    className="nav-link"
+                    activeClassName="active"
+                  >
+                    <MDBBtn size="sm" color="primary">
+                      Contact Me
+                    </MDBBtn>
+                  </Link>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBContainer>

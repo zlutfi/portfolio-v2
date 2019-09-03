@@ -1,5 +1,14 @@
 import React from "react"
-import { MDBContainer, MDBFooter, MDBRow, MDBCol } from "mdbreact"
+import { Link } from "gatsby"
+import { MDBContainer, MDBRow, MDBCol, MDBFooter } from "mdbreact"
+import styled from "styled-components"
+
+// Styled components for section
+// const FooterWrapper = styled.div`
+//   background-color: #0a2d98;
+//   padding: 3rem 0;
+//   display: flex;
+// `
 
 const Footer = () => {
   return (
