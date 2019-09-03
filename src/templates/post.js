@@ -3,36 +3,42 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostHeader from "../components/PostHeader"
+import PostLinks from "../components/PostLinks"
 import { MDBContainer, MDBBtn, MDBIcon, MDBRow, MDBCol } from "mdbreact"
 import SliceZone from "../components/SliceZone"
 import PropTypes from "prop-types"
 
-const Post = ({ data: { prismicPost } } = this.props) => {
-  const { data } = prismicPost
+const Post = ({ data, pageContext }) => {
+  const previous = pageContext.prev
+  const next = pageContext.next
+  const post = data.prismicPost.data
   return (
-    <Layout>
-      <SEO title={data.title} />
-      <PostHeader
-        title={data.title}
-        subtitle={data.description}
-        background={data.hero.localFile.childImageSharp.fluid}
-      />
-
-      <MDBContainer>
-        <h5>{data.date}</h5>
-        <SliceZone allSlices={data.body} />
-        <MDBRow>
-          <MDBCol className="py-5">
-            <Link to="/blog">
-              <MDBBtn tag="span" color="primary">
-                <MDBIcon icon="caret-left" className="mr-2" />
-                Return to Blog
-              </MDBBtn>
-            </Link>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </Layout>
+    <>
+      <Layout>
+        <SEO title={post.title.text} />
+        <PostHeader
+          title={post.title.text}
+          subtitle={post.description}
+          background={post.hero.localFile.childImageSharp.fluid}
+          bgColor="unique-color-dark"
+        />
+        <MDBContainer>
+          <h5>{post.date}</h5>
+          <SliceZone allSlices={post.body} />
+          <MDBRow>
+            <MDBCol className="py-5">
+              <Link to="/blog">
+                <MDBBtn tag="span" color="primary">
+                  <MDBIcon icon="caret-left" className="mr-2" />
+                  Return to Blog
+                </MDBBtn>
+              </Link>
+              <PostLinks previous={previous} next={next} />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </Layout>
+    </>
   )
 }
 
@@ -42,8 +48,8 @@ Post.propTypes = {
   data: PropTypes.shape({
     prismicPost: PropTypes.shape({
       data: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired,
+        title: PropTypes.object.isRequired,
+        description: PropTypes.string.isRequired,
         hero: PropTypes.object.isRequired,
         body: PropTypes.array.isRequired,
       }),
@@ -56,13 +62,26 @@ export const pageQuery = graphql`
     prismicPost(uid: { eq: $uid }) {
       data {
         description
-        title
+        title {
+          html
+          text
+        }
         date
         hero {
           alt
           localFile {
             childImageSharp {
-              fluid(cropFocus: CENTER, maxHeight: 600, maxWidth: 1200) {
+              fluid(
+                cropFocus: CENTER
+                maxHeight: 600
+                maxWidth: 1200
+                quality: 90
+              ) # duotone: {
+              #   highlight: "#4fa72b"
+              #   shadow: "#000000"
+              #   opacity: 90
+              # }
+              {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

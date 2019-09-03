@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import HomeSliceZone from "../components/HomeSliceZone"
+import Navbar from "../components/navbar"
 
 class Index extends Component {
   render() {
@@ -11,10 +12,14 @@ class Index extends Component {
       data: { homepage },
     } = this.props
     return (
-      <Layout>
-        <SEO title={homepage.data.title} />
-        <HomeSliceZone allSlices={homepage.data.body} />
-      </Layout>
+      <>
+        <Layout>
+          <SEO title={homepage.data.title} />
+          <Navbar bgColor={`${"unique-color-dark"}`} transparent={true} />
+
+          <HomeSliceZone allSlices={homepage.data.body} />
+        </Layout>
+      </>
     )
   }
 }
@@ -49,20 +54,26 @@ export const pageQuery = graphql`
                 text
                 html
               }
+              contact_image {
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
               contact_background {
                 localFile {
                   childImageSharp {
                     fluid(
                       maxWidth: 1920
                       maxHeight: 1080
-                      quality: 90
-                      duotone: {
-                        highlight: "#007bff"
-                        shadow: "#202932"
-                        opacity: 90
-                      }
-                    ) {
-                      src
+                      quality: 90 # duotone: { #   highlight: "#007bff"
+                    ) #   shadow: "#202932"
+                    #   opacity: 90
+                    # }
+                    {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -85,6 +96,10 @@ export const pageQuery = graphql`
                 html
                 text
               }
+              card_description {
+                html
+                text
+              }
               card_icon
               card_content {
                 text
@@ -100,8 +115,14 @@ export const pageQuery = graphql`
                 text
                 html
               }
-              button_title
-              button_link {
+              button_1_title
+              button_1_link {
+                type
+                url
+                uid
+              }
+              button_2_title
+              button_2_link {
                 type
                 url
                 uid
@@ -116,7 +137,7 @@ export const pageQuery = graphql`
                       quality: 90
                       duotone: {
                         highlight: "#007bff"
-                        shadow: "#202932"
+                        shadow: "#15224a"
                         opacity: 90
                       }
                     ) {
@@ -157,7 +178,10 @@ export const pageQuery = graphql`
                     id
                     url
                     data {
-                      title
+                      title {
+                        text
+                        html
+                      }
                       description
                       date
                       hero {
@@ -213,9 +237,16 @@ export const pageQuery = graphql`
                   ... on PrismicProject {
                     id
                     url
+                    tags
                     data {
-                      title
+                      title {
+                        text
+                        html
+                      }
                       subtitle
+                      category {
+                        slug
+                      }
                       hero {
                         alt
                         localFile {
@@ -235,8 +266,8 @@ export const pageQuery = graphql`
                         localFile {
                           childImageSharp {
                             fluid(
-                              maxHeight: 200
-                              maxWidth: 400
+                              maxHeight: 450
+                              maxWidth: 600
                               cropFocus: CENTER
                             ) {
                               ...GatsbyImageSharpFluid_withWebp

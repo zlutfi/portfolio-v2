@@ -1,43 +1,38 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+// import Img from "gatsby-image"
 import { PropTypes } from "prop-types"
-import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from "mdbreact"
+import { MDBContainer } from "mdbreact"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProjectHeader from "../components/ProjectHeader"
+
+import ProjectHeader from "../components/projects/ProjectHeader"
 import SliceZone from "../components/SliceZone"
+import ProjectLinks from "../components/projects/ProjectLinks"
 
-const Project = ({ data: { prismicProject } } = this.props) => {
-  const { data } = prismicProject
+const Project = ({ data, pageContext }) => {
+  const previous = pageContext.prev
+  const next = pageContext.next
+  const project = data.prismicProject.data
   return (
-    <Layout>
-      <SEO title={data.title} />
-      <ProjectHeader
-        title={data.title}
-        subtitle={data.subtitle}
-        background={data.hero.localFile.childImageSharp.fluid}
-      />
-      <MDBContainer>
-        <MDBRow>
-          <MDBCol className="py-5">
-            <h1>{data.title}</h1>
-            <h4>{data.subtitle}</h4>
-          </MDBCol>
-        </MDBRow>
-        <SliceZone allSlices={data.body} />
+    <>
+      <Layout>
+        <SEO title={project.title.text} />
+        <ProjectHeader
+          title={project.title.text}
+          subtitle={project.subtitle}
+          background={project.hero.localFile.childImageSharp.fluid}
+          bgColor="unique-color-dark"
+        />
 
-        <MDBRow>
-          <MDBCol className="py-5">
-            <Link to="/projects">
-              <MDBBtn tag="span" color="primary">
-                <MDBIcon icon="caret-left" className="mr-2" />
-                Return to Projects
-              </MDBBtn>
-            </Link>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </Layout>
+        {/* <MDBContainer> */}
+        <SliceZone allSlices={project.body} />
+        {/* </MDBContainer> */}
+
+        <ProjectLinks previous={previous} next={next} />
+      </Layout>
+    </>
   )
 }
 
@@ -47,7 +42,7 @@ Project.propTypes = {
   data: PropTypes.shape({
     prismicProject: PropTypes.shape({
       data: PropTypes.shape({
-        title: PropTypes.string.isRequired,
+        title: PropTypes.object.isRequired,
         subtitle: PropTypes.string.isRequired,
         hero: PropTypes.object.isRequired,
         body: PropTypes.array.isRequired,
@@ -60,8 +55,14 @@ export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
     prismicProject(uid: { eq: $uid }) {
       data {
-        title
+        title {
+          text
+          html
+        }
         subtitle
+        category {
+          slug
+        }
         hero {
           alt
           localFile {
@@ -70,12 +71,7 @@ export const pageQuery = graphql`
                 cropFocus: CENTER
                 maxHeight: 600
                 maxWidth: 1200
-                quality: 90
-                duotone: {
-                  highlight: "#cccccc"
-                  shadow: "#222222"
-                  opacity: 90
-                }
+                quality: 90 # duotone: { #   highlight: "#000000" #   shadow: "#192550" #   opacity: 25 # }
               ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
@@ -96,13 +92,23 @@ export const pageQuery = graphql`
           ... on PrismicProjectBodyProjectInfo {
             id
             slice_type
+            items {
+              project_technology
+            }
             primary {
               project_title
+              project_overview {
+                html
+              }
               project_link {
                 url
               }
               project_code_link {
                 url
+              }
+              project_role {
+                text
+                html
               }
             }
           }
@@ -122,7 +128,12 @@ export const pageQuery = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(
+                      cropFocus: CENTER
+                      maxHeight: 500
+                      maxWidth: 800
+                      quality: 90
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -146,11 +157,68 @@ export const pageQuery = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(
+                      cropFocus: CENTER
+                      maxHeight: 500
+                      maxWidth: 800
+                      quality: 90
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
                 }
+              }
+            }
+          }
+          ... on PrismicProjectBodyImage {
+            id
+            slice_type
+            primary {
+              image {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid(quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicProjectBodyCarousel {
+            id
+            slice_type
+            primary {
+              carousel_title {
+                html
+                text
+              }
+              active_slide
+            }
+            items {
+              slide_image {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid(
+                      cropFocus: CENTER
+                      maxHeight: 500
+                      maxWidth: 1200
+                      quality: 90
+                    ) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+              slide_title {
+                html
+                text
+              }
+              slide_caption {
+                html
+                text
               }
             }
           }
@@ -170,6 +238,7 @@ export const pageQuery = graphql`
                   childImageSharp {
                     fluid(cropFocus: CENTER, maxWidth: 300, maxHeight: 150) {
                       ...GatsbyImageSharpFluid_withWebp
+                      src
                     }
                   }
                 }
@@ -179,6 +248,16 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    sitePage(context: { uid: { eq: $uid } }) {
+      context {
+        prev {
+          url
+        }
+        next {
+          url
         }
       }
     }

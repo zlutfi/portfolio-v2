@@ -7,17 +7,26 @@ import PageHeader from "../components/PageHeader"
 import PropTypes from "prop-types"
 import SliceZone from "../components/SliceZone"
 
-const Page = ({ data: { prismicPage } } = this.props) => {
-  const { data } = prismicPage
+const Page = ({ data }) => {
+  const page = data.prismicPage.data
+  const homeHero = data.prismicHomepageBodyHero
   return (
-    <Layout>
-      <SEO title={data.title} />
-      <PageHeader title={data.title} subtitle={data.subtitle} />
+    <>
+      <Layout>
+        <SEO title={page.title} />
+        <PageHeader
+          title={page.title}
+          subtitle={page.subtitle}
+          background={
+            homeHero.primary.background.localFile.childImageSharp.fluid
+          }
+        />
 
-      <MDBContainer>
-        <SliceZone allSlices={data.body} />
-      </MDBContainer>
-    </Layout>
+        <MDBContainer>
+          <SliceZone allSlices={page.body} />
+        </MDBContainer>
+      </Layout>
+    </>
   )
 }
 
@@ -41,6 +50,21 @@ export const pageQuery = graphql`
       data {
         title
         subtitle
+        hero {
+          localFile {
+            childImageSharp {
+              fluid(
+                maxWidth: 1920
+                maxHeight: 1080
+                quality: 90 # duotone: { #   highlight: "#007bff" #   shadow: "#202932"
+              ) #   opacity: 90
+              # }
+              {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
+        }
         body {
           ... on PrismicPageBodyText {
             id
@@ -49,6 +73,26 @@ export const pageQuery = graphql`
               text {
                 text
                 html
+              }
+            }
+          }
+          ... on PrismicPageBodyTextWithImage {
+            id
+            slice_type
+            primary {
+              content {
+                html
+                text
+              }
+              image {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
               }
             }
           }
@@ -70,6 +114,28 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+    prismicHomepageBodyHero {
+      primary {
+        background {
+          localFile {
+            childImageSharp {
+              fluid(
+                maxWidth: 1920
+                maxHeight: 1080
+                quality: 90
+                duotone: {
+                  highlight: "#007bff"
+                  shadow: "#15224a"
+                  opacity: 90
+                }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

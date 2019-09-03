@@ -10,43 +10,54 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdbreact"
+import PageHeader from "../components/PageHeader"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-// import SiteMap from "../components/SiteMap"
+import SiteMap from "../components/SiteMap"
 
 function NotFoundPage({ data = this.props }) {
   return (
-    <Layout>
-      <SEO title={data.prismicStaticPage.data.title} />
-
-      <MDBContainer>
-        <MDBRow className="pt-5 mt-5">
-          <MDBCol size="12" className="text-center py-5 my-5">
-            <MDBAnimation type="fadeInUp" delay="0.1s">
-              <h1 className="font-weight-bold text-primary display-2">
-                {data.prismicStaticPage.data.title}
-              </h1>
-            </MDBAnimation>
-            <MDBAnimation type="fadeInUp" delay="0.3s">
-              <p className="lead">{data.prismicStaticPage.data.subtitle}</p>
-            </MDBAnimation>
-          </MDBCol>
-          <MDBCol className="text-center pb-5">
-            <MDBAnimation type="fadeInUp" delay="0.5s">
-              <Link to="/">
-                <MDBBtn color="elegant">
-                  <MDBIcon icon="caret-left" className="mr-2" />
-                  Return to Home
-                </MDBBtn>
-              </Link>
-            </MDBAnimation>
-          </MDBCol>
-          {/* <MDBCol>
-            <SiteMap input={data.allSitePage.edges} pages={data.allSitePage.edges} posts={data.allSitePost.edges} projects={data.allSiteProjecte.edges} />
-          </MDBCol> */}
-        </MDBRow>
-      </MDBContainer>
-    </Layout>
+    <>
+      <Layout>
+        <SEO title={data.prismicStaticPage.data.title} />
+        <PageHeader
+          title={data.prismicStaticPage.data.title}
+          subtitle={data.prismicStaticPage.data.subtitle}
+          background={
+            data.prismicHomepageBodyHero.primary.background.localFile
+              .childImageSharp.fluid
+          }
+        />
+        <MDBContainer>
+          <MDBRow className="pt-5 mt-5">
+            <MDBCol size="12" className="text-center py-5 my-5">
+              <MDBAnimation type="fadeInUp" delay="0.1s">
+                <h1 className="font-weight-bold text-primary display-2">
+                  {data.prismicStaticPage.data.title}
+                </h1>
+              </MDBAnimation>
+              <MDBAnimation type="fadeInUp" delay="0.3s">
+                <p className="lead">{data.prismicStaticPage.data.subtitle}</p>
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol className="text-center pb-5">
+              <MDBAnimation type="fadeInUp" delay="0.5s">
+                <Link to="/">
+                  <MDBBtn color="elegant">
+                    <MDBIcon icon="caret-left" className="mr-2" />
+                    Return to Home
+                  </MDBBtn>
+                </Link>
+              </MDBAnimation>
+            </MDBCol>
+            <MDBCol>
+              <SiteMap input={data} />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </Layout>
+    </>
   )
 }
 export default NotFoundPage
@@ -70,10 +81,45 @@ export const NotFoundPageQuery = graphql`
         subtitle
       }
     }
-    allSitePage {
+    allPrismicPage {
       edges {
         node {
+          url
           id
+          type
+          data {
+            title
+          }
+        }
+      }
+    }
+    allPrismicStaticPage {
+      edges {
+        node {
+          url
+          id
+          type
+          data {
+            title
+          }
+        }
+      }
+    }
+    prismicHomepageBodyHero {
+      primary {
+        background {
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 1920, maxHeight: 1080, quality: 90) # duotone: {
+              #   highlight: "#ffffff"
+              #   shadow: "#15224a"
+              #   opacity: 90
+              # }
+              {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
       }
     }
