@@ -11,6 +11,8 @@ import {
   RecentProjects,
   ImageLeft,
   ImageRight,
+  TextImage,
+  Carousel,
 } from "../components/slices"
 
 export default class SliceZone extends Component {
@@ -39,6 +41,11 @@ export default class SliceZone extends Component {
           return <ImageLeft key={s.id} input={s} />
         case "right_image_left_text":
           return <ImageRight key={s.id} input={s} />
+        case "text_with_image":
+          return <TextImage key={s.id} input={s} />
+        case "carousel":
+          return <Carousel key={s.id} input={s} />
+
         default:
           return null
       }
