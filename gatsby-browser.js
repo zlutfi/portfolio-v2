@@ -6,11 +6,6 @@
 
 // You can delete this file if you're not using it
 
-// Adding page transitions
-
-// import React from "react"
-// import Transition from "./src/components/transition"
-
 // Global Styles
 import "@fortawesome/fontawesome-free/css/all.min.css"
 import "bootstrap-css-only/css/bootstrap.min.css"
@@ -24,10 +19,3 @@ export const onClientEntry = () => {
     console.log(`# IntersectionObserver is polyfilled!`)
   }
 }
-
-// import Transition from "./src/components/transition"
-
-// Page Transition wrapper for pages.
-// export const wrapPageElement = ({ element, props }) => {
-//   return <Transition {...props}>{element}</Transition>
-// }
