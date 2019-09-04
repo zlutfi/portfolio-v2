@@ -170,6 +170,59 @@
               }
             },
             "repeat": {}
+          },
+          "three_columns": {
+            "type": "Slice",
+            "fieldset": "Columns ⅓",
+            "description": "⅓ Columns section",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "column_section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Column Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "column_section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Column Section Subtitle",
+                  "placeholder": "Section Subtitle"
+                }
+              }
+            },
+            "repeat": {
+              "column_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Column Image"
+                }
+              },
+              "column_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Column Title",
+                  "placeholder": "Title"
+                }
+              },
+              "column_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Column Content",
+                  "placeholder": "Content"
+                }
+              }
+            }
           }
         }
       }
