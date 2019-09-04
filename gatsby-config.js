@@ -103,14 +103,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
-      },
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -123,12 +116,6 @@ module.exports = {
         icon: `src/images/icon.svg`, // This path is relative to the root of the site.
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-layout`,
-    //   options: {
-    //     component: require.resolve(`./src/layouts/index.js`),
-    //   },
-    // },
     /*
      * Gatsby's data processing layer begins with “source”
      * plugins. Here the site sources its data from prismic.io.
@@ -247,6 +234,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
