@@ -49,7 +49,7 @@ Category.propTypes = {
 }
 
 export const categoryQuery = graphql`
-  query CategoryBySlug($uid: String!) {
+  query CategoryBySlug($uid: String!, $title: String!) {
     prismicCategory(uid: { eq: $uid }) {
       data {
         title
@@ -90,7 +90,7 @@ export const categoryQuery = graphql`
         }
       }
     }
-    allPrismicProject(filter: { tags: { eq: "Development" } }) {
+    allPrismicProject(filter: { tags: { eq: $title } }) {
       edges {
         node {
           id

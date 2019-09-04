@@ -118,6 +118,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: categoryTemplate,
         context: {
           uid: edge.node.uid,
+          title: edge.node.data.title,
         },
       })
     })
