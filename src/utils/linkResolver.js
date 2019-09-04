@@ -12,6 +12,10 @@ export const linkResolver = doc => {
   if (doc.type === "project") {
     return `/projects/${doc.uid}`
   }
+  // URL for a category type
+  if (doc.type === "category") {
+    return `/projects/category/${doc.uid}`
+  }
   // URL for a page type
   if (doc.type === "page") {
     return `/${doc.uid}`

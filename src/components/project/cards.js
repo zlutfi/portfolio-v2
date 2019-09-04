@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 import {
   MDBRow,
   MDBCol,
@@ -14,15 +15,14 @@ import {
 } from "mdbreact"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
-// import posed from "react-pose"
 import Zoom from "react-reveal/Zoom"
 
-const ProjectCards = ({ input }) => {
+function Cards({ input }) {
   return (
     <MDBRow className="pb-5">
       {input.map((project, index) => (
         <MDBCol size="12" md="6" xl="4" className="mb-4" key={index}>
-          <Zoom delay={300 * index}>
+          <Zoom delay={200 * index}>
             <MDBCard style={{ backgroundColor: "#f8f9fa" }}>
               <Link to={project.node.url}>
                 <MDBView hover zoom>
@@ -77,4 +77,8 @@ const ProjectCards = ({ input }) => {
   )
 }
 
-export default ProjectCards
+Cards.propTypes = {
+  input: PropTypes.array.isRequired,
+}
+
+export default Cards

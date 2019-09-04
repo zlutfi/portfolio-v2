@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import HomeSliceZone from "../components/HomeSliceZone"
-import Navbar from "../components/navbar"
+import SliceZone from "../components/sliceZone"
 
 class Index extends Component {
   render() {
@@ -15,9 +14,8 @@ class Index extends Component {
       <>
         <Layout>
           <SEO title={homepage.data.title} />
-          <Navbar bgColor={`${"unique-color-dark"}`} transparent={true} />
 
-          <HomeSliceZone allSlices={homepage.data.body} />
+          <SliceZone allSlices={homepage.data.body} />
         </Layout>
       </>
     )
@@ -66,14 +64,7 @@ export const pageQuery = graphql`
               contact_background {
                 localFile {
                   childImageSharp {
-                    fluid(
-                      maxWidth: 1920
-                      maxHeight: 1080
-                      quality: 90 # duotone: { #   highlight: "#007bff"
-                    ) #   shadow: "#202932"
-                    #   opacity: 90
-                    # }
-                    {
+                    fluid(maxWidth: 1920, maxHeight: 1080, quality: 90) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }

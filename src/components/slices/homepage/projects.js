@@ -12,7 +12,7 @@ import {
   MDBBtn,
   MDBCardTitle,
   MDBIcon,
-  // MDBCardFooter,
+  MDBCardText,
   MDBBadge,
   MDBMask,
 } from "mdbreact"
@@ -22,10 +22,8 @@ import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 
 // Styled components for section
-
 const ProjectsWrapper = styled.div`
   padding: 3rem 0;
-  background-color: #f8f9fa;
 `
 // Animations for cards on hover
 const Box = posed.div({
@@ -45,22 +43,12 @@ const Box = posed.div({
   },
 })
 
-// const ImgWrapper = posed.div({
-//   hoverable: true,
-//   init: {
-//     scale: 1,
-//   },
-//   hover: {
-//     scale: 1.2,
-//   },
-// })
-
 export default class ProjectsSection extends Component {
   render() {
     const { input } = this.props
     return (
       <ProjectsWrapper>
-        <MDBContainer className="py-4 py-md-5 mx-auto text-center">
+        <MDBContainer className="py-4 py-md-5 mx-auto">
           {/* <MDBContainer className="mt-n5 mx-auto text-center"> */}
           <MDBRow>
             <MDBCol size="12" md="8" className="mx-auto">
@@ -77,7 +65,8 @@ export default class ProjectsSection extends Component {
               </Fade>
             </MDBCol>
           </MDBRow>
-          <MDBRow className="mb-0 text-center mx-auto">
+
+          <MDBRow className="mb-0 mx-auto">
             {input.items.map((project, index) => (
               <MDBCol size="12" md="6" lg="4" className="mb-4" key={index}>
                 <Zoom bottom delay={300 * index}>
@@ -88,7 +77,6 @@ export default class ProjectsSection extends Component {
                         alt="View Project"
                       >
                         <MDBView hover zoom>
-                          {/* <ImgWrapper> */}
                           <Img
                             fluid={
                               project.featured_project.document.data.thumbnail
@@ -105,10 +93,9 @@ export default class ProjectsSection extends Component {
                           >
                             <MDBBtn size="sm" color="primary" tag="span">
                               <MDBIcon icon="folder-open" className="mr-2" />
-                              View Project{" "}
+                              View Project
                             </MDBBtn>
                           </MDBMask>
-                          {/* </ImgWrapper> */}
                         </MDBView>
                       </Link>
 
@@ -148,12 +135,10 @@ export default class ProjectsSection extends Component {
                             </MDBCol>
                           </MDBRow>
                         </MDBCardTitle>
+                        <MDBCardText>
+                          {project.featured_project.document.data.subtitle}
+                        </MDBCardText>
                       </MDBCardBody>
-                      {/* <MDBCardFooter>
-                        <MDBBadge pill color="primary">
-                          Web
-                        </MDBBadge>
-                      </MDBCardFooter> */}
                     </MDBCard>
                   </Box>
                 </Zoom>

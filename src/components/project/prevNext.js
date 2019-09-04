@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact"
 import posed from "react-pose"
 
+// Animations for buttons
 const Nav = posed.h5({
   hoverable: true,
   pressable: true,
@@ -48,16 +49,12 @@ const ArrowLeft = posed.div({
   },
 })
 
-const ProjectLinks = props => {
+const PrevNext = props => {
   return (
     <>
       <MDBContainer className=" py-5">
         <MDBRow between className="px-5">
-          <MDBCol
-            size="auto"
-            className="text-center"
-            // style={{ backgroundColor: "#ccc" }}
-          >
+          <MDBCol size="auto" className="text-center">
             {props.previous && (
               <Link to={`${props.previous.url}`} className="project-nav">
                 <Nav className="font-weight-bold">
@@ -73,11 +70,7 @@ const ProjectLinks = props => {
               </Link>
             )}
           </MDBCol>
-          <MDBCol
-            size="auto"
-            className="text-center"
-            // style={{ backgroundColor: "#ccc" }}
-          >
+          <MDBCol size="auto" className="text-center">
             {props.next && (
               <Link to={`${props.next.url}`} className="project-nav">
                 <Nav className="font-weight-bold">
@@ -90,7 +83,6 @@ const ProjectLinks = props => {
                     </MDBCol>
                   </MDBRow>
                 </Nav>
-                {/* </MDBBtn> */}
               </Link>
             )}
           </MDBCol>
@@ -100,4 +92,4 @@ const ProjectLinks = props => {
   )
 }
 
-export default ProjectLinks
+export default PrevNext

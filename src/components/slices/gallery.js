@@ -5,7 +5,7 @@ import { MDBRow, MDBCol } from "mdbreact"
 // import ZoomImage from "../../components/ZoomImage"
 import Zoom from "react-reveal/Zoom"
 
-export default class ImageGallery extends Component {
+export default class Gallery extends Component {
   render() {
     const { input } = this.props
     return (
@@ -18,7 +18,7 @@ export default class ImageGallery extends Component {
           </MDBCol>
         </MDBRow>
         <MDBRow key={input.id} className="py-5">
-          {input.items.map((gallery, index) => (
+          {input.items.map((item, index) => (
             <MDBCol size="6" md="4" key={index}>
               {/* <ZoomImage
                 imageWidth={1200}
@@ -27,11 +27,11 @@ export default class ImageGallery extends Component {
               /> */}
               <Zoom bottom delay={300 * index}>
                 <Img
-                  fluid={gallery.gallery_image.localFile.childImageSharp.fluid}
-                  alt={gallery.gallery_image.alt}
+                  fluid={item.gallery_image.localFile.childImageSharp.fluid}
+                  alt={item.gallery_image.alt}
                   className="rounded z-depth-1"
                 />
-                <p className="text-center py-3">{gallery.image_caption.text}</p>
+                <p className="text-center py-3">{item.image_caption.text}</p>
               </Zoom>
             </MDBCol>
           ))}
@@ -41,6 +41,6 @@ export default class ImageGallery extends Component {
   }
 }
 
-ImageGallery.propTypes = {
+Gallery.propTypes = {
   input: PropTypes.object.isRequired,
 }

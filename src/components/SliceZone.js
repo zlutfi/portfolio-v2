@@ -1,18 +1,25 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import {
-  BodyText,
+  Text,
   CodeBlock,
   Image,
   Quote,
-  ProjectInfo,
-  ImageGallery,
+  Info,
+  Gallery,
   RecentPosts,
   RecentProjects,
   ImageLeft,
   ImageRight,
   TextImage,
   Carousel,
+  ThreeColumns,
+  //Homepage Slices
+  Capabilities,
+  Posts,
+  Projects,
+  Hero,
+  Contact,
 } from "../components/slices"
 
 export default class SliceZone extends Component {
@@ -22,7 +29,7 @@ export default class SliceZone extends Component {
       switch (s.slice_type) {
         // These are the API IDs of the slices
         case "text":
-          return <BodyText key={s.id} input={s} />
+          return <Text key={s.id} input={s} />
         case "code_block":
           return <CodeBlock key={s.id} input={s} />
         case "image":
@@ -30,9 +37,9 @@ export default class SliceZone extends Component {
         case "quote":
           return <Quote key={s.id} input={s} />
         case "project_info":
-          return <ProjectInfo key={s.id} input={s} />
+          return <Info key={s.id} input={s} />
         case "image_gallery":
-          return <ImageGallery key={s.id} input={s} />
+          return <Gallery key={s.id} input={s} />
         case "recent_posts":
           return <RecentProjects key={s.id} input={s} />
         case "recent_projects":
@@ -45,6 +52,19 @@ export default class SliceZone extends Component {
           return <TextImage key={s.id} input={s} />
         case "carousel":
           return <Carousel key={s.id} input={s} />
+        case "three_columns":
+          return <ThreeColumns key={s.id} input={s} />
+        //Homepage Slices
+        case "hero":
+          return <Hero key={s.id} input={s} />
+        case "capabilities":
+          return <Capabilities key={s.id} input={s} />
+        case "posts":
+          return <Posts key={s.id} input={s} />
+        case "projects":
+          return <Projects key={s.id} input={s} />
+        case "contact_cta":
+          return <Contact key={s.id} input={s} />
 
         default:
           return null

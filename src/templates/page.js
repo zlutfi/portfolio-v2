@@ -1,11 +1,10 @@
 import React from "react"
-import { graphql } from "gatsby"
-import { MDBContainer } from "mdbreact"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageHeader from "../components/PageHeader"
 import PropTypes from "prop-types"
-import SliceZone from "../components/SliceZone"
+import { graphql } from "gatsby"
+import Layout from "../components/layout/layout"
+import SEO from "../components/seo"
+import PageHeader from "../components/pageHeader"
+import SliceZone from "../components/sliceZone"
 
 const Page = ({ data }) => {
   const page = data.prismicPage.data
@@ -21,10 +20,7 @@ const Page = ({ data }) => {
             homeHero.primary.background.localFile.childImageSharp.fluid
           }
         />
-
-        <MDBContainer>
-          <SliceZone allSlices={page.body} />
-        </MDBContainer>
+        <SliceZone allSlices={page.body} />
       </Layout>
     </>
   )
@@ -53,13 +49,7 @@ export const pageQuery = graphql`
         hero {
           localFile {
             childImageSharp {
-              fluid(
-                maxWidth: 1920
-                maxHeight: 1080
-                quality: 90 # duotone: { #   highlight: "#007bff" #   shadow: "#202932"
-              ) #   opacity: 90
-              # }
-              {
+              fluid(maxWidth: 1920, maxHeight: 1080, quality: 90) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
               }
             }
@@ -85,6 +75,40 @@ export const pageQuery = graphql`
                 text
               }
               image {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicPageBodyThreeColumns {
+            id
+            slice_type
+            primary {
+              column_section_title {
+                text
+                html
+              }
+              column_section_subtitle {
+                text
+                html
+              }
+            }
+            items {
+              column_title {
+                html
+                text
+              }
+              column_content {
+                text
+                html
+              }
+              column_image {
                 alt
                 localFile {
                   childImageSharp {

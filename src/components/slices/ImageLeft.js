@@ -13,7 +13,7 @@ const ImageLeft = ({ input }) => (
             fluid={
               input.primary.left_image_image.localFile.childImageSharp.fluid
             }
-            // className="rounded z-depth-1"
+            className="rounded"
           />
         </Fade>
       </MDBCol>

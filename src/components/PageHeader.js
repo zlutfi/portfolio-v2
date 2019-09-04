@@ -1,20 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import BackgroundImage from "gatsby-background-image"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBJumbotron,
-  //MDBIcon,
-  // MDBCard,
-  // MDBCardBody,
-  // MDBCardText,
-  // MDBCardTitle,
-} from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol, MDBJumbotron } from "mdbreact"
 import posed from "react-pose"
 import SplitText from "react-pose-text"
-import Navbar from "../components/navbar"
 
 // Animations and such
 const Box = posed.div({
@@ -40,26 +29,28 @@ const PageHero = ({
   bgColor = "unique-color-dark",
 }) => (
   <>
-    <Navbar bgColor={bgColor} transparent={true} />
-
-    <BackgroundImage fluid={background} backgroundColor={`rgba(0,123,255,0.2)`}>
-      <MDBJumbotron fluid>
+    <BackgroundImage
+      fluid={background}
+      style={{
+        // Defaults are overwrite-able by setting one or each of the following:
+        backgroundSize: "cover",
+        backgroundPosition: "top",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <MDBJumbotron fluid id="hero">
         <MDBContainer>
-          <Box pose="enter" initialPose="exit">
-            <MDBRow className="py-5 my-5">
-              <MDBCol
-                size="12"
-                md="5"
-                className="text-center text-md-left mb-n5"
-              >
+          <MDBRow className="py-5 my-5">
+            <MDBCol size="12" md="5" className="text-center text-md-left mb-n5">
+              <Box pose="enter" initialPose="exit">
                 <h1 className="font-weight-bold">
                   <strong>
                     <SplitText charPoses={charPoses}>{title}</SplitText>
                   </strong>
                 </h1>
-              </MDBCol>
-            </MDBRow>
-          </Box>
+              </Box>
+            </MDBCol>
+          </MDBRow>
         </MDBContainer>
       </MDBJumbotron>
     </BackgroundImage>

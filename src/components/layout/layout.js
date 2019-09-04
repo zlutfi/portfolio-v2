@@ -7,12 +7,13 @@
 
 import React from "react"
 import Footer from "./footer"
-// import Navbar from "./navbar"
+import Navbar from "./navbar"
 
 const Layout = ({ children, navbarColor, element, props }) => {
   return (
     <>
       <div className="site">
+        <Navbar />
         <div className="site-content">{children}</div>
         <Footer />
       </div>

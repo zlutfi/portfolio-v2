@@ -11,7 +11,6 @@ import {
 } from "mdbreact"
 import posed from "react-pose"
 import SplitText from "react-pose-text"
-import Navbar from "../components/navbar"
 
 // Animations and such
 const Box = posed.div({
@@ -30,15 +29,13 @@ const charPoses = {
   enter: { opacity: 1 },
 }
 
-const PageHero = ({
+const Header = ({
   title = this.props.title,
   subtitle = this.props.subtitle,
   background = this.props.background,
   bgColor = "unique-color-dark",
 }) => (
   <>
-    <Navbar bgColor={bgColor} transparent={true} />
-
     <BackgroundImage fluid={background} backgroundColor={`#eee`}>
       <MDBJumbotron
         fluid
@@ -75,11 +72,9 @@ const PageHero = ({
               >
                 <MDBAnimation type="fadeInUp" delay="0.3s">
                   <h5 className="h5-responsive d-none d-md-block">
-                    {" "}
                     <SplitText charPoses={charPoses}>{subtitle}</SplitText>
                   </h5>
                   <p className="d-block d-md-none black-text">
-                    {" "}
                     <SplitText charPoses={charPoses}>{subtitle}</SplitText>
                   </p>
                 </MDBAnimation>
@@ -92,15 +87,15 @@ const PageHero = ({
   </>
 )
 
-export default PageHero
+export default Header
 
-PageHero.propTypes = {
+Header.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   background: PropTypes.object.isRequired,
 }
 
-PageHero.defaultProps = {
+Header.defaultProps = {
   title: "Title",
   subtitle: "Subtitle",
   background: {},

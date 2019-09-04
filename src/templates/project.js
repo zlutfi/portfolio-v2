@@ -1,15 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-// import Img from "gatsby-image"
 import { PropTypes } from "prop-types"
-import { MDBContainer } from "mdbreact"
-
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-
-import ProjectHeader from "../components/projects/ProjectHeader"
-import SliceZone from "../components/SliceZone"
-import ProjectLinks from "../components/projects/ProjectLinks"
+import Header from "../components/project/header"
+import SliceZone from "../components/sliceZone"
+import PrevNext from "../components/project/prevNext"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
@@ -19,18 +15,14 @@ const Project = ({ data, pageContext }) => {
     <>
       <Layout>
         <SEO title={project.title.text} />
-        <ProjectHeader
+        <Header
           title={project.title.text}
           subtitle={project.subtitle}
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
         />
-
-        {/* <MDBContainer> */}
         <SliceZone allSlices={project.body} />
-        {/* </MDBContainer> */}
-
-        <ProjectLinks previous={previous} next={next} />
+        <PrevNext previous={previous} next={next} />
       </Layout>
     </>
   )
@@ -71,7 +63,7 @@ export const pageQuery = graphql`
                 cropFocus: CENTER
                 maxHeight: 600
                 maxWidth: 1200
-                quality: 90 # duotone: { #   highlight: "#000000" #   shadow: "#192550" #   opacity: 25 # }
+                quality: 90
               ) {
                 ...GatsbyImageSharpFluid_withWebp
               }

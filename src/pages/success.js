@@ -5,14 +5,14 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBAnimation,
+  // MDBAnimation,
   MDBBtn,
   MDBIcon,
 } from "mdbreact"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
-function SuccessPage({ data = this.props }) {
+function SuccessPage({ data }) {
   return (
     <>
       <Layout>
@@ -21,24 +21,24 @@ function SuccessPage({ data = this.props }) {
         <MDBContainer>
           <MDBRow className="pt-5 mt-5">
             <MDBCol size="12" className="text-center py-5 my-5">
-              <MDBAnimation type="fadeInUp" delay="0.1s">
-                <h1 className="font-weight-bold text-primary display-2">
-                  {data.prismicStaticPage.data.title}
-                </h1>
-              </MDBAnimation>
-              <MDBAnimation type="fadeInUp" delay="0.3s">
-                <p className="lead">{data.prismicStaticPage.data.subtitle}</p>
-              </MDBAnimation>
+              {/* <MDBAnimation type="fadeInUp" delay="0.1s"> */}
+              <h1 className="font-weight-bold text-primary display-2">
+                {data.prismicStaticPage.data.title}
+              </h1>
+              {/* </MDBAnimation> */}
+              {/* <MDBAnimation type="fadeInUp" delay="0.3s"> */}
+              <p className="lead">{data.prismicStaticPage.data.subtitle}</p>
+              {/* </MDBAnimation> */}
             </MDBCol>
             <MDBCol className="text-center pb-5">
-              <MDBAnimation type="fadeInUp" delay="0.5s">
-                <Link to="/contact">
-                  <MDBBtn color="elegant">
-                    <MDBIcon icon="caret-left" className="mr-2" />
-                    Return to Previous Page
-                  </MDBBtn>
-                </Link>
-              </MDBAnimation>
+              {/* <MDBAnimation type="fadeInUp" delay="0.5s"> */}
+              <Link to="/contact">
+                <MDBBtn color="elegant">
+                  <MDBIcon icon="caret-left" className="mr-2" />
+                  Return to Previous Page
+                </MDBBtn>
+              </Link>
+              {/* </MDBAnimation> */}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

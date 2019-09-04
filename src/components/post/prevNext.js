@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { MDBBtn } from "mdbreact"
 
-const PostLinks = props => {
+const PrevNext = props => {
   return (
     <>
       {props.previous && (
@@ -23,4 +23,4 @@ const PostLinks = props => {
   )
 }
 
-export default PostLinks
+export default PrevNext

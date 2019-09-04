@@ -6,12 +6,10 @@ import {
   MDBCol,
   MDBIcon,
   MDBCard,
-  // MDBCardBody,
-  // MDBCardTitle,
+  MDBCardBody,
+  MDBCardTitle,
   MDBCardHeader,
-  // MDBCardText,
-  MDBCardFooter,
-  // MDBAnimation,
+  MDBCardText,
 } from "mdbreact"
 import posed from "react-pose"
 import styled from "styled-components"
@@ -19,7 +17,6 @@ import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
 
 // Styled components for section
-
 const CapabilitiesWrapper = styled.div`
   padding: 3rem 0;
 `
@@ -74,36 +71,33 @@ export default class CapabilitiesSection extends Component {
                   <div style={{ height: "100%" }}>
                     <Box className="box" style={{ height: "100%" }}>
                       <MDBCard>
-                        <MDBCardHeader
-                          className="py-2 font-weight-bold"
-                          tag="h3"
-                        >
+                        <MDBCardHeader className="py-2">
                           <MDBIcon
                             icon={card.card_icon}
                             className="mr-3 py-4"
+                            size="2x"
                           />
-                          {card.card_title.text}
                         </MDBCardHeader>
-                        {/* <MDBCardBody> */}
-                        {/* <MDBCardTitle className="font-weight-bold py-2">
+                        <MDBCardBody>
+                          <MDBCardTitle className=" py-2">
                             {card.card_title.text}
-                          </MDBCardTitle> */}
+                          </MDBCardTitle>
 
-                        {/* <hr className="mx-3" /> */}
+                          <hr className="mx-3" />
 
-                        {/* <MDBCardText
-                            className="py-2"
+                          <MDBCardText
+                            // className="py-2"
                             dangerouslySetInnerHTML={{
                               __html: card.card_description.html,
                             }}
-                          ></MDBCardText> */}
-                        {/* </MDBCardBody> */}
-                        <MDBCardFooter
+                          />
+                        </MDBCardBody>
+                        {/* <MDBCardFooter
                           className="py-4"
                           dangerouslySetInnerHTML={{
                             __html: card.card_content.html,
                           }}
-                        />
+                        /> */}
                       </MDBCard>
                     </Box>
                   </div>

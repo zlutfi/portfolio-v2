@@ -10,7 +10,7 @@ import {
 } from "mdbreact"
 import Img from "gatsby-image"
 // import BackgroundImage from "gatsby-background-image"
-import ContactForm from "../../ContactForm"
+import ContactForm from "../../contactForm"
 // import GoogleApiWrapper from "../../map"
 
 import styled from "styled-components"
@@ -82,11 +82,6 @@ export default class ContactSection extends Component {
                           alt={input.primary.contact_image.alt}
                           className="rounded py-3"
                         />
-                        {/* <img
-                          src="https://placehold.it/600x900"
-                          alt="Map"
-                          className="img-fluid"
-                        />{" "} */}
                       </MDBCol>
                     </MDBRow>
                   </MDBCardBody>

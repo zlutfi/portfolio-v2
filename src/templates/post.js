@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import PostHeader from "../components/PostHeader"
-import PostLinks from "../components/PostLinks"
+import Header from "../components/post/header"
+import PrevNext from "../components/post/prevNext"
 import { MDBContainer, MDBBtn, MDBIcon, MDBRow, MDBCol } from "mdbreact"
-import SliceZone from "../components/SliceZone"
+import SliceZone from "../components/sliceZone"
 import PropTypes from "prop-types"
 
 const Post = ({ data, pageContext }) => {
@@ -16,7 +16,7 @@ const Post = ({ data, pageContext }) => {
     <>
       <Layout>
         <SEO title={post.title.text} />
-        <PostHeader
+        <Header
           title={post.title.text}
           subtitle={post.description}
           background={post.hero.localFile.childImageSharp.fluid}
@@ -33,7 +33,7 @@ const Post = ({ data, pageContext }) => {
                   Return to Blog
                 </MDBBtn>
               </Link>
-              <PostLinks previous={previous} next={next} />
+              <PrevNext previous={previous} next={next} />
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -76,12 +76,7 @@ export const pageQuery = graphql`
                 maxHeight: 600
                 maxWidth: 1200
                 quality: 90
-              ) # duotone: {
-              #   highlight: "#4fa72b"
-              #   shadow: "#000000"
-              #   opacity: 90
-              # }
-              {
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

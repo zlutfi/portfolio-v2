@@ -1,14 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
 import { MDBContainer, MDBRow, MDBCol, MDBFooter } from "mdbreact"
-import styled from "styled-components"
-
-// Styled components for section
-// const FooterWrapper = styled.div`
-//   background-color: #0a2d98;
-//   padding: 3rem 0;
-//   display: flex;
-// `
 
 const Footer = () => {
   return (
@@ -25,7 +16,14 @@ const Footer = () => {
               className="text-center text-md-left"
               middle
             >
-              Designed & Developed by <strong>Z Lutfi.</strong>
+              Designed & Developed by <strong>Z Lutfi.</strong> Proudly powered
+              by Gatsby.js, Prismic.io and
+              <a href="https://www.netlify.com">
+                <img
+                  src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+                  alt="Deployed with Netlify"
+                />
+              </a>
             </MDBCol>
             <MDBCol
               size="12"
@@ -46,7 +44,6 @@ const Footer = () => {
 export default Footer
 
 // Inline Logo SVG
-
 const Logo = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

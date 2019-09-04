@@ -1,16 +1,16 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import { MDBContainer } from "mdbreact"
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/PageHeader"
-import PropTypes from "prop-types"
-import ProjectsNav from "../components/projects/ProjectsNav"
-import ProjectCards from "../components/projects/ProjectCards"
+import PageHeader from "../components/pageHeader"
+import Filter from "../components/project/filter"
+import Cards from "../components/project/cards"
 
 const Category = ({ data, pageContext }) => {
   const category = data.prismicCategory.data
-  const homeHero = data.prismicHomepageBodyHero
+  const hero = data.prismicHomepageBodyHero
   const menu = data.allPrismicCategory.edges
   const cards = data.allPrismicProject.edges
   return (
@@ -19,14 +19,11 @@ const Category = ({ data, pageContext }) => {
         <SEO title={category.title} />
         <PageHeader
           title={category.title}
-          subtitle={category.subtitle}
-          background={
-            homeHero.primary.background.localFile.childImageSharp.fluid
-          }
+          background={hero.primary.background.localFile.childImageSharp.fluid}
         />
         <MDBContainer>
-          <ProjectsNav input={menu} />
-          <ProjectCards input={cards} />
+          <Filter input={menu} />
+          <Cards input={cards} />
         </MDBContainer>
       </Layout>
     </>
@@ -37,13 +34,27 @@ export default Category
 
 Category.propTypes = {
   data: PropTypes.shape({
-    prismicPage: PropTypes.shape({
+    prismicCategory: PropTypes.shape({
       data: PropTypes.shape({
         title: PropTypes.string.isRequired,
-        subtitle: PropTypes.string.isRequired,
       }),
       url: PropTypes.string.isRequired,
       uid: PropTypes.string.isRequired,
+    }),
+    prismicHomepageBodyHero: PropTypes.shape({
+      primary: PropTypes.shape({
+        background: PropTypes.shape({
+          localFile: PropTypes.shape({
+            childImageSharp: PropTypes.object.isRequired,
+          }),
+        }),
+      }),
+    }),
+    allPrismicCategory: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
+    }),
+    allPrismicProject: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
     }),
   }).isRequired,
 }

@@ -3,10 +3,10 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { MDBContainer } from "mdbreact"
 import PropTypes from "prop-types"
-import PageHeader from "../components/PageHeader"
-import Layout from "../components/layout"
-import ProjectsNav from "../components/projects/ProjectsNav"
-import ProjectCards from "../components/projects/ProjectCards"
+import PageHeader from "../components/pageHeader"
+import Layout from "../components/layout/layout"
+import Filter from "../components/project/filter"
+import Cards from "../components/project/cards"
 
 const Projects = ({ data = this.props }) => (
   <>
@@ -23,8 +23,8 @@ const Projects = ({ data = this.props }) => (
       />
 
       <MDBContainer>
-        <ProjectsNav input={data.allPrismicCategory.edges} />
-        <ProjectCards input={data.allPrismicProject.edges} />
+        <Filter input={data.allPrismicCategory.edges} />
+        <Cards input={data.allPrismicProject.edges} />
       </MDBContainer>
     </Layout>
   </>
@@ -41,7 +41,10 @@ Projects.propTypes = {
       }),
     }),
     allPrismicProject: PropTypes.shape({
-      node: PropTypes.array.isRequired,
+      edges: PropTypes.array.isRequired,
+    }),
+    allPrismicCategory: PropTypes.shape({
+      edges: PropTypes.array.isRequired,
     }),
   }).isRequired,
 }

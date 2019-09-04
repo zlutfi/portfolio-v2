@@ -2,20 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 //MDB Hero Components
-import {
-  // MDBJumbotron,
-  MDBRow,
-  MDBCol,
-  // MDBAnimation,
-  MDBBtn,
-  MDBIcon,
-  MDBContainer,
-  MDBMask,
-} from "mdbreact"
+import { MDBRow, MDBCol, MDBBtn, MDBIcon, MDBContainer } from "mdbreact"
 import styled from "styled-components"
-// import HeroText from "../../../images/hero_text.svg"
 import posed from "react-pose"
-// import SplitText from "react-pose-text"
+import SplitText from "react-pose-text"
 
 // Styled components for section
 const HeroWrapper = styled.div`
@@ -23,7 +13,6 @@ const HeroWrapper = styled.div`
   height: 70vh;
   justify-content: center;
 `
-
 const Hero = styled.div`
   align-self: center;
   padding-top: 5rem;
@@ -31,6 +20,11 @@ const Hero = styled.div`
 const H1 = styled.h1`
   color: #ffffff;
   font-size: 5vh;
+  font-weight: bold;
+  text-transform: uppercase;
+`
+const H2 = styled.h2`
+  color: #eee;
   font-weight: bold;
 `
 
@@ -52,15 +46,22 @@ const Box = posed.div({
   },
 })
 
-// const charPoses = {
-//   exit: { opacity: 0 },
-//   enter: { opacity: 1 },
-// }
+const charPoses = {
+  exit: { opacity: 0, color: "#007bff" },
+  enter: { opacity: 1, color: "#ffffff" },
+}
 
 function HeroSection({ input }) {
   return (
     <BackgroundImage
       fluid={input.primary.background.localFile.childImageSharp.fluid}
+      style={{
+        // Defaults are overwrite-able by setting one or each of the following:
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+      }}
     >
       {/* <MDBMask overlay="stylish-strong"> */}
       <HeroWrapper id="hero">
@@ -71,25 +72,21 @@ function HeroSection({ input }) {
               <MDBCol size="12" className="text-center mx-auto">
                 <Box pose="enter" initialPose="exit">
                   <H1>
-                    {/* className="white-text pb-3 font-weight-bold display-4 text-uppercase" */}
-                    {/* <SplitText charPoses={charPoses}> */}
-                    Developer & Designer
-                    {/* </SplitText> */}
+                    <SplitText charPoses={charPoses}>
+                      Developer & Designer
+                    </SplitText>
                   </H1>
-                  {/* <HeroTitle className="display-2 font-weight-bold">
-                    Developer <br />& Designer
-                  </HeroTitle> */}
 
-                  <h2 className="white-text lead pb-4">
-                    {/* <SplitText charPoses={charPoses}> */}I Build Lightning
-                    Fast Websites with React.
-                    {/* </SplitText> */}
-                  </h2>
+                  <H2 className="lead pb-4">
+                    <SplitText wordPoses={charPoses}>
+                      I Build Lightning Fast Websites with React.
+                    </SplitText>
+                  </H2>
                 </Box>
 
                 {/* <div
-                    dangerouslySetInnerHTML={{ __html: input.primary.title.html }}
-                  /> */}
+                        dangerouslySetInnerHTML={{ __html: input.primary.title.html }}
+                      /> */}
                 {/* </h1> */}
 
                 <MDBRow>
@@ -110,20 +107,20 @@ function HeroSection({ input }) {
                     </Link>
                   </MDBCol>
                   {/* <MDBCol>
-                    <Link
-                      to={input.primary.button_2_link.url}
-                      alt={input.primary.button_2_title}
-                    >
-                      <MDBBtn
-                        color="primary"
-                        tag="span"
-                        style={{ minWidth: "205px" }}
-                      >
-                        <MDBIcon icon="folder-open" className="mr-2" />
-                        {input.primary.button_2_title}
-                      </MDBBtn>
-                    </Link>
-                  </MDBCol> */}
+                        <Link
+                          to={input.primary.button_2_link.url}
+                          alt={input.primary.button_2_title}
+                        >
+                          <MDBBtn
+                            color="primary"
+                            tag="span"
+                            style={{ minWidth: "205px" }}
+                          >
+                            <MDBIcon icon="folder-open" className="mr-2" />
+                            {input.primary.button_2_title}
+                          </MDBBtn>
+                        </Link>
+                      </MDBCol> */}
                 </MDBRow>
               </MDBCol>
             </MDBRow>

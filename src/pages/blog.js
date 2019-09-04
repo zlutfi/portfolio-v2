@@ -16,9 +16,9 @@ import {
 } from "mdbreact"
 import PropTypes from "prop-types"
 
-import Layout from "../components/layout"
+import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/PageHeader"
+import PageHeader from "../components/pageHeader"
 import posed from "react-pose"
 import Zoom from "react-reveal/Zoom"
 
@@ -51,13 +51,17 @@ const ImgWrapper = posed.div({
   },
 })
 
-const Blog = ({ data = this.props }) => (
+const Blog = ({ data }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
       <PageHeader
         title={data.prismicStaticPage.data.title}
         subtitle={data.prismicStaticPage.data.subtitle}
+        background={
+          data.prismicHomepageBodyHero.primary.background.localFile
+            .childImageSharp.fluid
+        }
       />
       <MDBContainer>
         <MDBRow>
@@ -66,44 +70,50 @@ const Blog = ({ data = this.props }) => (
               {data.allPrismicPost.edges.map((post, index) => (
                 <MDBCol size="12" md="6" lg="4" className="mb-5" key={index}>
                   <Zoom delay={300 * index}>
-                    <Box className="box">
-                      <MDBCard>
-                        <Link to={post.node.url}>
-                          <MDBView>
-                            <ImgWrapper>
-                              <Img
-                                fluid={
-                                  post.node.data.hero.localFile.childImageSharp
-                                    .fluid
-                                }
-                                alt={post.node.data.hero.alt}
-                              />
-                            </ImgWrapper>
-                          </MDBView>
-                        </Link>
-                        <MDBCardBody>
-                          <MDBCardTitle />
-                          <MDBCardTitle tag="h5">
-                            {post.node.data.title.text}
-                          </MDBCardTitle>
-                          <MDBCardText>
-                            {post.node.data.description}
-                          </MDBCardText>
-                          <MDBCardText>
-                            <Link to={post.node.url}>
-                              Read More{" "}
-                              <MDBIcon icon="caret-right" className="ml-2" />
-                            </Link>
-                          </MDBCardText>
-                        </MDBCardBody>
-                        <MDBCardFooter>
-                          {post.node.data.date}{" "}
-                          <MDBBadge tag="span" color="primary" className="ml-2">
-                            Category
-                          </MDBBadge>
-                        </MDBCardFooter>
-                      </MDBCard>
-                    </Box>
+                    <div style={{ height: "100%" }}>
+                      <Box className="box" style={{ height: "100%" }}>
+                        <MDBCard>
+                          <Link to={post.node.url}>
+                            <MDBView>
+                              <ImgWrapper>
+                                <Img
+                                  fluid={
+                                    post.node.data.hero.localFile
+                                      .childImageSharp.fluid
+                                  }
+                                  alt={post.node.data.hero.alt}
+                                />
+                              </ImgWrapper>
+                            </MDBView>
+                          </Link>
+                          <MDBCardBody>
+                            <MDBCardTitle />
+                            <MDBCardTitle tag="h5">
+                              {post.node.data.title.text}
+                            </MDBCardTitle>
+                            <MDBCardText>
+                              {post.node.data.description}
+                            </MDBCardText>
+                            <MDBCardText>
+                              <Link to={post.node.url}>
+                                Read More{" "}
+                                <MDBIcon icon="caret-right" className="ml-2" />
+                              </Link>
+                            </MDBCardText>
+                          </MDBCardBody>
+                          <MDBCardFooter>
+                            {post.node.data.date}{" "}
+                            <MDBBadge
+                              tag="span"
+                              color="primary"
+                              className="ml-2"
+                            >
+                              Category
+                            </MDBBadge>
+                          </MDBCardFooter>
+                        </MDBCard>
+                      </Box>
+                    </div>
                   </Zoom>
                 </MDBCol>
               ))}
@@ -210,6 +220,28 @@ export const blogPageQuery = graphql`
                     text
                   }
                 }
+              }
+            }
+          }
+        }
+      }
+    }
+    prismicHomepageBodyHero {
+      primary {
+        background {
+          localFile {
+            childImageSharp {
+              fluid(
+                maxWidth: 1920
+                maxHeight: 1080
+                quality: 90
+                duotone: {
+                  highlight: "#007bff"
+                  shadow: "#15224a"
+                  opacity: 90
+                }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

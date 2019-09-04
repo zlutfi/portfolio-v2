@@ -16,7 +16,7 @@ import {
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Fade from "react-reveal/Fade"
 
-const ProjectInfo = ({ input }) => (
+const Info = ({ input }) => (
   <Fade>
     <MDBContainer>
       <MDBRow className="py-5" between>
@@ -91,8 +91,8 @@ const ProjectInfo = ({ input }) => (
   </Fade>
 )
 
-export default ProjectInfo
+export default Info
 
-ProjectInfo.propTypes = {
+Info.propTypes = {
   input: PropTypes.object.isRequired,
 }

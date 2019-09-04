@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import {
   MDBCarousel,
@@ -8,7 +9,6 @@ import {
   MDBView,
   MDBMask,
 } from "mdbreact"
-import PropTypes from "prop-types"
 
 export default class Carousel extends Component {
   render() {
