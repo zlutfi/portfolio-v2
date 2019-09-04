@@ -7,6 +7,7 @@ $max_font: 17px;
 
 html {
   @include fluid-type($min_width, $max_width, $min_font, $max_font);
+  scroll-behavior: smooth;
 }
 $mod_1: 1.2; // mobile
 $mod_2: 1.4; // desktop
@@ -66,10 +67,10 @@ body {
 .site-content {
   flex-grow: 1;
   overflow: hidden;
-  // background-color: #ffffff;
-  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 900'%3E%3Cpath fill='%23eeeeee' d='M494.5 795.5c22.2 -60.7 36.7 -133.7 32.7 -207.5c-4.2 -76.1 -27.4 -145.4 -54.1 -205.5c-29.7 -67 -61.6 -130.8 -90.7 -198.5c-23.4 -54.4 -45.3 -116 -52.2 -184h-1222.1v900h1337.7c17.9 -32.3 34.8 -66.3 48.7 -104.5z'/%3E%3Cg fill='%23f7f8fa' %3E%3Cpath d='M527.1 588c-4.2-76.1-27.4-145.4-54.1-205.5c-29.7-67-61.6-130.8-90.7-198.5c-2.8-6.6-5.7-13.4-8.4-20.2c-1.5 5.1-2.9 10.2-4.2 15.5c-22.8 90.3-40.8 183.4-24.4 280.7c10.2 60.9 31.8 113.8 59.5 157.6c28.7 45.5 62.6 75 95.1 112.6c3.7 4.2 7.3 8.5 10.9 12.9c12.4-48.4 19.3-101.5 16.3-155.1z'/%3E%3Cpath d='M445.7 900h172.6c-32.7-57.6-68.8-110.3-107.6-156.9c-4.7 18.2-10.2 35.8-16.3 52.4c-13.9 38.2-30.9 72.2-48.7 104.5z'/%3E%3Cpath d='M330.1 0c6.1 59.7 23.7 114.5 43.7 163.8c16.9-57.8 43.3-106.5 60.2-163.8h-103.9z'/%3E%3C/g%3E%3C/svg%3E");
-  // background-attachment: fixed;
-  // background-size: cover;
+  background-color: #ffffff;
+  background-image: url("../../images/background.svg");
+  background-attachment: fixed;
+  background-size: cover;
 }
 // Hero Styles
 
@@ -105,15 +106,30 @@ body {
 //     margin-right: 0;
 //   }
 // }
+
+// Shape Divider for hero
+
 // #hero::after {
 //   content: "";
 //   position: absolute;
 //   bottom: 0;
 //   width: 100%;
 //   height: 100px;
-//   background: url(../../images/shape_divider.svg);
+//   background: url(../../images/divider.svg);
 // }
 // #hero::after polygon {
+//   fill: white;
+// }
+
+// #page::after {
+//   content: "";
+//   position: absolute;
+//   bottom: 0;
+//   width: 100%;
+//   height: 50px;
+//   background: url(../../images/divider-alt.svg);
+// }
+// #page::after polygon {
 //   fill: white;
 // }
 
@@ -311,15 +327,16 @@ textarea.form-control {
 //   box-shadow: 0 16px 48px rgba(32, 41, 50, 0.12);
 // }
 p footer {
-  color: #fff;
+  color: #0a2d98;
 }
 
 footer.page-footer {
-  color: #fff;
-  background-color: #0a2d98;
+  border-top: 1px solid #eee;
+  color: #0a2d98;
+  background-color: #fff;
 }
 .footer-logo {
-  fill: #fff;
+  fill: #0a2d98;
   height: 1.6rem;
   padding: 0.25rem 0.75rem;
 }
