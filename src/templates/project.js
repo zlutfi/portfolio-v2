@@ -102,6 +102,10 @@ export const pageQuery = graphql`
                 text
                 html
               }
+              project_type {
+                text
+                html
+              }
             }
           }
           ... on PrismicProjectBodyRightImageLeftText {
