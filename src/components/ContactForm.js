@@ -152,7 +152,7 @@ const ContactForm = () => {
           <MDBRow>
             <MDBCol className="text-center pt-2">
               <MDBBtn
-                color="primary"
+                color="light-green"
                 type="submit"
                 name="submit"
                 disabled={isSubmitting}

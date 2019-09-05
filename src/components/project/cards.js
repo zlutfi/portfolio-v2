@@ -34,7 +34,7 @@ function Cards({ input }) {
                     alt="alt text bruh"
                   />
                   <MDBMask className="flex-center" overlay="stylish-strong">
-                    <MDBBtn size="sm" color="primary" tag="span">
+                    <MDBBtn size="sm" color="light-green" tag="span">
                       <MDBIcon icon="folder-open" className="mr-2" />
                       View Project
                     </MDBBtn>

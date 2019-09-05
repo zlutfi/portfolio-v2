@@ -2,10 +2,17 @@ import React from "react"
 import { Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 //MDB Hero Components
-import { MDBRow, MDBCol, MDBBtn, MDBIcon, MDBContainer } from "mdbreact"
-import styled from "styled-components"
+import {
+  MDBJumbotron,
+  MDBRow,
+  MDBCol,
+  MDBBtn,
+  MDBIcon,
+  MDBContainer,
+} from "mdbreact"
 import posed from "react-pose"
 import SplitText from "react-pose-text"
+import styled from "styled-components"
 
 // Styled components for section
 const HeroWrapper = styled.div`
@@ -27,11 +34,6 @@ const H2 = styled.h2`
   color: #eee;
   font-weight: bold;
 `
-
-// const HeroTitle = styled.h1`
-//   color: #fff;
-//   height: 8rem;
-// `
 
 // Lets add some animation
 const Box = posed.div({
@@ -63,50 +65,48 @@ function HeroSection({ input }) {
         backgroundAttachment: "fixed",
       }}
     >
-      {/* <MDBMask overlay="stylish-strong"> */}
       <HeroWrapper id="hero">
         <Hero>
-          {/* <MDBJumbotron fluid id="hero"> */}
-          <MDBContainer>
-            <MDBRow>
-              <MDBCol size="12" className="text-center mx-auto">
-                <Box pose="enter" initialPose="exit">
-                  <H1>
-                    <SplitText charPoses={charPoses}>
-                      Developer & Designer
-                    </SplitText>
-                  </H1>
+          <MDBJumbotron fluid>
+            <MDBContainer>
+              <MDBRow>
+                <MDBCol size="12" className="text-center mx-auto">
+                  <Box pose="enter" initialPose="exit">
+                    <H1>
+                      <SplitText charPoses={charPoses}>
+                        Developer & Designer
+                      </SplitText>
+                    </H1>
 
-                  <H2 className="lead pb-4">
-                    <SplitText wordPoses={charPoses}>
-                      I Build Lightning Fast Websites with React.
-                    </SplitText>
-                  </H2>
-                </Box>
+                    <H2 className="lead py-4">
+                      <SplitText charPoses={charPoses}>
+                        I Build Lightning Fast Websites with React.
+                      </SplitText>
+                    </H2>
+                  </Box>
 
-                {/* <div
+                  {/* <div
                         dangerouslySetInnerHTML={{ __html: input.primary.title.html }}
                       /> */}
-                {/* </h1> */}
+                  {/* </h1> */}
 
-                <MDBRow>
-                  <MDBCol>
-                    <Link
-                      to={input.primary.button_1_link.url}
-                      alt={input.primary.button_1_title}
-                    >
-                      <MDBBtn
-                        color="light-green"
-                        tag="span"
-                        style={{ minWidth: "205px" }}
-                        outline
+                  <MDBRow>
+                    <MDBCol>
+                      <Link
+                        to={input.primary.button_1_link.url}
+                        alt={input.primary.button_1_title}
                       >
-                        <MDBIcon icon="folder-open" className="mr-2" />
-                        {input.primary.button_1_title}
-                      </MDBBtn>
-                    </Link>
-                  </MDBCol>
-                  {/* <MDBCol>
+                        <MDBBtn
+                          color="light-green"
+                          tag="span"
+                          style={{ minWidth: "205px" }}
+                        >
+                          <MDBIcon icon="folder-open" className="mr-2" />
+                          {input.primary.button_1_title}
+                        </MDBBtn>
+                      </Link>
+                    </MDBCol>
+                    {/* <MDBCol>
                         <Link
                           to={input.primary.button_2_link.url}
                           alt={input.primary.button_2_title}
@@ -121,14 +121,13 @@ function HeroSection({ input }) {
                           </MDBBtn>
                         </Link>
                       </MDBCol> */}
-                </MDBRow>
-              </MDBCol>
-            </MDBRow>
-          </MDBContainer>
-          {/* </MDBJumbotron> */}
+                  </MDBRow>
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBJumbotron>
         </Hero>
       </HeroWrapper>
-      {/* </MDBMask> */}
     </BackgroundImage>
   )
 }

@@ -19,6 +19,7 @@ import Fade from "react-reveal/Fade"
 // Styled components for section
 const CapabilitiesWrapper = styled.div`
   padding: 3rem 0;
+  background-color: rgba(125, 125, 125.125, 0.2);
 `
 const H1 = styled.h1`
   font-weight: bold;
