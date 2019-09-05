@@ -83,6 +83,7 @@ export const projectsPageQuery = graphql`
               }
             }
             thumbnail {
+              alt
               localFile {
                 childImageSharp {
                   fluid(cropFocus: CENTER, maxHeight: 450, maxWidth: 600) {

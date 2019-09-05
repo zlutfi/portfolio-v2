@@ -31,7 +31,7 @@ function Cards({ input }) {
                       project.node.data.thumbnail.localFile.childImageSharp
                         .fluid
                     }
-                    alt="alt text bruh"
+                    alt={project.node.data.thumbnail.alt}
                   />
                   <MDBMask className="flex-center" overlay="stylish-strong">
                     <MDBBtn size="sm" color="light-green" tag="span">
