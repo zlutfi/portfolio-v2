@@ -4,7 +4,7 @@ import { MDBRow, MDBCol } from "mdbreact"
 // import styled from "@emotion/styled"
 import Fade from "react-reveal/Fade"
 
-const CodeBlock = ({ input }) => (
+const Code = ({ input }) => (
   <MDBRow className="py-5">
     <MDBCol className="py-5">
       <Fade up>
@@ -22,8 +22,8 @@ const CodeBlock = ({ input }) => (
   </MDBRow>
 )
 
-export default CodeBlock
+export default Code
 
-CodeBlock.propTypes = {
+Code.propTypes = {
   input: PropTypes.object.isRequired,
 }

@@ -2,13 +2,13 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import {
   Text,
-  CodeBlock,
+  Code,
   Image,
   Quote,
   Info,
   Gallery,
-  RecentPosts,
-  RecentProjects,
+  RelatedPosts,
+  RelatedProjects,
   ImageLeft,
   ImageRight,
   TextImage,
@@ -20,9 +20,9 @@ import {
   Projects,
   Hero,
   Contact,
-} from "./slices"
+} from "../components/slices"
 
-export default class SliceOMatic extends Component {
+export default class SliceZone extends Component {
   render() {
     const { allSlices } = this.props
     const slice = allSlices.map(s => {
@@ -31,7 +31,7 @@ export default class SliceOMatic extends Component {
         case "text":
           return <Text key={s.id} input={s} />
         case "code_block":
-          return <CodeBlock key={s.id} input={s} />
+          return <Code key={s.id} input={s} />
         case "image":
           return <Image key={s.id} input={s} />
         case "quote":
@@ -40,10 +40,10 @@ export default class SliceOMatic extends Component {
           return <Info key={s.id} input={s} />
         case "image_gallery":
           return <Gallery key={s.id} input={s} />
-        case "recent_posts":
-          return <RecentProjects key={s.id} input={s} />
-        case "recent_projects":
-          return <RecentPosts key={s.id} input={s} />
+        case "related_posts":
+          return <RelatedPosts key={s.id} input={s} />
+        case "related_projects":
+          return <RelatedProjects key={s.id} input={s} />
         case "left_image_right_text":
           return <ImageLeft key={s.id} input={s} />
         case "right_image_left_text":
@@ -74,6 +74,6 @@ export default class SliceOMatic extends Component {
   }
 }
 
-SliceOMatic.propTypes = {
+SliceZone.propTypes = {
   allSlices: PropTypes.array.isRequired,
 }

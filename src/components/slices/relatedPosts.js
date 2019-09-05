@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Img from "gatsby-image"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 
-export default class RecentPosts extends Component {
+export default class RelatedPosts extends Component {
   render() {
     const { input } = this.props
     return (
@@ -27,6 +27,6 @@ export default class RecentPosts extends Component {
   }
 }
 
-RecentPosts.propTypes = {
+RelatedPosts.propTypes = {
   input: PropTypes.object.isRequired,
 }

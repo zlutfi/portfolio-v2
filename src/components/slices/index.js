@@ -1,14 +1,14 @@
 import Text from "./text"
-import CodeBlock from "./codeBlock"
-import Image from "./image"
-import Quote from "./quote"
-import ImageRight from "./imageRight"
-import ImageLeft from "./imageLeft"
+import Code from "./code"
+import Image from "./img"
+import Quote from "./quoteBlock"
+import ImageRight from "./imgRight"
+import ImageLeft from "./imgLeft"
 import Gallery from "./gallery"
-import RecentPosts from "./recentPosts"
-import RecentProjects from "./recentProjects"
-import TextImage from "./textImage"
-import Carousel from "./carousel"
+import RelatedPosts from "./relatedPosts"
+import RelatedProjects from "./relatedProjects"
+import TextImage from "./textImg"
+import Carousel from "./imgCarousel"
 import ThreeColumns from "./threeColumns"
 // Homepage Slices
 import Capabilities from "./homepage/capabilities"
@@ -21,12 +21,12 @@ import Info from "../project/info"
 
 export {
   Image,
-  CodeBlock,
+  Code,
   Text,
   Quote,
   Gallery,
-  RecentPosts,
-  RecentProjects,
+  RelatedPosts,
+  RelatedProjects,
   ImageRight,
   ImageLeft,
   TextImage,

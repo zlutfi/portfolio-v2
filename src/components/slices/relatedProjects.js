@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 
-export default class RecentProjects extends Component {
+export default class RelatedProjects extends Component {
   render() {
     const { input } = this.props
     return (
@@ -48,6 +48,6 @@ export default class RecentProjects extends Component {
   }
 }
 
-RecentProjects.propTypes = {
+RelatedProjects.propTypes = {
   input: PropTypes.object.isRequired,
 }
