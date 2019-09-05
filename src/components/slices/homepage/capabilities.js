@@ -44,7 +44,7 @@ const Box = posed.div({
   },
 })
 
-export default class CapabilitiesSection extends Component {
+export default class Capabilities extends Component {
   render() {
     const { input } = this.props
     return (
@@ -112,6 +112,6 @@ export default class CapabilitiesSection extends Component {
   }
 }
 
-CapabilitiesSection.propTypes = {
+Capabilities.propTypes = {
   input: PropTypes.object.isRequired,
 }

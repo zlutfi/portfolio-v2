@@ -34,7 +34,7 @@ const Box = posed.div({
   },
 })
 
-export default class PostsSection extends Component {
+export default class Posts extends Component {
   render() {
     const { input } = this.props
     return (
@@ -93,6 +93,6 @@ export default class PostsSection extends Component {
   }
 }
 
-PostsSection.propTypes = {
+Posts.propTypes = {
   input: PropTypes.object.isRequired,
 }

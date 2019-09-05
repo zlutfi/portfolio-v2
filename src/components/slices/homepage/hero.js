@@ -20,7 +20,7 @@ const HeroWrapper = styled.div`
   height: 70vh;
   justify-content: center;
 `
-const Hero = styled.div`
+const HeroContainer = styled.div`
   align-self: center;
   padding-top: 5rem;
 `
@@ -53,7 +53,7 @@ const charPoses = {
   enter: { opacity: 1, color: "#ffffff" },
 }
 
-function HeroSection({ input }) {
+function Hero({ input }) {
   return (
     <BackgroundImage
       fluid={input.primary.background.localFile.childImageSharp.fluid}
@@ -66,7 +66,7 @@ function HeroSection({ input }) {
       }}
     >
       <HeroWrapper id="hero">
-        <Hero>
+        <HeroContainer>
           <MDBJumbotron fluid>
             <MDBContainer>
               <MDBRow>
@@ -126,9 +126,9 @@ function HeroSection({ input }) {
               </MDBRow>
             </MDBContainer>
           </MDBJumbotron>
-        </Hero>
+        </HeroContainer>
       </HeroWrapper>
     </BackgroundImage>
   )
 }
-export default HeroSection
+export default Hero

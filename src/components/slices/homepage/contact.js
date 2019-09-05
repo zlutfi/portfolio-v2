@@ -36,7 +36,7 @@ const ContactWrapper = styled.div`
 //   color: #fff;
 // `
 
-export default class ContactSection extends Component {
+export default class Contact extends Component {
   render() {
     const { input } = this.props
     return (
@@ -96,6 +96,6 @@ export default class ContactSection extends Component {
   }
 }
 
-ContactSection.propTypes = {
+Contact.propTypes = {
   input: PropTypes.object.isRequired,
 }
