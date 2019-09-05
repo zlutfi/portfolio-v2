@@ -51,12 +51,9 @@ export default class Contact extends Component {
                 <h1 className="h1-responsive font-weight-bold text-center my-5">
                   {input.primary.contact_title.text}
                 </h1>
-                <p
-                  className="lead text-center w-responsive mx-auto mb-5"
-                  dangerouslySetInnerHTML={{
-                    __html: input.primary.contact_subtitle.html,
-                  }}
-                />
+                <p className="lead text-center w-responsive mx-auto mb-5">
+                  {input.primary.contact_subtitle.text}
+                </p>
               </Fade>
             </MDBCol>
           </MDBRow>

@@ -56,12 +56,9 @@ export default class Projects extends Component {
                 <h1 className="h1-responsive font-weight-bold text-center my-5">
                   {input.primary.featured_projects_title.text}
                 </h1>
-                <p
-                  className="lead text-center w-responsive mx-auto mb-5"
-                  dangerouslySetInnerHTML={{
-                    __html: input.primary.featured_projects_subtitle.html,
-                  }}
-                />
+                <p className="lead text-center w-responsive mx-auto mb-5">
+                  {input.primary.featured_projects_subtitle.text}
+                </p>
               </Fade>
             </MDBCol>
           </MDBRow>

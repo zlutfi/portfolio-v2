@@ -56,12 +56,9 @@ export default class Capabilities extends Component {
                 <H1 className="h1-responsive text-center my-5">
                   {input.primary.section_title}
                 </H1>
-                <P
-                  className="lead text-center w-responsive mx-auto mb-5"
-                  dangerouslySetInnerHTML={{
-                    __html: input.primary.section_subtitle.html,
-                  }}
-                />
+                <P className="lead text-center w-responsive mx-auto mb-5">
+                  {input.primary.section_subtitle.text}
+                </P>
               </Fade>
             </MDBCol>
           </MDBRow>
@@ -83,22 +80,11 @@ export default class Capabilities extends Component {
                           <MDBCardTitle className=" py-2">
                             {card.card_title.text}
                           </MDBCardTitle>
-
                           <hr className="mx-3" />
-
-                          <MDBCardText
-                            // className="py-2"
-                            dangerouslySetInnerHTML={{
-                              __html: card.card_description.html,
-                            }}
-                          />
+                          <MDBCardText>
+                            {card.card_description.text}
+                          </MDBCardText>
                         </MDBCardBody>
-                        {/* <MDBCardFooter
-                          className="py-4"
-                          dangerouslySetInnerHTML={{
-                            __html: card.card_content.html,
-                          }}
-                        /> */}
                       </MDBCard>
                     </Box>
                   </div>

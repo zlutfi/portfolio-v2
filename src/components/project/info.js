@@ -40,22 +40,22 @@ const Info = ({ input }) => (
               <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
                 Role
               </MDBCardText>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: input.primary.project_role.html,
-                }}
-              />
+              <MDBCardText>{input.primary.project_role.text}</MDBCardText>
               <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
                 Type
               </MDBCardText>
-              Landing Page
-              <br />
-              <br />
+              <MDBCardText>{input.primary.project_type.text}</MDBCardText>
+
               <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
                 Technology Used
               </MDBCardText>
               {input.items.map((tech, index) => (
-                <MDBBadge key={index} color="dark" className="mr-2">
+                <MDBBadge
+                  key={index}
+                  color="elegant-color"
+                  pill
+                  className="mr-2"
+                >
                   {tech.project_technology}
                 </MDBBadge>
               ))}
