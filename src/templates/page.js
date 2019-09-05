@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/pageHeader"
+import Header from "../components/header"
 import SliceZone from "../components/sliceZone"
 
 const Page = ({ data }) => {
@@ -13,7 +13,7 @@ const Page = ({ data }) => {
     <>
       <Layout>
         <SEO title={page.title} />
-        <PageHeader
+        <Header
           title={page.title}
           subtitle={page.subtitle}
           background={

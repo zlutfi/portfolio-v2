@@ -22,7 +22,7 @@ const charPoses = {
   enter: { opacity: 1 },
 }
 
-const PageHeader = ({
+const Header = ({
   title = this.props.title,
   subtitle = this.props.subtitle,
   background = this.props.background,
@@ -57,15 +57,15 @@ const PageHeader = ({
   </>
 )
 
-export default PageHeader
+export default Header
 
-PageHeader.propTypes = {
+Header.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   background: PropTypes.object.isRequired,
 }
 
-PageHeader.defaultProps = {
+Header.defaultProps = {
   title: "Title",
   subtitle: "Subtitle",
   background: {},

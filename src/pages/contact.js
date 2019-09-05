@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/pageHeader"
+import Header from "../components/header"
 import ContactForm from "../components/contactForm"
 import PropTypes from "prop-types"
 import Fade from "react-reveal/Fade"
@@ -13,7 +13,7 @@ const Contact = ({ data = this.props }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
-      <PageHeader
+      <Header
         title={data.prismicStaticPage.data.title}
         subtitle={data.prismicStaticPage.data.subtitle}
         background={

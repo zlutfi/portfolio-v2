@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import { MDBContainer } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/pageHeader"
+import Header from "../components/header"
 import Filter from "../components/project/filter"
 import Cards from "../components/project/cards"
 
@@ -17,7 +17,7 @@ const Category = ({ data, pageContext }) => {
     <>
       <Layout>
         <SEO title={category.title} />
-        <PageHeader
+        <Header
           title={category.title}
           background={hero.primary.background.localFile.childImageSharp.fluid}
         />

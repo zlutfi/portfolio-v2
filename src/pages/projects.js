@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import SEO from "../components/seo"
 import { MDBContainer } from "mdbreact"
 import PropTypes from "prop-types"
-import PageHeader from "../components/pageHeader"
+import Header from "../components/header"
 import Layout from "../components/layout"
 import Filter from "../components/project/filter"
 import Cards from "../components/project/cards"
@@ -13,7 +13,7 @@ const Projects = ({ data = this.props }) => (
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
 
-      <PageHeader
+      <Header
         title={data.prismicStaticPage.data.title}
         subtitle={data.prismicStaticPage.data.subtitle}
         background={

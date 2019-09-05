@@ -18,7 +18,7 @@ import PropTypes from "prop-types"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import PageHeader from "../components/pageHeader"
+import Header from "../components/header"
 import posed from "react-pose"
 import Zoom from "react-reveal/Zoom"
 
@@ -55,7 +55,7 @@ const Blog = ({ data }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
-      <PageHeader
+      <Header
         title={data.prismicStaticPage.data.title}
         subtitle={data.prismicStaticPage.data.subtitle}
         background={
