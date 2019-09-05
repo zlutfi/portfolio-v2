@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { MDBContainer } from "mdbreact"
 import PropTypes from "prop-types"
 import PageHeader from "../components/pageHeader"
-import Layout from "../components/layout/layout"
+import Layout from "../components/layout"
 import Filter from "../components/project/filter"
 import Cards from "../components/project/cards"
 

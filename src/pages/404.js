@@ -10,7 +10,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdbreact"
-import Layout from "../components/layout/layout"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 function NotFoundPage({ data = this.props }) {

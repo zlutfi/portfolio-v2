@@ -6,8 +6,8 @@
  */
 
 import React from "react"
-import Footer from "./footer"
-import Navbar from "./navbar"
+import Footer from "../components/layout/footer"
+import Navbar from "../components/layout/navbar"
 
 const Layout = ({ children, navbarColor, element, props }) => {
   return (
