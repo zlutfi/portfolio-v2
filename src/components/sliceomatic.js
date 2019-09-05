@@ -20,9 +20,9 @@ import {
   Projects,
   Hero,
   Contact,
-} from "../components/slices"
+} from "./slices"
 
-export default class SliceZone extends Component {
+export default class SliceOMatic extends Component {
   render() {
     const { allSlices } = this.props
     const slice = allSlices.map(s => {
@@ -74,6 +74,6 @@ export default class SliceZone extends Component {
   }
 }
 
-SliceZone.propTypes = {
+SliceOMatic.propTypes = {
   allSlices: PropTypes.array.isRequired,
 }

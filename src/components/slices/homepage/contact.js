@@ -10,7 +10,7 @@ import {
 } from "mdbreact"
 import Img from "gatsby-image"
 // import BackgroundImage from "gatsby-background-image"
-import ContactForm from "../../contactForm"
+import Form from "../../form"
 // import GoogleApiWrapper from "../../map"
 
 import styled from "styled-components"
@@ -67,7 +67,7 @@ export default class Contact extends Component {
                   <MDBCardBody>
                     <MDBRow>
                       <MDBCol>
-                        <ContactForm />
+                        <Form />
                       </MDBCol>
                       <MDBCol
                         md="6"

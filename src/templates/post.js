@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 import Header from "../components/post/header"
 import PrevNext from "../components/post/prevNext"
 import { MDBContainer, MDBBtn, MDBIcon, MDBRow, MDBCol } from "mdbreact"
-import SliceZone from "../components/sliceZone"
+import SliceOMatic from "../components/sliceomatic"
 import PropTypes from "prop-types"
 
 const Post = ({ data, pageContext }) => {
@@ -24,7 +24,7 @@ const Post = ({ data, pageContext }) => {
         />
         <MDBContainer>
           <h5>{post.date}</h5>
-          <SliceZone allSlices={post.body} />
+          <SliceOMatic allSlices={post.body} />
           <MDBRow>
             <MDBCol className="py-5">
               <Link to="/blog">

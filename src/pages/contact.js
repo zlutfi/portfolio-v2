@@ -5,7 +5,7 @@ import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import ContactForm from "../components/contactForm"
+import Form from "../components/form"
 import PropTypes from "prop-types"
 import Fade from "react-reveal/Fade"
 
@@ -26,7 +26,7 @@ const Contact = ({ data = this.props }) => (
           <MDBCol size="12" md="7" className="mx-auto">
             {data.prismicStaticPage.data.subtitle}
             <Fade>
-              <ContactForm />
+              <Form />
             </Fade>
           </MDBCol>
           <MDBCol middle>

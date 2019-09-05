@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/project/header"
-import SliceZone from "../components/sliceZone"
+import SliceOMatic from "../components/sliceomatic"
 import PrevNext from "../components/project/prevNext"
 
 const Project = ({ data, pageContext }) => {
@@ -21,7 +21,7 @@ const Project = ({ data, pageContext }) => {
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
         />
-        <SliceZone allSlices={project.body} />
+        <SliceOMatic allSlices={project.body} />
         <PrevNext previous={previous} next={next} />
       </Layout>
     </>

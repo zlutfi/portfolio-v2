@@ -18,7 +18,7 @@ const encode = data => {
     .join("&")
 }
 
-const ContactForm = () => {
+const Form = () => {
   return (
     <Formik
       initialValues={{ name: "", email: "", phone: "", message: "" }}
@@ -169,4 +169,4 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+export default Form

@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SliceZone from "../components/sliceZone"
+import SliceOMatic from "../components/sliceomatic"
 
 class Index extends Component {
   render() {
@@ -15,7 +15,7 @@ class Index extends Component {
         <Layout>
           <SEO title={homepage.data.title} />
 
-          <SliceZone allSlices={homepage.data.body} />
+          <SliceOMatic allSlices={homepage.data.body} />
         </Layout>
       </>
     )

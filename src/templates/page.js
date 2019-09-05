@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import SliceZone from "../components/sliceZone"
+import SliceOMatic from "../components/sliceomatic"
 
 const Page = ({ data }) => {
   const page = data.prismicPage.data
@@ -20,7 +20,7 @@ const Page = ({ data }) => {
             homeHero.primary.background.localFile.childImageSharp.fluid
           }
         />
-        <SliceZone allSlices={page.body} />
+        <SliceOMatic allSlices={page.body} />
       </Layout>
     </>
   )
