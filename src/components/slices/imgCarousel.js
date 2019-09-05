@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 import {
   MDBCarousel,
   MDBCarouselCaption,

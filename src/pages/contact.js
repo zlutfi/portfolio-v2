@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -72,7 +72,13 @@ export const contactPageQuery = graphql`
           alt
           localFile {
             childImageSharp {
-              fluid {
+              fluid(
+                duotone: {
+                  highlight: "#007bff"
+                  shadow: "#15224a"
+                  opacity: 90
+                }
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

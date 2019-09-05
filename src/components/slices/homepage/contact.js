@@ -8,7 +8,7 @@ import {
   MDBCard,
   MDBCardBody,
 } from "mdbreact"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 // import BackgroundImage from "gatsby-background-image"
 import Form from "../../form"
 // import GoogleApiWrapper from "../../map"
