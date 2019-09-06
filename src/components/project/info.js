@@ -8,7 +8,6 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
-  MDBCardFooter,
   MDBCardText,
   MDBBadge,
   MDBContainer,
@@ -20,70 +19,81 @@ const Info = ({ input }) => (
   <Fade>
     <MDBContainer>
       <MDBRow className="py-5" between>
-        <MDBCol>
-          <h2 className="h2-responsive font-weight-bold pb-3">
+        <MDBCol className=" pr-4">
+          <h2 className="h2-responsive font-weight-bold pb-3 text-center text-md-left">
             {input.primary.project_title}
           </h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: input.primary.project_overview.html,
-            }}
-          />
+          <p className="text-center text-md-left">
+            {input.primary.project_overview.text}
+          </p>
         </MDBCol>
-        <MDBCol md="auto">
+        <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
           <MDBCard>
-            <MDBCardHeader>
+            <MDBCardHeader className="text-center text-md-left">
               <MDBIcon icon="folder" className="mr-2 text-primary" />
               Project Information
             </MDBCardHeader>
             <MDBCardBody>
-              <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
-                Role
+              <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
+                <span className="font-weight-bold text-uppercase mr-2">
+                  Role:
+                </span>
+                {input.primary.project_role.text}
               </MDBCardText>
-              <MDBCardText>{input.primary.project_role.text}</MDBCardText>
-              <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
-                Type
+              <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
+                <span className="font-weight-bold text-uppercase mr-2">
+                  Type:
+                </span>
+                {input.primary.project_type.text}
               </MDBCardText>
-              <MDBCardText>{input.primary.project_type.text}</MDBCardText>
 
-              <MDBCardText tag="h4" className="font-weight-bold text-uppercase">
-                Technology Used
-              </MDBCardText>
-              {input.items.map((tech, index) => (
-                <MDBBadge
-                  key={index}
-                  color="elegant-color"
-                  pill
-                  className="mr-2"
+              {input.primary.project_technology_title && (
+                <MDBCardText
+                  tag="h4"
+                  className="font-weight-bold text-uppercase text-center text-md-left"
                 >
-                  {tech.project_technology}
-                </MDBBadge>
-              ))}
-            </MDBCardBody>
-            <MDBCardFooter>
-              {input.primary.project_link && (
-                <OutboundLink
-                  href={`${input.primary.project_link.url}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <MDBBtn color="primary" size="sm" tag="span">
-                    <MDBIcon icon="desktop" className="mr-2" />
-                    View Website
-                  </MDBBtn>
-                </OutboundLink>
+                  {input.primary.project_technology_title}
+                </MDBCardText>
               )}
-              <OutboundLink
-                href={input.primary.project_code_link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <MDBBtn color="elegant" size="sm" tag="span">
-                  <MDBIcon fab icon="github" className="mr-2" />
-                  View Code
-                </MDBBtn>
-              </OutboundLink>
-            </MDBCardFooter>
+              <MDBCardText className="text-center text-md-left">
+                {input.items.map((tech, index) => (
+                  <MDBBadge
+                    key={index}
+                    color="elegant-color"
+                    pill
+                    className="mr-2"
+                  >
+                    {tech.project_technology}
+                  </MDBBadge>
+                ))}
+              </MDBCardText>
+              <div className="text-center text-md-left">
+                {input.primary.project_link.url && (
+                  <OutboundLink
+                    href={`${input.primary.project_link.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MDBBtn color="primary" size="sm" tag="span">
+                      <MDBIcon icon="desktop" className="mr-2" />
+                      View Website
+                    </MDBBtn>
+                  </OutboundLink>
+                )}
+                {input.primary.project_code_link.url && (
+                  <OutboundLink
+                    href={`${input.primary.project_code_link.url}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MDBBtn color="elegant" size="sm" tag="span">
+                      <MDBIcon fab icon="github" className="mr-2" />
+                      View Code
+                    </MDBBtn>
+                  </OutboundLink>
+                )}
+              </div>
+            </MDBCardBody>
           </MDBCard>
         </MDBCol>
       </MDBRow>
