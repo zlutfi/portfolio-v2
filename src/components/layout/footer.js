@@ -81,5 +81,5 @@ Footer.propTypes = {
         }).isRequired,
       }).isRequired,
     }).isRequired,
-  }).isRequired,
+  }),
 }
