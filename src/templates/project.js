@@ -75,7 +75,11 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
-              text {
+              section_title {
+                html
+                text
+              }
+              section_content {
                 html
                 text
               }
@@ -91,6 +95,7 @@ export const pageQuery = graphql`
               project_title
               project_overview {
                 html
+                text
               }
               project_link {
                 url
@@ -106,6 +111,7 @@ export const pageQuery = graphql`
                 text
                 html
               }
+              project_technology_title
             }
           }
           ... on PrismicProjectBodyRightImageLeftText {

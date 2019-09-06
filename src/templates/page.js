@@ -60,7 +60,11 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
-              text {
+              section_title {
+                text
+                html
+              }
+              section_content {
                 text
                 html
               }
