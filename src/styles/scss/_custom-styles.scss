@@ -41,6 +41,8 @@ h3 {
 }
 
 // Custom styles
+$primary-color: $primary-color;
+$secondary-color: #8bc34a;
 
 body {
   background-color: #fff;
@@ -51,7 +53,7 @@ body {
   h4,
   h5,
   h6 {
-    color: #0a2d98;
+    color: $primary-color;
   }
   p {
     line-height: 2rem;
@@ -62,17 +64,17 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #ffffff;
+  @media (min-width: 600px) {
+    background-image: url("../../images/background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+  }
 }
 
 .site-content {
   flex-grow: 1;
   overflow: hidden;
-  background-color: #ffffff;
-  // @media (min-width: 600px) {
-  //   background-image: url("../../images/background.svg");
-  //   background-attachment: fixed;
-  //   background-size: cover;
-  // }
 }
 
 // Hero Styles
@@ -147,7 +149,7 @@ body {
   border-bottom: 1px solid #eee;
 }
 .navbar-logo {
-  fill: #0a2d98;
+  fill: $primary-color;
   height: 1.8rem;
   padding: 0.25rem 0rem;
 }
@@ -157,11 +159,11 @@ body {
 .nav-link.active {
   font-weight: bold;
   transition: 0.33s all ease-out;
-  color: #007bff;
+  color: $primary-color;
 }
 
 .navbar.navbar-light .navbar-nav .nav-item .nav-link {
-  color: #0a2d98;
+  color: $primary-color;
 }
 
 // .navbar-toggler {
@@ -212,12 +214,18 @@ body {
 //   }
 // }
 
+.btn {
+  box-shadow: none;
+}
+
 // Card Styles
 .card {
-  box-shadow: 0 16px 48px rgba(32, 41, 50, 0.12);
+  box-shadow: none;
+  // box-shadow: 0 16px 48px rgba(32, 41, 50, 0.12);
   background-color: #f8f9f9;
   display: flex;
   height: 100%;
+  border: 1px solid #eee;
 }
 
 .card-block {
@@ -243,7 +251,7 @@ body {
   border-bottom: 0;
   background-color: #eee;
   i {
-    color: #0a2d98;
+    color: $primary-color;
   }
 }
 .card-footer {
@@ -335,22 +343,30 @@ textarea.form-control {
 //   box-shadow: 0 16px 48px rgba(32, 41, 50, 0.12);
 // }
 p footer {
-  color: #0a2d98;
+  color: $primary-color;
 }
 
 footer.page-footer {
   border-top: 1px solid #eee;
-  color: #0a2d98;
-  background-color: #fff;
+  color: $primary-color;
+  // background-color: #fff;
+  background-color: transparent;
 }
 .footer-logo {
-  fill: #0a2d98;
+  fill: $primary-color;
   height: 1.6rem;
   padding: 0.25rem 0.75rem;
 }
-
+footer.page-footer .footer-copyright {
+  background-color: #f7f8fa;
+  color: $primary-color;
+}
 .view {
   cursor: pointer;
+}
+
+.badge {
+  box-shadow: none;
 }
 // .gradient-text {
 //   background: -webkit-linear-gradient(65deg, #08f 0, #23fad2 100%);
@@ -450,4 +466,11 @@ footer.page-footer {
 
 .project-nav {
   color: #444;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: $primary-color;
+}
+a {
+  color: $primary-color;
 }
