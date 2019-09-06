@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Fade from "react-reveal/Fade"
 

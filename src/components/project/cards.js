@@ -13,7 +13,7 @@ import {
   MDBView,
   MDBMask,
 } from "mdbreact"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import { Link } from "gatsby"
 import Zoom from "react-reveal/Zoom"
 import posed from "react-pose"

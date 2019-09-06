@@ -12,7 +12,7 @@ import {
 
 import { Formik, Field } from "formik"
 import validationSchema from "../utils/validationSchema"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import Zoom from "react-reveal/Zoom"
 import { navigate } from "gatsby-link"
 
