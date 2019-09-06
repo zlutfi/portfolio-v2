@@ -1,7 +1,7 @@
 import React from "react"
-import { Formik, Field } from "formik"
-import validationSchema from "../utils/validationSchema"
 import {
+  MDBCard,
+  MDBCardBody,
   MDBRow,
   MDBCol,
   MDBBtn,
@@ -9,7 +9,44 @@ import {
   MDBAlert,
   MDBAnimation,
 } from "mdbreact"
+
+import { Formik, Field } from "formik"
+import validationSchema from "../utils/validationSchema"
+import Img from "gatsby-image/withiepolyfill"
+import Zoom from "react-reveal/Zoom"
 import { navigate } from "gatsby-link"
+
+export default function ContactForm({ input }) {
+  return (
+    <MDBRow className="justify-content-center">
+      <MDBCol size="12" className="mx-auto">
+        <Zoom bottom>
+          <MDBCard>
+            <MDBCardBody>
+              <MDBRow>
+                <MDBCol>
+                  <Form />
+                </MDBCol>
+                <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
+                  <Img
+                    fluid={
+                      input.primary.contact_image.localFile.childImageSharp
+                        .fluid
+                    }
+                    alt={input.primary.contact_image.alt}
+                    className="rounded py-3"
+                  />
+                </MDBCol>
+              </MDBRow>
+            </MDBCardBody>
+          </MDBCard>
+        </Zoom>
+      </MDBCol>
+    </MDBRow>
+  )
+}
+
+// Form additions here.
 
 // URI Encoder Component
 const encode = data => {
@@ -18,6 +55,7 @@ const encode = data => {
     .join("&")
 }
 
+// Formik contact form fields
 const Form = () => {
   return (
     <Formik
@@ -168,5 +206,3 @@ const Form = () => {
     />
   )
 }
-
-export default Form

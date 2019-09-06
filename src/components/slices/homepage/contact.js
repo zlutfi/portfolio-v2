@@ -1,21 +1,9 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  // MDBAnimation,
-  MDBCard,
-  MDBCardBody,
-} from "mdbreact"
-import Img from "gatsby-image/withiepolyfill"
-// import BackgroundImage from "gatsby-background-image"
-import Form from "../../form"
-// import GoogleApiWrapper from "../../map"
-
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import styled from "styled-components"
-import Zoom from "react-reveal/Zoom"
 import Fade from "react-reveal/Fade"
+import ContactForm from "../../contactForm"
 
 // Styled components for section
 
@@ -57,7 +45,8 @@ export default class Contact extends Component {
               </Fade>
             </MDBCol>
           </MDBRow>
-          <MDBRow className="justify-content-center">
+          <ContactForm input={input} />
+          {/* <MDBRow className="justify-content-center">
             <MDBCol size="12" className="mx-auto">
               <Zoom bottom>
                 <MDBCard>
@@ -85,7 +74,7 @@ export default class Contact extends Component {
                 </MDBCard>
               </Zoom>
             </MDBCol>
-          </MDBRow>
+          </MDBRow> */}
         </MDBContainer>
       </ContactWrapper>
       // </BackgroundImage>

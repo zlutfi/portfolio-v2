@@ -1,13 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image/withiepolyfill"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
-import Form from "../components/form"
 import PropTypes from "prop-types"
-import Fade from "react-reveal/Fade"
+import ContactForm from "../components/contactForm"
 
 const Contact = ({ data = this.props }) => (
   <>
@@ -27,23 +25,7 @@ const Contact = ({ data = this.props }) => (
             <p>{data.prismicStaticPage.data.subtitle}</p>
           </MDBCol>
         </MDBRow>
-        <MDBRow className="px-0">
-          <MDBCol size="12" md="7" className="mx-auto">
-            <Fade>
-              <Form />
-            </Fade>
-          </MDBCol>
-          <MDBCol middle>
-            <Img
-              fluid={
-                data.prismicHomepageBodyContactCta.primary.contact_image
-                  .localFile.childImageSharp.fluid
-              }
-              alt={data.prismicHomepageBodyContactCta.primary.contact_image.alt}
-              className="rounded py-3"
-            />
-          </MDBCol>
-        </MDBRow>
+        <ContactForm input={data.prismicHomepageBodyContactCta} />
       </MDBContainer>
     </Layout>
   </>
