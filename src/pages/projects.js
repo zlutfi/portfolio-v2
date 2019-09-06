@@ -135,7 +135,10 @@ export const projectsPageQuery = graphql`
                 id
                 slice_type
                 primary {
-                  text {
+                  section_title {
+                    html
+                  }
+                  section_content {
                     html
                   }
                 }
