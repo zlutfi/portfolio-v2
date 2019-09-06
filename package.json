@@ -17,6 +17,7 @@
     "gatsby-plugin-google-analytics": "^2.1.14",
     "gatsby-plugin-manifest": "^2.2.14",
     "gatsby-plugin-offline": "^2.2.10",
+    "gatsby-plugin-purgecss": "^4.0.1",
     "gatsby-plugin-react-helmet": "^3.1.6",
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.1.13",
@@ -38,9 +39,7 @@
     "react-pose": "^4.0.8",
     "react-pose-text": "^3.1.0",
     "react-reveal": "^1.2.2",
-    "react-typography": "^0.16.19",
     "styled-components": "^4.3.2",
-    "typography": "^0.16.19",
     "typography-theme-us-web-design-standards": "^0.16.19"
   },
   "devDependencies": {
