@@ -91,11 +91,19 @@
             "description": "Rich Text Section",
             "icon": "text_fields",
             "non-repeat": {
-              "text": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "section_content": {
                 "type": "StructuredText",
                 "config": {
                   "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "text",
+                  "label": "Section Content",
                   "placeholder": "Your content here"
                 }
               }
