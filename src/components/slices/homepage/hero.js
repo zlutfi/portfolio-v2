@@ -62,7 +62,6 @@ function Hero({ input }) {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
       }}
     >
       <HeroWrapper id="hero">
