@@ -6,8 +6,8 @@ import Fade from "react-reveal/Fade"
 
 const ImageRight = ({ input }) => (
   <MDBContainer>
-    <MDBRow className="py-5">
-      <MDBCol size="12" md="6" className="order-md-last py-5">
+    <MDBRow className="py-5 text-center text-md-left">
+      <MDBCol size="12" md="6" className="order-md-last pb-5">
         <Fade>
           <Img
             fluid={
@@ -19,7 +19,7 @@ const ImageRight = ({ input }) => (
       </MDBCol>
       <MDBCol size="12" md="6" middle>
         <Fade delay={300}>
-          <h2 className="h2-responsive font-weight-bold">
+          <h2 className="h2-responsive font-weight-bold pb-3">
             {input.primary.right_image_title.text}
           </h2>
           <p>{input.primary.right_image_paragraph.text}</p>

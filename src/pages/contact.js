@@ -23,8 +23,12 @@ const Contact = ({ data = this.props }) => (
       />
       <MDBContainer>
         <MDBRow>
+          <MDBCol>
+            <p>{data.prismicStaticPage.data.subtitle}</p>
+          </MDBCol>
+        </MDBRow>
+        <MDBRow className="px-0">
           <MDBCol size="12" md="7" className="mx-auto">
-            {data.prismicStaticPage.data.subtitle}
             <Fade>
               <Form />
             </Fade>

@@ -55,7 +55,13 @@ export const pageQuery = graphql`
               contact_image {
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(
+                      duotone: {
+                        highlight: "#007bff"
+                        shadow: "#15224a"
+                        opacity: 90
+                      }
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }

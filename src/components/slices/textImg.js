@@ -6,8 +6,8 @@ import Fade from "react-reveal/Fade"
 
 const TextImage = ({ input }) => (
   <MDBContainer>
-    <MDBRow className="py-5">
-      <MDBCol size="12" md="5" className="py-5 order-md-last">
+    <MDBRow className="pt-3">
+      <MDBCol size="12" md="5" className="pb-5 order-md-last">
         <Fade delay={200}>
           <Img
             fluid={input.primary.image.localFile.childImageSharp.fluid}
@@ -15,7 +15,7 @@ const TextImage = ({ input }) => (
           />
         </Fade>
       </MDBCol>
-      <MDBCol size="12" md="7" middle>
+      <MDBCol size="12" md="7" middle className="text-center text-md-left">
         <Fade>
           <div
             dangerouslySetInnerHTML={{ __html: input.primary.content.html }}

@@ -19,7 +19,9 @@ import Fade from "react-reveal/Fade"
 // Styled components for section
 const CapabilitiesWrapper = styled.div`
   padding: 3rem 0;
-  background-color: rgba(125, 125, 125.125, 0.2);
+  // background-color: #dfe9f3;
+  // background-color: rgba(125, 125, 125.125, 0.2);
+  // background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 `
 const H1 = styled.h1`
   font-weight: bold;
@@ -35,12 +37,12 @@ const Box = posed.div({
     boxShadow: "0px 0px 0px rgba(0,0,0,0)",
   },
   hover: {
-    scale: 1.05,
+    scale: 1,
     boxShadow: "0px 5px 10px rgba(0,0,0,0.05)",
   },
   press: {
     scale: 1.1,
-    boxShadow: "0px 2px 5px rgba(0,0,0,0.15)",
+    boxShadow: "0px 2px 5px rgba(0,0,0,0.1)",
   },
 })
 

@@ -1,53 +1,36 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image/withiepolyfill"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardText,
-  MDBCardTitle,
-  MDBMask,
-  MDBView,
-} from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
 
 // Styled components for section
 const Section = styled.div`
-  padding: 3rem 0;
+  // background-color: #f7f8fa;
 `
 
 const ThreeColumns = ({ input }) => (
-  <Section>
+  <Section className="py-0 py-md-5">
     <MDBContainer>
       <MDBRow>
         <MDBCol>
-          <h1>{input.primary.column_section_title.text}</h1>
-          <p>{input.primary.column_section_subtitle.text}</p>
+          <h1 className="font-weight-bold">
+            {input.primary.column_section_title.text}
+          </h1>
         </MDBCol>
       </MDBRow>
       <MDBRow className="py-5">
         {input.items.map((col, index) => (
-          <MDBCol size="12" md="4" key={index}>
+          <MDBCol size="10" md="4" key={index} className="mb-5 mb-md-0 mx-auto">
             <Fade>
-              <div style={{ height: "100%" }}>
-                <MDBCard>
-                  <MDBView>
-                    <Img
-                      fluid={col.column_image.localFile.childImageSharp.fluid}
-                      className="rounded"
-                    />
-                    <MDBMask overlay="black-light" className="flex-center" />
-                  </MDBView>
-                  <MDBCardBody>
-                    <MDBCardTitle>{col.column_title.text}</MDBCardTitle>
-                    <MDBCardText>{col.column_content.text}</MDBCardText>
-                  </MDBCardBody>
-                </MDBCard>
-              </div>
+              <h4 className="font-weight-bold pb-3">
+                {/* <MDBIcon
+                  icon="code"
+                  className="mr-3 light-green-text mb-4"
+                /> */}
+                {col.column_title.text}
+              </h4>
+              <p>{col.column_content.text}</p>
             </Fade>
           </MDBCol>
         ))}
