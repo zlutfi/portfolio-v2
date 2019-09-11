@@ -8,7 +8,7 @@ import Layout from "../components/layout"
 import Filter from "../components/project/filter"
 import Cards from "../components/project/cards"
 
-const Projects = ({ data = this.props }) => (
+const Projects = ({ data }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
