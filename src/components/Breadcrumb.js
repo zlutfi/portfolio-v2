@@ -1,16 +1,25 @@
 import React from "react"
 import { MDBBreadcrumb, MDBBreadcrumbItem, MDBContainer } from "mdbreact"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const Breadcrumb = props => {
   return (
-    <MDBBreadcrumb color="elegant" light>
-      <MDBBreadcrumbItem icon icon="folder-open">
-        <Link to="/projects">Main</Link>
-      </MDBBreadcrumbItem>
-      <MDBBreadcrumbItem>{props.category}</MDBBreadcrumbItem>
-      <MDBBreadcrumbItem active>{props.title}</MDBBreadcrumbItem>
-    </MDBBreadcrumb>
+    <MDBContainer>
+      <MDBBreadcrumb dark="true">
+        <MDBBreadcrumbItem icon="folder-open">
+          {/* <Link to="/projects" title="Projects"> */}
+          <span className="px-3">Projects</span>
+          {/* </Link> */}
+        </MDBBreadcrumbItem>
+        <MDBBreadcrumbItem>
+          <span className="px-3">{props.category}</span>
+          {/* <Link to={props.categoryLink}>{props.category}</Link> */}
+        </MDBBreadcrumbItem>
+        <MDBBreadcrumbItem active>
+          <span className="px-3">{props.title}</span>
+        </MDBBreadcrumbItem>
+      </MDBBreadcrumb>
+    </MDBContainer>
   )
 }
 

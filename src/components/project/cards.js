@@ -4,10 +4,10 @@ import {
   MDBRow,
   MDBCol,
   MDBCard,
-  MDBCardBody,
-  MDBCardText,
-  MDBCardTitle,
-  MDBBadge,
+  // MDBCardBody,
+  // MDBCardText,
+  // MDBCardTitle,
+  // MDBBadge,
   MDBBtn,
   MDBIcon,
   MDBView,
@@ -15,7 +15,7 @@ import {
 } from "mdbreact"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
-import Zoom from "react-reveal/Zoom"
+import Fade from "react-reveal/Fade"
 import posed from "react-pose"
 
 // Animations for cards on hover
@@ -28,7 +28,7 @@ const Box = posed.div({
   },
   hover: {
     scale: 1,
-    boxShadow: "0px 5px 10px rgba(0,0,0,0.05)",
+    boxShadow: "0px 5px 10px rgba(0,0,0,0.1)",
   },
   press: {
     scale: 1.1,
@@ -41,10 +41,18 @@ function Cards({ input }) {
     <MDBRow className="pb-5">
       {input.map((project, index) => (
         <MDBCol size="12" md="6" xl="4" className="mb-4" key={index}>
-          <Zoom delay={200 * index}>
+          <Fade bottom delay={200 * index}>
             <Box className="box">
-              <MDBCard style={{ backgroundColor: "#f8f9fa" }}>
-                <Link to={project.node.url}>
+              <MDBCard
+                style={{
+                  backgroundColor: "#f8f9fa",
+                  boxShadow: "0 16px 48px rgba(32,41,50,.12)",
+                }}
+              >
+                <Link
+                  to={project.node.url}
+                  title={project.node.data.title.text}
+                >
                   <MDBView hover zoom>
                     <Img
                       fluid={
@@ -52,6 +60,7 @@ function Cards({ input }) {
                           .fluid
                       }
                       alt={project.node.data.thumbnail.alt}
+                      className="rounded"
                     />
                     <MDBMask className="flex-center" overlay="stylish-strong">
                       <MDBBtn size="sm" color="light-green" tag="span">
@@ -61,7 +70,7 @@ function Cards({ input }) {
                     </MDBMask>
                   </MDBView>
                 </Link>
-                <MDBCardBody>
+                {/* <MDBCardBody>
                   <div className="card-btn">
                     <Link to={project.node.url}>
                       <MDBBtn color="primary" tag="span">
@@ -79,7 +88,7 @@ function Cards({ input }) {
                         {project.node.tags.map((tag, index) => (
                           <MDBBadge
                             pill
-                            color="grey"
+                            color="dark"
                             className="ml-2"
                             key={index}
                           >
@@ -90,10 +99,10 @@ function Cards({ input }) {
                     </MDBRow>
                   </MDBCardTitle>
                   <MDBCardText>{project.node.data.subtitle}</MDBCardText>
-                </MDBCardBody>
+                </MDBCardBody> */}
               </MDBCard>
             </Box>
-          </Zoom>
+          </Fade>
         </MDBCol>
       ))}
     </MDBRow>

@@ -1,69 +1,26 @@
 import React from "react"
 import { Link } from "gatsby"
-import { MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact"
-import posed from "react-pose"
+import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from "mdbreact"
 import styled from "styled-components"
 
-// Animations for buttons
-const Nav = posed.h5({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1,
-  },
-  press: {
-    scale: 1,
-  },
-})
-
-const ArrowRight = posed.div({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-    x: -10,
-  },
-  hover: {
-    scale: 1,
-    x: 10,
-  },
-  press: {
-    scale: 1.1,
-  },
-})
-const ArrowLeft = posed.div({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-    x: 10,
-  },
-  hover: {
-    scale: 1,
-    x: -10,
-  },
-  press: {
-    scale: 1.1,
-  },
-})
-
 const Section = styled.div`
-  background-color: #eee;
+  background-color: #f7f8fa;
 `
 
 const PrevNext = props => {
   return (
     <>
       <Section>
-        <MDBContainer className=" py-5">
+        <MDBContainer className="py-5">
           <MDBRow between className="px-5">
             <MDBCol size="auto" className="text-center">
               {props.previous && (
-                <Link to={`${props.previous.url}`} className="project-nav">
-                  <Nav className="font-weight-bold">
+                <Link to={`${props.previous.url}`}>
+                  <MDBBtn size="sm" color="elegant">
+                    <MDBIcon icon="arrow-alt-circle-right" className="mr-3" />
+                    Prev Project{" "}
+                  </MDBBtn>
+                  {/* <Nav className="font-weight-bold">
                     <MDBRow>
                       <MDBCol size="auto">
                         <ArrowLeft>
@@ -72,14 +29,29 @@ const PrevNext = props => {
                       </MDBCol>
                       <MDBCol size="auto">PREV</MDBCol>
                     </MDBRow>
-                  </Nav>
+                  </Nav> */}
                 </Link>
               )}
             </MDBCol>
+            {/* <MDBCol size="auto">
+              <Link to="/projects" title="Projects" className="project-nav">
+                <Projects>
+                  <MDBIcon
+                    icon="grip-horizontal"
+                    size="2x"
+                    className="grey-text"
+                  />
+                </Projects>
+              </Link>
+            </MDBCol> */}
             <MDBCol size="auto" className="text-center">
               {props.next && (
                 <Link to={`${props.next.url}`} className="project-nav">
-                  <Nav className="font-weight-bold">
+                  <MDBBtn size="sm" color="elegant">
+                    Next Project{" "}
+                    <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
+                  </MDBBtn>
+                  {/* <Nav className="font-weight-bold">
                     <MDBRow>
                       <MDBCol size="auto">NEXT</MDBCol>
                       <MDBCol size="auto">
@@ -88,7 +60,7 @@ const PrevNext = props => {
                         </ArrowRight>
                       </MDBCol>
                     </MDBRow>
-                  </Nav>
+                  </Nav> */}
                 </Link>
               )}
             </MDBCol>

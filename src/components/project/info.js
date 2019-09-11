@@ -19,7 +19,7 @@ const Info = ({ input }) => (
   <Fade>
     <MDBContainer>
       <MDBRow className="py-5" between>
-        <MDBCol className=" pr-4">
+        <MDBCol className="pr-4">
           <h2 className="h2-responsive font-weight-bold pb-3 text-center text-md-left">
             {input.primary.project_title}
           </h2>
@@ -28,7 +28,7 @@ const Info = ({ input }) => (
           </p>
         </MDBCol>
         <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
-          <MDBCard>
+          <MDBCard style={{ boxShadow: "0 16px 48px rgba(32,41,50,.12)" }}>
             <MDBCardHeader className="text-center text-md-left">
               <MDBIcon icon="folder" className="mr-2 text-primary" />
               Project Information
@@ -46,6 +46,14 @@ const Info = ({ input }) => (
                 </span>
                 {input.primary.project_type.text}
               </MDBCardText>
+              {input.primary.project_features_title && (
+                <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
+                  <span className="font-weight-bold text-uppercase mr-2">
+                    {input.primary.project_features_title}:
+                  </span>
+                  {input.primary.project_features.text}
+                </MDBCardText>
+              )}
 
               {input.primary.project_technology_title && (
                 <MDBCardText
@@ -55,6 +63,7 @@ const Info = ({ input }) => (
                   {input.primary.project_technology_title}
                 </MDBCardText>
               )}
+
               <MDBCardText className="text-center text-md-left">
                 {input.items.map((tech, index) => (
                   <MDBBadge

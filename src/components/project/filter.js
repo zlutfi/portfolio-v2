@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 function Filter({ input }) {
   return (
-    <MDBNav className="nav-pills pb-5">
+    <MDBNav className="nav-pills py-5">
       <MDBNavItem>
         <Link to="/projects" className="nav-link" activeClassName="active">
           All

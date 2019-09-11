@@ -32,7 +32,6 @@ const Header = ({
     <BackgroundImage fluid={background} backgroundColor={`#eee`}>
       <MDBJumbotron
         fluid
-        id="hero"
         style={{
           height: "50vh",
           marginTop: "50px",
