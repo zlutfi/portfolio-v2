@@ -1,13 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBCardHeader,
+  MDBIcon,
+} from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import PropTypes from "prop-types"
 import ContactForm from "../components/contactForm"
+import Fade from "react-reveal/Fade"
+import Img from "gatsby-image"
 
-const Contact = ({ data = this.props }) => (
+const Contact = ({ data }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
@@ -19,13 +29,49 @@ const Contact = ({ data = this.props }) => (
             .childImageSharp.fluid
         }
       />
-      <MDBContainer>
-        <MDBRow>
+      <MDBContainer className="pb-5">
+        <MDBRow className="pt-5">
           <MDBCol>
-            <p>{data.prismicStaticPage.data.subtitle}</p>
+            {/* <p>{data.prismicStaticPage.data.subtitle}</p> */}
+            {/* <div className="pb-5">
+              <MDBIcon fab icon="github" size="2x" className="mr-3" />
+              <MDBIcon fab icon="twitter" size="2x" className="mr-3" />
+              <MDBIcon fab icon="linkedin" size="2x" className="mr-3" />
+            </div> */}
           </MDBCol>
         </MDBRow>
-        <ContactForm input={data.prismicHomepageBodyContactCta} />
+        <MDBRow className="justify-content-center">
+          <MDBCol size="12" className="mx-auto">
+            <Fade>
+              <MDBCard style={{ boxShadow: "0 16px 48px rgba(32,41,50,.12)" }}>
+                <MDBCardHeader className="text-left py-3" tag="h5">
+                  <MDBIcon icon="envelope" className="mr-3 text-primary" />
+                  {/* Use the form below to get in touch. */}
+                </MDBCardHeader>
+                <MDBCardBody>
+                  <MDBRow>
+                    <MDBCol>
+                      <ContactForm input={data.prismicHomepageBodyContactCta} />
+                    </MDBCol>
+                    <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
+                      <Img
+                        fluid={
+                          data.prismicHomepageBodyContactCta.primary
+                            .contact_image.localFile.childImageSharp.fluid
+                        }
+                        alt={
+                          data.prismicHomepageBodyContactCta.primary
+                            .contact_image.alt
+                        }
+                        className="rounded py-3"
+                      />
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCard>
+            </Fade>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
     </Layout>
   </>
@@ -58,13 +104,7 @@ export const contactPageQuery = graphql`
           alt
           localFile {
             childImageSharp {
-              fluid(
-                duotone: {
-                  highlight: "#007bff"
-                  shadow: "#15224a"
-                  opacity: 90
-                }
-              ) {
+              fluid {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

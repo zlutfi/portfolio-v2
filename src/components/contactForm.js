@@ -1,7 +1,5 @@
 import React from "react"
 import {
-  MDBCard,
-  MDBCardBody,
   MDBRow,
   MDBCol,
   MDBBtn,
@@ -12,35 +10,17 @@ import {
 
 import { Formik, Field } from "formik"
 import validationSchema from "../utils/validationSchema"
-import Img from "gatsby-image"
-import Zoom from "react-reveal/Zoom"
 import { navigate } from "gatsby-link"
 
-export default function ContactForm({ input }) {
+export default function ContactForm() {
   return (
     <MDBRow className="justify-content-center">
       <MDBCol size="12" className="mx-auto">
-        <Zoom bottom>
-          <MDBCard>
-            <MDBCardBody>
-              <MDBRow>
-                <MDBCol>
-                  <Form />
-                </MDBCol>
-                <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
-                  <Img
-                    fluid={
-                      input.primary.contact_image.localFile.childImageSharp
-                        .fluid
-                    }
-                    alt={input.primary.contact_image.alt}
-                    className="rounded py-3"
-                  />
-                </MDBCol>
-              </MDBRow>
-            </MDBCardBody>
-          </MDBCard>
-        </Zoom>
+        <MDBRow>
+          <MDBCol>
+            <Form />
+          </MDBCol>
+        </MDBRow>
       </MDBCol>
     </MDBRow>
   )
