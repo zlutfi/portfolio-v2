@@ -151,9 +151,6 @@ export const pageQuery = graphql`
           ... on PrismicHomepageBodyDivider {
             id
             slice_type
-            primary {
-              show_divider
-            }
           }
           ... on PrismicHomepageBodyText {
             id

@@ -130,9 +130,6 @@ export const pageQuery = graphql`
           ... on PrismicProjectBodyDivider {
             id
             slice_type
-            primary {
-              show_divider
-            }
           }
           ... on PrismicProjectBodyRightImageLeftText {
             id
