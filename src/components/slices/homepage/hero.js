@@ -10,14 +10,13 @@ import {
   MDBIcon,
   MDBContainer,
 } from "mdbreact"
-import posed from "react-pose"
-import SplitText from "react-pose-text"
 import styled from "styled-components"
+import Fade from "react-reveal/Fade"
 
 // Styled components for section
 const HeroWrapper = styled.div`
   display: flex;
-  height: 70vh;
+  height: 50vh;
   justify-content: center;
 `
 const HeroContainer = styled.div`
@@ -26,32 +25,10 @@ const HeroContainer = styled.div`
 `
 const H1 = styled.h1`
   color: #ffffff;
-  font-size: 5vh;
-  font-weight: bold;
-  text-transform: uppercase;
 `
-const H2 = styled.h2`
-  color: #eee;
+const Span = styled.span`
   font-weight: bold;
 `
-
-// Lets add some animation
-const Box = posed.div({
-  exit: {
-    x: "-100%",
-  },
-  enter: {
-    x: "0%",
-    beforeChildren: true,
-    staggerChildren: 50,
-    delay: 100,
-  },
-})
-
-const charPoses = {
-  exit: { opacity: 0, color: "#007bff" },
-  enter: { opacity: 1, color: "#ffffff" },
-}
 
 function Hero({ input }) {
   return (
@@ -68,61 +45,35 @@ function Hero({ input }) {
         <HeroContainer>
           <MDBJumbotron fluid>
             <MDBContainer>
-              <MDBRow>
-                <MDBCol size="12" className="text-center mx-auto">
-                  <Box pose="enter" initialPose="exit">
+              <Fade bottom>
+                <MDBRow>
+                  <MDBCol size="12" className="text-center mx-auto">
                     <H1>
-                      <SplitText charPoses={charPoses}>
-                        Developer & Designer
-                      </SplitText>
+                      I'm <Span>Z.</Span> <Span> A Developer </Span> &
+                      <Span> Designer. </Span>
                     </H1>
 
-                    <H2 className="lead py-4">
-                      <SplitText charPoses={charPoses}>
-                        I Build Lightning Fast Websites with React.
-                      </SplitText>
-                    </H2>
-                  </Box>
-
-                  {/* <div
-                        dangerouslySetInnerHTML={{ __html: input.primary.title.html }}
-                      /> */}
-                  {/* </h1> */}
-
-                  <MDBRow>
-                    <MDBCol>
-                      <Link
-                        to={input.primary.button_1_link.url}
-                        alt={input.primary.button_1_title}
-                      >
-                        <MDBBtn
-                          color="light-green"
-                          tag="span"
-                          style={{ minWidth: "205px" }}
-                        >
-                          <MDBIcon icon="folder-open" className="mr-2" />
-                          {input.primary.button_1_title}
-                        </MDBBtn>
-                      </Link>
-                    </MDBCol>
-                    {/* <MDBCol>
+                    <MDBRow className="mt-5">
+                      <MDBCol>
                         <Link
-                          to={input.primary.button_2_link.url}
-                          alt={input.primary.button_2_title}
+                          to={input.primary.button_1_link.url}
+                          alt={input.primary.button_1_title}
+                          title={input.primary.button_1_title}
                         >
                           <MDBBtn
-                            color="primary"
+                            color="light-green"
                             tag="span"
                             style={{ minWidth: "205px" }}
                           >
                             <MDBIcon icon="folder-open" className="mr-2" />
-                            {input.primary.button_2_title}
+                            {input.primary.button_1_title}
                           </MDBBtn>
                         </Link>
-                      </MDBCol> */}
-                  </MDBRow>
-                </MDBCol>
-              </MDBRow>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBCol>
+                </MDBRow>
+              </Fade>
             </MDBContainer>
           </MDBJumbotron>
         </HeroContainer>

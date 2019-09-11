@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { MDBContainer, MDBRow, MDBCol, MDBFooter } from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol, MDBFooter, MDBIcon } from "mdbreact"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { PropTypes } from "prop-types"
 
@@ -26,39 +26,42 @@ const Footer = () => {
     }
   `)
   return (
-    <MDBFooter color="primary" className="font-small pt-5">
-      <MDBContainer className="text-center pb-3">
-        <MDBRow className="justify-content-center py-3">
-          <MDBCol size="auto">
-            <strong>{data.prismicFooter.data.powered_by_title}</strong>
-          </MDBCol>
-          {data.prismicFooter.data.powered_by.map((brand, index) => (
-            <MDBCol key={index} size="auto">
-              <OutboundLink
-                href={brand.link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                alt={brand.image.alt}
-              >
-                <img
-                  src={brand.image.url}
-                  alt={brand.image.alt}
-                  height="20px"
-                  className="mb-3"
-                />
-              </OutboundLink>
+    <>
+      <MDBFooter color="unique-color-dark" className="font-small pt-5">
+        <MDBContainer className="text-center pb-3">
+          <MDBRow className="justify-content-center py-3">
+            <MDBCol size="12" md="6" className="text-md-left">
+              <strong>
+                <MDBIcon icon="code" className="mr-2" />
+                {data.prismicFooter.data.copyright}
+              </strong>
+              &nbsp;- &copy; Copyright&nbsp;
+              <strong>{new Date().getFullYear()}</strong>
             </MDBCol>
-          ))}
-        </MDBRow>
-        <MDBRow>
-          <MDBCol>
-            <strong>{data.prismicFooter.data.copyright}</strong> - &copy;
-            Copyright&nbsp;
-            {new Date().getFullYear()}
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </MDBFooter>
+            <MDBCol size="12" md="auto" className="py-4 py-md-0">
+              {data.prismicFooter.data.powered_by_title}
+            </MDBCol>
+            {data.prismicFooter.data.powered_by.map((brand, index) => (
+              <MDBCol key={index} size="auto">
+                <OutboundLink
+                  href={brand.link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt={brand.image.alt}
+                >
+                  <img
+                    src={brand.image.url}
+                    alt={brand.image.alt}
+                    height="20px"
+                    className="mb-3"
+                  />
+                </OutboundLink>
+              </MDBCol>
+            ))}
+          </MDBRow>
+        </MDBContainer>
+      </MDBFooter>
+    </>
   )
 }
 
