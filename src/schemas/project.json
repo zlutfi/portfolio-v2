@@ -103,6 +103,20 @@
                 "config": {
                   "label": "Project Technology Title"
                 }
+              },
+              "project_features_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Project Features Title"
+                }
+              },
+              "project_features": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Project Features",
+                  "placeholder": "Project Features"
+                }
               }
             },
             "repeat": {
@@ -321,6 +335,79 @@
                 }
               }
             },
+            "repeat": {}
+          },
+          "columns": {
+            "type": "Slice",
+            "fieldset": "Columns",
+            "description": "Creates columns based on content.",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Section Title",
+                  "placeholder": "Section Title"
+                }
+              },
+              "section_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Section Content",
+                  "placeholder": "Section Content"
+                }
+              },
+              "column_size": {
+                "type": "Text",
+                "config": {
+                  "label": "Column Size",
+                  "placeholder": "12"
+                }
+              },
+              "column_size_md": {
+                "type": "Text",
+                "config": {
+                  "label": "Column Size MD",
+                  "placeholder": "6"
+                }
+              },
+              "column_size_lg": {
+                "type": "Text",
+                "config": {
+                  "label": "Column Size LG",
+                  "placeholder": "4"
+                }
+              }
+            },
+            "repeat": {
+              "column_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Column Title",
+                  "placeholder": "Column Title"
+                }
+              },
+              "column_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Column Content",
+                  "placeholder": "Column Content"
+                }
+              }
+            }
+          },
+          "divider": {
+            "type": "Slice",
+            "fieldset": "Divider",
+            "description": "Divides content section with a HR tag.",
+            "icon": "linear_scale",
+            "display": "list",
+            "non-repeat": {},
             "repeat": {}
           }
         }

@@ -255,6 +255,15 @@
               }
             },
             "repeat": {}
+          },
+          "divider": {
+            "type": "Slice",
+            "fieldset": "Divider",
+            "description": "Divides content section with a HR tag.",
+            "icon": "linear_scale",
+            "display": "list",
+            "non-repeat": {},
+            "repeat": {}
           }
         }
       }
