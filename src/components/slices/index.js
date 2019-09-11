@@ -7,9 +7,12 @@ import ImageLeft from "./imgLeft"
 import Gallery from "./gallery"
 import RelatedPosts from "./relatedPosts"
 import RelatedProjects from "./relatedProjects"
-import TextImage from "./textImg"
+import TextCard from "./textCard"
 import Carousel from "./imgCarousel"
 import ThreeColumns from "./threeColumns"
+import Columns from "./Columns"
+import Divider from "./divider"
+
 // Homepage Slices
 import Capabilities from "./homepage/capabilities"
 import Hero from "./homepage/hero"
@@ -29,9 +32,11 @@ export {
   RelatedProjects,
   ImageRight,
   ImageLeft,
-  TextImage,
+  TextCard,
   Carousel,
   ThreeColumns,
+  Columns,
+  Divider,
   // Homepage Slices
   Capabilities,
   Hero,

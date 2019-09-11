@@ -11,9 +11,11 @@ import {
   RelatedProjects,
   ImageLeft,
   ImageRight,
-  TextImage,
+  TextCard,
   Carousel,
   ThreeColumns,
+  Columns,
+  Divider,
   //Homepage Slices
   Capabilities,
   Posts,
@@ -49,11 +51,15 @@ export default class SliceZone extends Component {
         case "right_image_left_text":
           return <ImageRight key={s.id} input={s} />
         case "text_with_image":
-          return <TextImage key={s.id} input={s} />
+          return <TextCard key={s.id} input={s} />
         case "carousel":
           return <Carousel key={s.id} input={s} />
         case "three_columns":
           return <ThreeColumns key={s.id} input={s} />
+        case "columns":
+          return <Columns key={s.id} input={s} />
+        case "divider":
+          return <Divider key={s.id} input={s} />
         //Homepage Slices
         case "hero":
           return <Hero key={s.id} input={s} />
