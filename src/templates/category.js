@@ -109,6 +109,7 @@ export const categoryQuery = graphql`
           url
           uid
           data {
+            subtitle
             title {
               text
             }

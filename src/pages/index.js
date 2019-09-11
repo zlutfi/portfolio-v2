@@ -55,13 +55,7 @@ export const pageQuery = graphql`
               contact_image {
                 localFile {
                   childImageSharp {
-                    fluid(
-                      duotone: {
-                        highlight: "#007bff"
-                        shadow: "#15224a"
-                        opacity: 90
-                      }
-                    ) {
+                    fluid {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -70,7 +64,16 @@ export const pageQuery = graphql`
               contact_background {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1920, maxHeight: 1080, quality: 90) {
+                    fluid(
+                      maxWidth: 1920
+                      maxHeight: 1080
+                      quality: 90
+                      duotone: {
+                        highlight: "#007bff"
+                        shadow: "#15224a"
+                        opacity: 90
+                      }
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -133,8 +136,8 @@ export const pageQuery = graphql`
                       maxHeight: 1080
                       quality: 90
                       duotone: {
-                        highlight: "#007bff"
-                        shadow: "#15224a"
+                        highlight: "#999999"
+                        shadow: "#202932"
                         opacity: 90
                       }
                     ) {
@@ -143,6 +146,13 @@ export const pageQuery = graphql`
                   }
                 }
               }
+            }
+          }
+          ... on PrismicHomepageBodyDivider {
+            id
+            slice_type
+            primary {
+              show_divider
             }
           }
           ... on PrismicHomepageBodyText {

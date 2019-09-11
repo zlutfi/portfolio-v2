@@ -78,6 +78,11 @@ export const pageQuery = graphql`
                 html
                 text
               }
+              card_title
+              card_content {
+                text
+                html
+              }
               image {
                 alt
                 localFile {
@@ -87,6 +92,28 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+              }
+            }
+          }
+          ... on PrismicPageBodyColumns {
+            slice_type
+            primary {
+              section_title {
+                text
+              }
+              section_content {
+                text
+              }
+              column_size
+              column_size_md
+              column_size_lg
+            }
+            items {
+              column_title {
+                text
+              }
+              column_content {
+                text
               }
             }
           }
