@@ -54,7 +54,7 @@ class Navbar extends Component {
         >
           <MDBContainer>
             <MDBNavbarBrand>
-              <Link to="/" aria-label="Home">
+              <Link to="/" aria-label="Home" title="Home">
                 <Box className="box">
                   <Logo className="navbar-logo" />
                 </Box>
@@ -72,6 +72,7 @@ class Navbar extends Component {
                   <Link
                     to="/"
                     name="Home"
+                    title="Home"
                     className="nav-link"
                     activeClassName="active"
                   >
@@ -83,6 +84,7 @@ class Navbar extends Component {
                   <Link
                     to="/contact"
                     name="Contact Me"
+                    title="Contact Me"
                     className="nav-link"
                     activeClassName="active"
                   >
@@ -132,6 +134,7 @@ export const NavItems = () => (
             <Link
               to={document.link.url}
               name={document.label.text}
+              title={document.label.text}
               className="nav-link"
               activeClassName="active"
               partiallyActive={true}
