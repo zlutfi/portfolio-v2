@@ -6,11 +6,14 @@ import SEO from "../components/seo"
 import Header from "../components/project/header"
 import SliceOMatic from "../components/sliceomatic"
 import PrevNext from "../components/project/prevNext"
+import Breadcrumb from "../components/breadcrumb"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
   const next = pageContext.next
   const project = data.prismicProject.data
+  const tags = data.prismicProject.tags
+  const categoryLink = data.prismicProject.data.category.slug
   return (
     <>
       <Layout>
@@ -20,6 +23,11 @@ const Project = ({ data, pageContext }) => {
           subtitle={project.subtitle}
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
+        />
+        <Breadcrumb
+          title={project.title.text}
+          category={tags}
+          categoryLink={categoryLink}
         />
         <SliceOMatic allSlices={project.body} />
         <PrevNext previous={previous} next={next} />
@@ -46,6 +54,7 @@ Project.propTypes = {
 export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
     prismicProject(uid: { eq: $uid }) {
+      tags
       data {
         title {
           text
@@ -112,6 +121,17 @@ export const pageQuery = graphql`
                 html
               }
               project_technology_title
+              project_features_title
+              project_features {
+                text
+              }
+            }
+          }
+          ... on PrismicProjectBodyDivider {
+            id
+            slice_type
+            primary {
+              show_divider
             }
           }
           ... on PrismicProjectBodyRightImageLeftText {
