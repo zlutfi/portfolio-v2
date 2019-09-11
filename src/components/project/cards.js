@@ -4,10 +4,10 @@ import {
   MDBRow,
   MDBCol,
   MDBCard,
-  // MDBCardBody,
-  // MDBCardText,
-  // MDBCardTitle,
-  // MDBBadge,
+  MDBCardBody,
+  MDBCardText,
+  MDBCardTitle,
+  MDBBadge,
   MDBBtn,
   MDBIcon,
   MDBView,
@@ -70,7 +70,7 @@ function Cards({ input }) {
                     </MDBMask>
                   </MDBView>
                 </Link>
-                {/* <MDBCardBody>
+                <MDBCardBody>
                   <div className="card-btn">
                     <Link to={project.node.url}>
                       <MDBBtn color="primary" tag="span">
@@ -99,7 +99,7 @@ function Cards({ input }) {
                     </MDBRow>
                   </MDBCardTitle>
                   <MDBCardText>{project.node.data.subtitle}</MDBCardText>
-                </MDBCardBody> */}
+                </MDBCardBody>
               </MDBCard>
             </Box>
           </Fade>
