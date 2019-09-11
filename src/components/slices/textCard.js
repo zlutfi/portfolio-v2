@@ -24,20 +24,21 @@ const TextCard = ({ input }) => (
               className="rounded"
             /> */}
             <MDBCardHeader>
-              <MDBIcon icon="info-circle" className="mr-3" />
+              <MDBIcon icon="info-circle" className="mr-3 text-primary" />
               {input.primary.card_title}
             </MDBCardHeader>
             <MDBCardBody>
-              <MDBCardText
-                dangerouslySetInnerHTML={{
-                  __html: input.primary.card_content.html,
-                }}
-              />
+              <MDBCardText>{input.primary.card_content.text}</MDBCardText>
             </MDBCardBody>
           </MDBCard>
         </Fade>
       </MDBCol>
-      <MDBCol size="12" md="7" middle className="text-center text-md-left">
+      <MDBCol
+        size="12"
+        md="7"
+        middle
+        className="text-center text-md-left order-first pb-5 pb-md-0"
+      >
         <Fade>
           <div
             dangerouslySetInnerHTML={{ __html: input.primary.content.html }}
