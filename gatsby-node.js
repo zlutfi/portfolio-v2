@@ -17,7 +17,6 @@ exports.createPages = async ({ graphql, actions }) => {
       allPrismicPage {
         edges {
           node {
-            id
             uid
           }
         }
@@ -25,16 +24,13 @@ exports.createPages = async ({ graphql, actions }) => {
       allPrismicPost {
         edges {
           node {
-            id
             uid
           }
           previous {
-            id
             uid
             url
           }
           next {
-            id
             uid
             url
           }
@@ -42,19 +38,16 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       allPrismicProject {
         edges {
-          node {
-            id
-            uid
-          }
           previous {
-            id
             uid
             url
           }
           next {
-            id
             uid
             url
+          }
+          node {
+            uid
           }
         }
       }
@@ -63,6 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             uid
+            url
             data {
               title
             }
