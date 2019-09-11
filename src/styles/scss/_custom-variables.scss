@@ -1,8 +1,8 @@
 // Your custom variables
 
-$primary-color: #0a2d98;
+$primary-color: #007bff;
 // $primary-color: #4fa72b;
-$secondary-color: #007bff;
+$secondary-color: #0a2d98;
 
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
