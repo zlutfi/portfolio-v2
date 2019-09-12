@@ -10,7 +10,7 @@ import RelatedProjects from "./relatedProjects"
 import TextCard from "./textCard"
 import Carousel from "./imgCarousel"
 import ThreeColumns from "./threeColumns"
-import Columns from "./Columns"
+import Columns from "./columns"
 import Divider from "./divider"
 
 // Homepage Slices
