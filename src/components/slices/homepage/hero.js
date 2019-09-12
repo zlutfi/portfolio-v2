@@ -16,7 +16,7 @@ import Fade from "react-reveal/Fade"
 // Styled components for section
 const HeroWrapper = styled.div`
   display: flex;
-  height: 600px;
+  height: 60vh
   justify-content: center;
 `
 const HeroContainer = styled.div`
