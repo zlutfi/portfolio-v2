@@ -7,9 +7,9 @@
 // You can delete this file if you're not using it
 
 // Global Styles
-import "@fortawesome/fontawesome-free/css/all.min.css"
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "./src/styles/scss/mdb.scss"
+import "./src/styles/icons/fontawesome-free/css/all.min.css"
 
 // Adds support for the Gatsby Image Background plugin
 export const onClientEntry = () => {
