@@ -170,7 +170,7 @@ const Form = () => {
           <MDBRow>
             <MDBCol className="text-center pt-2">
               <MDBBtn
-                color="secondary"
+                color="primary"
                 type="submit"
                 name="submit"
                 disabled={isSubmitting}
