@@ -45,11 +45,13 @@ function Hero({ input }) {
               <Fade bottom>
                 <MDBRow>
                   <MDBCol size="12" className="text-center mx-auto">
-                    <H1
-                      dangerouslySetInnerHTML={{
-                        __html: input.primary.title.html,
-                      }}
-                    />
+                    <H1>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: input.primary.title.html,
+                        }}
+                      />
+                    </H1>
                     {/* I'm <Span>Z,</Span> <Span> a Developer </Span> &
                       <Span> Designer. </Span> */}
 
