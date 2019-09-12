@@ -2,7 +2,7 @@ import React from "react"
 import { MDBBreadcrumb, MDBBreadcrumbItem, MDBContainer } from "mdbreact"
 // import { Link } from "gatsby"
 
-const Breadcrumb = props => {
+const Breadcrumbs = props => {
   return (
     <MDBContainer>
       <MDBBreadcrumb dark="true">
@@ -23,4 +23,4 @@ const Breadcrumb = props => {
   )
 }
 
-export default Breadcrumb
+export default Breadcrumbs
