@@ -48,6 +48,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   alt={brand.image.alt}
+                  title={brand.image.alt}
                 >
                   <img
                     src={brand.image.url}
