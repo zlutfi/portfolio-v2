@@ -11,23 +11,23 @@ import {
   MDBBtn,
 } from "mdbreact"
 import Logo from "./logo"
-import posed from "react-pose"
+// import posed from "react-pose"
 
 // Animations for cards on hover
-const Box = posed.div({
-  hoverable: true,
-  pressable: true,
-  init: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.05,
-  },
-  press: {
-    scale: 1.1,
-    fill: "#888",
-  },
-})
+// const Box = posed.div({
+//   hoverable: true,
+//   pressable: true,
+//   init: {
+//     scale: 1,
+//   },
+//   hover: {
+//     scale: 1.05,
+//   },
+//   press: {
+//     scale: 1.1,
+//     fill: "#888",
+//   },
+// })
 
 class Navbar extends Component {
   state = {
@@ -55,9 +55,9 @@ class Navbar extends Component {
           <MDBContainer>
             <MDBNavbarBrand>
               <Link to="/" aria-label="Home" title="Home">
-                <Box className="box">
-                  <Logo className="navbar-logo" />
-                </Box>
+                {/* <Box className="box"> */}
+                <Logo className="navbar-logo" />
+                {/* </Box> */}
               </Link>
             </MDBNavbarBrand>
 
