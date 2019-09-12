@@ -126,7 +126,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `zlutfi-portfolio-v2`,
+        name: `zlutfi-portfolio`,
         short_name: `zlutfi`,
         start_url: `/`,
         background_color: `#663399`,
