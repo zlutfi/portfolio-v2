@@ -106,6 +106,14 @@
                   "label": "Subtitle",
                   "placeholder": "Section Subtitle"
                 }
+              },
+              "section_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Section Image"
+                }
               }
             },
             "repeat": {
