@@ -90,6 +90,15 @@ export const pageQuery = graphql`
                 text
                 html
               }
+              section_image {
+                localFile {
+                  childImageSharp {
+                    fluid(quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
             }
             items {
               card_title {
