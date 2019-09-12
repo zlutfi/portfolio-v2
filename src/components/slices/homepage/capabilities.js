@@ -57,6 +57,7 @@ export default class Capabilities extends Component {
                         .fluid
                     }
                     alt={input.primary.section_image.alt}
+                    style={{ boxShadow: "none" }}
                   />
                 </Fade>
               </MDBCol>

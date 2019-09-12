@@ -64,6 +64,7 @@ const Contact = ({ data }) => (
                             .contact_image.alt
                         }
                         className="rounded py-3"
+                        style={{ boxShadow: "none" }}
                       />
                     </MDBCol>
                   </MDBRow>
