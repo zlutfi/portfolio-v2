@@ -69,7 +69,12 @@ export default class Projects extends Component {
                 <MDBCol size="12" md="6" lg="4" className="mb-4" key={index}>
                   <Fade bottom delay={300 * index}>
                     {/* <Box className="box"> */}
-                    <MDBCard>
+                    <MDBCard
+                      style={{
+                        backgroundColor: "#f8f9fa",
+                        boxShadow: "0 16px 48px rgba(32,41,50,.12)",
+                      }}
+                    >
                       <Link
                         to={project.featured_project.document.url}
                         alt="View Project"

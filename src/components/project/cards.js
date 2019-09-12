@@ -60,10 +60,7 @@ function Cards({ input }) {
                     className="rounded"
                   />
                   <MDBMask className="flex-center" overlay="stylish-strong">
-                    <MDBBtn size="sm" color="light-green" tag="span">
-                      <MDBIcon icon="folder-open" className="mr-2" />
-                      View Project
-                    </MDBBtn>
+                    <MDBIcon icon="search" size="4x" className="white-text" />
                   </MDBMask>
                 </MDBView>
               </Link>
