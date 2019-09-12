@@ -44,6 +44,10 @@ h3 {
 $primary-color: $primary-color;
 $secondary-color: #8bc34a;
 
+html {
+  font-display: swap;
+}
+
 body {
   background-color: #fff;
   color: #444;
