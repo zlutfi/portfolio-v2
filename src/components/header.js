@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { MDBContainer, MDBRow, MDBCol, MDBJumbotron } from "mdbreact"
 import Fade from "react-reveal/Fade"
+import BackgroundImage from "gatsby-background-image"
 
 const Header = ({
   title = this.props.title,
@@ -10,20 +11,22 @@ const Header = ({
   bgColor = "unique-color-dark",
 }) => (
   <>
-    <MDBJumbotron fluid id="page">
-      <MDBContainer>
-        <MDBRow className="py-5 my-5">
-          <MDBCol size="12" md="5" className="text-center text-md-left mb-n5">
-            <Fade bottom>
-              <h1 className="font-weight-bold text-primary">{title}</h1>
-              <p className="lead grey-text">
-                <strong>{subtitle}</strong>
-              </p>
-            </Fade>
-          </MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </MDBJumbotron>
+    <BackgroundImage fluid={background} backgroundColor={`#eee`}>
+      <MDBJumbotron fluid id="page">
+        <MDBContainer>
+          <MDBRow className="py-5 my-5">
+            <MDBCol size="12" md="5" className="text-center text-md-left mb-n5">
+              <Fade bottom>
+                <h1 className="font-weight-bold text-primary">{title}</h1>
+                <p className="lead">
+                  <strong>{subtitle}</strong>
+                </p>
+              </Fade>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </MDBJumbotron>
+    </BackgroundImage>
   </>
 )
 

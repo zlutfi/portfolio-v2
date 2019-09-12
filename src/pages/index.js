@@ -145,8 +145,8 @@ export const pageQuery = graphql`
                       maxHeight: 1080
                       quality: 90
                       duotone: {
-                        highlight: "#999999"
-                        shadow: "#202932"
+                        highlight: "#007bff"
+                        shadow: "#15224a"
                         opacity: 90
                       }
                     ) {
