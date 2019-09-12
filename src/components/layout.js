@@ -14,7 +14,9 @@ const Layout = ({ children, navbarColor, element, props }) => {
     <>
       <div className="site">
         <Navbar />
-        <div className="site-content">{children}</div>
+        <div className="site-content">
+          <main>{children}</main>
+        </div>
         <Footer />
       </div>
     </>
