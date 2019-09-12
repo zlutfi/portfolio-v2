@@ -6,7 +6,7 @@ import {
   MDBJumbotron,
   MDBRow,
   MDBCol,
-  MDBBtn,
+  // MDBBtn,
   MDBIcon,
   MDBContainer,
 } from "mdbreact"
@@ -25,9 +25,6 @@ const HeroContainer = styled.div`
 `
 const H1 = styled.h1`
   color: #ffffff;
-`
-const Span = styled.span`
-  font-weight: bold;
 `
 
 function Hero({ input }) {
@@ -48,10 +45,13 @@ function Hero({ input }) {
               <Fade bottom>
                 <MDBRow>
                   <MDBCol size="12" className="text-center mx-auto">
-                    <H1>
-                      I'm <Span>Z,</Span> <Span> a Developer </Span> &
-                      <Span> Designer. </Span>
-                    </H1>
+                    <H1
+                      dangerouslySetInnerHTML={{
+                        __html: input.primary.title.html,
+                      }}
+                    />
+                    {/* I'm <Span>Z,</Span> <Span> a Developer </Span> &
+                      <Span> Designer. </Span> */}
 
                     <MDBRow className="mt-5">
                       <MDBCol>
@@ -60,14 +60,22 @@ function Hero({ input }) {
                           alt={input.primary.button_1_title}
                           title={input.primary.button_1_title}
                         >
-                          <MDBBtn
+                          <MDBIcon
+                            far
+                            icon="arrow-alt-circle-down"
+                            className="mr-2"
+                            size="3x"
+                          />
+
+                          {/* <MDBBtn
                             color="light-green"
                             tag="span"
                             style={{ minWidth: "205px" }}
+                            outline
                           >
                             <MDBIcon icon="folder-open" className="mr-2" />
                             {input.primary.button_1_title}
-                          </MDBBtn>
+                          </MDBBtn> */}
                         </Link>
                       </MDBCol>
                     </MDBRow>
