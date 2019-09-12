@@ -49,7 +49,7 @@ function Hero({ input }) {
                 <MDBRow>
                   <MDBCol size="12" className="text-center mx-auto">
                     <H1>
-                      I'm <Span>Z.</Span> <Span> A Developer </Span> &
+                      I'm <Span>Z,</Span> <Span> a Developer </Span> &
                       <Span> Designer. </Span>
                     </H1>
 
