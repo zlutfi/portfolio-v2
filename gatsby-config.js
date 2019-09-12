@@ -18,10 +18,10 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
-    title: `Portfolio v2`,
+    title: `ZL Portfolio`,
     siteUrl: NETLIFY_SITE_URL,
-    description: `Version 2 of the zlutfi.com portfolio website.`,
-    author: `@zlutfi`,
+    description: `Charlotte Front-end Developer & Designer Specializing in Modern JamStack Websites & Graphics`,
+    author: `zlutfi.com`,
   },
   plugins: [
     {
