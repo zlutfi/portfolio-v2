@@ -12,6 +12,7 @@ import {
   MDBCardText,
 } from "mdbreact"
 import styled from "styled-components"
+import Img from "gatsby-image"
 import Fade from "react-reveal/Fade"
 
 // Styled components for section
@@ -38,9 +39,9 @@ export default class Capabilities extends Component {
             <MDBRow>
               <MDBCol size="12" md="8" className="mx-auto">
                 <Fade bottom>
-                  <h1 className="h1-responsive font-weight-bold text-center my-5">
+                  <h2 className="h2-responsive font-weight-bold text-center my-5">
                     {input.primary.section_title}
-                  </h1>
+                  </h2>
                   <p className="lead grey-text text-center w-responsive mx-auto mb-5">
                     {input.primary.section_subtitle.text}
                   </p>
@@ -50,10 +51,12 @@ export default class Capabilities extends Component {
             <MDBRow>
               <MDBCol size="12" md="6" middle>
                 <Fade bottom>
-                  <img
-                    src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg"
-                    alt="Test"
-                    className="img-fluid"
+                  <Img
+                    fluid={
+                      input.primary.section_image.localFile.childImageSharp
+                        .fluid
+                    }
+                    alt={input.primary.section_image.alt}
                   />
                 </Fade>
               </MDBCol>

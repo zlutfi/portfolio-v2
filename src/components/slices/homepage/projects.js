@@ -54,9 +54,9 @@ export default class Projects extends Component {
             <MDBRow>
               <MDBCol size="12" md="8" className="mx-auto">
                 <Fade bottom>
-                  <h1 className="h1-responsive font-weight-bold text-center my-5">
+                  <h2 className="h2-responsive font-weight-bold text-center my-5">
                     {input.primary.featured_projects_title.text}
-                  </h1>
+                  </h2>
                   <p className="lead grey-text text-center w-responsive mx-auto mb-5">
                     {input.primary.featured_projects_subtitle.text}
                   </p>
