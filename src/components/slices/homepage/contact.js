@@ -18,14 +18,14 @@ import ContactForm from "../../contactForm"
 // Styled components for section
 const ContactWrapper = styled.div`
   // padding: 3rem 0;
-  //background-color: #007bff;
+  // background-color: #007bff;
 `
 
 export default class Contact extends Component {
   render() {
     const { input } = this.props
     return (
-      <ContactWrapper>
+      <ContactWrapper className="contact">
         <MDBContainer className="py-4 py-md-5 mx-auto text-center">
           <MDBRow>
             <MDBCol size="12" md="8" className="mx-auto">

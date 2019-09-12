@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Header from "../components/project/header"
 import SliceOMatic from "../components/sliceomatic"
 import PrevNext from "../components/project/prevNext"
-import Breadcrumb from "../components/breadcrumb"
+import Breadcrumbs from "../components/breadcrumbs"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
@@ -24,7 +24,7 @@ const Project = ({ data, pageContext }) => {
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
         />
-        <Breadcrumb
+        <Breadcrumbs
           title={project.title.text}
           category={tags}
           categoryLink={categoryLink}
