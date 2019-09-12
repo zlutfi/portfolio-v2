@@ -2,7 +2,8 @@
 
 $primary-color: #007bff;
 // $primary-color: #4fa72b;
-$secondary-color: #0a2d98;
+// $secondary-color: #0a2d98;
+$secondary-color: #4fa72b;
 
 @function strip-unit($value) {
   @return $value / ($value * 0 + 1);
