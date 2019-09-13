@@ -15,11 +15,15 @@ const PrevNext = props => {
           <MDBRow between className="px-5">
             <MDBCol size="auto" className="text-center">
               {props.previous && (
-                <Link to={`${props.previous.url}`}>
-                  <MDBBtn size="sm" color="elegant">
-                    <MDBIcon icon="arrow-alt-circle-right" className="mr-3" />
-                    Prev Project{" "}
-                  </MDBBtn>
+                <Link
+                  to={`${props.previous.url}`}
+                  className="project-nav"
+                  style={{ color: "#222", fontWeight: "bold" }}
+                >
+                  {/* <MDBBtn size="sm" color="elegant"> */}
+                  <MDBIcon icon="arrow-alt-circle-left" className="mr-3" />
+                  PREV
+                  {/* </MDBBtn> */}
                   {/* <Nav className="font-weight-bold">
                     <MDBRow>
                       <MDBCol size="auto">
@@ -46,11 +50,15 @@ const PrevNext = props => {
             </MDBCol> */}
             <MDBCol size="auto" className="text-center">
               {props.next && (
-                <Link to={`${props.next.url}`} className="project-nav">
-                  <MDBBtn size="sm" color="elegant">
-                    Next Project{" "}
-                    <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
-                  </MDBBtn>
+                <Link
+                  to={`${props.next.url}`}
+                  className="project-nav"
+                  style={{ color: "#222", fontWeight: "bold" }}
+                >
+                  {/* <MDBBtn size="sm" color="elegant"> */}
+                  NEXT
+                  <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
+                  {/* </MDBBtn> */}
                   {/* <Nav className="font-weight-bold">
                     <MDBRow>
                       <MDBCol size="auto">NEXT</MDBCol>

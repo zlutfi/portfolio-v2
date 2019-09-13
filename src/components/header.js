@@ -15,13 +15,20 @@ const Header = ({
       <MDBJumbotron fluid id="page">
         <MDBContainer>
           <MDBRow className="py-5 my-5">
-            <MDBCol size="12" md="5" className="text-center text-md-left mb-n5">
+            <MDBCol size="8" md="4" className="text-center mb-n5 mx-auto">
+              {/* <div
+                style={{ backgroundColor: "rgb(28, 78, 150)" }}
+                className="z-depth-1 rounded py-5"
+              > */}
               <Fade bottom>
-                <h1 className="font-weight-bold text-primary">{title}</h1>
-                <p className="lead">
-                  <strong>{subtitle}</strong>
-                </p>
+                <h1 className="h1-responsive font-weight-bold text-white section-title">
+                  {title}
+                </h1>
               </Fade>
+              {/* </div> */}
+              {/* <p className="lead">
+                  <strong>{subtitle}</strong>
+                </p> */}
             </MDBCol>
           </MDBRow>
         </MDBContainer>

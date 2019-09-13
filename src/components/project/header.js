@@ -2,25 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import BackgroundImage from "gatsby-background-image"
 import { MDBContainer, MDBRow, MDBCol, MDBJumbotron } from "mdbreact"
-// import posed from "react-pose"
-// import SplitText from "react-pose-text"
-
-// Animations and such
-// const Box = posed.div({
-//   exit: {
-//     x: "-100%",
-//   },
-//   enter: {
-//     x: "0%",
-//     beforeChildren: true,
-//     staggerChildren: 50,
-//   },
-// })
-
-// const charPoses = {
-//   exit: { opacity: 0 },
-//   enter: { opacity: 1 },
-// }
 
 const Header = ({
   title = this.props.title,
@@ -32,13 +13,13 @@ const Header = ({
     <BackgroundImage fluid={background} backgroundColor={`#eee`}>
       <MDBJumbotron
         fluid
+        className="project-hero"
         style={{
-          height: "50vh",
+          // height: "600px",
           marginTop: "50px",
         }}
       >
         <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
-          {/* <Box pose="enter" initialPose="exit"> */}
           <MDBRow>
             <MDBCol size="12" md="8" className="text-center text-md-left">
               {/* <span className="hero-text-block">
@@ -67,7 +48,6 @@ const Header = ({
                 </p> */}
             </MDBCol>
           </MDBRow>
-          {/* </Box> */}
         </MDBContainer>
       </MDBJumbotron>
     </BackgroundImage>

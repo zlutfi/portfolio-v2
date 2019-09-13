@@ -6,7 +6,7 @@ import Fade from "react-reveal/Fade"
 const Divider = ({ input }) => (
   <MDBContainer>
     <MDBRow className="py-5">
-      <MDBCol className="py-5 text-center text-md-left">
+      <MDBCol className="text-center text-md-left">
         <Fade>
           <hr />
         </Fade>
