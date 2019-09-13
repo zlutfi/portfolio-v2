@@ -39,7 +39,7 @@ export default class Capabilities extends Component {
             <MDBRow>
               <MDBCol size="12" md="8" className="mx-auto">
                 <Fade bottom>
-                  <h2 className="h2-responsive font-weight-bold text-center my-5">
+                  <h2 className="h2-responsive font-weight-bold text-center my-5 section-title">
                     {input.primary.section_title}
                   </h2>
                   <p className="lead grey-text text-center w-responsive mx-auto mb-5">
@@ -71,9 +71,9 @@ export default class Capabilities extends Component {
                     >
                       <Fade bottom>
                         <MDBCard
-                          style={{
-                            boxShadow: "0 16px 48px rgba(32,41,50,.12)",
-                          }}
+                        // style={{
+                        //   boxShadow: "0 16px 48px rgba(32,41,50,.12)",
+                        // }}
                         >
                           <MDBCardHeader className="font-weight-bold" tag="h5">
                             <MDBIcon
