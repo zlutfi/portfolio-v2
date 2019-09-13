@@ -6,14 +6,14 @@ import SEO from "../components/seo"
 import Header from "../components/project/header"
 import SliceOMatic from "../components/sliceomatic"
 import PrevNext from "../components/project/prevNext"
-import Breadcrumbs from "../components/breadcrumbs"
+// import Breadcrumbs from "../components/breadcrumbs"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
   const next = pageContext.next
   const project = data.prismicProject.data
-  const tags = data.prismicProject.tags
-  const categoryLink = data.prismicProject.data.category.slug
+  // const tags = data.prismicProject.tags
+  // const categoryLink = data.prismicProject.data.category.slug
   return (
     <>
       <Layout>
@@ -24,11 +24,11 @@ const Project = ({ data, pageContext }) => {
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
         />
-        <Breadcrumbs
+        {/* <Breadcrumbs
           title={project.title.text}
           category={tags}
           categoryLink={categoryLink}
-        />
+        /> */}
         <SliceOMatic allSlices={project.body} />
         <PrevNext previous={previous} next={next} />
       </Layout>
