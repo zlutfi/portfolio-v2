@@ -9,6 +9,7 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBBtn,
+  MDBIcon,
 } from "mdbreact"
 import Logo from "./logo"
 // import posed from "react-pose"
@@ -88,8 +89,9 @@ class Navbar extends Component {
                     className="nav-link"
                     activeClassName="active"
                   >
-                    <MDBBtn size="md" color="primary">
-                      Contact Me
+                    <MDBBtn size="sm" color="primary">
+                      <MDBIcon icon="envelope" className="mr-2" />
+                      Contact me
                     </MDBBtn>
                   </Link>
                 </MDBNavItem>
@@ -109,7 +111,7 @@ export const NavItems = () => (
   <StaticQuery
     query={graphql`
       {
-        prismicMenu {
+        prismicMenu(data: { name: { eq: "Navbar Menu" } }) {
           data {
             menu_links {
               label {
