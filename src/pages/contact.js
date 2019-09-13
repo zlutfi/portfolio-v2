@@ -41,9 +41,9 @@ const Contact = ({ data }) => (
           </MDBCol>
         </MDBRow>
         <MDBRow className="justify-content-center">
-          <MDBCol size="12" className="mx-auto">
+          <MDBCol size="12" className="mx-auto pb-5">
             <Fade>
-              <MDBCard style={{ boxShadow: "0 16px 48px rgba(32,41,50,.12)" }}>
+              <MDBCard>
                 <MDBCardHeader className="text-left py-3" tag="h5">
                   <MDBIcon icon="envelope" className="mr-3 text-primary" />
                   {/* Use the form below to get in touch. */}
@@ -123,9 +123,9 @@ export const contactPageQuery = graphql`
                 maxHeight: 1080
                 quality: 90
                 duotone: {
-                  highlight: "#007bff"
+                  highlight: "#1c4e96"
                   shadow: "#15224a"
-                  opacity: 90
+                  opacity: 100
                 }
               ) {
                 ...GatsbyImageSharpFluid_withWebp
