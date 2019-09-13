@@ -28,7 +28,7 @@ const Info = ({ input }) => (
           </p>
         </MDBCol>
         <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
-          <MDBCard style={{ boxShadow: "0 16px 48px rgba(32,41,50,.12)" }}>
+          <MDBCard>
             <MDBCardHeader className="text-center text-md-left">
               <MDBIcon icon="folder" className="mr-2 text-primary" />
               Project Information

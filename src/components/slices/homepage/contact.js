@@ -30,7 +30,7 @@ export default class Contact extends Component {
           <MDBRow>
             <MDBCol size="12" md="8" className="mx-auto">
               <Fade bottom>
-                <h2 className="h2-responsive font-weight-bold text-center my-5">
+                <h2 className="h2-responsive font-weight-bold text-center my-5 section-title">
                   {input.primary.contact_title.text}
                 </h2>
                 <p className="lead grey-text text-center w-responsive mx-auto mb-5">
@@ -46,11 +46,9 @@ export default class Contact extends Component {
           </MDBRow>
 
           <MDBRow className="justify-content-center">
-            <MDBCol size="12" md="9" className="mx-auto">
+            <MDBCol size="12" md="9" className="mx-auto pb-5">
               <Fade bottom>
-                <MDBCard
-                  style={{ boxShadow: "0 16px 48px rgba(32,41,50,.12)" }}
-                >
+                <MDBCard>
                   <MDBCardHeader className="text-left py-3" tag="h5">
                     <MDBIcon icon="envelope" className="mr-3 text-primary" />{" "}
                     {/* Use the form below to get in touch. */}
