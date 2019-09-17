@@ -197,7 +197,12 @@ export const pageQuery = graphql`
                 alt
                 localFile {
                   childImageSharp {
-                    fluid(quality: 90) {
+                    fluid(
+                      quality: 90
+                      cropFocus: CENTER
+                      maxHeight: 600
+                      maxWidth: 1200
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
