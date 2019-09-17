@@ -49,7 +49,9 @@ const Footer = () => {
           <MDBContainer>
             <MDBRow>
               <MDBCol>
-                Built with ♥ and powered by{" "}
+                Built by <strong>Z Lutfi</strong> - &copy; &nbsp;
+                <strong>{new Date().getFullYear()}</strong> All Rights Reserved.
+                Powered by{" "}
                 <OutboundLink
                   href="https://gatsby.org
                 "
@@ -58,18 +60,8 @@ const Footer = () => {
                   title="Gatsby"
                 >
                   Gatsby
-                </OutboundLink>
-                ,{" "}
-                <OutboundLink
-                  href="https://prismic.io
-                "
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title="Prismic"
-                >
-                  Prismic
                 </OutboundLink>{" "}
-                and{" "}
+                and deployed via{" "}
                 <OutboundLink
                   href="https://netlify.com
                 "
@@ -79,9 +71,6 @@ const Footer = () => {
                 >
                   Netlify
                 </OutboundLink>{" "}
-                - &copy; &nbsp;
-                <strong>{new Date().getFullYear()}</strong> Z Lutfi. All Rights
-                Reserved.
               </MDBCol>
             </MDBRow>
           </MDBContainer>
