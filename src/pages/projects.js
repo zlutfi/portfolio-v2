@@ -5,7 +5,7 @@ import { MDBContainer } from "mdbreact"
 import PropTypes from "prop-types"
 import Header from "../components/header"
 import Layout from "../components/layout"
-import Filter from "../components/project/filter"
+// import Filter from "../components/project/filter"
 import Cards from "../components/project/cards"
 
 const Projects = ({ data }) => (
