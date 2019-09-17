@@ -18,9 +18,9 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
 
 module.exports = {
   siteMetadata: {
-    title: `ZL Portfolio`,
+    title: `ZL Project Portfolio`,
     siteUrl: NETLIFY_SITE_URL,
-    description: `Charlotte Front-end Developer & Designer Specializing in Modern JamStack Websites & Graphics`,
+    description: `Web Developer & Designer Specializing in Modern JamStack Websites & Graphics`,
     author: `zlutfi.com`,
   },
   plugins: [
@@ -111,7 +111,7 @@ module.exports = {
     //     // tailwind: true, // Enable tailwindcss support
     //     // whitelist: ["btn"], // Don't remove this selector
     //     // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-    //     purgeOnly: ["components/", "/main.css", "styles/"], // Purge only these files/folders
+    //     // purgeOnly: ["/all.min.css"], // Purge only these files/folders
     //   },
     // },
     `gatsby-transformer-sharp`,
