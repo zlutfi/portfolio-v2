@@ -13,6 +13,7 @@ const Page = ({ data }) => {
     <>
       <Layout>
         <SEO title={page.title} />
+        {/* Page Header */}
         <Header
           title={page.title}
           subtitle={page.subtitle}
@@ -20,6 +21,7 @@ const Page = ({ data }) => {
             homeHero.primary.background.localFile.childImageSharp.fluid
           }
         />
+        {/* Page slices */}
         <SliceOMatic allSlices={page.body} />
       </Layout>
     </>
