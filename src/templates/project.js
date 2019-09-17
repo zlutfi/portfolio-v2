@@ -53,7 +53,7 @@ const Header = props => (
   <BackgroundImage fluid={props.background} backgroundColor={`#eee`}>
     <MDBJumbotron
       fluid
-      className="project-hero"
+      id="project"
       style={{
         marginTop: "50px",
       }}
