@@ -1,14 +1,12 @@
 import Text from "./text"
 import Code from "./code"
 import Image from "./img"
-import Quote from "./quoteBlock"
+import Quote from "./quote"
 import ImageRight from "./imgRight"
 import ImageLeft from "./imgLeft"
 import Gallery from "./gallery"
-import RelatedPosts from "./relatedPosts"
-import RelatedProjects from "./relatedProjects"
 import TextCard from "./textCard"
-import Carousel from "./imgCarousel"
+import Carousel from "./carousel"
 import ThreeColumns from "./threeColumns"
 import Columns from "./columns"
 import Divider from "./divider"
@@ -28,8 +26,6 @@ export {
   Text,
   Quote,
   Gallery,
-  RelatedPosts,
-  RelatedProjects,
   ImageRight,
   ImageLeft,
   TextCard,

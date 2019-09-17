@@ -7,8 +7,6 @@ import {
   Quote,
   Info,
   Gallery,
-  RelatedPosts,
-  RelatedProjects,
   ImageLeft,
   ImageRight,
   TextCard,
@@ -42,10 +40,6 @@ export default class SliceZone extends Component {
           return <Info key={s.id} input={s} />
         case "image_gallery":
           return <Gallery key={s.id} input={s} />
-        case "related_posts":
-          return <RelatedPosts key={s.id} input={s} />
-        case "related_projects":
-          return <RelatedProjects key={s.id} input={s} />
         case "left_image_right_text":
           return <ImageLeft key={s.id} input={s} />
         case "right_image_left_text":
