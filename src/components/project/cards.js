@@ -7,6 +7,7 @@ import {
   MDBCardBody,
   MDBCardText,
   MDBCardTitle,
+  // MDBCardFooter,
   // MDBBadge,
   MDBBtn,
   MDBIcon,
@@ -15,14 +16,16 @@ import {
 } from "mdbreact"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
+// import { OutboundLink } from "gatsby-plugin-google-analytics"
+
 import Fade from "react-reveal/Fade"
 
 function Cards({ input }) {
   return (
-    <MDBRow className="pb-5">
+    <MDBRow className="py-5">
       {input.map((project, index) => {
         return (
-          <MDBCol size="12" md="6" xl="4" className="mb-4" key={index}>
+          <MDBCol size="12" md="6" className="mb-4" key={index}>
             <Fade bottom delay={200 * index}>
               <MDBCard>
                 <Link
@@ -73,6 +76,32 @@ function Cards({ input }) {
                   </MDBCardTitle>
                   <MDBCardText>{project.node.data.subtitle}</MDBCardText>
                 </MDBCardBody>
+                {/* <MDBCardFooter>
+                  <MDBRow>
+                    <MDBCol>
+                      <OutboundLink
+                        href="https://github.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Github"
+                      >
+                        <MDBIcon fab icon="github" className="mr-2" />
+                      </OutboundLink>
+                    </MDBCol>
+
+                    <MDBCol>
+                      <OutboundLink
+                        href={project.node.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Github"
+                      >
+                        <MDBIcon icon="folder-open" className="mr-2" />
+                      </OutboundLink>
+                    
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCardFooter> */}
               </MDBCard>
             </Fade>
           </MDBCol>
