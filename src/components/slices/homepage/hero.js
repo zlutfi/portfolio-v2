@@ -27,7 +27,7 @@ function Hero({ input }) {
       > */}
       <MDBJumbotron fluid className="my-5" id="home">
         <MDBContainer>
-          <MDBRow className="my-5 py-5">
+          <MDBRow className="my-md-5 py-md-5">
             <MDBCol size="12" className="mx-auto my-5 py-5 text-center">
               <Fade delay={400}>
                 <h1
