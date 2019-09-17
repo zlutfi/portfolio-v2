@@ -91,7 +91,7 @@ class Navbar extends Component {
                   >
                     <MDBBtn size="sm" color="primary">
                       <MDBIcon icon="envelope" className="mr-2" />
-                      Contact me
+                      Let's Chat
                     </MDBBtn>
                   </Link>
                 </MDBNavItem>
