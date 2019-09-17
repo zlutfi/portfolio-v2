@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import BackgroundImage from "gatsby-background-image"
+// import BackgroundImage from "gatsby-background-image"
 //MDB Hero Components
 import {
   MDBJumbotron,
@@ -27,8 +27,8 @@ function Hero({ input }) {
       > */}
       <MDBJumbotron fluid className="my-5" id="home">
         <MDBContainer>
-          <MDBRow>
-            <MDBCol size="12" className="mx-auto my-5 text-center">
+          <MDBRow className="my-5 py-5">
+            <MDBCol size="12" className="mx-auto my-5 py-5 text-center">
               <Fade delay={400}>
                 <h1
                   style={{ color: "#222" }}
