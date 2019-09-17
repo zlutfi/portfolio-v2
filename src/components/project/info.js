@@ -85,7 +85,7 @@ const Info = ({ input }) => (
                   >
                     <MDBBtn color="primary" size="sm" tag="span">
                       <MDBIcon icon="desktop" className="mr-2" />
-                      View Website
+                      View Live
                     </MDBBtn>
                   </OutboundLink>
                 )}
