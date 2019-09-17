@@ -12,7 +12,7 @@ const Projects = ({ data }) => (
   <>
     <Layout>
       <SEO title={data.prismicStaticPage.data.title} />
-
+      {/* Project header */}
       <Header
         title={data.prismicStaticPage.data.title}
         subtitle={data.prismicStaticPage.data.subtitle}
@@ -21,9 +21,10 @@ const Projects = ({ data }) => (
             .childImageSharp.fluid
         }
       />
-
       <MDBContainer>
+        {/* Project filter */}
         {/* <Filter input={data.allPrismicCategory.edges} /> */}
+        {/* Project card component */}
         <Cards input={data.allPrismicProject.edges} />
       </MDBContainer>
     </Layout>
