@@ -18,29 +18,29 @@
 
 // FREE
 @import "free/animations-basic";
-// @import "free/modules/animations-extended/module";
+@import "free/modules/animations-extended/module";
 @import "free/buttons";
 @import "free/cards";
-// @import "free/dropdowns";
+@import "free/dropdowns";
 @import "free/input-group";
 @import "free/navbars";
-// @import "free/pagination";
+@import "free/pagination";
 @import "free/badges";
-// @import "free/modals";
+@import "free/modals";
 @import "free/carousels";
 @import "free/forms";
-// @import "free/msc";
+@import "free/msc";
 @import "free/footers";
-// @import "free/list-group";
-// @import "free/tables";
-// @import "free/depreciated";
-// @import "free/steppers";
-// @import "free/loader";
-// @import "free/treeview";
+@import "free/list-group";
+@import "free/tables";
+@import "free/depreciated";
+@import "free/steppers";
+@import "free/loader";
+@import "free/treeview";
 // Free addons
-// @import "addons/datatables";
-// @import "addons/datatables-select";
-// @import "addons/directives";
+@import "addons/datatables";
+@import "addons/datatables-select";
+@import "addons/directives";
 
 // Your custom styles
 @import "custom-styles";
