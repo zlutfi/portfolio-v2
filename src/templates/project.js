@@ -1,12 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { PropTypes } from "prop-types"
+import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBJumbotron } from "mdbreact"
+import BackgroundImage from "gatsby-background-image"
+
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Header from "../components/project/header"
 import SliceOMatic from "../components/sliceomatic"
-import PrevNext from "../components/project/prevNext"
-// import Breadcrumbs from "../components/breadcrumbs"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
@@ -18,19 +18,17 @@ const Project = ({ data, pageContext }) => {
     <>
       <Layout>
         <SEO title={project.title.text} />
+        {/* Project header */}
         <Header
           title={project.title.text}
           subtitle={project.subtitle}
           background={project.hero.localFile.childImageSharp.fluid}
           bgColor="unique-color-dark"
         />
-        {/* <Breadcrumbs
-          title={project.title.text}
-          category={tags}
-          categoryLink={categoryLink}
-        /> */}
+        {/* Slice component for dynamic project pages */}
         <SliceOMatic allSlices={project.body} />
-        <PrevNext previous={previous} next={next} />
+        {/* PREV NEXT Buttons */}
+        <PREVNEXT previous={previous} next={next} />
       </Layout>
     </>
   )
@@ -50,6 +48,59 @@ Project.propTypes = {
     }),
   }).isRequired,
 }
+
+const Header = props => (
+  <BackgroundImage fluid={props.background} backgroundColor={`#eee`}>
+    <MDBJumbotron
+      fluid
+      className="project-hero"
+      style={{
+        marginTop: "50px",
+      }}
+    >
+      <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
+        <MDBRow>
+          <MDBCol
+            size="12"
+            md="8"
+            className="text-center text-md-left mx-auto mx-md-0"
+          ></MDBCol>
+        </MDBRow>
+      </MDBContainer>
+    </MDBJumbotron>
+  </BackgroundImage>
+)
+
+const PREVNEXT = props => (
+  <MDBContainer className="py-5">
+    <MDBRow between className="px-5">
+      <MDBCol size="auto" className="text-center">
+        {props.previous && (
+          <Link
+            to={`${props.previous.url}`}
+            className="project-nav"
+            style={{ color: "#222", fontWeight: "bold" }}
+          >
+            <MDBIcon icon="arrow-alt-circle-left" className="mr-3" />
+            PREV
+          </Link>
+        )}
+      </MDBCol>
+      <MDBCol size="auto" className="text-center">
+        {props.next && (
+          <Link
+            to={`${props.next.url}`}
+            className="project-nav"
+            style={{ color: "#222", fontWeight: "bold" }}
+          >
+            NEXT
+            <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
+          </Link>
+        )}
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+)
 
 export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
