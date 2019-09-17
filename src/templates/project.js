@@ -28,7 +28,7 @@ const Project = ({ data, pageContext }) => {
         {/* Slice component for dynamic project pages */}
         <SliceOMatic allSlices={project.body} />
         {/* PREV NEXT Buttons */}
-        <PREVNEXT previous={previous} next={next} />
+        <PrevNext previous={previous} next={next} />
       </Layout>
     </>
   )
@@ -71,7 +71,7 @@ const Header = props => (
   </BackgroundImage>
 )
 
-const PREVNEXT = props => (
+const PrevNext = props => (
   <MDBContainer className="py-5">
     <MDBRow between className="px-5">
       <MDBCol size="auto" className="text-center">
