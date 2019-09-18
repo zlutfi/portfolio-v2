@@ -10,7 +10,7 @@ import {
   MDBIcon,
   MDBContainer,
 } from "mdbreact"
-import Fade from "react-reveal/Fade"
+import Reveal from "react-reveal/Reveal"
 import Pulse from "react-reveal/Pulse"
 
 function Hero({ input }) {
@@ -29,21 +29,23 @@ function Hero({ input }) {
         <MDBContainer>
           <MDBRow className="my-md-5 py-md-5">
             <MDBCol size="12" className="mx-auto my-5 py-5 text-center">
-              <Fade delay={400}>
+              <Reveal effect="text-focus-in">
                 <h1
                   style={{ color: "#222" }}
                   className="h1-responsive text-uppercase font-weight-bold"
                 >
-                  Web Developer & Designer
+                  Web Developer
                 </h1>
+              </Reveal>
+              <Reveal delay={400} effect="text-focus-in">
                 <h2 className="grey-text h2-responsive">
                   I build lightning fast responsive websites and apps
                 </h2>
-              </Fade>
+              </Reveal>
 
               <MDBRow className="mt-md-5">
                 <MDBCol>
-                  <Fade bottom delay={800}>
+                  <Reveal bottom delay={800} effect="text-focus-in">
                     <Pulse count={5} duration={2000}>
                       <Link
                         to={input.primary.button_1_link.url}
@@ -63,7 +65,7 @@ function Hero({ input }) {
                       </MDBBtn> */}
                       </Link>
                     </Pulse>
-                  </Fade>
+                  </Reveal>
                 </MDBCol>
               </MDBRow>
             </MDBCol>

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { MDBContainer, MDBRow, MDBCol, MDBJumbotron } from "mdbreact"
-import Fade from "react-reveal/Fade"
+import Reveal from "react-reveal/Reveal"
 // import BackgroundImage from "gatsby-background-image"
 
 const Header = ({
@@ -20,14 +20,14 @@ const Header = ({
                 style={{ backgroundColor: "rgb(28, 78, 150)" }}
                 className="z-depth-1 rounded py-5"
               > */}
-            <Fade bottom>
+            <Reveal effect="text-focus-in">
               <h1
                 className="h1-responsive font-weight-bold section-title"
                 style={{ color: "#222" }}
               >
                 {title}
               </h1>
-            </Fade>
+            </Reveal>
             {/* </div> */}
             {/* <p className="lead">
                   <strong>{subtitle}</strong>
