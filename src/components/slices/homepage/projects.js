@@ -143,7 +143,7 @@ export default class Projects extends Component {
           </MDBRow>
           {/* CTA Section */}
           <MDBRow className="py-5 justify-content-center">
-            <Link to="/projects">
+            <Link to="/projects" title="View Projects">
               <MDBBtn color="elegant" tag="span">
                 <MDBIcon icon="folder-open" className="mr-2" />
                 View more projects
