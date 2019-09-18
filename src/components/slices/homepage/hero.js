@@ -57,6 +57,7 @@ function Hero({ input }) {
                           icon="arrow-alt-circle-down"
                           className="mr-2 primary-text"
                           size="3x"
+                          alt="View Projects"
                         />
 
                         {/* <MDBBtn color="primary" tag="span">
