@@ -20,7 +20,7 @@ module.exports = {
   siteMetadata: {
     title: `ZL Project Portfolio`,
     siteUrl: NETLIFY_SITE_URL,
-    description: `Web Developer & Designer Specializing in Modern JamStack Websites & Graphics`,
+    description: `Web Developer Specializing in Modern JAMstack Websites & Graphics`,
     author: `zlutfi.com`,
   },
   plugins: [
@@ -103,17 +103,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
-        // tailwind: true, // Enable tailwindcss support
-        // whitelist: ["btn", "card", "col", "container", "row"], // Don't remove this selector
-        ignore: ["/_custom-styles.scss"], // Ignore files/folders
-        purgeOnly: ["/mdb.scss"], // Purge only these files/folders
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-purgecss`,
+    //   options: {
+    //     printRejected: true, // Print removed selectors and processed file names
+    //     develop: true, // Enable while using `gatsby develop`
+    //     // tailwind: true, // Enable tailwindcss support
+    //     // whitelist: ["btn", "card", "col", "container", "row"], // Don't remove this selector
+    //     // ignore: ["/_custom-styles.scss"], // Ignore files/folders
+    //     // purgeOnly: ["/styles/scss/addons", "/styles/scss/core"], // Purge only these files/folders
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
