@@ -6,7 +6,7 @@ import {
   MDBJumbotron,
   MDBRow,
   MDBCol,
-  // MDBBtn,
+  MDBBtn,
   MDBIcon,
   MDBContainer,
 } from "mdbreact"
@@ -52,18 +52,18 @@ function Hero({ input }) {
                         alt={input.primary.button_1_title}
                         title={input.primary.button_1_title}
                       >
-                        <MDBIcon
+                        {/* <MDBIcon
                           far
                           icon="arrow-alt-circle-down"
                           className="mr-2 primary-text"
                           size="3x"
                           alt="View Projects"
-                        />
+                        /> */}
 
-                        {/* <MDBBtn color="primary" tag="span">
-                        <MDBIcon icon="folder-open" className="mr-2" />
-                        {input.primary.button_1_title}
-                      </MDBBtn> */}
+                        <MDBBtn color="primary" tag="span">
+                          <MDBIcon icon="folder-open" className="mr-2" />
+                          {input.primary.button_1_title}
+                        </MDBBtn>
                       </Link>
                     </Pulse>
                   </Reveal>
