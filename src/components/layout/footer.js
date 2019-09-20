@@ -58,7 +58,7 @@ const Footer = () => {
               <h5 className="text-uppercase text-primary font-weight-bold text-center">
                 About
               </h5>
-              <p className="grey-text text-center">
+              <p className="text-dark text-center">
                 I'm Z, a web developer and designer. My passion for technology
                 keeps me in a perpetual state of motion, so I am always learning
                 and experimenting with new technologies and platforms.{" "}
