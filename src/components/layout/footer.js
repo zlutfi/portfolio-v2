@@ -6,8 +6,8 @@ import {
   MDBRow,
   MDBCol,
   MDBFooter,
-  MDBBtn,
-  MDBIcon,
+  // MDBBtn,
+  // MDBIcon,
 } from "mdbreact"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { PropTypes } from "prop-types"
@@ -54,11 +54,11 @@ const Footer = () => {
       <MDBFooter className="font-small">
         <MDBContainer className="pb-3 pt-5">
           <MDBRow>
-            <MDBCol>
-              <h5 className="text-uppercase text-primary font-weight-bold">
+            <MDBCol size="6" className="mx-auto">
+              <h5 className="text-uppercase text-primary font-weight-bold text-center">
                 About
               </h5>
-              <p className="grey-text">
+              <p className="grey-text text-center">
                 I'm Z, a web developer and designer. My passion for technology
                 keeps me in a perpetual state of motion, so I am always learning
                 and experimenting with new technologies and platforms.{" "}
@@ -67,7 +67,7 @@ const Footer = () => {
                 </Link>
               </p>
             </MDBCol>
-            <MDBCol>
+            {/* <MDBCol>
               <h5 className="text-uppercase text-primary font-weight-bold">
                 Connect
               </h5>
@@ -91,7 +91,7 @@ const Footer = () => {
                   className="mr-3 text-dark"
                 />
               </div>
-            </MDBCol>
+            </MDBCol> */}
           </MDBRow>
         </MDBContainer>
         <div className="footer-copyright text-center py-3">
