@@ -54,7 +54,7 @@ const Footer = () => {
       <MDBFooter className="font-small">
         <MDBContainer className="pb-3 pt-5">
           <MDBRow>
-            <MDBCol size="6" className="mx-auto">
+            <MDBCol size="12" md="6" className="mx-auto">
               <h5 className="text-uppercase text-primary font-weight-bold text-center">
                 About
               </h5>
