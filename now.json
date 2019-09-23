@@ -1,7 +1,0 @@
-{
-  "build": {
-    "env": {
-      "VARIABLE_NAME": "@prismic_api_key"
-    }
-  }
-}
