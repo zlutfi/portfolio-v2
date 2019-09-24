@@ -11,30 +11,14 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdbreact"
-import Logo from "./logo"
-// import posed from "react-pose"
 
-// Animations for cards on hover
-// const Box = posed.div({
-//   hoverable: true,
-//   pressable: true,
-//   init: {
-//     scale: 1,
-//   },
-//   hover: {
-//     scale: 1.05,
-//   },
-//   press: {
-//     scale: 1.1,
-//     fill: "#888",
-//   },
-// })
+import Logo from "./logo"
 
 class Navbar extends Component {
   state = {
     collapsed: false,
   }
-
+  // Display menu on click when navbar is collapsed
   handleTogglerClick = () => {
     this.setState({
       collapsed: !this.state.collapsed,
@@ -43,30 +27,20 @@ class Navbar extends Component {
   render() {
     return (
       <>
-        <MDBNavbar
-          light
-          // color={this.props.bgColor}
-          color="white"
-          expand="lg"
-          fixed="top"
-          scrolling
-          // transparent
-          // transparent={this.props.transparent}
-        >
+        <MDBNavbar light color="white" expand="lg" fixed="top" scrolling>
           <MDBContainer>
+            {/* ZL logo section */}
             <MDBNavbarBrand>
               <Link to="/" aria-label="Home" title="Home">
-                {/* <Box className="box"> */}
                 <Logo className="navbar-logo" />
-                {/* </Box> */}
               </Link>
             </MDBNavbarBrand>
-
+            {/* Show this toggler for smaller screens */}
             <MDBNavbarToggler
               onClick={this.handleTogglerClick}
               aria-label="Toggle Navbar"
             />
-
+            {/* Collapse this section when viewed on smaller screens */}
             <MDBCollapse isOpen={this.state.collapsed} navbar>
               <MDBNavbarNav className="align-items-center" right>
                 <MDBNavItem className="px-4">
@@ -80,7 +54,9 @@ class Navbar extends Component {
                     Home
                   </Link>
                 </MDBNavItem>
+                {/* Display all menu items via static query */}
                 <NavItems />
+                {/* Show this static contact button */}
                 <MDBNavItem className="px-4">
                   <Link
                     to="/contact"
@@ -107,7 +83,8 @@ class Navbar extends Component {
 
 export default Navbar
 
-export const NavItems = () => (
+// Display nav menu items via data
+const NavItems = () => (
   <StaticQuery
     query={graphql`
       {
@@ -118,12 +95,8 @@ export const NavItems = () => (
                 text
               }
               link {
-                link_type
-                type
                 url
-                id
               }
-              partially_active
             }
           }
         }
@@ -132,7 +105,7 @@ export const NavItems = () => (
     render={data => (
       <>
         {data.prismicMenu.data.menu_links.map((document, index) => (
-          <MDBNavItem className="px-4" key={document.link.id}>
+          <MDBNavItem className="px-4" key={index}>
             <Link
               to={document.link.url}
               name={document.label.text}
