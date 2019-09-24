@@ -1,8 +1,17 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { PropTypes } from "prop-types"
-import { MDBContainer, MDBRow, MDBCol, MDBIcon, MDBJumbotron } from "mdbreact"
-import BackgroundImage from "gatsby-background-image"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBIcon,
+  // MDBJumbotron,
+  MDBView,
+  MDBMask,
+} from "mdbreact"
+// import BackgroundImage from "gatsby-background-image"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -23,6 +32,7 @@ const Project = ({ data, pageContext }) => {
           title={project.title.text}
           subtitle={project.subtitle}
           background={project.hero.localFile.childImageSharp.fluid}
+          alt={project.hero.alt}
           bgColor="unique-color-dark"
         />
         {/* Slice component for dynamic project pages */}
@@ -33,8 +43,6 @@ const Project = ({ data, pageContext }) => {
     </>
   )
 }
-
-export default Project
 
 Project.propTypes = {
   data: PropTypes.shape({
@@ -49,15 +57,21 @@ Project.propTypes = {
   }).isRequired,
 }
 
+export default Project
+
+// Display page header
 const Header = props => (
-  <BackgroundImage fluid={props.background} backgroundColor={`#eee`}>
-    <MDBJumbotron
+  // <BackgroundImage fluid={props.background} backgroundColor={`#eee`}>
+  <MDBView className="mt-5">
+    <Img fluid={props.background} alt={props.alt} />
+    {/* <MDBJumbotron
       fluid
       id="project"
       // style={{
       //   marginTop: "50px",
       // }}
-    >
+    > */}
+    <MDBMask className="flex-center" overlay="black-slight">
       <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
         <MDBRow>
           <MDBCol
@@ -67,10 +81,13 @@ const Header = props => (
           ></MDBCol>
         </MDBRow>
       </MDBContainer>
-    </MDBJumbotron>
-  </BackgroundImage>
+    </MDBMask>
+    {/* </MDBJumbotron> */}
+  </MDBView>
+  // </BackgroundImage>
 )
 
+// Display project navigation buttons
 const PrevNext = props => (
   <MDBContainer className="py-5">
     <MDBRow between className="px-5">
