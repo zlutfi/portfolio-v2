@@ -1,13 +1,13 @@
 import React from "react"
 // import { useStaticQuery, graphql } from "gatsby"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import {
   MDBContainer,
   MDBRow,
   MDBCol,
   MDBFooter,
   // MDBBtn,
-  // MDBIcon,
+  MDBIcon,
 } from "mdbreact"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { PropTypes } from "prop-types"
@@ -54,8 +54,16 @@ const Footer = () => {
       <MDBFooter className="font-small">
         <MDBContainer className="pb-3 pt-5">
           <MDBRow>
-            <MDBCol size="12" md="6" className="mx-auto">
-              <h5 className="text-uppercase text-primary font-weight-bold text-center">
+            <MDBCol className="text-center">
+              <OutboundLink
+                href="https://github.com/zlutfi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="My GitHub projects"
+              >
+                <MDBIcon fab icon="github" className="text-dark" size="2x" />
+              </OutboundLink>
+              {/* <h5 className="text-uppercase text-primary font-weight-bold text-center">
                 About
               </h5>
               <p className="text-dark text-center">
@@ -65,7 +73,7 @@ const Footer = () => {
                 <Link to="/about" className="text-dark">
                   Learn more &#8594;
                 </Link>
-              </p>
+              </p> */}
             </MDBCol>
             {/* <MDBCol>
               <h5 className="text-uppercase text-primary font-weight-bold">
