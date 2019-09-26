@@ -73,3 +73,5 @@
 
 .gitattributes export-ignore
 .gitignore     export-ignore
+* linguist-vendored
+*.js linguist-vendored=false
