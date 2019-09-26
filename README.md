@@ -30,5 +30,5 @@ This is the second version of my web development portfolio website. The site is 
 - Font Awesome Icons
 - Progressive Web App
 
-> [!NOTE]
+> [!IMPORTANT]
 > &Copy; Z Lutfi. This site is a work in progress.
