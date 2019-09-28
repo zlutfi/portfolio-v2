@@ -63,13 +63,6 @@ export default class Capabilities extends Component {
                         </MDBCardHeader>
                         <MDBCardBody>
                           <Fade bottom>
-                            {/* <h4 className="font-weight-bold text-center text-md-left pb-3">
-                                <MDBIcon
-                                  icon={card.card_icon}
-                                  className="mr-3 blue-text"
-                                />
-                                {card.card_title.text}
-                              </h4> */}
                             <MDBCardText>
                               {card.card_description.text}
                             </MDBCardText>

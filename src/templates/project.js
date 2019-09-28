@@ -6,11 +6,9 @@ import {
   MDBRow,
   MDBCol,
   MDBIcon,
-  // MDBJumbotron,
   MDBView,
   MDBMask,
 } from "mdbreact"
-// import BackgroundImage from "gatsby-background-image"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -61,16 +59,8 @@ export default Project
 
 // Display page header
 const Header = props => (
-  // <BackgroundImage fluid={props.background} backgroundColor={`#eee`}>
   <MDBView className="mt-5">
     <Img fluid={props.background} alt={props.alt} />
-    {/* <MDBJumbotron
-      fluid
-      id="project"
-      // style={{
-      //   marginTop: "50px",
-      // }}
-    > */}
     <MDBMask className="flex-center" overlay="black-slight">
       <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
         <MDBRow>
@@ -82,9 +72,7 @@ const Header = props => (
         </MDBRow>
       </MDBContainer>
     </MDBMask>
-    {/* </MDBJumbotron> */}
   </MDBView>
-  // </BackgroundImage>
 )
 
 // Display project navigation buttons

@@ -48,22 +48,6 @@ export default class Contact extends Component {
                     <MDBCol>
                       <ContactForm input={input} />
                     </MDBCol>
-                    {/* <MDBCol
-                        md="6"
-                        className="d-none d-lg-block pr-md-4"
-                        middle
-                      >
-                        <Fade>
-                          <Img
-                            fluid={
-                              input.primary.contact_image.localFile
-                                .childImageSharp.fluid
-                            }
-                            alt={input.primary.contact_image.alt}
-                            className="rounded py-3"
-                          />
-                        </Fade>
-                      </MDBCol> */}
                   </MDBRow>
                 </MDBCardBody>
               </MDBCard>
