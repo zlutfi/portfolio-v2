@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import {
   MDBContainer,
   MDBRow,

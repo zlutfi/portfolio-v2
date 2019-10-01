@@ -15,7 +15,7 @@ import {
   MDBView,
   MDBMask,
 } from "mdbreact"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 

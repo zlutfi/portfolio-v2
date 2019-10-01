@@ -15,7 +15,7 @@ import Header from "../components/header"
 import PropTypes from "prop-types"
 import ContactForm from "../components/contactForm"
 import Fade from "react-reveal/Fade"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 
 const Contact = ({ data }) => (
   <>

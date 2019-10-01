@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 import {
   MDBContainer,
   MDBRow,
@@ -43,12 +43,7 @@ const Header = ({
       </MDBJumbotron>
     </BackgroundImage> */}
     <MDBView tag="header">
-      <Img
-        fluid={background}
-        objectFit="cover"
-        objectPosition="50% 50%"
-        className="kenburns-top"
-      />
+      <Img fluid={background} />
       <MDBMask className="flex-center" overlay="black-slight">
         <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
           <MDBRow>

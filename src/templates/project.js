@@ -9,7 +9,7 @@ import {
   MDBView,
   MDBMask,
 } from "mdbreact"
-import Img from "gatsby-image/withiepolyfill"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
