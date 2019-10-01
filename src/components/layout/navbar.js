@@ -65,7 +65,7 @@ class Navbar extends Component {
                     className="nav-link"
                     activeClassName="active"
                   >
-                    <MDBBtn size="sm" color="primary">
+                    <MDBBtn size="sm" color="primary" className="btn-rounded">
                       <MDBIcon icon="envelope" className="mr-2" />
                       Let's Chat
                     </MDBBtn>

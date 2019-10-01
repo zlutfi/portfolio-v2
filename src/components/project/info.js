@@ -83,7 +83,12 @@ const Info = ({ input }) => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MDBBtn color="primary" size="sm" tag="span">
+                    <MDBBtn
+                      color="primary"
+                      size="sm"
+                      tag="span"
+                      className="btn-rounded"
+                    >
                       <MDBIcon icon="desktop" className="mr-2" />
                       View Live
                     </MDBBtn>
@@ -95,7 +100,12 @@ const Info = ({ input }) => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MDBBtn color="elegant" size="sm" tag="span">
+                    <MDBBtn
+                      color="elegant"
+                      size="sm"
+                      tag="span"
+                      className="btn-rounded"
+                    >
                       <MDBIcon fab icon="github" className="mr-2" />
                       View Code
                     </MDBBtn>

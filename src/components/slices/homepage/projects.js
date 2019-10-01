@@ -105,7 +105,11 @@ export default class Projects extends Component {
                         title="View Project"
                       >
                         <div className="card-btn">
-                          <MDBBtn color="primary" tag="span">
+                          <MDBBtn
+                            color="primary"
+                            tag="span"
+                            className="btn-rounded"
+                          >
                             <MDBIcon icon="folder-open" />
                           </MDBBtn>
                         </div>

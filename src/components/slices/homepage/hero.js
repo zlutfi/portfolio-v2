@@ -60,7 +60,11 @@ function Hero({ input }) {
                           alt="View Projects"
                         /> */}
 
-                        <MDBBtn color="primary" tag="span">
+                        <MDBBtn
+                          color="primary"
+                          tag="span"
+                          className="btn-rounded"
+                        >
                           <MDBIcon icon="folder-open" className="mr-2" />
                           {input.primary.button_1_title}
                         </MDBBtn>

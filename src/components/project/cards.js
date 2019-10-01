@@ -49,7 +49,11 @@ function Cards({ input }) {
                 <MDBCardBody>
                   <div className="card-btn">
                     <Link to={project.node.url}>
-                      <MDBBtn color="primary" tag="span">
+                      <MDBBtn
+                        color="primary"
+                        tag="span"
+                        className="btn-rounded"
+                      >
                         <MDBIcon icon="folder-open" />
                       </MDBBtn>
                     </Link>
