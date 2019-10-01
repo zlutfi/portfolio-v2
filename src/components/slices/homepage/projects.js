@@ -43,7 +43,7 @@ export default class Projects extends Component {
     const { input } = this.props
     return (
       <>
-        <MDBContainer className="py-4 py-md-5 mx-auto">
+        <MDBContainer fluid className="py-4 py-md-5 mx-auto">
           {/* Section Header */}
           {/* <MDBContainer className="mt-n5 mx-auto text-center"> */}
           <MDBRow>
@@ -61,7 +61,7 @@ export default class Projects extends Component {
           {/* Project Cards */}
           <MDBRow className="mb-0 mx-auto">
             {input.items.map((project, index) => (
-              <MDBCol size="12" md="6" className="mb-4" key={index}>
+              <MDBCol size="12" md="4" className="mb-4" key={index}>
                 <Fade bottom delay={300 * index}>
                   {/* <Box className="box"> */}
                   <MDBCard>
