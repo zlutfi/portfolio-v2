@@ -33,3 +33,7 @@ This is the second version of my web development portfolio website. The site is 
 ### Notice
 
 > This site is a work in progress.
+
+# License
+
+This project is for <strong>educational purposes only</strong>. It is not to be used for any other purposes.
