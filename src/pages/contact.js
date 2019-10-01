@@ -15,7 +15,7 @@ import Header from "../components/header"
 import PropTypes from "prop-types"
 import ContactForm from "../components/contactForm"
 import Fade from "react-reveal/Fade"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 
 const Contact = ({ data }) => (
   <>
@@ -120,10 +120,10 @@ export const contactPageQuery = graphql`
             childImageSharp {
               fluid(
                 maxWidth: 1920
-                maxHeight: 1080
+                maxHeight: 600
                 quality: 90
                 duotone: {
-                  highlight: "#1c4e96"
+                  highlight: "#0a33ff"
                   shadow: "#15224a"
                   opacity: 100
                 }

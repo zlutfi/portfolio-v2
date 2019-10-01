@@ -1,6 +1,6 @@
 import React from "react"
 import posed from "react-pose"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 
 const Image = posed.img({
   zoomedIn: {

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 import Fade from "react-reveal/Fade"
 
 import {
@@ -19,7 +19,10 @@ export default class Capabilities extends Component {
     const { input } = this.props
     return (
       <>
-        <MDBContainer className="py-4 py-md-5 mx-auto text-center">
+        <MDBContainer
+          className="py-4 py-md-5 mx-auto text-center"
+          tag="section"
+        >
           <MDBRow>
             <MDBCol size="12" md="8" className="mx-auto">
               <Fade bottom>
@@ -51,6 +54,7 @@ export default class Capabilities extends Component {
                     size="12"
                     className="text-center text-md-left py-3"
                     key={index}
+                    tag="article"
                   >
                     <Fade bottom>
                       <MDBCard>

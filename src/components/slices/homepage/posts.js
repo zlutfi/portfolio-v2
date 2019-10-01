@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 import {
   MDBContainer,
   MDBRow,
@@ -17,7 +17,7 @@ export default class Posts extends Component {
   render() {
     const { input } = this.props
     return (
-      <MDBContainer>
+      <MDBContainer tag="section">
         <MDBRow size="12" className="py-5 text-center">
           <MDBCol>
             <h1 className="font-weight-bold">

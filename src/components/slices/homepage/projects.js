@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 import {
   MDBContainer,
   MDBRow,
@@ -43,7 +43,7 @@ export default class Projects extends Component {
     const { input } = this.props
     return (
       <>
-        <MDBContainer className="py-4 py-md-5 mx-auto">
+        <MDBContainer fluid className="py-4 py-md-5 mx-auto" tag="section">
           {/* Section Header */}
           {/* <MDBContainer className="mt-n5 mx-auto text-center"> */}
           <MDBRow>
@@ -61,7 +61,13 @@ export default class Projects extends Component {
           {/* Project Cards */}
           <MDBRow className="mb-0 mx-auto">
             {input.items.map((project, index) => (
-              <MDBCol size="12" md="6" className="mb-4" key={index}>
+              <MDBCol
+                size="12"
+                md="4"
+                className="mb-4"
+                key={index}
+                tag="article"
+              >
                 <Fade bottom delay={300 * index}>
                   {/* <Box className="box"> */}
                   <MDBCard>
@@ -105,7 +111,11 @@ export default class Projects extends Component {
                         title="View Project"
                       >
                         <div className="card-btn">
-                          <MDBBtn color="primary" tag="span">
+                          <MDBBtn
+                            color="primary"
+                            tag="span"
+                            className="btn-rounded"
+                          >
                             <MDBIcon icon="folder-open" />
                           </MDBBtn>
                         </div>
@@ -144,7 +154,7 @@ export default class Projects extends Component {
           {/* CTA Section */}
           <MDBRow className="py-5 justify-content-center">
             <Link to="/projects" title="View Projects">
-              <MDBBtn color="elegant" tag="span">
+              <MDBBtn color="elegant" tag="span" className="btn-rounded">
                 <MDBIcon icon="folder-open" className="mr-2" />
                 View more projects
               </MDBBtn>

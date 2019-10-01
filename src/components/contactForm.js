@@ -175,6 +175,7 @@ const Form = () => {
                 name="submit"
                 disabled={isSubmitting}
                 aria-label="Submit"
+                className="btn-rounded"
               >
                 <MDBIcon icon="paper-plane" className="mr-2" />
                 Send Your Message
