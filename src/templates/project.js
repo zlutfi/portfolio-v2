@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import { PropTypes } from "prop-types"
 import {
   MDBContainer,
@@ -9,11 +9,13 @@ import {
   MDBView,
   MDBMask,
 } from "mdbreact"
-import Img from "gatsby-image"
+import Img from "gatsby-image/withiepolyfill"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SliceOMatic from "../components/sliceomatic"
+
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
@@ -59,8 +61,8 @@ export default Project
 
 // Display page header
 const Header = props => (
-  <MDBView className="mt-5">
-    <Img fluid={props.background} alt={props.alt} />
+  <MDBView tag="header">
+    <Img fluid={props.background} alt={props.alt} className="kenburns-top" />
     <MDBMask className="flex-center" overlay="black-slight">
       <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
         <MDBRow>
@@ -81,26 +83,34 @@ const PrevNext = props => (
     <MDBRow between className="px-5">
       <MDBCol size="auto" className="text-center">
         {props.previous && (
-          <Link
+          <AniLink
+            cover
+            direction="left"
+            bg="#0a33ff"
+            duration={1}
             to={`${props.previous.url}`}
             className="project-nav"
             style={{ color: "#222", fontWeight: "bold" }}
           >
             <MDBIcon icon="arrow-alt-circle-left" className="mr-3" />
             PREV
-          </Link>
+          </AniLink>
         )}
       </MDBCol>
       <MDBCol size="auto" className="text-center">
         {props.next && (
-          <Link
+          <AniLink
+            cover
+            direction="right"
+            bg="#0a33ff"
+            duration={1}
             to={`${props.next.url}`}
             className="project-nav"
             style={{ color: "#222", fontWeight: "bold" }}
           >
             NEXT
             <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
-          </Link>
+          </AniLink>
         )}
       </MDBCol>
     </MDBRow>
