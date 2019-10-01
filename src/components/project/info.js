@@ -29,10 +29,22 @@ const Info = ({ input }) => (
         </MDBCol>
         <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
           <MDBCard>
-            <MDBCardHeader className="text-center text-md-left">
+            <MDBCardHeader className="text-center text-md-left pt-5">
               <MDBIcon icon="folder" className="mr-2 text-primary" />
               Project Information
             </MDBCardHeader>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              style={{ position: "absolute" }}
+            >
+              <path
+                fill="rgba(0,0,0,.03)"
+                fill-opacity="1"
+                d="M0,96L80,85.3C160,75,320,53,480,74.7C640,96,800,160,960,154.7C1120,149,1280,75,1360,37.3L1440,0L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+              ></path>
+            </svg>
+
             <MDBCardBody>
               <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
                 <span className="font-weight-bold text-uppercase mr-2">
@@ -83,7 +95,12 @@ const Info = ({ input }) => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MDBBtn color="primary" size="sm" tag="span">
+                    <MDBBtn
+                      color="primary"
+                      size="sm"
+                      tag="span"
+                      className="btn-rounded"
+                    >
                       <MDBIcon icon="desktop" className="mr-2" />
                       View Live
                     </MDBBtn>
@@ -95,7 +112,12 @@ const Info = ({ input }) => (
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <MDBBtn color="elegant" size="sm" tag="span">
+                    <MDBBtn
+                      color="elegant"
+                      size="sm"
+                      tag="span"
+                      className="btn-rounded"
+                    >
                       <MDBIcon fab icon="github" className="mr-2" />
                       View Code
                     </MDBBtn>
