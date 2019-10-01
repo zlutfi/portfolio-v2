@@ -61,7 +61,25 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 title="My GitHub projects"
               >
-                <MDBIcon fab icon="github" className="text-dark" size="2x" />
+                <MDBIcon
+                  fab
+                  icon="github"
+                  className="text-dark px-2"
+                  size="2x"
+                />
+              </OutboundLink>{" "}
+              <OutboundLink
+                href="https://github.com/zlutfi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="My GitHub projects"
+              >
+                <MDBIcon
+                  fab
+                  icon="twitter"
+                  className="text-dark px-2"
+                  size="2x"
+                />
               </OutboundLink>
               {/* <h5 className="text-uppercase text-primary font-weight-bold text-center">
                 About
