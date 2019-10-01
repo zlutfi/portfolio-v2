@@ -87,7 +87,7 @@ export const projectsPageQuery = graphql`
               alt
               localFile {
                 childImageSharp {
-                  fluid(cropFocus: CENTER, maxHeight: 450, maxWidth: 600) {
+                  fluid(cropFocus: CENTER, maxHeight: 350, maxWidth: 600) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -156,10 +156,10 @@ export const projectsPageQuery = graphql`
             childImageSharp {
               fluid(
                 maxWidth: 1920
-                maxHeight: 1080
+                maxHeight: 600
                 quality: 90
                 duotone: {
-                  highlight: "#1c4e96"
+                  highlight: "#0a33ff"
                   shadow: "#15224a"
                   opacity: 100
                 }
