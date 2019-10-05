@@ -11,15 +11,10 @@ import {
   ImageRight,
   TextCard,
   Carousel,
+  SwiperCarousel,
   ThreeColumns,
   Columns,
   Divider,
-  //Homepage Slices
-  Capabilities,
-  Posts,
-  Projects,
-  Hero,
-  Contact,
 } from "../components/slices"
 
 export default class SliceZone extends Component {
@@ -46,25 +41,16 @@ export default class SliceZone extends Component {
           return <ImageRight key={s.id} input={s} />
         case "text_with_image":
           return <TextCard key={s.id} input={s} />
+        // case "carousel":
+        //   return <Carousel key={s.id} input={s} />
         case "carousel":
-          return <Carousel key={s.id} input={s} />
+          return <SwiperCarousel key={s.id} input={s} />
         case "three_columns":
           return <ThreeColumns key={s.id} input={s} />
         case "columns":
           return <Columns key={s.id} input={s} />
         case "divider":
           return <Divider key={s.id} input={s} />
-        //Homepage Slices
-        case "hero":
-          return <Hero key={s.id} input={s} />
-        case "capabilities":
-          return <Capabilities key={s.id} input={s} />
-        case "posts":
-          return <Posts key={s.id} input={s} />
-        case "projects":
-          return <Projects key={s.id} input={s} />
-        case "contact_cta":
-          return <Contact key={s.id} input={s} />
 
         default:
           return null
