@@ -13,24 +13,6 @@
       "fieldset": "Slice zone",
       "config": {
         "choices": {
-          "text": {
-            "type": "Slice",
-            "fieldset": "Content Section",
-            "description": "Rich Text Section",
-            "icon": "text_fields",
-            "non-repeat": {
-              "text": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "Text",
-                  "placeholder": "Your content here"
-                }
-              }
-            },
-            "repeat": {},
-            "display": "list"
-          },
           "hero": {
             "type": "Slice",
             "fieldset": "Hero",
@@ -222,48 +204,6 @@
               }
             }
           },
-          "contact_cta": {
-            "type": "Slice",
-            "fieldset": "Contact CTA",
-            "description": "Contact Call to action section",
-            "icon": "email",
-            "display": "list",
-            "non-repeat": {
-              "contact_title": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Contact_title",
-                  "placeholder": "Title"
-                }
-              },
-              "contact_subtitle": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "Contact Subtitle",
-                  "placeholder": "Subtitle"
-                }
-              },
-              "contact_background": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Contact Background"
-                }
-              },
-              "contact_image": {
-                "type": "Image",
-                "config": {
-                  "constraint": {},
-                  "thumbnails": [],
-                  "label": "Contact Image"
-                }
-              }
-            },
-            "repeat": {}
-          },
           "divider": {
             "type": "Slice",
             "fieldset": "Divider",
@@ -271,6 +211,145 @@
             "icon": "linear_scale",
             "display": "list",
             "non-repeat": {},
+            "repeat": {}
+          },
+          "technology": {
+            "type": "Slice",
+            "fieldset": "Technology",
+            "description": "Technology section that lists what I use",
+            "icon": "view_list",
+            "display": "list",
+            "non-repeat": {
+              "technology_section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Technology Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "technology_section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Technology Section Subtitle",
+                  "placeholder": "Subtitle"
+                }
+              }
+            },
+            "repeat": {
+              "technology_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Technology Title",
+                  "placeholder": "Title"
+                }
+              },
+              "technology_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Technology Content",
+                  "placeholder": "Content"
+                }
+              },
+              "technology_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Technology Icon"
+                }
+              },
+              "technology_icon_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Technology Icon Color"
+                }
+              }
+            }
+          },
+          "skills": {
+            "type": "Slice",
+            "fieldset": "Skills",
+            "description": "A sections displaying my skills",
+            "icon": "format_list_bulleted",
+            "display": "list",
+            "non-repeat": {
+              "skills_section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Skills Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "skills_section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Skills Section Subtitle",
+                  "placeholder": "Subtitle"
+                }
+              }
+            },
+            "repeat": {
+              "skill_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Skill Title",
+                  "placeholder": "Title"
+                }
+              },
+              "skill_content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Skill Content",
+                  "placeholder": "Content"
+                }
+              },
+              "skill_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Skill Icon"
+                }
+              },
+              "skill_icon_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Skill Icon Color"
+                }
+              }
+            }
+          },
+          "contact": {
+            "type": "Slice",
+            "fieldset": "Contact",
+            "description": "Contact section with a form",
+            "icon": "contact_mail",
+            "display": "list",
+            "non-repeat": {
+              "contact_section_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Contact Section Title",
+                  "placeholder": "Title"
+                }
+              },
+              "contact_section_subtitle": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "allowTargetBlank": true,
+                  "label": "Contact Section Subtitle",
+                  "placeholder": "Subtitle"
+                }
+              }
+            },
             "repeat": {}
           }
         }
