@@ -103,8 +103,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    `gatsby-plugin-transition-link`,
-
     // {
     //   resolve: `gatsby-plugin-purgecss`,
     //   options: {
