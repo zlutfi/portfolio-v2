@@ -11,15 +11,13 @@ import Navbar from "../components/layout/navbar"
 
 const Layout = ({ children }) => {
   return (
-    <>
-      <div className="site">
-        <Navbar />
-        <div className="site-content">
-          <main>{children}</main>
-        </div>
-        <Footer />
+    <div className="site">
+      <Navbar />
+      <div className="site-content">
+        <main>{children}</main>
       </div>
-    </>
+      <Footer />
+    </div>
   )
 }
 
