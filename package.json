@@ -19,7 +19,6 @@
     "gatsby-plugin-sass": "^2.1.13",
     "gatsby-plugin-sharp": "^2.2.20",
     "gatsby-plugin-sitemap": "^2.2.10",
-    "gatsby-plugin-transition-link": "^1.13.0",
     "gatsby-source-filesystem": "^2.1.21",
     "gatsby-source-prismic": "^3.0.0-beta.10",
     "gatsby-transformer-sharp": "^2.2.13",
@@ -32,7 +31,10 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-id-swiper": "^2.3.2",
-    "react-reveal": "^1.2.2"
+    "react-pose": "^4.0.8",
+    "react-pose-text": "^3.1.0",
+    "react-reveal": "^1.2.2",
+    "swiper": "^5.0.4"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
