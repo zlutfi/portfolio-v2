@@ -6,10 +6,17 @@
 
 // You can delete this file if you're not using it
 
+import React from "react"
 // Global Styles
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "./src/styles/scss/mdb.scss"
 import "./src/styles/icons/fontawesome-free/css/all.min.css"
+import Transition from "./src/components/layout/transition"
+
+// Transition component for page animations
+export const wrapPageElement = ({ element, props }) => {
+  return <Transition {...props}>{element}</Transition>
+}
 
 // Displays a message when a service worker updates
 export const onServiceWorkerUpdateReady = () => {
