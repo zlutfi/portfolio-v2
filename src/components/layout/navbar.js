@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery, Link } from "gatsby"
 import {
   MDBNavbar,
   MDBNavbarBrand,
@@ -14,7 +14,7 @@ import {
 
 import Logo from "./logo"
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+// import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 class Navbar extends Component {
   state = {
@@ -40,11 +40,11 @@ class Navbar extends Component {
         >
           <MDBContainer>
             {/* ZL logo section */}
-            <AniLink
-              cover
-              direction="top"
-              bg="#0a33ff"
-              duration={1}
+            <Link
+              // cover
+              // direction="top"
+              // bg="#0a33ff"
+              // duration={1}
               to="/"
               aria-label="Home"
               title="Home"
@@ -52,7 +52,7 @@ class Navbar extends Component {
               <MDBNavbarBrand>
                 <Logo className="navbar-logo" />
               </MDBNavbarBrand>
-            </AniLink>
+            </Link>
             {/* Show this toggler for smaller screens */}
             <MDBNavbarToggler
               onClick={this.handleTogglerClick}
@@ -61,11 +61,11 @@ class Navbar extends Component {
             {/* Collapse this section when viewed on smaller screens */}
             <MDBCollapse isOpen={this.state.collapsed} navbar>
               <MDBNavbarNav className="align-items-center" right>
-                <AniLink
-                  cover
-                  direction="top"
-                  bg="#0a33ff"
-                  duration={1}
+                <Link
+                  // cover
+                  // direction="top"
+                  // bg="#0a33ff"
+                  // duration={1}
                   to="/"
                   name="Home"
                   title="Home"
@@ -73,15 +73,15 @@ class Navbar extends Component {
                   activeClassName="active"
                 >
                   <MDBNavItem className="px-4">Home</MDBNavItem>
-                </AniLink>
+                </Link>
                 {/* Display all menu items via static query */}
                 <NavItems />
                 {/* Show this static contact button */}
-                <AniLink
-                  cover
-                  direction="top"
-                  bg="#0a33ff"
-                  duration={1}
+                <Link
+                  // cover
+                  // direction="top"
+                  // bg="#0a33ff"
+                  // duration={1}
                   to="/contact"
                   name="Contact Me"
                   title="Contact Me"
@@ -94,7 +94,7 @@ class Navbar extends Component {
                       Let's Chat
                     </MDBBtn>
                   </MDBNavItem>
-                </AniLink>
+                </Link>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBContainer>
@@ -130,11 +130,11 @@ const NavItems = () => (
       <>
         {data.prismicMenu.data.menu_links.map((document, index) => (
           <MDBNavItem className="px-4" key={index}>
-            <AniLink
-              cover
-              direction="bottom"
-              bg="#0a33ff"
-              duration={1}
+            <Link
+              // cover
+              // direction="bottom"
+              // bg="#0a33ff"
+              // duration={1}
               to={document.link.url}
               name={document.label.text}
               title={document.label.text}
@@ -143,7 +143,7 @@ const NavItems = () => (
               partiallyActive={true}
             >
               {document.label.text}
-            </AniLink>
+            </Link>
           </MDBNavItem>
         ))}
       </>

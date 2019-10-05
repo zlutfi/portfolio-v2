@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { PropTypes } from "prop-types"
 import {
   MDBContainer,
@@ -14,9 +14,9 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SliceOMatic from "../components/sliceomatic"
+import Title from "../components/title"
 
-import AniLink from "gatsby-plugin-transition-link/AniLink"
-
+//  Render main page components
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
   const next = pageContext.next
@@ -37,6 +37,7 @@ const Project = ({ data, pageContext }) => {
         />
         {/* Slice component for dynamic project pages */}
         <SliceOMatic allSlices={project.body} />
+
         {/* PREV NEXT Buttons */}
         <PrevNext previous={previous} next={next} />
       </Layout>
@@ -59,58 +60,56 @@ Project.propTypes = {
 
 export default Project
 
-// Display page header
-const Header = props => (
-  <MDBView tag="header">
-    <Img fluid={props.background} alt={props.alt} className="kenburns-top" />
-    <MDBMask className="flex-center" overlay="black-slight">
-      <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
-        <MDBRow>
-          <MDBCol
-            size="12"
-            md="8"
-            className="text-center text-md-left mx-auto mx-md-0"
-          ></MDBCol>
-        </MDBRow>
-      </MDBContainer>
-    </MDBMask>
-  </MDBView>
-)
+// Render page header
+const Header = props => {
+  return (
+    <MDBView tag="header">
+      <Img fluid={props.background} alt={props.alt} />
+      <MDBMask className="flex-center" overlay="black-light">
+        <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
+          <MDBRow>
+            <MDBCol
+              size="12"
+              md="8"
+              className="text-center text-md-left mx-auto mx-md-0"
+            >
+              <Title title={props.title} subtitle={props.subtitle} project />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </MDBMask>
+    </MDBView>
+  )
+}
 
 // Display project navigation buttons
 const PrevNext = props => (
   <MDBContainer className="py-5">
     <MDBRow between className="px-5">
       <MDBCol size="auto" className="text-center">
+        {/* Render previous button if true */}
         {props.previous && (
-          <AniLink
-            cover
-            direction="left"
-            bg="#0a33ff"
-            duration={1}
+          <Link
             to={`${props.previous.url}`}
             className="project-nav"
             style={{ color: "#222", fontWeight: "bold" }}
           >
             <MDBIcon icon="arrow-alt-circle-left" className="mr-3" />
             PREV
-          </AniLink>
+          </Link>
         )}
       </MDBCol>
       <MDBCol size="auto" className="text-center">
+        {/* render next button if true */}
         {props.next && (
-          <AniLink
-            cover
-            direction="right"
-            bg="#0a33ff"
-            duration={1}
+          <Link
             to={`${props.next.url}`}
             className="project-nav"
             style={{ color: "#222", fontWeight: "bold" }}
           >
             NEXT
             <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
-          </AniLink>
+          </Link>
         )}
       </MDBCol>
     </MDBRow>
