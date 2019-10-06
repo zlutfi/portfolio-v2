@@ -1,6 +1,7 @@
 // Globals styles
 html {
   font-display: swap;
+  // scroll-behavior: smooth; //Smoothly scrolls page to the top
 }
 body {
   color: #444;
@@ -40,6 +41,7 @@ body {
     letter-spacing: 0.25rem;
   }
   box-shadow: none;
+  background-color: transparent;
   // box-shadow: 0 6px 20px rgba(32, 41, 50, 0.12);
 }
 // #home {
@@ -71,6 +73,7 @@ body {
   box-shadow: none;
   //border-bottom: 1px solid #eee;
   box-shadow: 0 2rem 4rem -1rem rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
 }
 .navbar.scrolling-navbar.top-nav-collapse {
   box-shadow: 0 2rem 4rem -1rem rgba(0, 0, 0, 0.2);
