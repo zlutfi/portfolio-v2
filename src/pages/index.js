@@ -3,9 +3,52 @@ import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import SliceOMatic from "../components/sliceomatic"
+import {
+  Capabilities,
+  Posts,
+  Projects,
+  Hero,
+  Contact,
+  Technology,
+  Skills,
+} from "../components/slices"
 
-class Index extends Component {
+// Render homepage slices only if trigged via content management system
+export class SliceZone extends Component {
+  render() {
+    const { allSlices } = this.props
+    const slice = allSlices.map(s => {
+      switch (s.slice_type) {
+        // These are the API IDs of the slices
+        case "hero":
+          return <Hero key={s.id} input={s} />
+        case "capabilities":
+          return <Capabilities key={s.id} input={s} />
+        case "posts":
+          return <Posts key={s.id} input={s} />
+        case "projects":
+          return <Projects key={s.id} input={s} />
+        case "contact":
+          return <Contact key={s.id} input={s} />
+        case "skills":
+          return <Skills key={s.id} input={s} />
+        case "technology":
+          return <Technology key={s.id} input={s} />
+
+        default:
+          return null
+      }
+    })
+    return <content>{slice}</content>
+  }
+}
+// Check to make sure data array is available
+SliceZone.propTypes = {
+  allSlices: PropTypes.array.isRequired,
+}
+
+// Render the homepage
+export default class Index extends Component {
   render() {
     const {
       data: { homepage },
@@ -15,15 +58,13 @@ class Index extends Component {
         <Layout>
           <SEO title={homepage.data.title} />
 
-          <SliceOMatic allSlices={homepage.data.body} />
+          <SliceZone allSlices={homepage.data.body} />
         </Layout>
       </>
     )
   }
 }
-
-export default Index
-
+// Check to make sure these prop types are available
 Index.propTypes = {
   data: PropTypes.shape({
     homepage: PropTypes.shape({
@@ -33,51 +74,50 @@ Index.propTypes = {
     }),
   }).isRequired,
 }
-
+// Query this data for all slices and page content
 export const pageQuery = graphql`
   query IndexQuery {
     homepage: prismicHomepage {
       data {
         title
         body {
-          ... on PrismicHomepageBodyContactCta {
+          ... on PrismicHomepageBodyContact {
             id
             slice_type
             primary {
-              contact_title {
+              contact_section_title {
                 text
                 html
               }
-              contact_subtitle {
+              contact_section_subtitle {
                 text
                 html
               }
-              contact_image {
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
+            }
+          }
+          ... on PrismicHomepageBodySkills {
+            id
+            slice_type
+            primary {
+              skills_section_title {
+                text
+                html
               }
-              contact_background {
-                localFile {
-                  childImageSharp {
-                    fluid(
-                      maxWidth: 1920
-                      maxHeight: 1080
-                      quality: 90
-                      duotone: {
-                        highlight: "#007bff"
-                        shadow: "#15224a"
-                        opacity: 90
-                      }
-                    ) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
+              skills_section_subtitle {
+                text
+                html
+              }
+            }
+            items {
+              skill_title {
+                text
+                html
+              }
+              skill_icon_color
+              skill_icon
+              skill_content {
+                text
+                html
               }
             }
           }
@@ -116,6 +156,31 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicHomepageBodyTechnology {
+            slice_type
+            primary {
+              technology_section_title {
+                text
+                html
+              }
+              technology_section_subtitle {
+                text
+                html
+              }
+            }
+            items {
+              technology_title {
+                text
+                html
+              }
+              technology_icon_color
+              technology_icon
+              technology_content {
+                text
+                html
+              }
+            }
+          }
           ... on PrismicHomepageBodyHero {
             id
             slice_type
@@ -144,12 +209,12 @@ export const pageQuery = graphql`
                       maxWidth: 1920
                       maxHeight: 1080
                       quality: 90
-                      duotone: {
-                        highlight: "#0a33ff"
-                        shadow: "#15224a"
-                        opacity: 100
-                      }
-                    ) {
+                    ) # duotone: {
+                    #   highlight: "#0a33ff"
+                    #   shadow: "#15224a"
+                    #   opacity: 100
+                    # }
+                    {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -161,16 +226,16 @@ export const pageQuery = graphql`
             id
             slice_type
           }
-          ... on PrismicHomepageBodyText {
-            id
-            slice_type
-            primary {
-              text {
-                text
-                html
-              }
-            }
-          }
+          # ... on PrismicHomepageBodyText {
+          #   id
+          #   slice_type
+          #   primary {
+          #     text {
+          #       text
+          #       html
+          #     }
+          #   }
+          # }
           ... on PrismicHomepageBodyPosts {
             id
             slice_type
