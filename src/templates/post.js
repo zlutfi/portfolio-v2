@@ -44,89 +44,89 @@ const Post = ({ data, pageContext }) => {
 
 export default Post
 
-Post.propTypes = {
-  data: PropTypes.shape({
-    prismicPost: PropTypes.shape({
-      data: PropTypes.shape({
-        title: PropTypes.object.isRequired,
-        description: PropTypes.string.isRequired,
-        hero: PropTypes.object.isRequired,
-        body: PropTypes.array.isRequired,
-      }),
-    }),
-  }).isRequired,
-}
+// Post.propTypes = {
+//   data: PropTypes.shape({
+//     prismicPost: PropTypes.shape({
+//       data: PropTypes.shape({
+//         title: PropTypes.object.isRequired,
+//         description: PropTypes.string.isRequired,
+//         hero: PropTypes.object.isRequired,
+//         body: PropTypes.array.isRequired,
+//       }),
+//     }),
+//   }).isRequired,
+// }
 
-export const pageQuery = graphql`
-  query PostBySlug($uid: String!) {
-    prismicPost(uid: { eq: $uid }) {
-      data {
-        description
-        title {
-          html
-          text
-        }
-        date
-        hero {
-          alt
-          localFile {
-            childImageSharp {
-              fluid(
-                cropFocus: CENTER
-                maxHeight: 600
-                maxWidth: 1200
-                quality: 90
-              ) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-        body {
-          ... on PrismicPostBodyText {
-            slice_type
-            id
-            primary {
-              text {
-                html
-              }
-            }
-          }
-          ... on PrismicPostBodyQuote {
-            slice_type
-            id
-            primary {
-              quote {
-                html
-              }
-            }
-          }
-          ... on PrismicPostBodyCodeBlock {
-            slice_type
-            id
-            primary {
-              code_block {
-                html
-              }
-            }
-          }
-          ... on PrismicPostBodyImage {
-            slice_type
-            id
-            primary {
-              image {
-                localFile {
-                  childImageSharp {
-                    fluid(cropFocus: CENTER, maxHeight: 600, maxWidth: 1200) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query PostBySlug($uid: String!) {
+//     prismicPost(uid: { eq: $uid }) {
+//       data {
+//         description
+//         title {
+//           html
+//           text
+//         }
+//         date
+//         hero {
+//           alt
+//           localFile {
+//             childImageSharp {
+//               fluid(
+//                 cropFocus: CENTER
+//                 maxHeight: 600
+//                 maxWidth: 1200
+//                 quality: 90
+//               ) {
+//                 ...GatsbyImageSharpFluid_withWebp
+//               }
+//             }
+//           }
+//         }
+//         body {
+//           ... on PrismicPostBodyText {
+//             slice_type
+//             id
+//             primary {
+//               text {
+//                 html
+//               }
+//             }
+//           }
+//           ... on PrismicPostBodyQuote {
+//             slice_type
+//             id
+//             primary {
+//               quote {
+//                 html
+//               }
+//             }
+//           }
+//           ... on PrismicPostBodyCodeBlock {
+//             slice_type
+//             id
+//             primary {
+//               code_block {
+//                 html
+//               }
+//             }
+//           }
+//           ... on PrismicPostBodyImage {
+//             slice_type
+//             id
+//             primary {
+//               image {
+//                 localFile {
+//                   childImageSharp {
+//                     fluid(cropFocus: CENTER, maxHeight: 600, maxWidth: 1200) {
+//                       ...GatsbyImageSharpFluid_withWebp
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
