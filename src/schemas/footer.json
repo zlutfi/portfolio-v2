@@ -41,6 +41,50 @@
         },
         "label": "powered by"
       }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "choices": {
+          "rich_text_section": {
+            "type": "Slice",
+            "fieldset": "Rich Text Section",
+            "description": "Rich Text Section",
+            "icon": "text_fields",
+            "non-repeat": {
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "content",
+                  "placeholder": "Your content here"
+                }
+              }
+            },
+            "repeat": {},
+            "display": "list"
+          },
+          "hero": {
+            "type": "Slice",
+            "fieldset": "Hero",
+            "description": "A hero banner section",
+            "icon": "call_to_action",
+            "display": "list",
+            "non-repeat": {
+              "background": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Background"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
     }
   }
 }

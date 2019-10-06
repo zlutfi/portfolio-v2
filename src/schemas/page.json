@@ -30,18 +30,6 @@
         "label": "Hero"
       }
     },
-    "duotone_highlight": {
-      "type": "Color",
-      "config": {
-        "label": "Duotone Highlight"
-      }
-    },
-    "duotone_shadow": {
-      "type": "Color",
-      "config": {
-        "label": "Duotone Shadow"
-      }
-    },
     "body": {
       "type": "Slices",
       "fieldset": "Slice zone",
