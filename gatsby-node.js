@@ -14,28 +14,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const pages = await graphql(`
     {
-      allPrismicPage {
-        edges {
-          node {
-            uid
-          }
-        }
-      }
-      allPrismicPost {
-        edges {
-          node {
-            uid
-          }
-          previous {
-            uid
-            url
-          }
-          next {
-            uid
-            url
-          }
-        }
-      }
       allPrismicProject {
         edges {
           previous {
@@ -48,72 +26,62 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           node {
             uid
-          }
-        }
-      }
-      allPrismicCategory {
-        edges {
-          node {
-            id
-            uid
-            url
-            data {
-              title
-            }
+            first_publication_date
+            last_publication_date
           }
         }
       }
     }
   `)
 
-  const pageTemplate = path.resolve("src/templates/page.js")
+  // const pageTemplate = path.resolve("src/templates/page.js")
   // const postTemplate = path.resolve("src/templates/post.js")
   const projectTemplate = path.resolve("src/templates/project.js")
-  const categoryTemplate = path.resolve("src/templates/category.js")
+  // const categoryTemplate = path.resolve("src/templates/category.js")
 
   // Create all dynamic pages
-  pages.data.allPrismicPage.edges.forEach(edge => {
+  // pages.data.allPrismicPage.edges.forEach(edge => {
+  //   createPage({
+  //     path: `/${edge.node.uid}`,
+  //     component: pageTemplate,
+  //     context: {
+  //       uid: edge.node.uid,
+  //     },
+  //   })
+  // }),
+  // Create all dynamic posts
+  // pages.data.allPrismicPost.edges.forEach(edge => {
+  //   createPage({
+  //     path: `/blog/${edge.node.uid}`,
+  //     component: postTemplate,
+  //     context: {
+  //       uid: edge.node.uid,
+  //       prev: edge.previous,
+  //       next: edge.next,
+  //     },
+  //   })
+  // }),
+  // Create all dynamic projects
+  pages.data.allPrismicProject.edges.forEach(edge => {
     createPage({
-      path: `/${edge.node.uid}`,
-      component: pageTemplate,
+      path: `/projects/${edge.node.uid}`,
+      component: projectTemplate,
       context: {
         uid: edge.node.uid,
+        prev: edge.previous,
+        next: edge.next,
       },
     })
-  }),
-    // Create all dynamic posts
-    // pages.data.allPrismicPost.edges.forEach(edge => {
-    //   createPage({
-    //     path: `/blog/${edge.node.uid}`,
-    //     component: postTemplate,
-    //     context: {
-    //       uid: edge.node.uid,
-    //       prev: edge.previous,
-    //       next: edge.next,
-    //     },
-    //   })
-    // }),
-    // Create all dynamic projects
-    pages.data.allPrismicProject.edges.forEach(edge => {
-      createPage({
-        path: `/projects/${edge.node.uid}`,
-        component: projectTemplate,
-        context: {
-          uid: edge.node.uid,
-          prev: edge.previous,
-          next: edge.next,
-        },
-      })
-    }),
-    // Create all dynamic categories
-    pages.data.allPrismicCategory.edges.forEach(edge => {
-      createPage({
-        path: `/projects/category/${edge.node.uid}`,
-        component: categoryTemplate,
-        context: {
-          uid: edge.node.uid,
-          title: edge.node.data.title,
-        },
-      })
-    })
+  })
+  // Create all dynamic categories
+  // pages.data.allPrismicCategory.edges.forEach(edge => {
+  //   createPage({
+  //     path: `/projects/category/${edge.node.uid}`,
+  //     component: categoryTemplate,
+  //     context: {
+  //       uid: edge.node.uid,
+  //       title: edge.node.data.title,
+  //     },
+  //   })
+  // })
 }
