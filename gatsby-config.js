@@ -3,8 +3,8 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
-// const prismicHtmlSerializer = require("./src/utils/htmlSerializer")
-// const prismicLinkResolver = require("./src/utils/linkResolver")
+const prismicHtmlSerializer = require("./src/utils/htmlSerializer")
+const prismicLinkResolver = require("./src/utils/linkResolver")
 
 // Robots.txt for Netlify deploy previews
 const {
@@ -160,42 +160,17 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different link resolver logic for each field if necessary.
         // See: https://prismic.io/docs/javascript/query-the-api/link-resolving
-        linkResolver: ({ node, key, value }) => doc => {
-          // Your link resolver
-          // URL for a homepage type
-          if (doc.type === "homepage") {
-            return "/"
-          }
-          // URL for a post type
-          if (doc.type === "post") {
-            return `/blog/${doc.uid}`
-          }
-          // URL for a project type
-          if (doc.type === "project") {
-            return `/projects/${doc.uid}`
-          }
-          // URL for a category type
-          if (doc.type === "category") {
-            return `/projects/category/${doc.uid}`
-          }
-          // URL for a page type
-          if (doc.type === "page") {
-            return `/${doc.uid}`
-          }
-          // URL for a static page type
-          if (doc.type === "static_page") {
-            return `/${doc.uid}`
-          }
-
-          // Backup for all other types
-          return "/"
-        },
+        // linkResolver: ({ node, key, value }) => doc => {
+        //   // Your link resolver
+        // },
+        linkResolver: () => prismicLinkResolver,
 
         // Set a list of links to fetch and be made available in your link
         // resolver function.
         // See: https://prismic.io/docs/javascript/query-the-api/fetch-linked-document-fields
         fetchLinks: [
           // Your list of links
+          // { 'fetchLinks' : '{custom-type}.{field}' }
         ],
 
         // Set an HTML serializer function used to process formatted content.
@@ -205,16 +180,15 @@ module.exports = {
         // provided to the function, as seen below. This allows you to use
         // different HTML serializer logic for each field if necessary.
         // See: https://prismic.io/docs/nodejs/beyond-the-api/html-serializer
-        htmlSerializer: ({ node, key, value }) => (
-          type,
-          element,
-          content,
-          children
-        ) => {
-          // Your HTML serializer
-        },
-        // htmlSerializer: ({ node, key, value, element }) =>
-        //   prismicHtmlSerializer,
+        // htmlSerializer: ({ node, key, value }) => (
+        //   type,
+        //   element,
+        //   content,
+        //   children
+        // ) => {
+        //   // Your HTML serializer
+        // },
+        htmlSerializer: () => prismicHtmlSerializer,
 
         // Provide an object of Prismic custom type JSON schemas to load into
         // Gatsby. This is required.
@@ -254,5 +228,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
+    `gatsby-plugin-netlify`,
+    "gatsby-plugin-netlify-cache",
   ],
 }
