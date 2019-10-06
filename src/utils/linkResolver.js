@@ -1,5 +1,5 @@
 // In src/prismic-configuration.js
-export const linkResolver = doc => {
+const linkResolver = doc => {
   // URL for a homepage type
   if (doc.type === "homepage") {
     return "/"
@@ -28,3 +28,4 @@ export const linkResolver = doc => {
   // Backup for all other types
   return "/"
 }
+module.exports = linkResolver
