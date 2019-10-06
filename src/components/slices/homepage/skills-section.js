@@ -18,7 +18,7 @@ export default class Skills extends Component {
           {/* Title section */}
           <SectionTitle
             title={input.primary.skills_section_title.text}
-            subtitle={input.primary.skills_section_subtitle.text}
+            subtitle={input.primary.skills_section_subtitle.html}
           />
           {/* Display all skills dynamically */}
           <MDBRow>

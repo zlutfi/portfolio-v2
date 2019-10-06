@@ -23,9 +23,15 @@ const Info = ({ input }) => (
           <h2 className="h2-responsive font-weight-bold pb-3 text-center text-md-left">
             {input.primary.project_title}
           </h2>
-          <p className="text-center text-md-left">
+          {/* <p className="text-center text-md-left">
             {input.primary.project_overview.text}
-          </p>
+          </p> */}
+          <p
+            className="text-center text-md-left"
+            dangerouslySetInnerHTML={{
+              __html: input.primary.project_overview.html,
+            }}
+          />
         </MDBCol>
         <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
           <MDBCard>
@@ -40,7 +46,7 @@ const Info = ({ input }) => (
             >
               <path
                 fill="rgba(0,0,0,.03)"
-                fill-opacity="1"
+                fillOpacity="1"
                 d="M0,96L80,85.3C160,75,320,53,480,74.7C640,96,800,160,960,154.7C1120,149,1280,75,1360,37.3L1440,0L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
               ></path>
             </svg>

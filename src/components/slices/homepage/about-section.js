@@ -28,7 +28,7 @@ export default class Capabilities extends Component {
           {/* Section title */}
           <SectionTitle
             title={input.primary.section_title}
-            subtitle={input.primary.section_subtitle.text}
+            subtitle={input.primary.section_subtitle.html}
           />
           {/* Main image */}
           <MDBRow>

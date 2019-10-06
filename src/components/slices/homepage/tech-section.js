@@ -19,7 +19,7 @@ export default class Tech extends Component {
             {/* Title section */}
             <SectionTitle
               title={input.primary.technology_section_title.text}
-              subtitle={input.primary.technology_section_subtitle.text}
+              subtitle={input.primary.technology_section_subtitle.html}
             />
             {/* List all technologies dynamically */}
             <MDBRow>

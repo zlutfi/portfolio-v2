@@ -189,6 +189,7 @@ export const pageQuery = graphql`
               project_features_title
               project_features {
                 text
+                html
               }
             }
           }
@@ -317,6 +318,7 @@ export const pageQuery = graphql`
             primary {
               gallery_title {
                 text
+                html
               }
             }
             items {
@@ -334,6 +336,7 @@ export const pageQuery = graphql`
               }
               image_caption {
                 text
+                html
               }
             }
           }

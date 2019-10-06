@@ -50,7 +50,7 @@ export default class Projects extends Component {
           {/* Title section */}
           <SectionTitle
             title={input.primary.featured_projects_title.text}
-            subtitle={input.primary.featured_projects_subtitle.text}
+            subtitle={input.primary.featured_projects_subtitle.html}
           />
 
           {/* Project Cards */}

@@ -25,7 +25,7 @@ export default class Contact extends Component {
             {/* Section title */}
             <SectionTitle
               title={input.primary.contact_section_title.text}
-              subtitle={input.primary.contact_section_subtitle.text}
+              subtitle={input.primary.contact_section_subtitle.html}
             />
 
             <MDBRow className="justify-content-center">

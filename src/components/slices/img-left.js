@@ -22,7 +22,13 @@ const ImageLeft = ({ input }) => (
           <h2 className="h2-responsive font-weight-bold pb-3">
             {input.primary.left_image_title.text}
           </h2>
-          <p>{input.primary.left_image_paragraph.text}</p>
+          <p
+            className="text-center text-md-left"
+            dangerouslySetInnerHTML={{
+              __html: input.primary.left_image_paragraph.html,
+            }}
+          />
+          {/* <p>{input.primary.left_image_paragraph.text}</p> */}
         </Fade>
       </MDBCol>
     </MDBRow>
