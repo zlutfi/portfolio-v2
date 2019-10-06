@@ -5,6 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import SliceOMatic from "../components/sliceomatic"
+import { MDBCard, MDBContainer } from "mdbreact"
 
 const Page = ({ data }) => {
   const page = data.prismicPage.data
@@ -21,8 +22,12 @@ const Page = ({ data }) => {
             homeHero.primary.background.localFile.childImageSharp.fluid
           }
         />
-        {/* Page slices */}
-        <SliceOMatic allSlices={page.body} />
+        <MDBContainer className="mt-n5">
+          <MDBCard>
+            {/* Page slices */}
+            <SliceOMatic allSlices={page.body} />
+          </MDBCard>
+        </MDBContainer>
       </Layout>
     </>
   )

@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import SEO from "../components/seo"
-import { MDBContainer } from "mdbreact"
 import PropTypes from "prop-types"
 import Header from "../components/header"
 import Layout from "../components/layout"
@@ -21,12 +20,10 @@ const Projects = ({ data }) => (
             .childImageSharp.fluid
         }
       />
-      <MDBContainer>
-        {/* Project filter */}
-        {/* <Filter input={data.allPrismicCategory.edges} /> */}
-        {/* Project card component */}
-        <Cards input={data.allPrismicProject.edges} />
-      </MDBContainer>
+      {/* Project filter */}
+      {/* <Filter input={data.allPrismicCategory.edges} /> */}
+      {/* Project card component */}
+      <Cards input={data.allPrismicProject.edges} />
     </Layout>
   </>
 )

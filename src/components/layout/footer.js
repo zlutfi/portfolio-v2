@@ -52,78 +52,18 @@ const Footer = () => {
   return (
     <>
       <MDBFooter className="font-small">
-        <MDBContainer className="pb-3 pt-5">
-          <MDBRow>
-            <MDBCol className="text-center">
-              <OutboundLink
-                href="https://github.com/zlutfi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="My GitHub projects"
-              >
-                <MDBIcon
-                  fab
-                  icon="github"
-                  className="text-dark px-2"
-                  size="2x"
-                />
-              </OutboundLink>{" "}
-              <OutboundLink
-                href="https://github.com/zlutfi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="My GitHub projects"
-              >
-                <MDBIcon
-                  fab
-                  icon="twitter"
-                  className="text-dark px-2"
-                  size="2x"
-                />
-              </OutboundLink>
-              {/* <h5 className="text-uppercase text-primary font-weight-bold text-center">
-                About
-              </h5>
-              <p className="text-dark text-center">
-                I'm Z, a web developer and designer. My passion for technology
-                keeps me in a perpetual state of motion, so I am always learning
-                and experimenting with new technologies and platforms.{" "}
-                <Link to="/about" className="text-dark">
-                  Learn more &#8594;
-                </Link>
-              </p> */}
-            </MDBCol>
-            {/* <MDBCol>
-              <h5 className="text-uppercase text-primary font-weight-bold">
-                Connect
-              </h5>
-              <div className="pb-5">
-                <MDBIcon
-                  fab
-                  icon="github"
-                  size="2x"
-                  className="mr-3 text-dark"
-                />
-                <MDBIcon
-                  fab
-                  icon="twitter"
-                  size="2x"
-                  className="mr-3 text-dark"
-                />
-                <MDBIcon
-                  fab
-                  icon="linkedin"
-                  size="2x"
-                  className="mr-3 text-dark"
-                />
-              </div>
-            </MDBCol> */}
-          </MDBRow>
-        </MDBContainer>
         <div className="footer-copyright text-center py-3">
           <MDBContainer>
             <MDBRow>
               <MDBCol>
+                <OutboundLink
+                  href="https://github.com/zlutfi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="My GitHub projects"
+                >
+                  <MDBIcon fab icon="github" className="text-white px-2" />
+                </OutboundLink>
                 Built by <strong>Z Lutfi</strong> - &copy; &nbsp;
                 <strong>{new Date().getFullYear()}</strong> All Rights Reserved.
                 Powered by{" "}
