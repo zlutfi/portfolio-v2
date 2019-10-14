@@ -103,26 +103,8 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    // {
-    //   resolve: `gatsby-plugin-purgecss`,
-    //   options: {
-    //     printRejected: true, // Print removed selectors and processed file names
-    //     develop: true, // Enable while using `gatsby develop`
-    //     // tailwind: true, // Enable tailwindcss support
-    //     // whitelist: ["btn", "card", "col", "container", "row"], // Don't remove this selector
-    //     // ignore: ["/_custom-styles.scss"], // Ignore files/folders
-    //     // purgeOnly: ["/styles/scss/addons", "/styles/scss/core"], // Purge only these files/folders
-    //   },
-    // },
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-sharp`,
-      options: {
-        useMozJpeg: false,
-        stripMetadata: true,
-        defaultQuality: 75,
-      },
-    },
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -195,11 +177,10 @@ module.exports = {
         schemas: {
           // Your custom types mapped to schemas
           project: require("./src/schemas/project.json"),
-          category: require("./src/schemas/category.json"),
           homepage: require("./src/schemas/homepage.json"),
           menu: require("./src/schemas/menu.json"),
           page: require("./src/schemas/page.json"),
-          post: require("./src/schemas/post.json"),
+          static_page: require("./src/schemas/static_page.json"),
         },
 
         // Set a default language when fetching documents. The default value is
