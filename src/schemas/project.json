@@ -16,17 +16,12 @@
         "placeholder": "Subtitle"
       }
     },
-    "uid": {
-      "type": "UID",
-      "config": {
-        "label": "UID",
-        "placeholder": "Slug"
-      }
-    },
     "hero": {
       "type": "Image",
       "config": {
-        "constraint": {},
+        "constraint": {
+          "height": null
+        },
         "thumbnails": [],
         "label": "Hero"
       }
@@ -128,15 +123,6 @@
                 }
               }
             }
-          },
-          "related_projects": {
-            "type": "Slice",
-            "fieldset": "Related Projects",
-            "description": "Related projects section",
-            "icon": "featured_play_list",
-            "display": "grid",
-            "non-repeat": {},
-            "repeat": {}
           },
           "image_gallery": {
             "type": "Slice",
@@ -337,70 +323,6 @@
             },
             "repeat": {}
           },
-          "columns": {
-            "type": "Slice",
-            "fieldset": "Columns",
-            "description": "Creates columns based on content.",
-            "icon": "view_column",
-            "display": "list",
-            "non-repeat": {
-              "section_title": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Section Title",
-                  "placeholder": "Section Title"
-                }
-              },
-              "section_content": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "Section Content",
-                  "placeholder": "Section Content"
-                }
-              },
-              "column_size": {
-                "type": "Text",
-                "config": {
-                  "label": "Column Size",
-                  "placeholder": "12"
-                }
-              },
-              "column_size_md": {
-                "type": "Text",
-                "config": {
-                  "label": "Column Size MD",
-                  "placeholder": "6"
-                }
-              },
-              "column_size_lg": {
-                "type": "Text",
-                "config": {
-                  "label": "Column Size LG",
-                  "placeholder": "4"
-                }
-              }
-            },
-            "repeat": {
-              "column_title": {
-                "type": "StructuredText",
-                "config": {
-                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
-                  "label": "Column Title",
-                  "placeholder": "Column Title"
-                }
-              },
-              "column_content": {
-                "type": "StructuredText",
-                "config": {
-                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-                  "label": "Column Content",
-                  "placeholder": "Column Content"
-                }
-              }
-            }
-          },
           "divider": {
             "type": "Slice",
             "fieldset": "Divider",
@@ -415,13 +337,10 @@
     }
   },
   "Meta": {
-    "category": {
-      "type": "Link",
+    "uid": {
+      "type": "UID",
       "config": {
-        "select": "document",
-        "customtypes": ["category"],
-        "label": "Category",
-        "placeholder": "Project category"
+        "label": "Slug"
       }
     }
   }
