@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 alt
                 localFile {
                   childImageSharp {
-                    fluid(maxHeight: 200, maxWidth: 200, cropFocus: CENTER) {
+                    fluid {
                       src
                     }
                   }
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 alt
                 localFile {
                   childImageSharp {
-                    fluid(maxHeight: 200, maxWidth: 600, cropFocus: CENTER) {
+                    fluid {
                       src
                     }
                   }
