@@ -9,7 +9,6 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBBtn,
-  MDBNavLink,
 } from "mdbreact"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Logo from "./logo"
@@ -58,7 +57,6 @@ class Navbar extends Component {
                     title="Home"
                     className="nav-link"
                     activeClassName="active"
-                    as={MDBNavLink}
                     // tag="li"
                   >
                     Home
@@ -74,7 +72,6 @@ class Navbar extends Component {
                     title="Contact Me"
                     className="nav-link"
                     activeClassName="active"
-                    as={MDBNavLink}
                   >
                     <MDBBtn
                       size="sm"
@@ -127,17 +124,12 @@ const NavItems = () => (
         {data.prismicMenu.data.menu_links.map((document, index) => (
           <MDBNavItem className="px-4" key={index}>
             <Link
-              // cover
-              // direction="bottom"
-              // bg="#0a33ff"
-              // duration={1}
               to={document.link.url}
               name={document.label.text}
               title={document.label.text}
               className="nav-link"
               activeClassName="active"
               partiallyActive={true}
-              as={MDBNavLink}
             >
               {document.label.text}
             </Link>
