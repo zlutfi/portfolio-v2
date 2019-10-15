@@ -5,11 +5,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import {
   Capabilities,
-  Posts,
   Projects,
   Hero,
   Contact,
-  Technology,
+  Tech,
   Skills,
 } from "../components/slices"
 
@@ -24,8 +23,6 @@ export class SliceZone extends Component {
           return <Hero key={s.id} input={s} />
         case "capabilities":
           return <Capabilities key={s.id} input={s} />
-        case "posts":
-          return <Posts key={s.id} input={s} />
         case "projects":
           return <Projects key={s.id} input={s} />
         case "contact":
@@ -33,7 +30,7 @@ export class SliceZone extends Component {
         case "skills":
           return <Skills key={s.id} input={s} />
         case "technology":
-          return <Technology key={s.id} input={s} />
+          return <Tech key={s.id} input={s} />
 
         default:
           return null
@@ -48,26 +45,21 @@ SliceZone.propTypes = {
 }
 
 // Render the homepage
-export default class Index extends Component {
-  render() {
-    const {
-      data: { homepage },
-    } = this.props
-    return (
-      <>
-        <Layout>
-          <SEO title={homepage.data.title} />
+const Index = ({ data }) => (
+  <>
+    <Layout>
+      <SEO title={data.prismicHomepage.data.title} />
+      <SliceZone allSlices={data.prismicHomepage.data.body} />
+    </Layout>
+  </>
+)
 
-          <SliceZone allSlices={homepage.data.body} />
-        </Layout>
-      </>
-    )
-  }
-}
+export default Index
+
 // Check to make sure these prop types are available
 Index.propTypes = {
   data: PropTypes.shape({
-    homepage: PropTypes.shape({
+    prismicHomepage: PropTypes.shape({
       data: PropTypes.shape({
         title: PropTypes.string.isRequired,
       }),
@@ -77,7 +69,7 @@ Index.propTypes = {
 // Query this data for all slices and page content
 export const pageQuery = graphql`
   query IndexQuery {
-    homepage: prismicHomepage {
+    prismicHomepage {
       data {
         title
         body {
@@ -121,42 +113,43 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicHomepageBodyCapabilities {
-            id
-            slice_type
-            primary {
-              section_title
-              section_subtitle {
-                text
-                html
-              }
-              section_image {
-                localFile {
-                  childImageSharp {
-                    fluid(quality: 90) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
-              }
-            }
-            items {
-              card_title {
-                html
-                text
-              }
-              card_description {
-                html
-                text
-              }
-              card_icon
-              card_content {
-                text
-                html
-              }
-            }
-          }
+          # ... on PrismicHomepageBodyCapabilities {
+          #   id
+          #   slice_type
+          #   primary {
+          #     section_title
+          #     section_subtitle {
+          #       text
+          #       html
+          #     }
+          #     section_image {
+          #       localFile {
+          #         childImageSharp {
+          #           fluid(quality: 90) {
+          #             ...GatsbyImageSharpFluid_withWebp
+          #           }
+          #         }
+          #       }
+          #     }
+          #   }
+          #   items {
+          #     card_title {
+          #       html
+          #       text
+          #     }
+          #     card_description {
+          #       html
+          #       text
+          #     }
+          #     card_icon
+          #     card_content {
+          #       text
+          #       html
+          #     }
+          #   }
+          # }
           ... on PrismicHomepageBodyTechnology {
+            id
             slice_type
             primary {
               technology_section_title {
@@ -209,10 +202,9 @@ export const pageQuery = graphql`
                       maxWidth: 1920
                       maxHeight: 1080
                       quality: 90
-                    ) # duotone: {
-                    #   highlight: "#0a33ff"
-                    #   shadow: "#15224a"
-                    #   opacity: 100
+                      cropFocus: CENTER # duotone: { #   highlight: "#15224a"
+                    ) #   shadow: "#000000"
+                    #   opacity: 80
                     # }
                     {
                       ...GatsbyImageSharpFluid_withWebp
@@ -225,76 +217,6 @@ export const pageQuery = graphql`
           ... on PrismicHomepageBodyDivider {
             id
             slice_type
-          }
-          # ... on PrismicHomepageBodyText {
-          #   id
-          #   slice_type
-          #   primary {
-          #     text {
-          #       text
-          #       html
-          #     }
-          #   }
-          # }
-          ... on PrismicHomepageBodyPosts {
-            id
-            slice_type
-            primary {
-              featured_posts_title {
-                text
-                html
-              }
-              featured_posts_subtitle {
-                text
-                html
-              }
-            }
-            items {
-              featured_post {
-                document {
-                  ... on PrismicPost {
-                    id
-                    url
-                    data {
-                      title {
-                        text
-                        html
-                      }
-                      description
-                      date
-                      hero {
-                        alt
-                        localFile {
-                          childImageSharp {
-                            fluid(
-                              maxHeight: 200
-                              maxWidth: 400
-                              cropFocus: CENTER
-                            ) {
-                              ...GatsbyImageSharpFluid_withWebp
-                            }
-                          }
-                        }
-                      }
-                      thumbnail {
-                        alt
-                        localFile {
-                          childImageSharp {
-                            fluid(
-                              maxHeight: 200
-                              maxWidth: 400
-                              cropFocus: CENTER
-                            ) {
-                              ...GatsbyImageSharpFluid_withWebp
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
           }
           ... on PrismicHomepageBodyProjects {
             id
@@ -322,23 +244,6 @@ export const pageQuery = graphql`
                         html
                       }
                       subtitle
-                      category {
-                        slug
-                      }
-                      hero {
-                        alt
-                        localFile {
-                          childImageSharp {
-                            fluid(
-                              maxHeight: 200
-                              maxWidth: 400
-                              cropFocus: CENTER
-                            ) {
-                              ...GatsbyImageSharpFluid_withWebp
-                            }
-                          }
-                        }
-                      }
                       thumbnail {
                         alt
                         localFile {
