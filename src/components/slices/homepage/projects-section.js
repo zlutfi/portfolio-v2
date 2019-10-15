@@ -7,7 +7,7 @@ import {
   MDBRow,
   MDBCol,
   MDBView,
-  MDBCard,
+  // MDBCard,
   // MDBCardBody,
   MDBBtn,
   // MDBCardTitle,
@@ -19,11 +19,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import posed from "react-pose"
 // import Zoom from "react-reveal/Zoom"
-// import Zoom from "react-reveal/Zoom"
-// import SectionTitle from "../../section-title"
+import SectionTitle from "../../section-title"
 
 // Animations for cards on hover
-// const Box = posed.div({
+// const Animate = posed.div({
 //   hoverable: true,
 //   pressable: true,
 //   init: {
@@ -42,20 +41,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Projects = ({ input }) => (
   <>
-    <MDBContainer fluid className="py-4 py-md-5 mx-auto" tag="section">
-      {/* Section Header */}
-      {/* <MDBContainer className="mt-n5 mx-auto text-center"> */}
-      {/* Title section */}
-      {/* <SectionTitle
-            title={input.primary.featured_projects_title.text}
-            subtitle={input.primary.featured_projects_subtitle.html}
-          /> */}
+    <section>
+      <MDBContainer fluid className="py-4 py-md-5 mx-auto">
+        {/* Section Header */}
+        {/* <MDBContainer className="mt-n5 mx-auto text-center"> */}
+        {/* Title section */}
+        <SectionTitle
+          title={input.primary.featured_projects_title.text}
+          subtitle={input.primary.featured_projects_subtitle.html}
+        />
 
-      {/* Project Cards */}
-      <MDBRow className="mb-0 mx-auto">
-        {input.items.map((project, index) => (
-          <MDBCol size="12" md="4" className="mb-4" key={index} tag="article">
-            <MDBCard>
+        {/* Project Cards */}
+        <MDBRow className="mb-0 mx-auto">
+          {input.items.map((project, index) => (
+            <MDBCol size="12" md="4" className="mb-4" key={index} tag="article">
+              {/* <MDBCard> */}
+              {/* <Animate> */}
               <Link
                 to={project.featured_project.document.url}
                 alt="View Project"
@@ -90,52 +91,54 @@ const Projects = ({ input }) => (
                   </MDBMask>
                 </MDBView>
               </Link>
+              {/* </Animate> */}
               {/* <MDBCardBody>
-                    <Link
-                      to={project.featured_project.document.url}
-                      name="View Project"
-                      alt="View Project"
-                      title="View Project"
-                    ></Link>
-                    <MDBCardTitle className="font-weight-bold" tag="div">
+                      <Link
+                        to={project.featured_project.document.url}
+                        name="View Project"
+                        alt="View Project"
+                        title="View Project"
+                      ></Link>
+                      <MDBCardTitle className="font-weight-bold" tag="div">
+                        <MDBRow between>
+                          <MDBCol size="auto">
+                            {project.featured_project.document.data.title.text}
+                          </MDBCol>
+                        </MDBRow>
+                      </MDBCardTitle>
+                      <MDBCardText>
+                        {project.featured_project.document.data.subtitle}
+                      </MDBCardText>
                       <MDBRow between>
                         <MDBCol size="auto">
-                          {project.featured_project.document.data.title.text}
+                          <MDBCardText>
+                            <MDBIcon icon="github" fab className="mr-2" />
+                            Source Code
+                          </MDBCardText>
+                        </MDBCol>
+                        <MDBCol size="auto">
+                          <MDBCardText>
+                            <MDBIcon icon="folder-open" className="mr-2" />
+                            View Project
+                          </MDBCardText>
                         </MDBCol>
                       </MDBRow>
-                    </MDBCardTitle>
-                    <MDBCardText>
-                      {project.featured_project.document.data.subtitle}
-                    </MDBCardText>
-                    <MDBRow between>
-                      <MDBCol size="auto">
-                        <MDBCardText>
-                          <MDBIcon icon="github" fab className="mr-2" />
-                          Source Code
-                        </MDBCardText>
-                      </MDBCol>
-                      <MDBCol size="auto">
-                        <MDBCardText>
-                          <MDBIcon icon="folder-open" className="mr-2" />
-                          View Project
-                        </MDBCardText>
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBCardBody> */}
-            </MDBCard>
-          </MDBCol>
-        ))}
-      </MDBRow>
-      {/* CTA Section */}
-      {/* <MDBRow className="py-5 justify-content-center">
-            <Link to="/projects" title="View Projects">
-              <MDBBtn color="elegant" tag="span" className="btn-rounded">
-                <MDBIcon icon="folder-open" className="mr-2" />
-                View more projects
-              </MDBBtn>
-            </Link>
-          </MDBRow> */}
-    </MDBContainer>
+                    </MDBCardBody> */}
+              {/* </MDBCard> */}
+            </MDBCol>
+          ))}
+        </MDBRow>
+        {/* CTA Section */}
+        {/* <MDBRow className="py-5 justify-content-center">
+              <Link to="/projects" title="View Projects">
+                <MDBBtn color="elegant" tag="span" className="btn-rounded">
+                  <MDBIcon icon="folder-open" className="mr-2" />
+                  View more projects
+                </MDBBtn>
+              </Link>
+            </MDBRow> */}
+      </MDBContainer>
+    </section>
   </>
 )
 

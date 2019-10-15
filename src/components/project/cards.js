@@ -5,7 +5,7 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBCard,
+  // MDBCard,
   // MDBCardBody,
   // MDBCardText,
   // MDBCardTitle,
@@ -27,44 +27,41 @@ const Cards = ({ input }) => {
         {input.map((project, i) => {
           return (
             <MDBCol size="12" md="4" className="mb-4" key={i}>
-              <MDBCard>
-                {/* image section */}
-                <Link
-                  to={project.node.url}
-                  title={project.node.data.title.text}
-                >
-                  <MDBView hover zoom>
-                    <Img
-                      fluid={
-                        project.node.data.thumbnail.localFile.childImageSharp
-                          .fluid
-                      }
-                      alt={project.node.data.thumbnail.alt}
-                      className="rounded"
-                    />
+              {/* <MDBCard> */}
+              {/* image section */}
+              <Link to={project.node.url} title={project.node.data.title.text}>
+                <MDBView hover zoom>
+                  <Img
+                    fluid={
+                      project.node.data.thumbnail.localFile.childImageSharp
+                        .fluid
+                    }
+                    alt={project.node.data.thumbnail.alt}
+                    className="rounded"
+                  />
 
-                    <MDBMask className="flex-center" overlay="stylish-strong">
-                      <MDBRow className="text-center">
-                        <MDBCol size="12">
-                          <h2 className="white-text h2-responsive">
-                            {project.node.data.title.text}
-                          </h2>
-                        </MDBCol>
+                  <MDBMask className="flex-center" overlay="stylish-strong">
+                    <MDBRow className="text-center">
+                      <MDBCol size="12">
+                        <h2 className="white-text h2-responsive">
+                          {project.node.data.title.text}
+                        </h2>
+                      </MDBCol>
 
-                        <MDBCol size="12">
-                          <MDBBtn size="sm" color="primary">
-                            <FontAwesomeIcon
-                              icon="folder-open"
-                              className="text-white mr-2"
-                            />{" "}
-                            View Project
-                          </MDBBtn>
-                        </MDBCol>
-                      </MDBRow>
-                    </MDBMask>
-                  </MDBView>
-                </Link>
-                {/* <MDBCardBody>
+                      <MDBCol size="12">
+                        <MDBBtn size="sm" color="primary">
+                          <FontAwesomeIcon
+                            icon="folder-open"
+                            className="text-white mr-2"
+                          />{" "}
+                          View Project
+                        </MDBBtn>
+                      </MDBCol>
+                    </MDBRow>
+                  </MDBMask>
+                </MDBView>
+              </Link>
+              {/* <MDBCardBody>
                   <MDBRow>
                     <MDBCol size="12" className="order-md-last">
                       <MDBCardTitle className="font-weight-bold" tag="div">
@@ -79,7 +76,7 @@ const Cards = ({ input }) => {
                     </MDBCol>
                   </MDBRow>
                 </MDBCardBody> */}
-              </MDBCard>
+              {/* </MDBCard> */}
             </MDBCol>
           )
         })}
