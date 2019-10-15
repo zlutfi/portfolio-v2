@@ -4,10 +4,10 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardHeader,
-  MDBIcon,
+  // MDBCard,
+  // MDBCardBody,
+  // MDBCardHeader,
+  // MDBIcon,
 } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -15,12 +15,31 @@ import Header from "../components/header"
 import PropTypes from "prop-types"
 // import Fade from "react-reveal/Fade"
 
+// import posed from "react-pose"
+
+// const Animate = posed.div({
+//   enter: {
+//     opacity: 1,
+//     y: 0,
+//   },
+//   exit: {
+//     opacity: 0,
+//     // duration: 200,
+//     y: 100,
+//   },
+// })
+
 const About = ({ data }) => {
   const page = data.prismicStaticPage.data
   return (
     <Layout>
       <SEO title={page.title} />
-      <Header title={page.title} subtitle={page.subtitle} />
+      <Header
+        title={page.title}
+        subtitle={page.subtitle}
+        background={page.background.localFile.childImageSharp.fluid}
+      />
+      {/* <Animate> */}
       <MDBContainer className="pb-5 pt-5">
         <MDBRow className="justify-content-center">
           <MDBCol size="12" className="mx-auto pb-5">
@@ -28,15 +47,15 @@ const About = ({ data }) => {
               {/* Main content */}
               <MDBCol>
                 {/* {page.content.text} */}
-                {/* <div
-                      dangerouslySetInnerHTML={{
-                        __html: page.primary.content.html,
-                      }}
-                    /> */}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: page.content.html,
+                  }}
+                />
               </MDBCol>
-              <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
+              <MDBCol md="5" className="d-none d-lg-block pr-md-4" middle>
                 <img
-                  src="https://placehold.it/600x600"
+                  src="https://placehold.it/600x400"
                   alt="Something here"
                   className="rounded py-3 img-fluid"
                   style={{ boxShadow: "none" }}
@@ -46,6 +65,7 @@ const About = ({ data }) => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      {/* </Animate> */}
     </Layout>
   )
 }
@@ -59,7 +79,7 @@ About.propTypes = {
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         content: PropTypes.shape({
-          text: PropTypes.string.isRequired,
+          html: PropTypes.string.isRequired,
         }),
       }),
     }),
@@ -72,6 +92,26 @@ export const aboutPageQuery = graphql`
       data {
         title
         subtitle
+        content {
+          html
+        }
+        background {
+          alt
+          localFile {
+            childImageSharp {
+              fluid(
+                quality: 90
+                duotone: {
+                  highlight: "#15224a"
+                  shadow: "#000000"
+                  opacity: 80
+                }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
   }
