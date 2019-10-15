@@ -55,9 +55,9 @@ const Hero = ({ input }) => {
                       {/* Font Awesome icon */}
                       <FontAwesomeIcon
                         icon="folder-open"
-                        className="text-white mr-3"
+                        className="text-white mr-2"
                       />
-                      {input.primary.button_1_title} &#8594;
+                      {input.primary.button_1_title}
                     </span>
                   </MDBBtn>
                   {/* <MDBBtn color="elegant" tag="span" className="btn-rounded">
