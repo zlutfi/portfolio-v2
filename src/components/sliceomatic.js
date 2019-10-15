@@ -9,11 +9,6 @@ import {
   Gallery,
   ImageLeft,
   ImageRight,
-  TextCard,
-  Carousel,
-  // SwiperCarousel,
-  ThreeColumns,
-  Columns,
   Divider,
 } from "../components/slices"
 
@@ -39,16 +34,6 @@ export default class SliceZone extends Component {
           return <ImageLeft key={s.id} input={s} />
         case "right_image_left_text":
           return <ImageRight key={s.id} input={s} />
-        case "text_with_image":
-          return <TextCard key={s.id} input={s} />
-        case "carousel":
-          return <Carousel key={s.id} input={s} />
-        // case "carousel":
-        //   return <SwiperCarousel key={s.id} input={s} />
-        case "three_columns":
-          return <ThreeColumns key={s.id} input={s} />
-        case "columns":
-          return <Columns key={s.id} input={s} />
         case "divider":
           return <Divider key={s.id} input={s} />
 
