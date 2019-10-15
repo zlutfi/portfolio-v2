@@ -21,12 +21,13 @@ const Footer = () => (
               target="_blank"
               rel="noopener noreferrer"
               title="My GitHub projects"
+              name="Github Projects"
             >
               {/* Font Awesome icons */}
               <FontAwesomeIcon
                 icon={["fab", "github"]}
                 className="text-white mr-2"
-              />{" "}
+              />
             </OutboundLink>
             Built by <strong>Z Lutfi</strong> - &copy; &nbsp;
             <strong>{new Date().getFullYear()}</strong> All Rights Reserved.

@@ -9,6 +9,7 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBBtn,
+  MDBNavLink,
 } from "mdbreact"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Logo from "./logo"
@@ -50,27 +51,37 @@ class Navbar extends Component {
             {/* Collapse this section when viewed on smaller screens */}
             <MDBCollapse isOpen={this.state.collapsed} navbar>
               <MDBNavbarNav className="align-items-center" right>
-                <Link
-                  to="/"
-                  name="Home"
-                  title="Home"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  <MDBNavItem className="px-4">Home</MDBNavItem>
-                </Link>
+                <MDBNavItem className="px-4">
+                  <Link
+                    to="/"
+                    name="Home"
+                    title="Home"
+                    className="nav-link"
+                    activeClassName="active"
+                    as={MDBNavLink}
+                    // tag="li"
+                  >
+                    Home
+                  </Link>
+                </MDBNavItem>
                 {/* Display all menu items via static query */}
                 <NavItems />
                 {/* Show this static contact button */}
-                <Link
-                  to="/contact"
-                  name="Contact Me"
-                  title="Contact Me"
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  <MDBNavItem className="px-4">
-                    <MDBBtn size="sm" color="primary" className="btn-rounded">
+                <MDBNavItem className="px-4">
+                  <Link
+                    to="/contact"
+                    name="Contact Me"
+                    title="Contact Me"
+                    className="nav-link"
+                    activeClassName="active"
+                    as={MDBNavLink}
+                  >
+                    <MDBBtn
+                      size="sm"
+                      color="primary"
+                      className="btn-rounded"
+                      tag="span"
+                    >
                       {/* Font Awesome icon */}
                       <FontAwesomeIcon
                         icon="envelope"
@@ -78,8 +89,8 @@ class Navbar extends Component {
                       />
                       Let's Chat
                     </MDBBtn>
-                  </MDBNavItem>
-                </Link>
+                  </Link>
+                </MDBNavItem>
               </MDBNavbarNav>
             </MDBCollapse>
           </MDBContainer>
@@ -126,6 +137,7 @@ const NavItems = () => (
               className="nav-link"
               activeClassName="active"
               partiallyActive={true}
+              as={MDBNavLink}
             >
               {document.label.text}
             </Link>
