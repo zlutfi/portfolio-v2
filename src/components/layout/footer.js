@@ -29,9 +29,10 @@ const Footer = () => (
                 className="text-white mr-2"
               />
             </OutboundLink>
+            {/* Built by */}
             Built by <strong>Z Lutfi</strong> - &copy; &nbsp;
             <strong>{new Date().getFullYear()}</strong> All Rights Reserved.
-            Powered by{" "}
+            Powered by {/* Gatsby Link */}
             <OutboundLink
               href="https://gatsby.org
                   "
@@ -41,7 +42,7 @@ const Footer = () => (
             >
               Gatsby
             </OutboundLink>{" "}
-            and deployed via{" "}
+            and deployed via {/* Netlify link */}
             <OutboundLink
               href="https://netlify.com
                   "
