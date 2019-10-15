@@ -160,6 +160,16 @@ export const pageQuery = graphql`
                 text
                 html
               }
+              technology_section_image {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
             }
             items {
               technology_title {
@@ -202,9 +212,8 @@ export const pageQuery = graphql`
                       maxWidth: 1920
                       maxHeight: 1080
                       quality: 90
-                      cropFocus: CENTER # duotone: { #   highlight: "#15224a"
-                    ) #   shadow: "#000000"
-                    #   opacity: 80
+                      cropFocus: CENTER # duotone: { #   highlight: "#15224a" #   shadow: "#000000"
+                    ) #   opacity: 80
                     # }
                     {
                       ...GatsbyImageSharpFluid_withWebp
