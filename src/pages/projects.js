@@ -8,24 +8,19 @@ import Layout from "../components/layout"
 import Cards from "../components/project/cards"
 
 const Projects = ({ data }) => (
-  <>
-    <Layout>
-      <SEO title={data.prismicStaticPage.data.title} />
-      {/* Project header */}
-      <Header
-        title={data.prismicStaticPage.data.title}
-        subtitle={data.prismicStaticPage.data.subtitle}
-        background={
-          data.prismicHomepageBodyHero.primary.background.localFile
-            .childImageSharp.fluid
-        }
-      />
-      {/* Project filter */}
-      {/* <Filter input={data.allPrismicCategory.edges} /> */}
-      {/* Project card component */}
-      <Cards input={data.allPrismicProject.edges} />
-    </Layout>
-  </>
+  <Layout>
+    <SEO title={data.prismicStaticPage.data.title} />
+    {/* Project header */}
+    <Header
+      title={data.prismicStaticPage.data.title}
+      subtitle={data.prismicStaticPage.data.subtitle}
+      background={
+        data.prismicStaticPage.data.background.localFile.childImageSharp.fluid
+      }
+    />
+    {/* Project card component */}
+    <Cards input={data.allPrismicProject.edges} />
+  </Layout>
 )
 
 export default Projects
@@ -41,9 +36,6 @@ Projects.propTypes = {
     allPrismicProject: PropTypes.shape({
       edges: PropTypes.array.isRequired,
     }),
-    allPrismicCategory: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-    }),
   }).isRequired,
 }
 
@@ -53,6 +45,23 @@ export const projectsPageQuery = graphql`
       data {
         title
         subtitle
+        background {
+          alt
+          localFile {
+            childImageSharp {
+              fluid(
+                quality: 90
+                duotone: {
+                  highlight: "#15224a"
+                  shadow: "#000000"
+                  opacity: 80
+                }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
     allPrismicProject {
@@ -67,9 +76,6 @@ export const projectsPageQuery = graphql`
             title {
               html
               text
-            }
-            category {
-              slug
             }
             hero {
               localFile {
@@ -89,9 +95,6 @@ export const projectsPageQuery = graphql`
                   }
                 }
               }
-            }
-            category {
-              slug
             }
             body {
               ... on PrismicProjectBodyImageGallery {
@@ -143,39 +146,6 @@ export const projectsPageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-    prismicHomepageBodyHero {
-      primary {
-        background {
-          localFile {
-            childImageSharp {
-              fluid(
-                maxWidth: 1920
-                maxHeight: 600
-                quality: 90
-                duotone: {
-                  highlight: "#0a33ff"
-                  shadow: "#15224a"
-                  opacity: 100
-                }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp
-              }
-            }
-          }
-        }
-      }
-    }
-    allPrismicCategory(sort: { fields: data___title }) {
-      edges {
-        node {
-          uid
-          data {
-            title
-          }
-          url
         }
       }
     }
