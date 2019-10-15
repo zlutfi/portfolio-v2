@@ -10,7 +10,7 @@
 // Global Styles
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "./src/styles/scss/mdb.scss"
-import "./src/styles/icons"
+import "./src/styles/scss/icons"
 
 // import Transition from "./src/components/layout/transition"
 
