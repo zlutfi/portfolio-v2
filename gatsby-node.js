@@ -16,18 +16,52 @@ exports.createPages = async ({ graphql, actions }) => {
     {
       allPrismicProject {
         edges {
+          next {
+            url
+            uid
+            data {
+              title {
+                text
+                html
+              }
+              subtitle
+              thumbnail {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid(maxHeight: 200, maxWidth: 600, cropFocus: CENTER) {
+                      src
+                    }
+                  }
+                }
+              }
+            }
+          }
           previous {
             uid
             url
-          }
-          next {
-            uid
-            url
+            data {
+              title {
+                html
+                text
+              }
+              subtitle
+              thumbnail {
+                alt
+                localFile {
+                  childImageSharp {
+                    fluid(maxHeight: 200, maxWidth: 600, cropFocus: CENTER) {
+                      src
+                    }
+                  }
+                }
+              }
+            }
           }
           node {
             uid
-            first_publication_date
             last_publication_date
+            first_publication_date
           }
         }
       }
