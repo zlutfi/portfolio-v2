@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import Fade from "react-reveal/Fade"
+// import Fade from "react-reveal/Fade"
 import {
   MDBContainer,
   MDBRow,
@@ -34,15 +34,15 @@ export default class Capabilities extends Component {
           <MDBRow>
             <MDBCol size="12" md="6" middle>
               {/* Fade in this image on reveal */}
-              <Fade delay={400}>
-                <Img
-                  fluid={
-                    input.primary.section_image.localFile.childImageSharp.fluid
-                  }
-                  alt={input.primary.section_image.alt}
-                  style={{ boxShadow: "none" }}
-                />
-              </Fade>
+              {/* <Fade delay={400}> */}
+              <Img
+                fluid={
+                  input.primary.section_image.localFile.childImageSharp.fluid
+                }
+                alt={input.primary.section_image.alt}
+                style={{ boxShadow: "none" }}
+              />
+              {/* </Fade> */}
             </MDBCol>
             {/* Capabilities cards */}
             <MDBCol size="11" md="6" className="mx-auto">
@@ -56,27 +56,25 @@ export default class Capabilities extends Component {
                     tag="article"
                   >
                     {/* Fade in this component on reveal */}
-                    <Fade bottom delay={400}>
-                      <MDBCard>
-                        <MDBCardHeader className="font-weight-bold" tag="h5">
-                          {/* Header icon */}
-                          <MDBIcon
-                            icon={card.card_icon}
-                            className="mr-3 text-primary"
-                          />
-                          {/* Header title */}
-                          {card.card_title.text}
-                        </MDBCardHeader>
-                        <MDBCardBody>
-                          {/* Fade in this text on reveal */}
-                          <Fade delay={600}>
-                            <MDBCardText>
-                              {card.card_description.text}
-                            </MDBCardText>
-                          </Fade>
-                        </MDBCardBody>
-                      </MDBCard>
-                    </Fade>
+                    {/* <Fade bottom delay={400}> */}
+                    <MDBCard>
+                      <MDBCardHeader className="font-weight-bold" tag="h5">
+                        {/* Header icon */}
+                        <MDBIcon
+                          icon={card.card_icon}
+                          className="mr-3 text-primary"
+                        />
+                        {/* Header title */}
+                        {card.card_title.text}
+                      </MDBCardHeader>
+                      <MDBCardBody>
+                        {/* Fade in this text on reveal */}
+                        {/* <Fade delay={600}> */}
+                        <MDBCardText>{card.card_description.text}</MDBCardText>
+                        {/* </Fade> */}
+                      </MDBCardBody>
+                    </MDBCard>
+                    {/* </Fade> */}
                   </MDBCol>
                 ))}
               </MDBRow>

@@ -1,15 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
-import Fade from "react-reveal/Fade"
+// import Fade from "react-reveal/Fade"
 
 const Divider = ({ input }) => (
   <MDBContainer>
     <MDBRow className="py-5">
       <MDBCol className="text-center text-md-left">
-        <Fade>
-          <hr />
-        </Fade>
+        {/* <Fade> */}
+        <hr />
+        {/* </Fade> */}
       </MDBCol>
     </MDBRow>
   </MDBContainer>

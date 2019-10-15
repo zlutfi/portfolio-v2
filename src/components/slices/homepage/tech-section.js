@@ -1,51 +1,42 @@
-import React, { Component } from "react"
+import React from "react"
 import PropTypes from "prop-types"
-import { MDBContainer, MDBRow, MDBCol, MDBIcon } from "mdbreact"
-import ShapeDivider from "../../shape-divider"
+import { MDBContainer, MDBRow, MDBCol } from "mdbreact"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SectionTitle from "../../section-title"
-import Zoom from "react-reveal/Zoom"
+import Logo from "../../../images/code.svg"
 
-export default class Tech extends Component {
-  render() {
-    const { input } = this.props
-    return (
-      <>
-        <ShapeDivider fill="#f7f8fa" rotate />
-        <section style={{ backgroundColor: "#f7f8fa" }}>
-          <MDBContainer
-            className="py-4 py-md-5 mx-auto text-center"
-            style={{ backgroundColor: "#f7f8fa" }}
-          >
-            {/* Title section */}
-            <SectionTitle
-              title={input.primary.technology_section_title.text}
-              subtitle={input.primary.technology_section_subtitle.html}
+const Tech = ({ input }) => (
+  <section style={{ backgroundColor: "#f7f8fa" }}>
+    <MDBContainer
+      className="py-4 py-md-5 mx-auto text-center"
+      style={{ backgroundColor: "#f7f8fa" }}
+    >
+      {/* Title section */}
+      <SectionTitle
+        title={input.primary.technology_section_title.text}
+        subtitle={input.primary.technology_section_subtitle.html}
+      />
+      <img src={Logo} alt="Logo" />
+      {/* List all technologies dynamically */}
+      <MDBRow>
+        {input.items.map((tech, index) => (
+          <MDBCol size="3" md="2" key={index}>
+            {/* Tech icon */}
+            <FontAwesomeIcon
+              icon={["fab", tech.technology_icon]}
+              size="3x"
+              className="text-primary my-4"
             />
-            {/* List all technologies dynamically */}
-            <MDBRow>
-              {input.items.map((tech, index) => (
-                <MDBCol size="3" md="2" key={index}>
-                  {/* Animate this via Zoom */}
-                  <Zoom delay={index * 300}>
-                    {/* Tech icon */}
-                    <MDBIcon
-                      fab
-                      icon={tech.technology_icon}
-                      size="3x"
-                      className="text-primary py-4"
-                    />
-                    {/* Tech header */}
-                    <h5 className="grey-text">{tech.technology_title.text}</h5>
-                  </Zoom>
-                </MDBCol>
-              ))}
-            </MDBRow>
-          </MDBContainer>
-        </section>
-      </>
-    )
-  }
-}
+            {/* Tech header */}
+            <h5 className="grey-text">{tech.technology_title.text}</h5>
+          </MDBCol>
+        ))}
+      </MDBRow>
+    </MDBContainer>
+  </section>
+)
+
+export default Tech
 
 Tech.propTypes = {
   input: PropTypes.object.isRequired,
