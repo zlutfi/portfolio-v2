@@ -235,6 +235,14 @@
                   "label": "Technology Section Subtitle",
                   "placeholder": "Subtitle"
                 }
+              },
+              "technology_section_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Technology Section Image"
+                }
               }
             },
             "repeat": {
