@@ -1,7 +1,14 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { PropTypes } from "prop-types"
-import { MDBContainer, MDBRow, MDBCol, MDBView, MDBMask } from "mdbreact"
+import {
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBView,
+  MDBMask,
+  MDBBtn,
+} from "mdbreact"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
@@ -39,87 +46,106 @@ const Header = props => {
 // Display project navigation buttons
 const PrevNext = props => (
   <MDBContainer fluid className="py-5">
-    <MDBRow>
+    <MDBRow center>
       <MDBCol size="12" className="text-center py-5">
         <h2>Other Projects</h2>
       </MDBCol>
-      <MDBCol size="12" md="6" className="text-center">
+      <MDBCol size="12" md="4">
         {/* Render previous button if true */}
         {props.previous && (
-          <Link
-            to={`${props.previous.url}`}
-            className="project-nav"
-            style={{ color: "#222", fontWeight: "bold" }}
-          >
-            <MDBView>
-              <img
-                src={
-                  props.previous.data.thumbnail.localFile.childImageSharp.fluid
-                    .src
-                }
-                alt={props.previous.data.thumbnail.alt}
-              />
-              <MDBMask className="flex-center text-white" overlay="black-light">
-                <MDBRow>
-                  <MDBCol size="12">
-                    <h2 className="h2-responsive white-text w-100 font-weight-bold">
-                      {props.previous.data.title.text}
-                    </h2>
-                  </MDBCol>
-                  <MDBCol size="12">
-                    <p className="lead">{props.previous.data.subtitle}</p>
-                  </MDBCol>
-                  <MDBCol size="12">
-                    {/* Font Awesome Icon */}
-                    <FontAwesomeIcon
-                      icon="arrow-alt-circle-left"
-                      className="text-white mr-3"
-                    />
-                    PREV
-                  </MDBCol>
-                </MDBRow>
-              </MDBMask>
-            </MDBView>
-          </Link>
+          <MDBRow className="pb-4">
+            <MDBCol size="5">
+              {/* Project Image */}
+              <MDBView className="rounded z-depth-1">
+                <Link
+                  to={`${props.previous.url}`}
+                  className="project-nav"
+                  style={{ color: "#222", fontWeight: "bold" }}
+                >
+                  <img
+                    src={
+                      props.previous.data.thumbnail.localFile.childImageSharp
+                        .fluid.src
+                    }
+                    // className="rounded z-depth-1"
+                    alt={props.previous.data.thumbnail.alt}
+                  />
+                </Link>
+              </MDBView>
+            </MDBCol>
+            <MDBCol size="7" middle>
+              {/* Project title */}
+              <h4 className="h4-responsive w-100 font-weight-bold">
+                {props.previous.data.title.text}
+              </h4>
+              {/* Project subtitle */}
+              <p>{props.previous.data.subtitle}</p>
+              {/* Project button */}
+              <Link
+                to={`${props.previous.url}`}
+                className="project-nav"
+                style={{ color: "#222", fontWeight: "bold" }}
+              >
+                <MDBBtn size="sm" color="primary" rounded tag="span">
+                  {/* Font Awesome Icon */}
+                  <FontAwesomeIcon
+                    icon="arrow-alt-circle-left"
+                    className="text-white mr-2"
+                  />
+                  View PREV
+                </MDBBtn>
+              </Link>
+            </MDBCol>
+          </MDBRow>
         )}
       </MDBCol>
-      <MDBCol size="12" md="6" className="text-center">
+      <MDBCol size="12" md="4">
         {/* render next button if true */}
         {props.next && (
-          <Link
-            to={`${props.next.url}`}
-            className="project-nav"
-            style={{ color: "#222", fontWeight: "bold" }}
-          >
-            <MDBView>
-              <img
-                src={
-                  props.next.data.thumbnail.localFile.childImageSharp.fluid.src
-                }
-                alt={props.next.data.thumbnail.alt}
-              />
-              <MDBMask className="flex-center text-white" overlay="black-light">
-                <MDBRow>
-                  <MDBCol size="12">
-                    <h2 className="h2-responsive white-text w-100 font-weight-bold">
-                      {props.next.data.title.text}
-                    </h2>
-                  </MDBCol>
-                  <MDBCol size="12">
-                    <p className="lead">{props.next.data.subtitle}</p>
-                  </MDBCol>
-                  <MDBCol>
-                    NEXT
-                    {/* Font Awesome Icon */}
-                    <FontAwesomeIcon
-                      icon="arrow-alt-circle-right"
-                      className="text-white ml-3"
-                    />
-                  </MDBCol>
-                </MDBRow>
-              </MDBMask>
-            </MDBView>
-          </Link>
+          <MDBRow className="pb-4">
+            <MDBCol size="5">
+              {/* Project Image */}
+              <MDBView className="rounded z-depth-1">
+                <Link
+                  to={`${props.next.url}`}
+                  className="project-nav"
+                  style={{ color: "#222", fontWeight: "bold" }}
+                >
+                  <img
+                    src={
+                      props.next.data.thumbnail.localFile.childImageSharp.fluid
+                        .src
+                    }
+                    alt={props.next.data.thumbnail.alt}
+                  />
+                </Link>
+              </MDBView>
+            </MDBCol>
+            <MDBCol size="7" middle>
+              {/* Project title */}
+              <h4 className="h4-responsive w-100 font-weight-bold">
+                {props.next.data.title.text}
+              </h4>
+              {/* Project subtitle */}
+              <p>{props.next.data.subtitle}</p>
+              {/* Project button */}
+              <Link
+                to={`${props.next.url}`}
+                className="project-nav"
+                style={{ color: "#222", fontWeight: "bold" }}
+              >
+                {" "}
+                <MDBBtn size="sm" color="primary" rounded tag="span">
+                  View NEXT
+                  {/* Font Awesome Icon */}
+                  <FontAwesomeIcon
+                    icon="arrow-alt-circle-right"
+                    className="text-white ml-2"
+                  />
+                </MDBBtn>
+              </Link>
+            </MDBCol>
+          </MDBRow>
         )}
       </MDBCol>
     </MDBRow>
