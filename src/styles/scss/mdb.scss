@@ -1,46 +1,46 @@
 @charset "UTF-8";
 
 // Bootstrap
-@import "core/bootstrap/functions";
-@import "core/bootstrap/variables";
+@import "~mdbreact/dist/scss/core/bootstrap/functions";
+@import "~mdbreact/dist/scss/core/bootstrap/variables";
 
 // CORE
-@import "core/mixins";
+@import "~mdbreact/dist/scss/core/mixins";
 // Your custom variables
 @import "custom-variables";
-@import "core/colors";
-@import "core/variables";
-@import "core/global";
-@import "core/helpers";
-@import "core/typography";
-@import "core/masks";
-// @import "core/waves";
+@import "~mdbreact/dist/scss/core/colors";
+@import "~mdbreact/dist/scss/core/variables";
+@import "~mdbreact/dist/scss/core/global";
+@import "~mdbreact/dist/scss/core/helpers";
+@import "~mdbreact/dist/scss/core/typography";
+@import "~mdbreact/dist/scss/core/masks";
+// @import "~mdbreact/dist/scss/core/waves";
 
 // FREE
-@import "free/animations-basic";
-// @import "free/modules/animations-extended/module";
-@import "free/buttons";
-@import "free/cards";
-// @import "free/dropdowns";
-// @import "free/input-group";
-@import "free/navbars";
-// @import "free/pagination";
-@import "free/badges";
-// @import "free/modals";
-@import "free/carousels";
-@import "free/forms";
-// @import "free/msc";
-@import "free/footers";
-// @import "free/list-group";
-// @import "free/tables";
-// @import "free/depreciated";
-// @import "free/steppers";
-// @import "free/loader";
-// @import "free/treeview";
+@import "~mdbreact/dist/scss/free/animations-basic";
+// @import "~mdbreact/dist/scss/free/modules/animations-extended/module";
+@import "~mdbreact/dist/scss/free/buttons";
+@import "~mdbreact/dist/scss/free/cards";
+// @import "~mdbreact/dist/scss/free/dropdowns";
+// @import "~mdbreact/dist/scss/free/input-group";
+@import "~mdbreact/dist/scss/free/navbars";
+// @import "~mdbreact/dist/scss/free/pagination";
+@import "~mdbreact/dist/scss/free/badges";
+// @import "~mdbreact/dist/scss/free/modals";
+@import "~mdbreact/dist/scss/free/carousels";
+@import "~mdbreact/dist/scss/free/forms";
+// @import "~mdbreact/dist/scss/free/msc";
+@import "~mdbreact/dist/scss/free/footers";
+// @import "~mdbreact/dist/scss/free/list-group";
+// @import "~mdbreact/dist/scss/free/tables";
+// @import "~mdbreact/dist/scss/free/depreciated";
+// @import "~mdbreact/dist/scss/free/steppers";
+// @import "~mdbreact/dist/scss/free/loader";
+// @import "~mdbreact/dist/scss/free/treeview";
 // Free addons
-// @import "addons/datatables";
-// @import "addons/datatables-select";
-// @import "addons/directives";
+// @import "~mdbreact/dist/scss/addons/datatables";
+// @import "~mdbreact/dist/scss/addons/datatables-select";
+// @import "~mdbreact/dist/scss/addons/directives";
 
 // Your custom styles
 @import "custom-styles";
