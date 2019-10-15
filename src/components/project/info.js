@@ -4,7 +4,6 @@ import {
   MDBRow,
   MDBCol,
   MDBBtn,
-  MDBIcon,
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
@@ -14,15 +13,16 @@ import {
 } from "mdbreact"
 import { OutboundLink } from "gatsby-plugin-google-analytics"
 import Fade from "react-reveal/Fade"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Info = ({ input }) => (
   <Fade>
     <MDBContainer>
       <MDBRow className="py-5" between>
         <MDBCol className="pr-4">
-          <h2 className="h2-responsive font-weight-bold pb-3 text-center text-md-left">
+          {/* <h2 className="h2-responsive font-weight-bold pb-3 text-center text-md-left">
             {input.primary.project_title}
-          </h2>
+          </h2> */}
           {/* <p className="text-center text-md-left">
             {input.primary.project_overview.text}
           </p> */}
@@ -35,35 +35,31 @@ const Info = ({ input }) => (
         </MDBCol>
         <MDBCol size="10" md="5" lg="4" className="pt-5 pt-md-0 mx-auto">
           <MDBCard>
-            <MDBCardHeader className="text-center text-md-left pt-5">
-              <MDBIcon icon="folder" className="mr-2 text-primary" />
+            <MDBCardHeader className="text-center text-md-left">
+              {/* Font Awesome icon */}
+              <FontAwesomeIcon
+                icon="folder-open"
+                className="text-primary mr-3"
+              />
               Project Information
             </MDBCardHeader>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1440 320"
-              style={{ position: "absolute" }}
-            >
-              <path
-                fill="rgba(0,0,0,.03)"
-                fillOpacity="1"
-                d="M0,96L80,85.3C160,75,320,53,480,74.7C640,96,800,160,960,154.7C1120,149,1280,75,1360,37.3L1440,0L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-              ></path>
-            </svg>
 
             <MDBCardBody>
+              {/* Project role */}
               <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
                 <span className="font-weight-bold text-uppercase mr-2">
                   Role:
                 </span>
                 {input.primary.project_role.text}
               </MDBCardText>
+              {/* Project type */}
               <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
                 <span className="font-weight-bold text-uppercase mr-2">
                   Type:
                 </span>
                 {input.primary.project_type.text}
               </MDBCardText>
+              {/* Project tech features title */}
               {input.primary.project_features_title && (
                 <MDBCardText tag="h4" className="pb-3 text-center text-md-left">
                   <span className="font-weight-bold text-uppercase mr-2">
@@ -72,7 +68,7 @@ const Info = ({ input }) => (
                   {input.primary.project_features.text}
                 </MDBCardText>
               )}
-
+              {/* Project tech title */}
               {input.primary.project_technology_title && (
                 <MDBCardText
                   tag="h4"
@@ -81,7 +77,7 @@ const Info = ({ input }) => (
                   {input.primary.project_technology_title}
                 </MDBCardText>
               )}
-
+              {/* Project tech badges */}
               <MDBCardText className="text-center text-md-left">
                 {input.items.map((tech, index) => (
                   <MDBBadge
@@ -94,6 +90,7 @@ const Info = ({ input }) => (
                   </MDBBadge>
                 ))}
               </MDBCardText>
+              {/* Project live link */}
               <div className="text-center text-md-left">
                 {input.primary.project_link.url && (
                   <OutboundLink
@@ -107,11 +104,16 @@ const Info = ({ input }) => (
                       tag="span"
                       className="btn-rounded"
                     >
-                      <MDBIcon icon="desktop" className="mr-2" />
+                      {/* Font Awesome Icon */}
+                      <FontAwesomeIcon
+                        icon="desktop"
+                        className="text-white mr-2"
+                      />{" "}
                       View Live
                     </MDBBtn>
                   </OutboundLink>
                 )}
+                {/* Project source link */}
                 {input.primary.project_code_link.url && (
                   <OutboundLink
                     href={`${input.primary.project_code_link.url}`}
@@ -124,7 +126,11 @@ const Info = ({ input }) => (
                       tag="span"
                       className="btn-rounded"
                     >
-                      <MDBIcon fab icon="github" className="mr-2" />
+                      {/* Font Awesome Icon */}
+                      <FontAwesomeIcon
+                        icon={["fab", "github"]}
+                        className="text-white mr-2"
+                      />
                       View Code
                     </MDBBtn>
                   </OutboundLink>

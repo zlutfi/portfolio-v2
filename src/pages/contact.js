@@ -7,14 +7,29 @@ import {
   MDBCard,
   MDBCardBody,
   MDBCardHeader,
-  MDBIcon,
 } from "mdbreact"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import PropTypes from "prop-types"
 import ContactForm from "../components/contact-form"
-import Zoom from "react-reveal/Zoom"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import Zoom from "react-reveal/Zoom"
+
+// import Animate from "../components/animate"
+// import posed from "react-pose"
+
+// const Animate = posed.div({
+//   enter: {
+//     opacity: 1,
+//     y: 0,
+//   },
+//   exit: {
+//     opacity: 0,
+//     // duration: 200,
+//     y: 100,
+//   },
+// })
 
 const Contact = ({ data }) => {
   const page = data.prismicStaticPage.data
@@ -22,39 +37,49 @@ const Contact = ({ data }) => {
     <Layout>
       <SEO title={page.title} />
       {/* Page header */}
-      <Header title={page.title} subtitle={page.subtitle} />
+      <Header
+        title={page.title}
+        subtitle={page.subtitle}
+        background={page.background.localFile.childImageSharp.fluid}
+      />
+      {/* <Animate> */}
       <MDBContainer className="py-5">
         <MDBRow className="justify-content-center">
           <MDBCol size="12" className="mx-auto pb-5">
-            <Zoom>
-              <MDBCard>
-                <MDBCardHeader className="text-left py-3" tag="h5">
-                  <MDBIcon icon="envelope" className="mr-3 text-primary" />
-                  {/* Use the form below to get in touch. */}
-                </MDBCardHeader>
-                {/* Main contact body */}
-                <MDBCardBody>
-                  <MDBRow>
-                    <MDBCol>
-                      {/* Contact form */}
-                      <ContactForm input={data.prismicHomepageBodyContact} />
-                    </MDBCol>
-                    <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
-                      {/* Contact body map */}
-                      <img
-                        src="https://placehold.it/600x600"
-                        alt="Map goes here"
-                        className="rounded py-3 img-fluid"
-                        style={{ boxShadow: "none" }}
-                      />
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </Zoom>
+            {/* <Zoom> */}
+            <MDBCard>
+              <MDBCardHeader className="text-left py-3" tag="h5">
+                {/* Font Awesome Icon */}
+                <FontAwesomeIcon
+                  icon="envelope"
+                  className="text-primary mr-3"
+                />{" "}
+                {/* Use the form below to get in touch. */}
+              </MDBCardHeader>
+              {/* Main contact body */}
+              <MDBCardBody>
+                <MDBRow>
+                  <MDBCol>
+                    {/* Contact form */}
+                    <ContactForm input={data.prismicHomepageBodyContact} />
+                  </MDBCol>
+                  <MDBCol md="6" className="d-none d-lg-block pr-md-4" middle>
+                    {/* Contact body map */}
+                    <img
+                      src="https://placehold.it/600x600"
+                      alt="Map goes here"
+                      className="rounded py-3 img-fluid"
+                      style={{ boxShadow: "none" }}
+                    />
+                  </MDBCol>
+                </MDBRow>
+              </MDBCardBody>
+            </MDBCard>
+            {/* </Zoom> */}
           </MDBCol>
         </MDBRow>
       </MDBContainer>
+      {/* </Animate> */}
     </Layout>
   )
 }
@@ -78,6 +103,26 @@ export const contactPageQuery = graphql`
       data {
         title
         subtitle
+        content {
+          html
+        }
+        background {
+          alt
+          localFile {
+            childImageSharp {
+              fluid(
+                quality: 90
+                duotone: {
+                  highlight: "#15224a"
+                  shadow: "#000000"
+                  opacity: 80
+                }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
+        }
       }
     }
   }

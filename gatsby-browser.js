@@ -6,17 +6,61 @@
 
 // You can delete this file if you're not using it
 
-import React from "react"
+// import React from "react"
 // Global Styles
 import "bootstrap-css-only/css/bootstrap.min.css"
 import "./src/styles/scss/mdb.scss"
-import "./src/styles/icons/fontawesome-free/css/all.min.css"
-import Transition from "./src/components/layout/transition"
+
+// Font awesome Library
+import { library } from "@fortawesome/fontawesome-svg-core"
+import {
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faAdobe,
+  faReact,
+  faNodeJs,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons"
+import {
+  faCode,
+  faMobileAlt,
+  faTachometerAlt,
+  faUniversalAccess,
+  faEnvelope,
+  faFolderOpen,
+  faPaperPlane,
+  faDesktop,
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight,
+} from "@fortawesome/free-solid-svg-icons"
+
+library.add(
+  faHtml5,
+  faCss3Alt,
+  faJs,
+  faAdobe,
+  faReact,
+  faNodeJs,
+  faCode,
+  faMobileAlt,
+  faTachometerAlt,
+  faUniversalAccess,
+  faEnvelope,
+  faFolderOpen,
+  faPaperPlane,
+  faGithub,
+  faDesktop,
+  faArrowAltCircleLeft,
+  faArrowAltCircleRight
+)
+
+// import Transition from "./src/components/layout/transition"
 
 // Transition component for page animations
-export const wrapPageElement = ({ element, props }) => {
-  return <Transition {...props}>{element}</Transition>
-}
+// export const wrapPageElement = ({ element, props }) => {
+//   return <Transition {...props}>{element}</Transition>
+// }
 
 // Displays a message when a service worker updates
 export const onServiceWorkerUpdateReady = () => {

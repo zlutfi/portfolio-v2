@@ -1,10 +1,11 @@
 import React from "react"
-import { MDBRow, MDBCol, MDBBtn, MDBIcon, MDBAlert } from "mdbreact"
+import { MDBRow, MDBCol, MDBBtn, MDBAlert } from "mdbreact"
 
 import { Formik, Field } from "formik"
 import validationSchema from "../utils/validationSchema"
 import { navigate } from "gatsby-link"
 import Fade from "react-reveal/Fade"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default function ContactForm() {
   return (
@@ -179,7 +180,11 @@ const Form = () => {
                 aria-label="Submit"
                 className="btn-rounded"
               >
-                <MDBIcon icon="paper-plane" className="mr-2" />
+                {/* Font awesome icon */}
+                <FontAwesomeIcon
+                  icon="paper-plane"
+                  className="text-white mr-3"
+                />
                 Send Your Message
               </MDBBtn>
             </MDBCol>

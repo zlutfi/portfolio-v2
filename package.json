@@ -2,9 +2,14 @@
   "name": "zlutfi-portfolio",
   "private": true,
   "description": "A portfolio website built with Gatsby & Prismic.",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "author": "Z Lutfi <hello@zlutfi.com>",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-regular-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.6",
     "formik": "^1.5.8",
     "fs": "0.0.1-security",
     "gatsby": "^2.15.8",
@@ -38,6 +43,7 @@
     "react-pose": "^4.0.8",
     "react-pose-text": "^3.1.0",
     "react-reveal": "^1.2.2",
+    "react-transition-group": "^4.3.0",
     "swiper": "^5.0.4"
   },
   "devDependencies": {

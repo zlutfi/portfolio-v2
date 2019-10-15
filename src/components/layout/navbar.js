@@ -9,12 +9,9 @@ import {
   MDBCollapse,
   MDBContainer,
   MDBBtn,
-  MDBIcon,
 } from "mdbreact"
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Logo from "./logo"
-
-// import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 class Navbar extends Component {
   state = {
@@ -40,15 +37,7 @@ class Navbar extends Component {
         >
           <MDBContainer>
             {/* ZL logo section */}
-            <Link
-              // cover
-              // direction="top"
-              // bg="#0a33ff"
-              // duration={1}
-              to="/"
-              aria-label="Home"
-              title="Home"
-            >
+            <Link to="/" aria-label="Home" title="Home">
               <MDBNavbarBrand>
                 <Logo className="navbar-logo" />
               </MDBNavbarBrand>
@@ -62,10 +51,6 @@ class Navbar extends Component {
             <MDBCollapse isOpen={this.state.collapsed} navbar>
               <MDBNavbarNav className="align-items-center" right>
                 <Link
-                  // cover
-                  // direction="top"
-                  // bg="#0a33ff"
-                  // duration={1}
                   to="/"
                   name="Home"
                   title="Home"
@@ -78,10 +63,6 @@ class Navbar extends Component {
                 <NavItems />
                 {/* Show this static contact button */}
                 <Link
-                  // cover
-                  // direction="top"
-                  // bg="#0a33ff"
-                  // duration={1}
                   to="/contact"
                   name="Contact Me"
                   title="Contact Me"
@@ -90,7 +71,11 @@ class Navbar extends Component {
                 >
                   <MDBNavItem className="px-4">
                     <MDBBtn size="sm" color="primary" className="btn-rounded">
-                      <MDBIcon icon="envelope" className="mr-2" />
+                      {/* Font Awesome icon */}
+                      <FontAwesomeIcon
+                        icon="envelope"
+                        className="text-white mr-2"
+                      />
                       Let's Chat
                     </MDBBtn>
                   </MDBNavItem>

@@ -1,26 +1,137 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { PropTypes } from "prop-types"
-import {
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBIcon,
-  MDBView,
-  MDBMask,
-} from "mdbreact"
+import { MDBContainer, MDBRow, MDBCol, MDBView, MDBMask } from "mdbreact"
 import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import SliceOMatic from "../components/sliceomatic"
 import Title from "../components/title"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
+// Render page header
+const Header = props => {
+  return (
+    <MDBView tag="header">
+      <Img
+        fluid={props.background}
+        alt={props.alt}
+        style={{ minHeight: "25rem" }}
+      />
+      <MDBMask className="flex-center" overlay="black-light">
+        <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
+          <MDBRow>
+            <MDBCol
+              size="12"
+              md="8"
+              className="text-center text-md-left mx-auto mx-md-0"
+            >
+              <Title title={props.title} subtitle={props.subtitle} project />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </MDBMask>
+    </MDBView>
+  )
+}
+
+// Display project navigation buttons
+const PrevNext = props => (
+  <MDBContainer fluid className="py-5">
+    <MDBRow>
+      <MDBCol size="12" className="text-center py-5">
+        <h2>Other Projects</h2>
+      </MDBCol>
+      <MDBCol size="12" md="6" className="text-center">
+        {/* Render previous button if true */}
+        {props.previous && (
+          <Link
+            to={`${props.previous.url}`}
+            className="project-nav"
+            style={{ color: "#222", fontWeight: "bold" }}
+          >
+            <MDBView>
+              <img
+                src={
+                  props.previous.data.thumbnail.localFile.childImageSharp.fluid
+                    .src
+                }
+                alt={props.previous.data.thumbnail.alt}
+              />
+              <MDBMask className="flex-center text-white" overlay="black-light">
+                <MDBRow>
+                  <MDBCol size="12">
+                    <h2 className="h2-responsive white-text w-100 font-weight-bold">
+                      {props.previous.data.title.text}
+                    </h2>
+                  </MDBCol>
+                  <MDBCol size="12">
+                    <p className="lead">{props.previous.data.subtitle}</p>
+                  </MDBCol>
+                  <MDBCol size="12">
+                    {/* Font Awesome Icon */}
+                    <FontAwesomeIcon
+                      icon="arrow-alt-circle-left"
+                      className="text-white mr-3"
+                    />
+                    PREV
+                  </MDBCol>
+                </MDBRow>
+              </MDBMask>
+            </MDBView>
+          </Link>
+        )}
+      </MDBCol>
+      <MDBCol size="12" md="6" className="text-center">
+        {/* render next button if true */}
+        {props.next && (
+          <Link
+            to={`${props.next.url}`}
+            className="project-nav"
+            style={{ color: "#222", fontWeight: "bold" }}
+          >
+            <MDBView>
+              <img
+                src={
+                  props.next.data.thumbnail.localFile.childImageSharp.fluid.src
+                }
+                alt={props.next.data.thumbnail.alt}
+              />
+              <MDBMask className="flex-center text-white" overlay="black-light">
+                <MDBRow>
+                  <MDBCol size="12">
+                    <h2 className="h2-responsive white-text w-100 font-weight-bold">
+                      {props.next.data.title.text}
+                    </h2>
+                  </MDBCol>
+                  <MDBCol size="12">
+                    <p className="lead">{props.next.data.subtitle}</p>
+                  </MDBCol>
+                  <MDBCol>
+                    NEXT
+                    {/* Font Awesome Icon */}
+                    <FontAwesomeIcon
+                      icon="arrow-alt-circle-right"
+                      className="text-white ml-3"
+                    />
+                  </MDBCol>
+                </MDBRow>
+              </MDBMask>
+            </MDBView>
+          </Link>
+        )}
+      </MDBCol>
+    </MDBRow>
+  </MDBContainer>
+)
 
 //  Render main page components
 const Project = ({ data, pageContext }) => {
   const previous = pageContext.prev
   const next = pageContext.next
   const project = data.prismicProject.data
+
   // const tags = data.prismicProject.tags
   // const categoryLink = data.prismicProject.data.category.slug
   return (
@@ -60,62 +171,6 @@ Project.propTypes = {
 
 export default Project
 
-// Render page header
-const Header = props => {
-  return (
-    <MDBView tag="header">
-      <Img fluid={props.background} alt={props.alt} />
-      <MDBMask className="flex-center" overlay="black-light">
-        <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
-          <MDBRow>
-            <MDBCol
-              size="12"
-              md="8"
-              className="text-center text-md-left mx-auto mx-md-0"
-            >
-              <Title title={props.title} subtitle={props.subtitle} project />
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </MDBMask>
-    </MDBView>
-  )
-}
-
-// Display project navigation buttons
-const PrevNext = props => (
-  <MDBContainer className="py-5">
-    <MDBRow between className="px-5">
-      <MDBCol size="auto" className="text-center">
-        {/* Render previous button if true */}
-        {props.previous && (
-          <Link
-            to={`${props.previous.url}`}
-            className="project-nav"
-            style={{ color: "#222", fontWeight: "bold" }}
-          >
-            <MDBIcon icon="arrow-alt-circle-left" className="mr-3" />
-            PREV
-          </Link>
-        )}
-      </MDBCol>
-      <MDBCol size="auto" className="text-center">
-        {/* render next button if true */}
-        {props.next && (
-          <Link
-            to={`${props.next.url}`}
-            className="project-nav"
-            style={{ color: "#222", fontWeight: "bold" }}
-          >
-            NEXT
-            <MDBIcon icon="arrow-alt-circle-right" className="ml-3" />
-          </Link>
-        )}
-      </MDBCol>
-    </MDBRow>
-  </MDBContainer>
-)
-
 export const pageQuery = graphql`
   query ProjectBySlug($uid: String!) {
     prismicProject(uid: { eq: $uid }) {
@@ -126,9 +181,6 @@ export const pageQuery = graphql`
           html
         }
         subtitle
-        category {
-          slug
-        }
         hero {
           alt
           localFile {
@@ -347,9 +399,11 @@ export const pageQuery = graphql`
       context {
         prev {
           url
+          uid
         }
         next {
           url
+          uid
         }
       }
     }
