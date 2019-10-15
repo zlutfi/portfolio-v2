@@ -9,7 +9,7 @@ const Skills = ({ input }) => (
   <>
     {/* <ShapeDivider fill="#f7f8fa" /> */}
     <section style={{ backgroundColor: "#111" }}>
-      <MDBContainer className="py-4 py-md-5 mx-auto text-center">
+      <MDBContainer fluid className="py-4 py-md-5 mx-auto text-center">
         {/* Title section */}
         <SectionTitle
           title={input.primary.skills_section_title.text}
