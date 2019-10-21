@@ -38,7 +38,7 @@ const Header = ({
       {/* <Animation> */}
       <MDBView>
         <Img fluid={background} style={{ maxHeight: "40rem" }} />
-        <MDBMask className="flex-center" overlay="black-light">
+        <MDBMask className="flex-center" overlay="black-light" pattern={5}>
           <MDBContainer className="py-3 py-md-5 mt-5 mt-md-4">
             <MDBRow>
               <MDBCol
