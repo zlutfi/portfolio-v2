@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Skills = ({ input }) => (
   <>
-    {/* <ShapeDivider fill="#f7f8fa" /> */}
+    {/* <ShapeDivider fill="#fff" bgcolor="#111" rotateX /> */}
     <section style={{ backgroundColor: "#111" }}>
       <MDBContainer fluid className="py-4 py-md-5 mx-auto text-center">
         {/* Title section */}

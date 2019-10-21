@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import posed from "react-pose"
 // import Zoom from "react-reveal/Zoom"
 import SectionTitle from "../../section-title"
+// import ShapeDivider from "../../shape-divider"
 
 // Animations for cards on hover
 // const Animate = posed.div({
@@ -41,6 +42,8 @@ import SectionTitle from "../../section-title"
 
 const Projects = ({ input }) => (
   <>
+    {/* <ShapeDivider fill="#fff" fill2="#eee" /> */}
+
     <section>
       <MDBContainer fluid className="py-4 py-md-5 mx-auto">
         {/* Section Header */}
@@ -139,6 +142,7 @@ const Projects = ({ input }) => (
             </MDBRow> */}
       </MDBContainer>
     </section>
+    {/* <ShapeDivider fill="#fff" fill2="#111" rotateX /> */}
   </>
 )
 
