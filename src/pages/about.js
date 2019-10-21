@@ -4,6 +4,7 @@ import {
   MDBContainer,
   MDBRow,
   MDBCol,
+  // MDBJumbotron,
   // MDBCard,
   // MDBCardBody,
   // MDBCardHeader,
@@ -13,6 +14,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Header from "../components/header"
 import PropTypes from "prop-types"
+// import Title from "../components/title"
 // import Fade from "react-reveal/Fade"
 
 // import posed from "react-pose"
@@ -34,6 +36,17 @@ const About = ({ data }) => {
   return (
     <Layout>
       <SEO title={page.title} />
+      {/* Test Header */}
+      {/* <MDBJumbotron className="grey lighten-3" style={{ minHeight: "20rem" }}>
+        <MDBContainer style={{ minHeight: "inherit" }}>
+          <MDBRow middle>
+            <MDBCol size="12" middle className="text-center text-md-left">
+              <Title title={page.title} subtitle={page.subtitle} />
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </MDBJumbotron> */}
+
       <Header
         title={page.title}
         subtitle={page.subtitle}
